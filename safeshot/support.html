@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SafeShot Support</title>
+  <meta name="description" content="SafeShot technical support, frequently asked questions, troubleshooting, and contact information.">
+  <style>
+    :root {
+      color-scheme: light;
+      --background: #f6f8fb;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #667085;
+      --border: #d9e2ec;
+      --accent: #007aff;
+    }
+
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", sans-serif;
+      line-height: 1.65;
+    }
+
+    main {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 48px 20px 72px;
+    }
+
+    header, section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      margin-bottom: 20px;
+      box-shadow: 0 12px 32px rgba(18, 42, 76, 0.06);
+    }
+
+    h1, h2, h3 {
+      line-height: 1.25;
+      margin: 0 0 12px;
+    }
+
+    h1 {
+      font-size: 36px;
+    }
+
+    h2 {
+      font-size: 26px;
+      padding-top: 4px;
+    }
+
+    h3 {
+      font-size: 19px;
+      margin-top: 24px;
+    }
+
+    p {
+      margin: 0 0 12px;
+    }
+
+    ul {
+      margin: 8px 0 16px;
+      padding-left: 22px;
+    }
+
+    li {
+      margin: 6px 0;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .nav {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
+    .nav a {
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 7px 13px;
+      background: #f8fafc;
+      font-weight: 600;
+    }
+
+    .summary {
+      border-left: 4px solid var(--accent);
+      padding: 12px 14px;
+      background: #f0f7ff;
+      border-radius: 10px;
+      margin: 16px 0 4px;
+    }
+
+    .contact-box {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: #f8fafc;
+      padding: 16px;
+      margin-top: 12px;
+    }
+
+    footer {
+      color: var(--muted);
+      font-size: 14px;
+      text-align: center;
+      padding-top: 8px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>SafeShot Support</h1>
+      <p class="muted">Last updated: June 16, 2026</p>
+      <p>SafeShot is a local-only Mac app for checking screenshots and images before sharing. This page provides technical support information, common troubleshooting steps, and contact guidance.</p>
+      <div class="summary">
+        <strong>Need help?</strong> Please review the common questions below. If the issue continues, contact the developer through the App Store product page or the project page where this support page is hosted.
+      </div>
+      <div class="nav">
+        <a href="#english">English</a>
+        <a href="#chinese">简体中文</a>
+        <a href="privacy.html">Privacy Policy</a>
+      </div>
+    </header>
+
+    <section id="english" lang="en">
+      <h2>English</h2>
+
+      <h3>What SafeShot Does</h3>
+      <p>SafeShot helps you review screenshots and images before sharing them. It can run local OCR, detect common sensitive information, preview redaction areas, add manual redaction regions, and export or copy a redacted image.</p>
+
+      <h3>Supported Workflows</h3>
+      <ul>
+        <li>Scan an image from the clipboard.</li>
+        <li>Open a local image file.</li>
+        <li>Capture a local screen area, if macOS permission is granted.</li>
+        <li>Review detected sensitive regions.</li>
+        <li>Manually add redaction areas by dragging on the image preview.</li>
+        <li>Copy the redacted image to the clipboard or export it as PNG.</li>
+      </ul>
+
+      <h3>Common Questions</h3>
+
+      <h3>Why is the first scan slower?</h3>
+      <p>The first scan after launching the app may take longer because macOS loads local OCR and image-processing components. Later scans are often faster during the same session.</p>
+
+      <h3>Why did SafeShot miss some text?</h3>
+      <p>SafeShot uses Apple Vision OCR and local rules. OCR accuracy can be affected by low resolution, blur, tiny text, unusual fonts, partial screenshots, dark backgrounds, or text embedded inside another screenshot. Please manually review the image before sharing.</p>
+
+      <h3>Why did SafeShot mark something that is not sensitive?</h3>
+      <p>SafeShot is designed to be cautious. Some numbers, names, handles, codes, or URLs may be marked even when they are not private. You can uncheck individual detections before exporting or copying.</p>
+
+      <h3>How do I add a manual redaction area?</h3>
+      <p>After loading an image, drag directly on the image preview to draw a manual redaction region. The region can be included in the final redacted image.</p>
+
+      <h3>Does SafeShot upload my images?</h3>
+      <p>No. SafeShot is designed for local processing on your Mac. It does not upload images, OCR text, detection results, or redacted output.</p>
+
+      <h3>Permissions</h3>
+      <ul>
+        <li><strong>Files:</strong> SafeShot can access files you explicitly choose through the macOS file picker.</li>
+        <li><strong>Clipboard:</strong> SafeShot can read an image you choose to scan from the clipboard and can write the redacted image back to the clipboard when requested.</li>
+        <li><strong>Screen Recording:</strong> If you use local area capture, macOS may ask for Screen Recording permission so the app can capture the selected screen area.</li>
+      </ul>
+
+      <h3>Troubleshooting</h3>
+      <ul>
+        <li>If clipboard scanning does not work, copy an image again and retry.</li>
+        <li>If local area capture does not work, check macOS System Settings &gt; Privacy &amp; Security &gt; Screen Recording.</li>
+        <li>If detection seems incomplete, try using a higher-resolution image or manually add redaction areas.</li>
+        <li>If export fails, choose a different local folder where you have write permission.</li>
+        <li>If the app behaves unexpectedly, quit and reopen SafeShot, then try again.</li>
+      </ul>
+
+      <h3>Contact Support</h3>
+      <div class="contact-box">
+        <p>For technical support, bug reports, or feature requests, please contact the developer through the support contact listed on the SafeShot App Store product page.</p>
+        <p class="muted">When reporting a problem, please include your macOS version, SafeShot version, the action you were trying to perform, and whether the issue happens with a sample image that does not contain private information.</p>
+      </div>
+    </section>
+
+    <section id="chinese" lang="zh-Hans">
+      <h2>简体中文</h2>
+
+      <h3>SafeShot 的用途</h3>
+      <p>SafeShot 用于在分享截图或图片前进行本地隐私检查。它可以运行本地 OCR、检测常见敏感信息、预览打码区域、添加手动打码区域，并将打码后的图片复制到剪贴板或导出为 PNG。</p>
+
+      <h3>支持的操作</h3>
+      <ul>
+        <li>扫描剪贴板中的图片。</li>
+        <li>打开本地图片文件。</li>
+        <li>在 macOS 授权后截取本地区域。</li>
+        <li>查看检测到的敏感区域。</li>
+        <li>在图片预览中拖拽添加手动打码区域。</li>
+        <li>复制打码后的图片，或导出为 PNG 文件。</li>
+      </ul>
+
+      <h3>常见问题</h3>
+
+      <h3>为什么第一次扫描比较慢？</h3>
+      <p>应用启动后的第一次扫描可能需要加载 macOS 本地 OCR 和图片处理组件，因此会比后续扫描更慢。同一会话中的后续扫描通常会更快。</p>
+
+      <h3>为什么有些文字没有识别出来？</h3>
+      <p>SafeShot 使用 Apple Vision OCR 和本地规则检测。低清晰度、模糊、小字、特殊字体、局部截图、深色背景或截图里的截图，都可能影响识别结果。分享前仍建议手动检查图片。</p>
+
+      <h3>为什么有些内容被误标为敏感？</h3>
+      <p>SafeShot 的检测策略偏谨慎。一些数字、姓名、账号、代码或链接即使并非隐私信息，也可能被标记。你可以在导出或复制前取消勾选单项检测结果。</p>
+
+      <h3>如何添加手动打码区域？</h3>
+      <p>载入图片后，直接在图片预览区域拖拽即可添加手动打码区域。该区域会参与最终打码输出。</p>
+
+      <h3>SafeShot 会上传图片吗？</h3>
+      <p>不会。SafeShot 设计为在你的 Mac 本机处理图片。它不会上传原图、OCR 文本、检测结果或打码后的图片。</p>
+
+      <h3>权限说明</h3>
+      <ul>
+        <li><strong>文件：</strong>SafeShot 只能访问你通过 macOS 文件选择器主动选择的文件。</li>
+        <li><strong>剪贴板：</strong>SafeShot 可以读取你选择扫描的剪贴板图片，并在你点击复制时写入打码后的图片。</li>
+        <li><strong>屏幕录制：</strong>如果使用本地区域截图，macOS 可能会要求授予屏幕录制权限，用于截取你选择的屏幕区域。</li>
+      </ul>
+
+      <h3>故障排查</h3>
+      <ul>
+        <li>如果剪贴板扫描失败，请重新复制图片后再试。</li>
+        <li>如果区域截图不可用，请检查 macOS 系统设置 &gt; 隐私与安全性 &gt; 屏幕录制。</li>
+        <li>如果检测不完整，请尝试使用更高清的图片，或手动添加打码区域。</li>
+        <li>如果导出失败，请选择一个你有写入权限的本地文件夹。</li>
+        <li>如果应用表现异常，请退出并重新打开 SafeShot 后再试。</li>
+      </ul>
+
+      <h3>联系技术支持</h3>
+      <div class="contact-box">
+        <p>如需技术支持、反馈 Bug 或提出功能建议，请通过 SafeShot App Store 产品页中列出的支持联系方式。</p>
+        <p class="muted">反馈问题时，建议附上 macOS 版本、SafeShot 版本、你正在执行的操作，以及该问题是否能在不含隐私信息的示例图片上复现。</p>
+      </div>
+    </section>
+
+    <footer>
+      <p>SafeShot Support</p>
+    </footer>
+  </main>
+</body>
+</html>
