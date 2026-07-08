@@ -1,0 +1,1201 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>开发者后台操作流程手册 | HEYHONG</title>
+    <link rel="stylesheet" href="article-pages.css" />
+    <link rel="stylesheet" href="article-doc.css" />
+    
+  </head>
+  <body class="platform-ops-page">
+    <header class="header">
+      <a class="brand" href="index.html" aria-label="HEYHONG 首页">
+        <img src="assets/logo.png" alt="HEYHONG" />
+      </a>
+      <nav class="nav" aria-label="主导航">
+        <a href="articles.html">发行</a>
+        <a href="index.html#games">产品</a>
+        <a href="#contact">联系</a>
+      </nav>
+    </header>
+
+    <main>
+<svg display="none" aria-hidden="true">
+  <defs>
+    <!-- Apple — official SVG from commons.wikimedia.org/wiki/File:Apple_logo_black.svg (Public Domain) -->
+    <symbol id="i-apple" viewBox="0 0 814 1000"><path d="M788.1 340.9c-5.8 4.5-108.2 62.2-108.2 190.5 0 148.4 130.3 200.9 134.2 202.2-.6 3.2-20.7 71.9-68.7 141.9-42.8 61.6-87.5 123.1-155.5 123.1s-85.5-39.5-164-39.5c-76.5 0-103.7 40.8-165.9 40.8s-105.6-57-155.5-127C46.7 790.7 0 663 0 541.8c0-194.4 126.4-297.5 250.8-297.5 66.1 0 121.2 43.4 162.7 43.4 39.5 0 101.1-46 176.3-46 28.5 0 130.9 2.6 198.3 99.2zm-234-181.5c31.1-36.9 53.1-88.1 53.1-139.3 0-7.1-.6-14.3-1.9-20.1-50.6 1.9-110.8 33.7-147.1 75.8-28.5 32.4-55.1 83.6-55.1 135.5 0 7.8 1.3 15.6 1.9 18.1 3.2.6 8.4 1.3 13.6 1.3 45.4 0 102.5-30.4 135.5-71.3z"/></symbol>
+    <!-- Google Play — official SVG from Font Awesome Free (CC BY 4.0, github.com/FortAwesome/Font-Awesome) -->
+    <symbol id="i-google" viewBox="0 0 512 512"><path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/></symbol>
+    <!-- Steam — official Valve Corporation SVG (commons.wikimedia.org/File:Steam_icon_logo.svg), Public Domain -->
+    <symbol id="i-steam" viewBox="0 0 233 233"><circle cx="116.5" cy="116.5" r="116.5" fill="#1b2838"/><path fill="#fff" d="M110.5 87.322c0 0.196 0 0.392 0.01 0.576l-28.508 41.412c-4.618-0.21-9.252 0.6-13.646 2.41-1.937 0.79-3.752 1.76-5.455 2.88l-62.599-25.77c0.00049 0-1.4485 23.83 4.588 41.59l44.254 18.26c2.222 9.93 9.034 18.64 19.084 22.83 16.443 6.87 35.402-0.96 42.242-17.41 1.78-4.3 2.61-8.81 2.49-13.31l40.79-29.15c0.33 0.01 0.67 0.02 1 0.02 24.41 0 44.25-19.9 44.25-44.338 0-24.44-19.84-44.322-44.25-44.322-24.4 0-44.25 19.882-44.25 44.322zm-6.84 83.918c-5.294 12.71-19.9 18.74-32.596 13.45-5.857-2.44-10.279-6.91-12.83-12.24l14.405 5.97c9.363 3.9 20.105-0.54 23.997-9.9 3.904-9.37-0.525-20.13-9.883-24.03l-14.891-6.17c5.746-2.18 12.278-2.26 18.381 0.28 6.153 2.56 10.927 7.38 13.457 13.54s2.52 12.96-0.04 19.1m51.09-54.38c-16.25 0-29.48-13.25-29.48-29.538 0-16.275 13.23-29.529 29.48-29.529 16.26 0 29.49 13.254 29.49 29.529 0 16.288-13.23 29.538-29.49 29.538m-22.09-29.583c0-12.253 9.92-22.191 22.14-22.191 12.23 0 22.15 9.938 22.15 22.191 0 12.254-9.92 22.183-22.15 22.183-12.22 0-22.14-9.929-22.14-22.183z"/></symbol>
+    <!-- Epic Games — official shield logo SVG (CC0, theSVG.org) -->
+    <symbol id="i-epic" viewBox="0 0 24 24"><path fill="#313131" d="M3.537 0C2.165 0 1.66.506 1.66 1.879V18.44a4.262 4.262 0 00.02.433c.031.3.037.59.316.92.027.033.311.245.311.245.153.075.258.13.43.2l8.335 3.491c.433.199.614.276.928.27h.002c.314.006.495-.071.928-.27l8.335-3.492c.172-.07.277-.124.43-.2 0 0 .284-.211.311-.243.28-.33.285-.621.316-.92a4.261 4.261 0 00.02-.434V1.879c0-1.373-.506-1.88-1.878-1.88zm13.366 3.11h.68c1.138 0 1.688.553 1.688 1.696v1.88h-1.374v-1.8c0-.369-.17-.54-.523-.54h-.235c-.367 0-.537.17-.537.539v5.81c0 .369.17.54.537.54h.262c.353 0 .523-.171.523-.54V8.619h1.373v2.143c0 1.144-.562 1.71-1.7 1.71h-.694c-1.138 0-1.7-.566-1.7-1.71V4.82c0-1.144.562-1.709 1.7-1.709zm-12.186.08h3.114v1.274H6.117v2.603h1.648v1.275H6.117v2.774h1.74v1.275h-3.14zm3.816 0h2.198c1.138 0 1.7.564 1.7 1.708v2.445c0 1.144-.562 1.71-1.7 1.71h-.799v3.338h-1.4zm4.53 0h1.4v9.201h-1.4zm-3.13 1.235v3.392h.575c.354 0 .523-.171.523-.54V4.965c0-.368-.17-.54-.523-.54z"/></symbol>
+    <!-- PlayStation — official Font Awesome SVG (CC BY 4.0, https://fontawesome.com/icons/playstation) -->
+    <symbol id="i-ps" viewBox="0 0 576 512"><path fill="#0070CC" d="M570.9 372.3c-11.3 14.2-38.8 24.3-38.8 24.3L327 470.2v-54.3l150.9-53.8c17.1-6.1 19.8-14.8 5.8-19.4-13.9-4.6-39.1-3.3-56.2 2.9L327 381.1v-56.4c23.2-7.8 47.1-13.6 75.7-16.8 40.9-4.5 90.9.6 130.2 15.5 44.2 14 49.2 34.7 38 48.9zm-224.4-92.5v-139c0-16.3-3-31.3-18.3-35.6-11.7-3.8-19 7.1-19 23.4v347.9l-93.8-29.8V32c39.9 7.4 98 24.9 129.2 35.4C424.1 94.7 451 128.7 451 205.2c0 74.5-46 102.8-104.5 74.6zM43.2 410.2c-45.4-12.8-53-39.5-32.3-54.8 19.1-14.2 51.7-24.9 51.7-24.9l134.5-47.8v54.5l-96.8 34.6c-17.1 6.1-19.7 14.8-5.8 19.4 13.9 4.6 39.1 3.3 56.2-2.9l46.4-16.9v48.8c-51.6 9.3-101.4 7.3-153.9-10z"/></symbol>
+    <!-- Xbox — official SVG (CC0, theSVG.org / Microsoft) -->
+    <symbol id="i-xbox" viewBox="0 0 88 88"><path fill="#107c10" d="M39.73 86.91c-6.628-.635-13.338-3.015-19.102-6.776-4.83-3.15-5.92-4.447-5.92-7.032 0-5.193 5.71-14.29 15.48-24.658 5.547-5.89 13.275-12.79 14.11-12.604 1.626.363 14.616 13.034 19.48 19 7.69 9.43 11.224 17.154 9.428 20.597-1.365 2.617-9.837 7.733-16.06 9.698-5.13 1.62-11.867 2.306-17.416 1.775zM8.184 67.703c-4.014-6.158-6.042-12.22-7.02-20.988-.324-2.895-.21-4.55.733-10.494 1.173-7.4 5.39-15.97 10.46-21.24 2.158-2.24 2.35-2.3 4.982-1.41 3.19 1.08 6.6 3.436 11.89 8.22l3.09 2.794-1.69 2.07c-7.828 9.61-16.09 23.24-19.2 31.67-1.69 4.58-2.37 9.18-1.64 11.095.49 1.294.04.812-1.61-1.714zm70.453 1.047c.397-1.936-.105-5.49-1.28-9.076-2.545-7.765-11.054-22.21-18.867-32.032l-2.46-3.092 2.662-2.443c3.474-3.19 5.886-5.1 8.49-6.723 2.053-1.28 4.988-2.413 6.25-2.413.777 0 3.516 2.85 5.726 5.95 3.424 4.8 5.942 10.63 7.218 16.69.825 3.92.894 12.3.133 16.21-.63 3.208-1.95 7.366-3.23 10.187-.97 2.113-3.36 6.218-4.41 7.554-.54.687-.54.686-.24-.796zM40.44 11.505C36.834 9.675 31.272 7.71 28.2 7.18c-1.076-.185-2.913-.29-4.08-.23-2.536.128-2.423-.004 1.643-1.925 3.38-1.597 6.2-2.536 10.03-3.34C40.098.78 48.193.77 52.43 1.663c4.575.965 9.964 2.97 13 4.84l.904.554-2.07-.104C60.148 6.745 54.15 8.408 47.71 11.54c-1.942.946-3.63 1.7-3.754 1.68-.123-.024-1.706-.795-3.52-1.715z"/></symbol>
+    <!-- auxiliary icons -->
+    <g id="i-mobile"><rect x="6" y="1" width="12" height="22" rx="3"/><rect x="9" y="3" width="6" height="1" rx=".5"/><rect x="8" y="17" width="8" height="4" rx="1"/></g>
+    <g id="i-pc"><rect x="1" y="3" width="22" height="14" rx="2"/><rect x="8" y="17" width="8" height="2" rx="1"/><rect x="4" y="19" width="16" height="3" rx="1.5"/></g>
+    <g id="i-console"><path d="M6 9h4v2H8v2h2v2H6V9z"/><path d="M14 9h4v2h-4V9zM14 13h4v2h-4v-2z"/><rect x="3" y="5" width="18" height="14" rx="3"/><circle cx="13" cy="8" r="1.5"/></g>
+    <g id="i-doc"><rect x="4" y="2" width="16" height="20" rx="2"/><rect x="7" y="6" width="10" height="2" rx="1" fill="#fff"/><rect x="7" y="10" width="10" height="2" rx="1" fill="#fff"/><rect x="7" y="14" width="6" height="2" rx="1" fill="#fff"/></g>
+  </defs>
+</svg>
+
+
+
+<div class="doc-container wide shell">
+  <div class="doc-cover">
+    <h1>开发者后台操作流程手册</h1>
+    <div class="badge-row">
+      <span class="badge">App Store</span>
+      <span class="badge">Google Play</span>
+      <span class="badge">Steam</span>
+      <span class="badge">Epic Games Store</span>
+      <span class="badge">PlayStation</span>
+      <span class="badge">Xbox</span>
+    </div>
+    <p>覆盖移动端（App Store、Google Play）、PC端（Steam、Epic Games Store）、主机端（PlayStation、Xbox）六大平台。从账号注册、SDK获取、证书签名、商店页面配置、填充资料、测试分发，到提审认证和发布上线的全流程。关键信息均来自各平台官方文档核实，附来源链接，NDA保护内容已如实标注。</p>
+  </div>
+
+  <!-- Master comparison -->
+  <section class="platform-overview" style="margin-top:30px">
+    <h3><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg> 六平台速览对比</h3>
+    <table>
+      <tr><th>维度</th><th style="color:var(--apple)"><svg class="icon icon-apple"><use href="#i-apple"/></svg> App Store</th><th style="color:var(--google)"><svg class="icon icon-google"><use href="#i-google"/></svg> Google Play</th><th style="color:var(--steam)"><svg class="icon icon-steam"><use href="#i-steam"/></svg> Steam</th><th style="color:var(--epic)"><svg class="icon icon-epic"><use href="#i-epic"/></svg> Epic</th><th style="color:var(--ps)"><svg class="icon icon-ps"><use href="#i-ps"/></svg> PS</th><th style="color:var(--xbox)"><svg class="icon icon-xbox"><use href="#i-xbox"/></svg> Xbox</th></tr>
+      <tr><td><strong>平台类型</strong></td><td>移动端</td><td>移动端</td><td>PC</td><td>PC</td><td>主机</td><td>主机+Xbox on PC</td></tr>
+      <tr><td><strong>注册费用</strong></td><td>$99/年</td><td>$25 一次性</td><td>$100/产品（可回收）</td><td>免费</td><td>审核制（免费）</td><td>免费</td></tr>
+      <tr><td><strong>上传格式</strong></td><td>IPA</td><td>AAB</td><td>Steam depot</td><td>BPT 上传</td><td>PS 包</td><td>Xbox 包</td></tr>
+      <tr><td><strong>审核机制</strong></td><td>人工+自动</td><td>自动为主</td><td>构建审核 1-5天</td><td>内容+技术审核</td><td>TRC 合规</td><td>XR 合规（四阶段）</td></tr>
+      <tr><td><strong>收入分成</strong></td><td>30%/15%</td><td>30%/15%</td><td>30→20% 阶梯</td><td>首$1M 100%/12%</td><td>标准 30%</td><td>标准 30%</td></tr>
+      <tr><td><strong>自助发布</strong></td><td>是</td><td>是</td><td>是（全自助）</td><td>是（全自助）</td><td>否</td><td>Partner Center 自助</td></tr>
+      <tr><td><strong>NDA</strong></td><td>否</td><td>否</td><td>否</td><td>否</td><td><span class="pill pill-warn">有</span></td><td><span class="pill pill-warn">有</span></td></tr>
+    </table>
+    <div class="source">来源汇总：<a href="https://developer.apple.com/programs/enroll/" target="_blank">Apple Developer</a> · <a href="https://play.google.com/console/signup" target="_blank">Google Play Console</a> · <a href="https://partner.steamgames.com/steamdirect/" target="_blank">Steam Direct</a> · <a href="https://store.epicgames.com/distribution" target="_blank">Epic Distribution</a> · <a href="https://partners.playstation.net/" target="_blank">PlayStation Partners</a> · <a href="https://developer.microsoft.com/en-us/games/publish/" target="_blank">Xbox Dev Programs</a></div>
+  </section>
+</div>
+
+<div class="doc-container wide shell">
+<div class="layout">
+
+<!-- ============ TOC ============ -->
+<aside class="toc">
+  <h4><svg class="icon icon-mobile"><use href="#i-mobile"/></svg> 移动端 — App Store</h4>
+  <a href="#ma1">1. 注册开发者账号</a>
+  <a href="#ma2">2. 证书与描述文件</a>
+  <a href="#ma3">3. 创建 App 记录</a>
+  <a href="#ma4">4. 填充应用资料</a>
+  <a href="#ma5">5. 上传构建版本</a>
+  <a href="#ma6">6. TestFlight 测试</a>
+  <a href="#ma7">7. 提交审核</a>
+  <a href="#ma8">8. 发布上线</a>
+  <a href="#ma9">9. 发布后管理</a>
+
+  <h4><svg class="icon icon-mobile"><use href="#i-mobile"/></svg> 移动端 — Google Play</h4>
+  <a href="#mg1">1. 注册开发者账号</a>
+  <a href="#mg2">2. 创建应用</a>
+  <a href="#mg3">3. 商店详情</a>
+  <a href="#mg4">4. 应用内容合规</a>
+  <a href="#mg5">5. 应用签名</a>
+  <a href="#mg6">6. 测试轨道</a>
+  <a href="#mg7">7. 个人号测试门槛</a>
+  <a href="#mg8">8. 生产发布</a>
+  <a href="#mg9">9. 发布后管理</a>
+
+  <h4><svg class="icon icon-steam"><use href="#i-steam"/></svg> PC — Steam</h4>
+  <a href="#pst1">1. Steam Direct 注册</a>
+  <a href="#pst2">2. Steamworks 后台</a>
+  <a href="#pst3">3. 商店页面</a>
+  <a href="#pst4">4. 构建上传与审核</a>
+  <a href="#pst5">5. 发布</a>
+
+  <h4><svg class="icon icon-epic"><use href="#i-epic"/></svg> PC — Epic Games Store</h4>
+  <a href="#pse1">1. Dev Portal 注册</a>
+  <a href="#pse2">2. 产品创建与配置</a>
+  <a href="#pse3">3. 商店页面</a>
+  <a href="#pse4">4. 提审与发布</a>
+
+  <h4><svg class="icon icon-ps"><use href="#i-ps"/></svg> 主机 — PlayStation</h4>
+  <a href="#cps1">1. 成为 Partner</a>
+  <a href="#cps2">2. 获取开发环境</a>
+  <a href="#cps3">3. 提交游戏</a>
+  <a href="#cps4">4. TRC 认证</a>
+  <a href="#cps5">5. 商店页面与发布</a>
+
+  <h4><svg class="icon icon-xbox"><use href="#i-xbox"/></svg> 主机 — Xbox</h4>
+  <a href="#cxb1">1. 加入 ID@Xbox</a>
+  <a href="#cxb2">2. 概念审批与开发</a>
+  <a href="#cxb3">3. Partner Center 配置</a>
+  <a href="#cxb4">4. 认证 (Certification)</a>
+  <a href="#cxb5">5. 发布</a>
+
+  <h4><svg class="icon icon-doc"><use href="#i-doc"/></svg> 附录</h4>
+  <a href="#ax1">审核被拒常见原因</a>
+  <a href="#ax2">发布前自查清单</a>
+  <a href="#ax3">六平台费用明细</a>
+  <a href="#ax4">移动端 vs PC/主机差异</a>
+</aside>
+
+<!-- ============ MAIN ============ -->
+<div class="doc-body">
+
+<!-- ====================================================== -->
+<!-- ============ PART 1: MOBILE ========================== -->
+<!-- ====================================================== -->
+
+<!-- ============ MOBILE: APP STORE ======================= -->
+<section id="ma1">
+  <h2><span class="pb pb-mobile">PART 1</span> 移动端 — <span class="pb pb-apple">App Store</span></h2>
+  <p>App Store 是移动端门槛最高的平台之一，需要付费 $99/年成为 Apple Developer Program 会员，配齐证书签名体系后通过 App Store Connect 提交审核。</p>
+
+  <div class="phases">
+    <div class="phase ph-apple"><div class="pn">STEP 1</div><div class="pt">注册账号</div></div><div class="arrow">→</div>
+    <div class="phase ph-apple"><div class="pn">STEP 2</div><div class="pt">证书签名</div></div><div class="arrow">→</div>
+    <div class="phase ph-apple"><div class="pn">STEP 3</div><div class="pt">创建 App</div></div><div class="arrow">→</div>
+    <div class="phase ph-apple"><div class="pn">STEP 4</div><div class="pt">填充资料</div></div><div class="arrow">→</div>
+    <div class="phase ph-apple"><div class="pn">STEP 5</div><div class="pt">上传版本</div></div><div class="arrow">→</div>
+    <div class="phase ph-apple"><div class="pn">STEP 6</div><div class="pt">TestFlight</div></div><div class="arrow">→</div>
+    <div class="phase ph-apple"><div class="pn">STEP 7</div><div class="pt">提审发布</div></div>
+  </div>
+
+  <h3 id="ma1">1. 注册 Apple Developer Program 账号</h3>
+  <p>在一切开始之前，你需要成为 Apple Developer Program 会员。只有付费会员才能将 App 发布到 App Store。</p>
+
+  <h4>账号类型对比</h4>
+  <table>
+    <tr><th style="width:18%">类型</th><th>个人 / 独资企业</th><th>组织</th></tr>
+    <tr><td><strong>费用</strong></td><td colspan="2" style="text-align:center">$99 USD / 年（非营利组织、认证教育机构、政府实体可申请<a href="https://developer.apple.com/support/fee-waiver/" target="_blank">费用豁免</a>）</td></tr>
+    <tr><td><strong>卖家名称</strong></td><td>显示个人法律姓名</td><td>显示组织法律名称</td></tr>
+    <tr><td><strong>需 D-U-N-S</strong></td><td>否</td><td>是（邓白氏编号，用于验证组织身份）</td></tr>
+    <tr><td><strong>团队协作</strong></td><td>不可分配角色</td><td>可邀请成员、分配角色权限</td></tr>
+    <tr><td><strong>注册要求</strong></td><td>Apple ID（开启双重认证）+ 法定年龄 + 真实姓名地址（不接受邮箱信箱）</td><td>Apple ID（开启双重认证）+ 法定实体 + D-U-N-S + 工作邮箱（关联组织域名）+ 公开可访问的官网</td></tr>
+  </table>
+
+  <div class="step">
+    <h4><span class="step-num sn-apple">1</span>注册步骤</h4>
+    <ol>
+      <li>准备一个 Apple ID，并在「设置 → Apple 账户」中开启<strong>双重认证（2FA）</strong>，这是硬性要求。</li>
+      <li>前往 <a href="https://developer.apple.com/programs/enroll/" target="_blank">developer.apple.com/programs/enroll</a>，点击「Start Your Enrollment」。</li>
+      <li>选择账号类型：Individual（个人）或 Organization（组织）。</li>
+      <li><strong>个人</strong>：填写真实法定姓名、邮箱、电话、地址（P.O. Box 信箱不被接受）。</li>
+      <li><strong>组织</strong>：填写组织法律实体名称、D-U-N-S 编号、工作邮箱、官网网址。注册人须为组织所有者/高管/高级项目负责人，或经授权的员工。</li>
+      <li>提交后等待 Apple 身份验证（个人通常 1-2 天，组织需验证 D-U-N-S 可能更久）。</li>
+      <li>验证通过后，同意《Apple Developer Program 许可协议》并完成 $99/年付款。</li>
+      <li>付款成功后即可登录 <a href="https://appstoreconnect.apple.com" target="_blank">App Store Connect</a> 和 <a href="https://developer.apple.com/account" target="_blank">开发者账户后台</a>。</li>
+    </ol>
+  </div>
+
+  <div class="callout warn"><span class="ct">⚠️ 注意</span>组织账号的 D-U-N-S 编号可免费申请，但 Dun &amp; Bradstreet 审核可能需要数天到数周。建议尽早申请。组织名必须与营业执照完全一致。</div>
+  <div class="source">来源：<a href="https://developer.apple.com/programs/enroll/" target="_blank">Apple Developer Program — Become a member</a></div>
+</section>
+
+<section id="ma2">
+  <h3 id="ma2">2. 配置证书、App ID 与描述文件</h3>
+  <p>iOS 上架需要一套签名凭证。这套东西在 Apple Developer 后台的「Certificates, Identifiers &amp; Profiles」中管理。</p>
+
+  <h4>三个核心概念</h4>
+  <dl class="kv">
+    <dt>Certificate 证书</dt><dd>证明你的开发者身份。发布用 <strong>Distribution Certificate (App Store)</strong>，开发调试用 Development Certificate。</dd>
+    <dt>Identifier (App ID)</dt><dd>应用的唯一标识，对应 Bundle ID（如 <code>com.yourcompany.yourgame</code>）。需开启所需 Capabilities。</dd>
+    <dt>Provisioning Profile</dt><dd>把「证书 + App ID + 设备」绑定在一起的描述文件。发布用 <strong>App Store Provisioning Profile</strong>。</dd>
+  </dl>
+
+  <div class="step">
+    <h4><span class="step-num sn-apple">2</span>配置流程</h4>
+    <ol>
+      <li>登录 <a href="https://developer.apple.com/account" target="_blank">developer.apple.com/account</a> → Certificates, Identifiers &amp; Profiles。</li>
+      <li><strong>创建证书</strong>：Certificates → 「+」→ 选 Apple Distribution → 上传 CSR 文件（在 Mac「钥匙串访问」中生成）→ 下载并双击安装 .cer。</li>
+      <li><strong>注册 App ID</strong>：Identifiers → 「+」→ 选 App IDs → 填写描述和 Bundle ID（建议反向域名格式）→ 勾选所需 Capabilities。</li>
+      <li><strong>创建描述文件</strong>：Profiles → 「+」→ 选 App Store → 关联刚才的 App ID 和 Distribution Certificate → 下载 .mobileprovision，双击安装到 Xcode。</li>
+      <li>在 Xcode 中打开项目，Signing &amp; Releases 配置中勾选「Automatically manage signing」并选择你的 Team，或手动选择对应 Profile。</li>
+    </ol>
+  </div>
+
+  <div class="callout tip"><span class="ct">💡 提示</span>如果用 Xcode 的「Automatically manage signing」，Xcode 会自动帮你创建并管理证书和 Profile，对个人开发者最省心。组织账号建议手动管理以便团队协作。</div>
+  <div class="source">来源：<a href="https://developer.apple.com/help/account/" target="_blank">Apple Developer Account Help</a></div>
+</section>
+
+<section id="ma3">
+  <h3 id="ma3">3. 在 App Store Connect 创建 App 记录</h3>
+  <p>证书配好后，去 App Store Connect 创建一条 App 记录。<strong>必须先有 App 记录才能上传构建版本</strong>。</p>
+
+  <div class="step">
+    <h4><span class="step-num sn-apple">3</span>创建步骤</h4>
+    <ol>
+      <li>登录 <a href="https://appstoreconnect.apple.com" target="_blank">App Store Connect</a>（最初只有 Account Holder 可登录）。</li>
+      <li><strong>接受协议</strong>：若要上架付费 App 或内购，先在「Business」中签署 Paid Applications Agreement，并填写银行和税务信息。免费 App 可跳过。</li>
+      <li>进入「我的 App」→ 点击「+」→「新建 App」。</li>
+      <li>填写：
+        <ul>
+          <li><strong>平台</strong>：iOS（游戏一般选 iOS）</li>
+          <li><strong>名称</strong>：App Store 显示名（30 字符以内，需未被占用）</li>
+          <li><strong>主要语言</strong>：简体中文等</li>
+          <li><strong>Bundle ID</strong>：下拉选择第 2 步注册的 App ID</li>
+          <li><strong>SKU</strong>：内部唯一标识（如 <code>yourgame2026</code>）</li>
+          <li><strong>用户访问权限</strong>：完全访问（默认）</li>
+        </ul>
+      </li>
+      <li>点击「创建」，App 记录生成。</li>
+    </ol>
+  </div>
+
+  <div class="callout tip"><span class="ct">💡 协议先行</span>付费协议和银行/税务信息如果没填，即使提审通过也无法上架收费项。免费游戏也建议尽早完成，避免日后接入内购时被卡。</div>
+  <div class="source">来源：<a href="https://developer.apple.com/help/app-store-connect/get-started/app-store-connect-workflow" target="_blank">App Store Connect workflow</a></div>
+</section>
+
+<section id="ma4">
+  <h3 id="ma4">4. 填充应用资料</h3>
+  <p>App 管理页面左侧有多个信息板块，提审前必须填齐。</p>
+
+  <h4>① App 信息（App Information）</h4>
+  <ul>
+    <li><strong>名称 / 副标题</strong>：名称 30 字符，副标题 30 字符。</li>
+    <li><strong>主要类别</strong>：游戏选「Games」并选子类别。</li>
+    <li><strong>年龄分级</strong>：填写内容描述问卷，系统自动生成分级。<span class="pill pill-apple">iOS 26 新分级</span></li>
+    <li><strong>Bundle ID / SKU / 主要语言</strong>：创建时已填，此处可微调。</li>
+  </ul>
+
+  <h4>② 版本信息</h4>
+  <ul>
+    <li><strong>截图与预览</strong>：必须提供至少 6.7 寸（iPhone 15 Pro Max）截图；可选 6.5"、iPad 等。App 预览视频可选（最多 3 个，15-30 秒）。</li>
+    <li><strong>描述</strong>：完整描述 4000 字符内；促销文本 170 字符（可随时改，无需重新提审）。</li>
+    <li><strong>关键词</strong>：100 字符以内，逗号分隔。</li>
+    <li><strong>支持 URL</strong>：必须提供有效的客服支持页面网址。</li>
+    <li><strong>审核信息</strong>：如有登录、付费墙，须提供<strong>演示账号</strong>给审核员。</li>
+  </ul>
+
+  <h4>③ 定价与销售范围</h4>
+  <ul>
+    <li>设置价格层级（免费 / 付费层级）或订阅价格。选择上架的国家/地区（App Store 覆盖 175 个店面）。</li>
+  </ul>
+
+  <h4>④ App 隐私详情 <span class="pill pill-red">必填</span></h4>
+  <p>必须申报 App 的数据收集实践，包括第三方 SDK 的数据收集行为。不填写无法提审。</p>
+
+  <div class="callout warn"><span class="ct">⚠️ 隐私申报是重灾区</span>很多开发者因第三方 SDK（广告、分析）的数据收集行为未如实申报而被拒。接入任何 SDK 前先查清它收集什么数据，据实填写。</div>
+  <div class="source">来源：<a href="https://developer.apple.com/app-store/submitting/" target="_blank">Submitting apps — Apple Developer</a> · <a href="https://developer.apple.com/app-store/app-privacy-details/" target="_blank">App Privacy Details</a></div>
+</section>
+
+<section id="ma5">
+  <h3 id="ma5">5. 上传构建版本（Build）</h3>
+
+  <div class="callout warn"><span class="ct">⚠️ SDK 版本要求（2026 年现行）</span>自 2026 年 4 月 28 日起，上传到 App Store Connect 的 iOS/iPadOS 应用须用 <strong>iOS 26 SDK 或更高版本</strong>构建（即需 Xcode 26）。</div>
+
+  <div class="step">
+    <h4><span class="step-num sn-apple">5</span>上传方式</h4>
+    <p><strong>方式 A — Xcode（最常用）：</strong></p>
+    <ol>
+      <li>Xcode 中选 Generic iOS Device 作为目标。</li>
+      <li>菜单 Product → Archive（归档）。</li>
+      <li>归档完成后弹出 Organizer，点「Distribute App」→「App Store Connect」→「Upload」。</li>
+    </ol>
+    <p><strong>方式 B — Transporter（macOS App）：</strong>导出 IPA 后用 Transporter 拖拽上传。</p>
+    <p><strong>方式 C — Transporter 命令行 + JWT：</strong>用于自动化流水线。</p>
+  </div>
+
+  <p>上传成功后，构建版本需等待 Apple 处理（通常 15-30 分钟），处理完成后才能选用该版本提审。</p>
+  <div class="source">来源：<a href="https://developer.apple.com/help/app-store-connect/manage-builds/upload-builds" target="_blank">Upload builds — App Store Connect Help</a></div>
+</section>
+
+<section id="ma6">
+  <h3 id="ma6">6. TestFlight Beta 测试</h3>
+  <table>
+    <tr><th style="width:25%">类型</th><th>内部测试</th><th>外部测试</th></tr>
+    <tr><td><strong>人数上限</strong></td><td>最多 100 人（App Store Connect 用户）</td><td>最多 10000 人（邮件/公开链接邀请）</td></tr>
+    <tr><td><strong>是否需审核</strong></td><td>否，立即可用</td><td>首次需通过 Beta App Review</td></tr>
+    <tr><td><strong>测试者要求</strong></td><td>须是 App Store Connect 团队成员</td><td>任何人，需安装 TestFlight App</td></tr>
+  </table>
+
+  <div class="step">
+    <h4><span class="step-num sn-apple">6</span>操作步骤</h4>
+    <ol>
+      <li>App 管理页 →「TestFlight」标签 → 选择已上传并通过处理的构建版本。</li>
+      <li>填写 Beta 测试信息：测试说明、反馈邮箱、隐私政策等。</li>
+      <li><strong>内部测试</strong>：添加 App Store Connect 用户即可。</li>
+      <li><strong>外部测试</strong>：创建测试组 → 添加测试者邮箱或开启公开链接 → 首次需等 Beta 审核。</li>
+    </ol>
+  </div>
+  <div class="source">来源：<a href="https://developer.apple.com/testflight/" target="_blank">TestFlight — Apple Developer</a></div>
+</section>
+
+<section id="ma7">
+  <h3 id="ma7">7. 提交审核（Submit for Review）</h3>
+
+  <div class="step">
+    <h4><span class="step-num sn-apple">7</span>提审步骤</h4>
+    <ol>
+      <li>App 管理页 → 选择对应版本 → 确认所有信息板块无红色缺失项。</li>
+      <li>在「构建版本」处点击选择已上传的 Build。</li>
+      <li>填写「导出合规信息」（加密声明）——大多数游戏选「不含加密」或符合豁免。</li>
+      <li>选择发布方式，点击右上角「添加以提审」→「提交审核」。</li>
+    </ol>
+  </div>
+
+  <h4>审核状态流转</h4>
+  <div class="phases">
+    <div class="phase ph-apple"><div class="pn">1</div><div class="pt">准备提交</div></div><div class="arrow">→</div>
+    <div class="phase ph-apple"><div class="pn">2</div><div class="pt">等待审核</div></div><div class="arrow">→</div>
+    <div class="phase ph-apple"><div class="pn">3</div><div class="pt">审核中</div></div><div class="arrow">→</div>
+    <div class="phase ph-apple"><div class="pn">4</div><div class="pt">就等发布 / 被拒</div></div>
+  </div>
+
+  <ul>
+    <li><strong>审核时长</strong>：新 App 通常 24-48 小时，更新较快。务必提前阅读 <a href="https://developer.apple.com/app-store/review/guidelines/" target="_blank">App Review Guidelines</a>。</li>
+  </ul>
+  <div class="source">来源：<a href="https://developer.apple.com/distribute/app-review/" target="_blank">App Review — Apple Developer</a></div>
+</section>
+
+<section id="ma8">
+  <h3 id="ma8">8. 发布上线</h3>
+  <table>
+    <tr><th style="width:25%">发布方式</th><th>说明</th></tr>
+    <tr><td><strong>手动发布</strong></td><td>审核通过后手动点击发布才上线。</td></tr>
+    <tr><td><strong>分阶段发布</strong> <span class="pill pill-apple">推荐</span></td><td>7 天内按 1%→2%→5%→10%→20%→50%→100% 逐步推送，可随时暂停。</td></tr>
+    <tr><td><strong>自动发布</strong></td><td>审核通过后立即自动上线。</td></tr>
+  </table>
+  <p>首次发布的新 App 通常需要额外一两个小时的「处理」才会在商店可见。</p>
+  <div class="source">来源：<a href="https://developer.apple.com/help/app-store-connect/manage-your-apps-availability/" target="_blank">Manage app availability</a></div>
+</section>
+
+<section id="ma9">
+  <h3 id="ma9">9. 发布后管理</h3>
+  <ul>
+    <li><strong>数据分析</strong>：App Analytics 查看展示量、下载量、留存、崩溃率。</li>
+    <li><strong>评价回复</strong>：可在 App Store Connect 回复用户评论。</li>
+    <li><strong>版本更新</strong>：创建新版本 → 上传新 Build → 重新提审。</li>
+    <li><strong>营收</strong>：Payments and Financial Reports 查看打款（月结）。</li>
+    <li><strong>推广</strong>：App 内活动（In-App Events）、自定义产品页、Featuring Nominations。</li>
+  </ul>
+</section>
+
+<hr class="div">
+
+<!-- ============ MOBILE: GOOGLE PLAY ===================== -->
+<section id="mg1">
+  <h2>移动端 — <span class="pb pb-google">Google Play</span></h2>
+  <p>Google Play 注册门槛较低（$25 一次性），但个人新账号需通过封闭测试门槛才能发布生产版本。2021 年起强制使用 AAB 格式。</p>
+
+  <div class="phases">
+    <div class="phase ph-google"><div class="pn">STEP 1</div><div class="pt">注册账号</div></div><div class="arrow">→</div>
+    <div class="phase ph-google"><div class="pn">STEP 2</div><div class="pt">创建应用</div></div><div class="arrow">→</div>
+    <div class="phase ph-google"><div class="pn">STEP 3</div><div class="pt">商店详情</div></div><div class="arrow">→</div>
+    <div class="phase ph-google"><div class="pn">STEP 4</div><div class="pt">内容合规</div></div><div class="arrow">→</div>
+    <div class="phase ph-google"><div class="pn">STEP 5</div><div class="pt">签名+测试</div></div><div class="arrow">→</div>
+    <div class="phase ph-google"><div class="pn">STEP 6</div><div class="pt">申请生产</div></div><div class="arrow">→</div>
+    <div class="phase ph-google"><div class="pn">STEP 7</div><div class="pt">提审发布</div></div>
+  </div>
+
+  <h3 id="mg1">1. 注册 Google Play Developer 账号</h3>
+  <dl class="kv">
+    <dt>费用</dt><dd><strong>$25 USD 一次性</strong>注册费（终身，非年费）</dd>
+    <dt>账号类型</dt><dd>个人（Personal）/ 组织（Organization）</dd>
+    <dt>身份验证</dt><dd>需验证身份（个人验证身份证件，组织验证 D-U-N-S 等）</dd>
+    <dt>需要</dt><dd>Google 账号 + 有效的支付方式（支付 $25）+ 手机号验证</dd>
+  </dl>
+
+  <div class="step">
+    <h4><span class="step-num sn-google">1</span>注册步骤</h4>
+    <ol>
+      <li>用 Google 账号登录 <a href="https://play.google.com/console/signup" target="_blank">play.google.com/console/signup</a>。</li>
+      <li>选择账号类型：个人或组织。</li>
+      <li>填写开发者名称、联系邮箱、网站（可选）。</li>
+      <li>完成身份验证。</li>
+      <li>支付 $25 一次性注册费。</li>
+      <li>审核通过后进入 Play Console。</li>
+    </ol>
+  </div>
+
+  <div class="callout warn"><span class="ct">⚠️ 个人新号有测试门槛</span>2023 年 11 月 13 日之后创建的个人账号，发布首个 App 前必须先完成封闭测试（至少 12 名测试者持续 14 天），才能申请生产权限。组织账号不受此限。</div>
+  <div class="source">来源：<a href="https://play.google.com/console/signup" target="_blank">Google Play Console 注册</a></div>
+</section>
+
+<section id="mg2">
+  <h3 id="mg2">2. 创建应用</h3>
+  <div class="step">
+    <h4><span class="step-num sn-google">2</span>创建步骤</h4>
+    <ol>
+      <li>登录 <a href="https://play.google.com/console" target="_blank">Play Console</a> → 右上角「Create app」。</li>
+      <li>填写：默认语言 + 应用名称、App 还是 Game（游戏选 Game）、免费还是付费、联系邮箱。</li>
+      <li>勾选同意「开发者计划政策」「美国出口法律」和 Play 应用签名服务条款。</li>
+      <li>点击「Create app」。</li>
+    </ol>
+  </div>
+  <div class="callout tip"><span class="ct">💡 包名永久唯一</span>应用的 Package Name（如 <code>com.yourgame.app</code>）一旦创建即永久绑定，不可删除或复用。</div>
+  <div class="source">来源：<a href="https://support.google.com/googleplay/android-developer/answer/9859152" target="_blank">Create and set up your app — Play Console Help</a></div>
+</section>
+
+<section id="mg3">
+  <h3 id="mg3">3. 设置商店详情（Store Listing）</h3>
+  <h4>商品详情</h4>
+  <ul>
+    <li><strong>应用名称</strong>：最多 30 字符</li>
+    <li><strong>简短说明</strong>：最多 80 字符</li>
+    <li><strong>完整说明</strong>：最多 4000 字符</li>
+  </ul>
+  <h4>预览素材</h4>
+  <ul>
+    <li><strong>应用图标</strong>：512×512 px，32-bit PNG</li>
+    <li><strong>置顶大图</strong>：1024×500 px</li>
+    <li><strong>手机截图</strong>：最少 2 张，最多 8 张</li>
+    <li><strong>宣传视频</strong>：可添加 YouTube 链接</li>
+  </ul>
+  <h4>分类与标签</h4>
+  <ul><li>游戏选 Games 并选子类别，最多 5 个标签。</li></ul>
+  <h4>多语言</h4>
+  <ul><li>可添加多种语言的商店详情翻译。</li></ul>
+  <div class="source">来源：<a href="https://support.google.com/googleplay/android-developer/answer/9859152" target="_blank">Store listing — Play Console Help</a></div>
+</section>
+
+<section id="mg4">
+  <h3 id="mg4">4. 应用内容与政策合规（App Content）<span class="pill pill-red">必填</span></h3>
+  <table>
+    <tr><th style="width:28%">声明项</th><th>说明</th></tr>
+    <tr><td><strong>隐私政策</strong> <span class="pill pill-red">必填</span></td><td>提供一个在线可访问的隐私政策 URL。</td></tr>
+    <tr><td><strong>广告</strong></td><td>声明 App 是否含广告，含广告会显示「Contains ads」标签。</td></tr>
+    <tr><td><strong>应用访问权限</strong></td><td>若有登录墙或受限区域，须提供演示账号和访问说明。</td></tr>
+    <tr><td><strong>目标受众与内容</strong></td><td>声明目标年龄组。包含儿童的应用须遵守 Families 政策。</td></tr>
+    <tr><td><strong>内容分级</strong> <span class="pill pill-red">必填</span></td><td>填写分级问卷，获取 IARC 分级。未分级应用可能被下架。</td></tr>
+    <tr><td><strong>数据安全</strong> <span class="pill pill-red">必填</span></td><td>声明 App 收集/共享哪些数据、是否加密、用户能否删除数据等。</td></tr>
+    <tr><td><strong>数据删除</strong> <span class="pill pill-red">必填</span></td><td>提供用户账号删除机制，并声明相关链接/说明。</td></tr>
+  </table>
+  <div class="callout warn"><span class="ct">⚠️ 合规是 Google 下架重灾区</span>数据安全表单和隐私政策务必如实填写，与实际 SDK 行为一致。虚假声明会导致应用暂停甚至封号。</div>
+  <div class="source">来源：<a href="https://support.google.com/googleplay/android-developer/answer/9859455" target="_blank">Prepare your app for review</a></div>
+</section>
+
+<section id="mg5">
+  <h3 id="mg5">5. 应用签名（Play App Signing）</h3>
+  <p>Google Play 使用 <strong>Android App Bundle (.aab)</strong> 格式上传（2021 年 8 月起强制）。Google 通过 Play 应用签名机制托管你的应用签名密钥。</p>
+  <dl class="kv">
+    <dt>上传密钥</dt><dd>你用来给 AAB 签名的密钥，Google 用它验证你的身份。</dd>
+    <dt>应用签名密钥</dt><dd>Google 用来为分发的 APK 签名的密钥。</dd>
+  </dl>
+  <p>创建应用时接受 Play 应用签名服务条款即默认启用。</p>
+  <div class="source">来源：<a href="https://support.google.com/googleplay/android-developer/answer/9844279" target="_blank">Android App Bundles</a></div>
+</section>
+
+<section id="mg6">
+  <h3 id="mg6">6. 测试轨道（Testing Tracks）</h3>
+  <table>
+    <tr><th style="width:18%">轨道</th><th style="width:30%">受众</th><th>说明</th></tr>
+    <tr><td><strong>内部测试</strong></td><td>最多 100 名受信任测试者</td><td>最快，上传后几秒可用。</td></tr>
+    <tr><td><strong>封闭测试</strong> <span class="pill pill-google">必经</span></td><td>由你控制的测试者群组</td><td>个人新号申请生产权限前的<strong>必经环节</strong>。</td></tr>
+    <tr><td><strong>开放测试</strong></td><td>任何人可加入</td><td>测试版在 Google Play 公开可见。需有生产权限后可用。</td></tr>
+    <tr><td><strong>生产</strong></td><td>所有用户</td><td>正式发布。</td></tr>
+  </table>
+  <div class="step">
+    <h4><span class="step-num sn-google">6</span>创建测试版本</h4>
+    <ol>
+      <li>「Test and release」→ 选择轨道 →「Create release」。</li>
+      <li>填写版本名称，上传已签名的 AAB。</li>
+      <li>填写版本说明，添加测试者（邮箱列表或 Google 群组）。</li>
+      <li>审核发布。</li>
+    </ol>
+  </div>
+  <div class="source">来源：<a href="https://support.google.com/googleplay/android-developer/answer/9845334" target="_blank">Set up tests — Play Console Help</a></div>
+</section>
+
+<section id="mg7">
+  <h3 id="mg7">7. 个人账号测试门槛（重要！）</h3>
+  <div class="callout warn"><span class="ct">⚠️ 2023.11 新规</span>2023 年 11 月 13 日之后创建的<strong>个人</strong>开发者账号，发布首个 App 前必须满足封闭测试要求。</div>
+  <ul>
+    <li><strong>至少 12 名测试者</strong>持续加入你的封闭测试。</li>
+    <li>测试者须<strong>连续保持加入状态至少 14 天</strong>。</li>
+    <li>满足后，在 Dashboard 点击「Apply for production」申请生产权限。</li>
+    <li>Google 审核申请，通常 7 天内出结果。</li>
+  </ul>
+  <div class="callout tip"><span class="ct">💡 招募建议</span>从亲友、同事、同学、目标用户社群招募。鼓励测试者多使用功能并反馈。保留反馈记录——申请生产权限时可能需要总结。</div>
+  <div class="source">来源：<a href="https://support.google.com/googleplay/android-developer/answer/14151465" target="_blank">App testing requirements for new personal developer accounts</a></div>
+</section>
+
+<section id="mg8">
+  <h3 id="mg8">8. 生产发布（Production Release）</h3>
+  <div class="step">
+    <h4><span class="step-num sn-google">8</span>发布步骤</h4>
+    <ol>
+      <li>确认商店详情、应用内容全部填写完成。</li>
+      <li>「Test and release」→「Production」→「Create release」。</li>
+      <li>填写版本名称，上传已签名的 AAB。</li>
+      <li>选择发布方式：<strong>标准发布</strong>或<strong>托管发布</strong>。</li>
+      <li>点击「Review release」→「Start rollout to Production」。</li>
+    </ol>
+  </div>
+  <table>
+    <tr><th style="width:22%">发布方式</th><th>说明</th></tr>
+    <tr><td><strong>标准发布</strong></td><td>提交审核通过后自动上线。</td></tr>
+    <tr><td><strong>托管发布</strong> <span class="pill pill-google">推荐</span></td><td>审核通过后不自动上线，待你手动批准发布，可精确控制上线时机。</td></tr>
+  </table>
+  <h4>分阶段发布</h4>
+  <p>生产版本发布时可设置分阶段比例（如 10%、50%、100%），逐步扩大用户覆盖。</p>
+  <div class="source">来源：<a href="https://support.google.com/googleplay/android-developer/answer/9859751" target="_blank">Standard publishing</a> · <a href="https://support.google.com/googleplay/android-developer/answer/9859654" target="_blank">Managed publishing</a></div>
+</section>
+
+<section id="mg9">
+  <h3 id="mg9">9. 发布后管理</h3>
+  <ul>
+    <li><strong>数据分析</strong>：Play Console 的 Statistics、Android Vitals 查看安装、卸载、崩溃、ANR。</li>
+    <li><strong>评价管理</strong>：回复用户评论，查看评分分布。</li>
+    <li><strong>版本更新</strong>：创建新 Production release，支持分阶段更新。</li>
+    <li><strong>商店详情实验</strong>：A/B 测试不同图标、截图、说明的转化率。</li>
+    <li><strong>营收</strong>：财务报告按月出具，打款至关联的商户账号。</li>
+  </ul>
+</section>
+
+<hr class="div">
+
+<!-- ====================================================== -->
+<!-- ============ PART 2: PC ============================== -->
+<!-- ====================================================== -->
+
+<!-- ============ PC: STEAM =============================== -->
+<section id="pst1">
+  <h2><span class="pb pb-pc">PART 2</span> PC端 — <span class="pb pb-steam">Steam</span></h2>
+  <p>Steam 是最开放的大型 PC 游戏平台，全自助流程，公开文档，无需审核准入资格。Steam Direct 费用为每个产品 $100。</p>
+
+  <div class="phases">
+    <div class="phase ph-steam"><div class="pn">STEP 1</div><div class="pt">Steamworks注册</div></div><div class="arrow">→</div>
+    <div class="phase ph-steam"><div class="pn">STEP 2</div><div class="pt">准备税务银行</div></div><div class="arrow">→</div>
+    <div class="phase ph-steam"><div class="pn">STEP 3</div><div class="pt">支付$100/产品</div></div><div class="arrow">→</div>
+    <div class="phase ph-steam"><div class="pn">STEP 4</div><div class="pt">商店页面</div></div><div class="arrow">→</div>
+    <div class="phase ph-steam"><div class="pn">STEP 5</div><div class="pt">构建上传审核</div></div><div class="arrow">→</div>
+    <div class="phase ph-steam"><div class="pn">STEP 6</div><div class="pt">发布</div></div>
+  </div>
+
+  <h3 id="pst1">1. Steam Direct 注册</h3>
+  <dl class="kv">
+    <dt>费用</dt><dd><strong>$100 USD / 每产品</strong>（Steam Direct Fee）</dd>
+    <dt>可回收</dt><dd>当产品调整后总收入达到 $1,000 USD 后，下期打款时退回</dd>
+    <dt>等待期</dt><dd>支付后 <strong>30 天</strong>才能发布（首次，供 Valve 进行伙伴审核）</dd>
+  </dl>
+
+  <div class="step">
+    <h4><span class="step-num sn-steam">1</span>注册步骤</h4>
+    <ol>
+      <li>用已有 Steam 账户登录 <a href="https://partner.steamgames.com/steamdirect/" target="_blank">partner.steamgames.com/steamdirect</a>。</li>
+      <li>签署电子协议（Steam 分发协议）。</li>
+      <li>填写<strong>银行信息</strong>：路由号、账号、银行地址（账户持有人须与法务身份一致）。</li>
+      <li>填写<strong>税务信息</strong>：美国公民/公司用 W-9，非美国实体用 W-8BEN。</li>
+      <li>完成<strong>身份验证</strong>。</li>
+      <li>支付 $100 产品押金。</li>
+    </ol>
+  </div>
+
+  <h4>收入分成（阶梯制）</h4>
+  <table>
+    <tr><th>累计净收入</th><th>Valve 分成</th><th>开发者分成</th></tr>
+    <tr><td>前 $10,000,000</td><td>30%</td><td>70%</td></tr>
+    <tr><td>$10,000,001 ~ $50,000,000</td><td>25%</td><td>75%</td></tr>
+    <tr><td>$50,000,000 以上</td><td>20%</td><td>80%</td></tr>
+  </table>
+
+  <div class="callout warn"><span class="ct">⚠️ 内容红线</span>Steam 禁止：仇恨言论、真实人像裸露(非标签化)、诽谤、无版权内容、违法内容、恶意软件、加密币/NFT应用、广告驱动商业模式。</div>
+  <div class="source">来源：<a href="https://partner.steamgames.com/steamdirect/" target="_blank">Steamworks Partner Program</a> · <a href="https://partner.steamgames.com/doc/gettingstarted/appfee" target="_blank">Steam Direct Fee</a></div>
+</section>
+
+<section id="pst2">
+  <h3 id="pst2">2. Steamworks 后台</h3>
+  <p>完成注册后可访问 Steamworks 开发者后台，是管理 Steam 发行全流程的统一入口。Steam 提供了非常详尽的<a href="https://partner.steamgames.com/doc" target="_blank">公开文档</a>。</p>
+  <h4>Steamworks 主要功能模块</h4>
+  <ul>
+    <li><strong>商店页面管理</strong>：配置名称、描述、截图、宣传片、标签</li>
+    <li><strong>构建管理（SteamPipe）</strong>：命令行或 GUI 上传游戏构建版本</li>
+    <li><strong>Steamworks 功能</strong>：成就、排行榜、云存档、创意工坊、联机</li>
+    <li><strong>定价与折扣</strong>：设置基础价格、区域定价、参与促销活动</li>
+    <li><strong>抢先体验</strong>：Early Access 模式</li>
+    <li><strong>统计与分析</strong>：愿望单、销量、同时在线、退款率</li>
+  </ul>
+  <div class="source">来源：<a href="https://partner.steamgames.com/doc" target="_blank">Steamworks Documentation</a></div>
+</section>
+
+<section id="pst3">
+  <h3 id="pst3">3. 商店页面（Store Page）</h3>
+  <p><span class="pill pill-red">关键</span> 首次发布必须建立「即将推出」页面并<strong>公开可见至少 2 周</strong>，这是 Steam 的硬性要求。</p>
+
+  <h4>商店页面素材清单</h4>
+  <table>
+    <tr><th>素材</th><th>要求</th></tr>
+    <tr><td><strong>Header Capsule（头图）</strong></td><td>460×215px — 商店列表和搜索展示用</td></tr>
+    <tr><td><strong>Small Capsule（小图）</strong></td><td>231×87px — 用户库和社区列表</td></tr>
+    <tr><td><strong>Main Capsule（主图）</strong></td><td>616×353px — 商店首页大图</td></tr>
+    <tr><td><strong>Vertical Capsule（竖版）</strong></td><td>374×448px — 即将发行列表等竖版展示</td></tr>
+    <tr><td><strong>页面背景</strong></td><td>1438×810px</td></tr>
+    <tr><td><strong>截图</strong></td><td>至少 5 张，推荐 1280×720 以上</td></tr>
+    <tr><td><strong>宣传片</strong></td><td>YouTube 链接（可多个）</td></tr>
+  </table>
+
+  <h4>描述与信息</h4>
+  <ul>
+    <li><strong>简短描述</strong>：一行，核心卖点</li>
+    <li><strong>完整描述</strong>：支持富文本（Steam BBCode 格式）</li>
+    <li><strong>系统需求</strong>：最低和推荐配置</li>
+    <li><strong>分类</strong>：类型、标签（最多 20 个）</li>
+    <li><strong>年龄分级</strong>：填写 Steam 内置评级问卷</li>
+  </ul>
+
+  <div class="callout tip"><span class="ct">💡 2周窗口的价值</span>「即将推出」页面的核心用途不是应付规则，而是<strong>积累愿望单</strong>（Wishlist）。愿望单数量直接影响 Steam 首发推荐算法的曝光量。建议提前数月建立页面，利用社交媒体、Steam 新品节等渠道驱动愿望单增长。</div>
+  <div class="source">来源：<a href="https://partner.steamgames.com/doc/store" target="_blank">Steamworks — Store Presence</a></div>
+</section>
+
+<section id="pst4">
+  <h3 id="pst4">4. 构建上传与审核</h3>
+  <h4>构建上传（SteamPipe）</h4>
+  <p>SteamPipe 是 Steam 的内容分发系统，支持两种上传方式：<strong>SteamPipe GUI</strong>（图形界面）和 <strong>SteamCMD + 构建脚本</strong>（命令行，适合 CI/CD）。</p>
+
+  <div class="step">
+    <h4><span class="step-num sn-steam">4</span>上传与审核步骤</h4>
+    <ol>
+      <li>准备构建：确保包含所有必要的二进制文件、资源和 Steamworks SDK 依赖。</li>
+      <li>运行 SteamPipe 上传构建到对应 depot。</li>
+      <li>在 Steamworks 后台将构建与商店页面关联。</li>
+      <li>配置 Steamworks 功能：成就、云存档、排行榜等。</li>
+      <li>提交构建审核。Valve 会运行游戏、检查商店页面、确认配置正确且无危害行为。</li>
+    </ol>
+  </div>
+
+  <h4>审核阶段</h4>
+  <ul>
+    <li><strong>商店页面审核</strong>：检查名称、描述、素材是否符合规范。</li>
+    <li><strong>构建审核</strong>：Valve 人员运行你的游戏 1-2 次，检查能否启动、是否与描述一致、有无恶意行为。</li>
+    <li><strong>审核时长</strong>：通常 1-5 个工作日。</li>
+  </ul>
+
+  <div class="callout warn"><span class="ct">⚠️</span>Steam 的构建审核并非全面的质量测试——Valve 不会帮你测 bug、验证玩法平衡。审核的重点是「不坑用户」，不是「游戏好不好玩」。</div>
+  <div class="source">来源：<a href="https://partner.steamgames.com/doc/sdk" target="_blank">Steamworks SDK Documentation</a></div>
+</section>
+
+<section id="pst5">
+  <h3 id="pst5">5. 发布（Release）</h3>
+  <p>满足以下条件后可点击发布：</p>
+  <ol>
+    <li>支付 $100 后已满 30 天等待期</li>
+    <li>「即将推出」页面已公开至少 2 周</li>
+    <li>商店页面和构建均已通过审核</li>
+  </ol>
+  <p>发布控制在你的手中——你决定何时按「发布」按钮。发布后可使用 Steamworks 更新构建、管理折扣、发起促销。</p>
+
+  <h4>抢先体验（Early Access）</h4>
+  <p>Steam 支持 Early Access 模式。须在商店描述中清楚说明当前开发阶段、何时完成、计划更新频率。</p>
+  <div class="source">来源：<a href="https://partner.steamgames.com/doc/store/earlyaccess" target="_blank">Steamworks — Early Access</a></div>
+</section>
+
+<hr class="div">
+
+<!-- ============ PC: EPIC GAMES STORE ==================== -->
+<section id="pse1">
+  <h2>PC端 — <span class="pb pb-epic">Epic Games Store</span></h2>
+  <p>Epic Games Store 于 2023 年 3 月开放自助发布工具，允许所有开发者通过 Dev Portal 自发布游戏。文档公开，流程透明。</p>
+
+  <div class="phases">
+    <div class="phase ph-epic"><div class="pn">STEP 1</div><div class="pt">Dev Portal注册</div></div><div class="arrow">→</div>
+    <div class="phase ph-epic"><div class="pn">STEP 2</div><div class="pt">创建组织+产品</div></div><div class="arrow">→</div>
+    <div class="phase ph-epic"><div class="pn">STEP 3</div><div class="pt">商店页面</div></div><div class="arrow">→</div>
+    <div class="phase ph-epic"><div class="pn">STEP 4</div><div class="pt">构建BPT上传</div></div><div class="arrow">→</div>
+    <div class="phase ph-epic"><div class="pn">STEP 5</div><div class="pt">最终审核</div></div><div class="arrow">→</div>
+    <div class="phase ph-epic"><div class="pn">STEP 6</div><div class="pt">发布</div></div>
+  </div>
+
+  <h3 id="pse1">1. Dev Portal 注册</h3>
+  <dl class="kv">
+    <dt>入口</dt><dd><a href="https://dev.epicgames.com/portal" target="_blank">dev.epicgames.com/portal</a></dd>
+    <dt>年龄要求</dt><dd>开发者须年满 <strong>18 岁</strong></dd>
+    <dt>收入分成</dt><dd>首 $1,000,000 净收入 <strong>100% / 0%</strong>，之后 <strong>88% / 12%</strong></dd>
+    <dt>覆盖</dt><dd>全球 2.95 亿+ Epic 用户，187 个国家/地区，16 种语言</dd>
+  </dl>
+
+  <div class="step">
+    <h4><span class="step-num sn-epic">1</span>注册与组织设置</h4>
+    <ol>
+      <li>用 Epic Games 账户登录 <a href="https://dev.epicgames.com/portal" target="_blank">Dev Portal</a>。</li>
+      <li>完成组织注册（Organization setup）——如以公司身份发布需验证企业信息。</li>
+      <li>签署 Epic Games Store 分发协议。</li>
+      <li>完成税务表单。</li>
+      <li>配置收款银行账户。</li>
+    </ol>
+  </div>
+  <div class="source">来源：<a href="https://dev.epicgames.com/docs/epic-games-store/get-started/get-started-steps/introduction" target="_blank">Epic Games Store — Get Started</a> · <a href="https://store.epicgames.com/distribution" target="_blank">Epic Distribution</a></div>
+</section>
+
+<section id="pse2">
+  <h3 id="pse2">2. 产品创建与配置</h3>
+  <div class="step">
+    <h4><span class="step-num sn-epic">2</span>产品配置步骤</h4>
+    <ol>
+      <li>在 Dev Portal 创建新产品（Product），选择类型（游戏/应用）。</li>
+      <li>配置 <strong>Epic Games Store → Offers → General Details</strong>：产品详情、定价、促销内容申明。</li>
+      <li>如有额外条款（EULA / ToS），需托管在公开 URL 并将链接配置到产品主页。</li>
+      <li><strong>年龄分级</strong>：须通过 IARC 问卷获取分级，<strong>韩国 GRAC 分级另有单独流程</strong>。</li>
+    </ol>
+  </div>
+  <div class="callout tip"><span class="ct">💡 特权服务</span>Epic 免费提供商店页面<strong>国际化翻译</strong>，并支持 <strong>Support-A-Creator</strong> 创作者联盟计划。</div>
+  <div class="source">来源：<a href="https://dev.epicgames.com/docs/epic-games-store/story-presence/store-config" target="_blank">Epic Games Store — Store Configuration</a></div>
+</section>
+
+<section id="pse3">
+  <h3 id="pse3">3. 商店页面发布（Early Awareness）</h3>
+  <p>在游戏完成前，先发布产品主页到商店，进入「即将推出」状态以收集愿望单。</p>
+  <h4>商店页面素材</h4>
+  <ul>
+    <li><strong>Logo</strong> + <strong>Key Art（主视觉）</strong></li>
+    <li><strong>截图</strong>：多张游戏实机截图</li>
+    <li><strong>宣传视频</strong>：YouTube / Vimeo 链接</li>
+    <li><strong>描述</strong> + <strong>系统需求</strong></li>
+  </ul>
+  <div class="source">来源：<a href="https://dev.epicgames.com/docs/epic-games-store/get-started/get-started-steps/publish-your-product-page" target="_blank">Publish Your Product Page</a></div>
+</section>
+
+<section id="pse4">
+  <h3 id="pse4">4. 最终审核与发布</h3>
+  <div class="step">
+    <h4><span class="step-num sn-epic">4</span>提审与发布步骤</h4>
+    <ol>
+      <li><strong>最终配置与测试</strong>：在沙盒环境中测试所有 EOS 功能（如成就、跨平台联机、云存档）。</li>
+      <li><strong>构建上传</strong>：使用 <strong>BPT（BuildPatch Tool）</strong> 上传游戏二进制文件到 Epic 服务器。</li>
+      <li><strong>提交最终审核</strong>：Epic Games Store 团队验证所有要求是否合规。</li>
+      <li><strong>审核通过后发布</strong>：点击发布按钮或设定计划时间。</li>
+    </ol>
+  </div>
+
+  <h4>技术合规要求</h4>
+  <ul>
+    <li><span class="pill pill-red">跨平台联机</span>：带在线多人的游戏必须支持<strong>所有 PC 商店跨平台联机</strong>。</li>
+    <li><span class="pill pill-red">成就</span>：如果游戏在其他 PC 商店支持成就，Epic 上也必须提供<strong>同等完整的成就</strong>。</li>
+    <li><strong>补丁说明</strong>：大版本更新必须有；韩国 GRAC 要求每次更新都有。</li>
+    <li><strong>区块链/NFT</strong>：允许但有独立合规要求。</li>
+  </ul>
+
+  <div class="callout warn"><span class="ct">⚠️ 成就要求很重要</span>Epic 明确要求：如果你的游戏在 Steam 上有成就系统，在 Epic 上也必须有。不达标直接拒审。</div>
+  <div class="source">来源：<a href="https://dev.epicgames.com/docs/epic-games-store/requirements-guidelines/distribution-requirements/requirements-overview" target="_blank">Epic Games Store Requirements</a></div>
+</section>
+
+<hr class="div">
+
+<!-- ====================================================== -->
+<!-- ============ PART 3: CONSOLE ========================= -->
+<!-- ====================================================== -->
+
+<!-- ============ CONSOLE: PLAYSTATION ==================== -->
+<section id="cps1">
+  <h2><span class="pb pb-console">PART 3</span> 主机端 — <span class="pb pb-ps">PlayStation</span></h2>
+  <p>PlayStation 是目前门槛最高的主机平台之一，所有开发者必须先申请成为 PlayStation Partner 并通过审核。大部分开发者工具和文档受 NDA 保护。</p>
+
+  <div class="ndabox">
+    <div class="nt">🔐 NDA 声明</div>
+    <p>PlayStation DevNet、PS SDK、TRC 详细规范、提交定价等实操细节仅对签约合作伙伴开放。以下流程基于 Sony Interactive Entertainment 官方博客（2026年4月）及 partners.playstation.net 公开页面整理。</p>
+  </div>
+
+  <div class="phases">
+    <div class="phase ph-ps"><div class="pn">STEP 1</div><div class="pt">申请Partner</div></div><div class="arrow">→</div>
+    <div class="phase ph-ps"><div class="pn">STEP 2</div><div class="pt">开发NDA签约</div></div><div class="arrow">→</div>
+    <div class="phase ph-ps"><div class="pn">STEP 3</div><div class="pt">获取SDK/DevKit</div></div><div class="arrow">→</div>
+    <div class="phase ph-ps"><div class="pn">STEP 4</div><div class="pt">提交游戏</div></div><div class="arrow">→</div>
+    <div class="phase ph-ps"><div class="pn">STEP 5</div><div class="pt">TRC认证</div></div><div class="arrow">→</div>
+    <div class="phase ph-ps"><div class="pn">STEP 6</div><div class="pt">上架发布</div></div>
+  </div>
+
+  <h3 id="cps1">1. 成为 PlayStation Partner</h3>
+  <p>PlayStation 没有「自助开放注册」模式。你必须提交一份<strong>项目计划书（Project Plan）</strong>让 Sony 审核。</p>
+
+  <dl class="kv">
+    <dt>Who</dt><dd>你的团队是谁？团队规模、背景、愿景</dd>
+    <dt>What</dt><dd>游戏是什么？类型、玩法、美术风格</dd>
+    <dt>When</dt><dd>计划何时发布？</dd>
+    <dt>Where</dt><dd>计划在哪些地区/平台推出？</dd>
+    <dt>Why</dt><dd>为什么这款游戏与众不同？差异化在哪？</dd>
+    <dt>How</dt><dd>核心玩法是什么？</dd>
+  </dl>
+
+  <div class="step">
+    <h4><span class="step-num sn-ps">1</span>申请流程</h4>
+    <ol>
+      <li>前往 <a href="https://partners.playstation.net/" target="_blank">partners.playstation.net</a> 提交注册。</li>
+      <li>提交项目计划书（含上述 Who/What/When/Where/Why/How）。</li>
+      <li>等待 Sony 审核。审核通过后签署 <strong>GDPA（全球开发者与发行商协议）</strong>。</li>
+      <li>签约后即可解锁完整开发资源：DevNet 访问、PS SDK、开发文档。</li>
+    </ol>
+  </div>
+
+  <div class="callout tip"><span class="ct">💡 独立开发者建议</span>Sony 表示大多数独立游戏的成功并非来自「正式签约 deal」，而是开发者注册后持续提交更新并让自己的作品说话。建议通过 <strong>Independent Partner Title Form</strong> 提交游戏。</div>
+  <div class="source">来源：<a href="https://sonyinteractive.com/en/news/blog/showing-your-game-to-playstation/" target="_blank">SIE: Showing your Game to PlayStation (2026.4.7)</a></div>
+</section>
+
+<section id="cps2">
+  <h3 id="cps2">2. 获取开发环境</h3>
+  <p>签约后，你将获得以下开发资源：</p>
+  <ul>
+    <li><strong>DevNet 账户</strong>：PlayStation 开发者门户，所有开发文档、SDK 下载、技术支持统一入口。</li>
+    <li><strong>PS SDK</strong>：包含开发库、示例代码、性能分析工具（NDA 保护）。</li>
+    <li><strong>开发机（DevKit）</strong>：可提交开发机申请。</li>
+    <li><strong>TRC 文档</strong>：技术需求清单（Technical Requirements Checklist），认证的核心依据。</li>
+  </ul>
+  <div class="source">来源：<a href="https://partners.playstation.net/" target="_blank">PlayStation Partners</a></div>
+</section>
+
+<section id="cps3">
+  <h3 id="cps3">3. 提交游戏 — Independent Partner Title Form</h3>
+  <p>游戏开发到可展示阶段后，通过 <strong>Independent Partner Title Form</strong> 提交你的游戏。</p>
+  <ul>
+    <li>填写标题、发售日期、目标平台、游戏类型。</li>
+    <li>提供游戏描述、美术素材、视频/预告片链接。</li>
+    <li>说明支持的 PS 平台特性（如 DualSense 触觉反馈、3D Audio、SSD 加载优化等）。</li>
+  </ul>
+  <div class="callout warn"><span class="ct">⚠️ 提交时限</span>Sony 收到大量提交但支持机会有限，不保证每次都能获得编辑推荐。但提交后你的游戏已进入 Sony 的视野。</div>
+  <div class="source">来源：<a href="https://sonyinteractive.com/en/news/blog/showing-your-game-to-playstation/" target="_blank">SIE Blog — Independent Partner Title Form</a></div>
+</section>
+
+<section id="cps4">
+  <h3 id="cps4">4. TRC 认证（Technical Requirements Checklist）</h3>
+  <p>PlayStation 的认证流程核心是 <strong>TRC（技术需求清单）</strong>。</p>
+  <h4>TRC 常见检查方向（推测，实际内容受 NDA）</h4>
+  <ul>
+    <li><strong>系统稳定性</strong>：游戏不得导致系统崩溃、死机、过热。</li>
+    <li><strong>用户界面</strong>：须合理使用 PlayStation 系统 UI。</li>
+    <li><strong>网络功能</strong>：在线游戏须正确处理网络断开、PSN 登录状态变化。</li>
+    <li><strong>奖杯系统</strong>：须完整实现 Trophy 功能。</li>
+    <li><strong>存档</strong>：须正确使用 PS 存档 API。</li>
+    <li><strong>手柄</strong>：须正确处理手柄断开/重连、DualSense 特性。</li>
+    <li><strong>年龄分级</strong>：须通过 IARC 获取 PEGI / ESRB 等地区分级。</li>
+  </ul>
+  <div class="callout warn"><span class="ct">⚠️ TRC 难度</span>主机平台认证远比移动端严格。建议开发阶段就对照 TRC 规范设计功能，而非等提审后才补。</div>
+  <div class="source">TRC 详细内容为 NDA 保护——签约后 DevNet 提供完整清单。</div>
+</section>
+
+<section id="cps5">
+  <h3 id="cps5">5. 商店页面配置与发布</h3>
+  <p>通过 DevNet 合作伙伴门户管理商店页面，包括：商店素材（图标、截图、预告片）、游戏描述、定价、发售日期。</p>
+  <p><strong>收入分成</strong>：PlayStation 标准抽成为 30%（非公开确认，行业惯例），具体条款见 GDPA 协议。</p>
+  <div class="source">来源：<a href="https://partners.playstation.net/" target="_blank">PlayStation Partners</a></div>
+</section>
+
+<hr class="div">
+
+<!-- ============ CONSOLE: XBOX =========================== -->
+<section id="cxb1">
+  <h2>主机端 — <span class="pb pb-xbox">Xbox</span></h2>
+  <p>Xbox 通过 <strong>ID@Xbox</strong> 计划向独立开发者开放。与 PlayStation 类似，需要概念审批，但流程更标准化，有公开的 Partner Center 后台。</p>
+
+  <div class="phases">
+    <div class="phase ph-xbox"><div class="pn">STEP 1</div><div class="pt">申请ID@Xbox</div></div><div class="arrow">→</div>
+    <div class="phase ph-xbox"><div class="pn">STEP 2</div><div class="pt">概念审批</div></div><div class="arrow">→</div>
+    <div class="phase ph-xbox"><div class="pn">STEP 3</div><div class="pt">获取GDK/DevKit</div></div><div class="arrow">→</div>
+    <div class="phase ph-xbox"><div class="pn">STEP 4</div><div class="pt">Partner Center配置</div></div><div class="arrow">→</div>
+    <div class="phase ph-xbox"><div class="pn">STEP 5</div><div class="pt">XR认证</div></div><div class="arrow">→</div>
+    <div class="phase ph-xbox"><div class="pn">STEP 6</div><div class="pt">发布</div></div>
+  </div>
+
+  <h3 id="cxb1">1. 加入 ID@Xbox</h3>
+  <dl class="kv">
+    <dt>费用</dt><dd><strong>完全免费</strong>——申请、提审、认证、发布、更新均不收费。</dd>
+    <dt>申请入口</dt><dd><a href="https://developer.microsoft.com/games/publish" target="_blank">developer.microsoft.com/games/publish</a></dd>
+    <dt>需要</dt><dd>组织 Microsoft 账户（非个人邮箱）、公司/工作室基本信息、游戏概念描述</dd>
+  </dl>
+
+  <div class="step">
+    <h4><span class="step-num sn-xbox">1</span>申请步骤</h4>
+    <ol>
+      <li>使用组织 Microsoft 账户登录 <a href="https://developer.microsoft.com/games/publish" target="_blank">Xbox Developer Programs</a>。</li>
+      <li>填写工作室背景、团队规模、过往作品（如有）、游戏概念概述。</li>
+      <li>签署 NDA（后续详细信息受此保护）。</li>
+      <li>提交申请，等待审批。</li>
+    </ol>
+  </div>
+  <div class="callout tip"><span class="ct">💡 ID@Xbox 福利</span>加入后即使尚未开始开发也享有：定期计划更新邮件、ID@Xbox 活动邀请、促销机会。已签约开发者超过 5000+ 工作室。</div>
+  <div class="source">来源：<a href="https://developer.microsoft.com/en-us/games/publish/" target="_blank">Xbox Developer Programs — Onboarding Hub</a></div>
+</section>
+
+<section id="cxb2">
+  <h3 id="cxb2">2. 概念审批与开发</h3>
+  <p>所有在 Xbox 主机和 PC 上发布的游戏须经过<strong>概念审批（Concept Approval）</strong>。</p>
+  <div class="step">
+    <h4><span class="step-num sn-xbox">2</span>审批与开发流程</h4>
+    <ol>
+      <li>提交游戏概念详情供审核。</li>
+      <li>审批通过后签署 Xbox 发布协议。</li>
+      <li>获取 <strong>Xbox GDK（Game Development Kit）</strong>——可在 <a href="https://github.com/microsoft/GDK" target="_blank">GitHub</a> 获取公开版本。</li>
+      <li>获取 <strong>开发机（DevKit）</strong>。</li>
+      <li>PlayFab 服务层级免费提供。</li>
+    </ol>
+  </div>
+  <div class="source">来源：<a href="https://developer.microsoft.com/en-us/games/publish/" target="_blank">Xbox Developer Programs</a></div>
+</section>
+
+<section id="cxb3">
+  <h3 id="cxb3">3. Partner Center 配置</h3>
+  <p>Partner Center 是所有 Xbox 游戏的管理枢纽。接入 Partner Center 需要支付一次性的少量费用。</p>
+  <h4>需配置模块</h4>
+  <ul>
+    <li><strong>商店列表</strong>：游戏名称、描述、截图、预告片、年龄分级（IARC）</li>
+    <li><strong>定价与可用性</strong>：定价层级、地区、发布时间</li>
+    <li><strong>Xbox Services 配置</strong>：在线功能（如多人游戏、成就、排行榜、云存档）</li>
+    <li><strong>认证辅助信息</strong>：向认证团队提供游戏攻略、成就指南、关键功能摘要</li>
+  </ul>
+  <div class="source">来源：<a href="https://learn.microsoft.com/en-us/xbox/game-publishing/concepts/store-listing" target="_blank">Xbox Store Listings — Microsoft Learn</a></div>
+</section>
+
+<section id="cxb4">
+  <h3 id="cxb4">4. 认证（Certification）</h3>
+  <p>Xbox 认证流程远比 PC 平台严格，包含多个阶段。</p>
+
+  <h4>认证阶段</h4>
+  <table>
+    <tr><th style="width:22%">阶段</th><th>说明</th></tr>
+    <tr><td><strong>Submission Checks</strong></td><td>自动验证：Submission Validator 扫描 + 杀毒扫描</td></tr>
+    <tr><td><strong>BVT</strong> <span class="pill pill-red">关键</span></td><td>验证游戏是否处于可测试状态，复查之前 CFR 是否已修复</td></tr>
+    <tr><td><strong>XR Testing</strong> <span class="pill pill-red">关键</span></td><td>逐项测试 Xbox Requirements（XR）所有适用测试用例</td></tr>
+    <tr><td><strong>Reporting</strong></td><td>输出认证报告，含 CFR / Pass-with-fix / SRI / IoN 分级</td></tr>
+  </table>
+
+  <h4>认证报告问题分级</h4>
+  <ul>
+    <li><span class="pill pill-red">CFR（Condition For Resubmission）</span>：认证不通过，下次提交必须修复</li>
+    <li><strong>Pass with required fix</strong>：本次通过，下次提交前必须修复</li>
+    <li><strong>SRI / IoN</strong>：仅供参考，不要求修复</li>
+  </ul>
+
+  <div class="step">
+    <h4><span class="step-num sn-xbox">4</span>认证流程</h4>
+    <ol>
+      <li>填写 <strong>Certification Questionnaire</strong>（认证问卷）。</li>
+      <li>上传游戏包到 Partner Center。</li>
+      <li><strong>可选认证</strong>：付费服务，在正式提审前获取 XR 合规反馈（分 Full / Light / Plus 三级）。</li>
+      <li><strong>最终认证</strong>：游戏完成后提交，测试全部 XR 测试用例。通过后即可发布。</li>
+      <li>如有争议可提交 <strong>XR Exception Request</strong> 或 <strong>CFR Challenge</strong>。</li>
+    </ol>
+  </div>
+
+  <div class="callout tip"><span class="ct">💡 建议</span>提交前自己跑一遍 Submission Validator，确保无报错；版本号须高于上次提交版本。</div>
+  <div class="source">来源：<a href="https://learn.microsoft.com/en-us/xbox/game-publishing/publishing-processes/managed-creators/publishing-processes-submitting-to-certification" target="_blank">Submitting to Xbox Certification — Microsoft Learn</a></div>
+</section>
+
+<section id="cxb5">
+  <h3 id="cxb5">5. 发布与后续</h3>
+  <ul>
+    <li><strong>预购</strong>：支持预购包，可提审预购存根文件提前开启预购。</li>
+    <li><strong>盘片发布</strong>：如需发行实体光盘，商店列表须在申请光盘时已完成认证。</li>
+    <li><strong>DLC/Add-on</strong>：主游戏提交认证后，DLC 可通过 Partner Center 提交。</li>
+    <li><strong>跨平台</strong>：<a href="https://developer.microsoft.com/games/resources/xbox-play-anywhere/" target="_blank">Xbox Play Anywhere</a> 可实现一次购买在 Xbox 主机和 PC 上运行。</li>
+    <li><strong>分析</strong>：Partner Center 提供下载量、评分、崩溃等数据。</li>
+  </ul>
+  <div class="source">来源：<a href="https://learn.microsoft.com/en-us/xbox/game-publishing/publishing-processes/managed-creators/publishing-processes-disc-and-digital-certification" target="_blank">Final Certification — Microsoft Learn</a></div>
+</section>
+
+<hr class="div">
+
+<!-- ====================================================== -->
+<!-- ============== APPENDIX ============================== -->
+<!-- ====================================================== -->
+<section id="ax1">
+  <h2><svg class="icon icon-doc"><use href="#i-doc"/></svg> 附录一：审核被拒常见原因</h2>
+
+  <h3><svg class="icon icon-apple"><use href="#i-apple"/></svg> App Store 常见拒因</h3>
+  <ul>
+    <li><strong>2.1 App Completeness</strong>：应用崩溃、白屏、核心功能不可用。务必提供演示账号。</li>
+    <li><strong>2.3 Metadata</strong>：截图与实际不符、关键词堆砌、描述含其他平台名。</li>
+    <li><strong>Guideline 4.3 Spam</strong>：与已有应用过度相似、低价值内容。</li>
+    <li><strong>5.1.1 Data Collection</strong>：隐私营养标签未如实申报第三方 SDK 数据收集。</li>
+    <li><strong>3.1.1/3.1.2 In-App Purchase</strong>：虚拟物品必须用 Apple 内购，不可跳转外部支付。</li>
+  </ul>
+
+  <h3><svg class="icon icon-google"><use href="#i-google"/></svg> Google Play 常见拒因</h3>
+  <ul>
+    <li><strong>政策违规</strong>：数据安全表单与实际不符、权限滥用、误导性内容。</li>
+    <li><strong>目标 API 级别</strong>：未达到当前要求的 targetSdkVersion。</li>
+    <li><strong>隐私政策缺失或无效</strong>：URL 无法访问、内容不覆盖实际行为。</li>
+    <li><strong>内容分级未完成</strong>：未填问卷导致 Unrated。</li>
+    <li><strong>登录信息缺失</strong>：有登录墙但未提供审核员账号。</li>
+  </ul>
+
+  <h3><svg class="icon icon-steam"><use href="#i-steam"/></svg> Steam 常见拒因</h3>
+  <ul>
+    <li><strong>商店页面问题</strong>：描述含误导信息、Capsule 图片不合规、素材缺失。</li>
+    <li><strong>构建问题</strong>：游戏无法正常启动、崩溃、与描述严重不符。</li>
+    <li><strong>内容红线</strong>：含仇恨言论、未授权版权内容、成人内容未标注。</li>
+  </ul>
+
+  <h3><svg class="icon icon-epic"><use href="#i-epic"/></svg> Epic 常见拒因</h3>
+  <ul>
+    <li><strong>成就不对等</strong>：Steam 版有成就但 Epic 版缺失。</li>
+    <li><strong>跨平台联机缺失</strong>：在线多人游戏不支持跨 PC 商店联机。</li>
+    <li><strong>IARC 分级缺失</strong>：韩国需额外 GRAC。</li>
+  </ul>
+
+  <h3><svg class="icon icon-console"><use href="#i-console"/></svg> 主机（PS/Xbox）常见拒因</h3>
+  <ul>
+    <li><strong>系统稳定性</strong>：崩溃、死机、过热——主机认证绝对零容忍。</li>
+    <li><strong>TRC/XR 不合规</strong>：存档 API 使用不当、手柄重连异常、UI 适配问题。</li>
+    <li><strong>Trophy/成就缺失或不完整</strong>。</li>
+    <li><strong>网络功能异常</strong>：离线时未正确处理、登录状态切换崩溃。</li>
+  </ul>
+</section>
+
+<section id="ax2">
+  <h2><svg class="icon icon-doc"><use href="#i-doc"/></svg> 附录二：发布前自查清单</h2>
+
+  <h3><svg class="icon icon-apple"><use href="#i-apple"/></svg> App Store</h3>
+  <details><summary>展开 App Store 自查清单</summary>
+  <ul>
+    <li>☐ Distribution Certificate 和 App Store Profile 已创建并安装</li>
+    <li>☐ App Store Connect 已创建 App 记录，Bundle ID 正确</li>
+    <li>☐ 付费协议已签署、银行/税务信息已填（如需收费）</li>
+    <li>☐ 各尺寸截图已上传（至少 6.7"）</li>
+    <li>☐ 描述、关键词、副标题、促销文本已填</li>
+    <li>☐ 支持 URL 有效可访问</li>
+    <li>☐ 年龄分级问卷已填</li>
+    <li>☐ App 隐私详情已申报（含第三方 SDK）</li>
+    <li>☐ 审核信息含演示账号（如有登录/付费墙）</li>
+    <li>☐ 用 iOS 26 SDK 构建（Xcode 26）</li>
+    <li>☐ Build 已上传并处理完成</li>
+    <li>☐ 已通读 App Review Guidelines</li>
+  </ul></details>
+
+  <h3><svg class="icon icon-google"><use href="#i-google"/></svg> Google Play</h3>
+  <details><summary>展开 Google Play 自查清单</summary>
+  <ul>
+    <li>☐ 开发者账号已验证、$25 已付</li>
+    <li>☐ 应用已创建，Package Name 确认无误</li>
+    <li>☐ 商店详情：名称、简短/完整说明、图标、置顶大图、截图已填</li>
+    <li>☐ 分类和标签已设置</li>
+    <li>☐ 隐私政策 URL 有效且内容合规</li>
+    <li>☐ 广告声明已完成</li>
+    <li>☐ 目标受众与内容已声明</li>
+    <li>☐ 内容分级问卷已填</li>
+    <li>☐ 数据安全表单已填且与 SDK 行为一致</li>
+    <li>☐ 登录信息/演示账号已提供（如有）</li>
+    <li>☐ 数据删除声明已完成</li>
+    <li>☐ AAB 已用上传密钥签名</li>
+    <li>☐ 个人新号：封闭测试满 12 人 × 14 天，已申请生产权限</li>
+    <li>☐ targetSdkVersion 达到当前要求</li>
+    <li>☐ 发布方式（标准/托管）已确认</li>
+  </ul></details>
+
+  <h3><svg class="icon icon-steam"><use href="#i-steam"/></svg> Steam</h3>
+  <details><summary>展开 Steam 自查清单</summary>
+  <ul>
+    <li>☐ Steam Direct $100 已付，等待期已满 30 天</li>
+    <li>☐ 银行和税务信息已填</li>
+    <li>☐ 商店页面审核通过，已公开至少 2 周</li>
+    <li>☐ 所有 Capsule 图片尺寸正确、含 Logo</li>
+    <li>☐ 至少 5 张截图</li>
+    <li>☐ 系统需求（最低/推荐）已填</li>
+    <li>☐ 年龄分级问卷已填</li>
+    <li>☐ Steamworks 功能已配置</li>
+    <li>☐ 构建已通过 SteamPipe 上传</li>
+    <li>☐ 构建审核已通过</li>
+    <li>☐ 定价已设置（含区域定价）</li>
+  </ul></details>
+
+  <h3><svg class="icon icon-epic"><use href="#i-epic"/></svg> Epic Games Store</h3>
+  <details><summary>展开 Epic 自查清单</summary>
+  <ul>
+    <li>☐ Dev Portal 组织已注册</li>
+    <li>☐ 分发协议和税务已签署</li>
+    <li>☐ 产品已创建，商店页面已配置</li>
+    <li>☐ IARC 分级已完成（韩国需额外 GRAC）</li>
+    <li>☐ 构建通过 BPT 上传</li>
+    <li>☐ 如有在线多人：跨平台联机已实现</li>
+    <li>☐ 如其他平台有成就：EOS Achievements 已集成</li>
+    <li>☐ 补丁说明格式符合要求</li>
+    <li>☐ 沙盒环境测试通过</li>
+  </ul></details>
+
+  <h3><svg class="icon icon-ps"><use href="#i-ps"/></svg> PlayStation</h3>
+  <details><summary>展开 PlayStation 自查清单</summary>
+  <ul>
+    <li>☐ 已注册 PlayStation Partners 并通过审核</li>
+    <li>☐ 已签署 GDPA</li>
+    <li>☐ 获取 DevNet 访问权和 PS SDK</li>
+    <li>☐ 开发机已申请到位</li>
+    <li>☐ 游戏已在 DevKit 上充分测试</li>
+    <li>☐ TRC 合规自测（系统稳定性、UI、网络、存档、手柄）</li>
+    <li>☐ Trophy 奖杯系统已实现</li>
+    <li>☐ IARC 分级已完成</li>
+    <li>☐ 商店素材齐全</li>
+    <li>☐ Independent Partner Title Form 已提交</li>
+  </ul></details>
+
+  <h3><svg class="icon icon-xbox"><use href="#i-xbox"/></svg> Xbox</h3>
+  <details><summary>展开 Xbox 自查清单</summary>
+  <ul>
+    <li>☐ ID@Xbox 申请已通过，概念已审批</li>
+    <li>☐ Xbox 发布协议已签署</li>
+    <li>☐ GDK 集成，DevKit 到手</li>
+    <li>☐ Partner Center 配置完成</li>
+    <li>☐ Xbox Services 已配置</li>
+    <li>☐ Submission Validator 自检无报错</li>
+    <li>☐ Certification Questionnaire 已填</li>
+    <li>☐ 辅助信息已上传</li>
+    <li>☐ Optional Certification 建议先做</li>
+    <li>☐ CFR 历史全部修复</li>
+    <li>☐ 版本号已递增</li>
+  </ul></details>
+</section>
+
+<section id="ax3">
+  <h2><svg class="icon icon-doc"><use href="#i-doc"/></svg> 附录三：六平台费用明细</h2>
+  <table>
+    <tr><th>费用项</th><th style="color:var(--apple)">App Store</th><th style="color:var(--google)">Google Play</th><th style="color:var(--steam)">Steam</th><th style="color:var(--epic)">Epic</th><th style="color:var(--ps)">PS</th><th style="color:var(--xbox)">Xbox</th></tr>
+    <tr><td><strong>注册/准入费</strong></td><td>$99/年</td><td>$25 一次性</td><td>$100/产品</td><td>免费</td><td>审核制（免费）</td><td>免费</td></tr>
+    <tr><td><strong>开发机</strong></td><td>不需要</td><td>不需要</td><td>不需要</td><td>不需要</td><td>申请免费</td><td>申请免费</td></tr>
+    <tr><td><strong>SDK</strong></td><td>Xcode 免费</td><td>Android SDK 免费</td><td>免费</td><td>免费</td><td>NDA免费</td><td>GDK免费</td></tr>
+    <tr><td><strong>提交费</strong></td><td>含在年费</td><td>含在 $25</td><td>含在 $100</td><td>$100/产品</td><td>无</td><td>Partner Center 小费</td></tr>
+    <tr><td><strong>认证费</strong></td><td>免费</td><td>免费</td><td>免费</td><td>免费</td><td>未公开</td><td>Optional 付费</td></tr>
+    <tr><td><strong>收入分成</strong></td><td>30%/15%</td><td>30%/15%</td><td>30→20% 阶梯</td><td>首$1M 100%/12%</td><td>标准 30%</td><td>标准 30%</td></tr>
+    <tr><td><strong>打款门槛</strong></td><td>未明确</td><td>未明确</td><td>$100</td><td>未明确</td><td>未公开</td><td>$200</td></tr>
+  </table>
+  <div class="callout tip"><span class="ct">💡 费用总结</span>最低成本的发布路径：<strong>Google Play ($25) + Epic + 移动端</strong>（约 $125 起）。但不同平台触达不同玩家群体，建议根据游戏定位选择发布策略。主机平台（PS/Xbox）虽无注册费，但准入审核和认证投入远超 PC/移动端。</div>
+</section>
+
+<section id="ax4">
+  <h2><svg class="icon icon-doc"><use href="#i-doc"/></svg> 附录四：移动端 vs PC端 vs 主机端 — 关键差异</h2>
+  <table>
+    <tr><th>维度</th><th><svg class="icon icon-mobile"><use href="#i-mobile"/></svg> 移动端</th><th><svg class="icon icon-pc"><use href="#i-pc"/></svg> PC端</th><th><svg class="icon icon-console"><use href="#i-console"/></svg> 主机端</th></tr>
+    <tr><td><strong>典型准入</strong></td><td>付费注册 → 即可上架</td><td>Steam/Epic 开放注册；需 $100/产品</td><td>需审核/NDA（PS/Xbox），非自助</td></tr>
+    <tr><td><strong>开发机</strong></td><td>不需要（Mac/PC即可）</td><td>不需要（PC即可）</td><td>需 DevKit</td></tr>
+    <tr><td><strong>上传格式</strong></td><td>IPA / AAB</td><td>Steam depot / Epic BPT</td><td>PS包 / Xbox包</td></tr>
+    <tr><td><strong>审核深度</strong></td><td>政策合规+基本功能</td><td>基础功能+内容合规</td><td>多阶段技术合规认证（TRC/XR）</td></tr>
+    <tr><td><strong>补丁更新</strong></td><td>可独立于版本更新</td><td>可热更新</td><td>需重新认证</td></tr>
+    <tr><td><strong>测试分发</strong></td><td>TestFlight / 测试轨道</td><td>Beta分支/密钥分发</td><td>内测有限</td></tr>
+    <tr><td><strong>社区</strong></td><td>内置评论/评分</td><td>Steam 有独立社区（评测、讨论、创意工坊）</td><td>平台内置社区</td></tr>
+    <tr><td><strong>收入分成</strong></td><td>30%/15%</td><td>30→20% / 88-12%</td><td>标准 30%</td></tr>
+  </table>
+</section>
+
+</div><!-- /.doc-body -->
+</div><!-- /.layout -->
+</div><!-- /.doc-container.wide.shell -->
+
+<div class="doc-container wide shell">
+  <div class="footer-note">
+    本手册所有费用、要求与流程均来自各平台官方文档（截至 2026 年 6 月核实）。平台政策会更新，实际操作时请以官方最新文档为准。<br>
+    官方入口：<a href="https://developer.apple.com/" target="_blank">Apple Developer</a> · <a href="https://play.google.com/console" target="_blank">Google Play Console</a> · <a href="https://partner.steamgames.com/" target="_blank">Steamworks</a> · <a href="https://dev.epicgames.com/portal" target="_blank">Epic Dev Portal</a> · <a href="https://partners.playstation.net/" target="_blank">PlayStation Partners</a> · <a href="https://developer.microsoft.com/games/publish" target="_blank">Xbox Dev Programs</a>
+  </div>
+</div>
+
+<script>
+// TOC active highlight
+const links=document.querySelectorAll('aside.toc a');
+const secs=document.querySelectorAll('.doc-body section[id]');
+function onScroll(){
+  let cur='';
+  secs.forEach(s=>{if(window.scrollY>=s.offsetTop-100)cur=s.id});
+  links.forEach(a=>{
+    a.classList.remove('ac-apple','ac-google','ac-steam','ac-epic','ac-ps','ac-xbox','ac-appendix');
+    const href=a.getAttribute('href');
+    if(href==='#'+cur){
+      if(cur.startsWith('ma'))a.classList.add('ac-apple');
+      else if(cur.startsWith('mg'))a.classList.add('ac-google');
+      else if(cur.startsWith('pst'))a.classList.add('ac-steam');
+      else if(cur.startsWith('pse'))a.classList.add('ac-epic');
+      else if(cur.startsWith('cps'))a.classList.add('ac-ps');
+      else if(cur.startsWith('cxb'))a.classList.add('ac-xbox');
+      else a.classList.add('ac-appendix');
+    }
+  });
+}
+window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+</script>
+    </main>    <footer id="contact" class="footer">
+      <div>© 2026 @heyhong</div>
+      <a href="mailto:hong@heyhong.net">hong@heyhong.net</a>
+    </footer>
+  </body>
+</html>

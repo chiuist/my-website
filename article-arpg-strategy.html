@@ -1,0 +1,841 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>暗黑ARPG社区搭建与运营 | HEYHONG</title>
+    <link rel="stylesheet" href="article-pages.css" />
+    <link rel="stylesheet" href="article-doc.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.0.1/dist/chartjs-plugin-annotation.min.js"></script>
+    
+  </head>
+  <body class="arpg-strategy-page">
+    <header class="header">
+      <a class="brand" href="index.html" aria-label="HEYHONG 首页">
+        <img src="assets/logo.png" alt="HEYHONG" />
+      </a>
+      <nav class="nav" aria-label="主导航">
+        <a href="articles.html">发行</a>
+        <a href="index.html#games">产品</a>
+        <a href="#contact">联系</a>
+      </nav>
+    </header>
+
+    <main>
+<div class="doc-container shell">
+
+<!-- ===== 封面 ===== -->
+<div class="doc-cover">
+  <h1>⚔️ 暗黑ARPG社区搭建与运营</h1>
+  <p>面向 PoE2 + D4 结合体品类，从零搭建全球社区体系。涵盖平台选型、频道架构、内容节奏、KOL合作与分区域落地方案。</p>
+  <div class="badge-row">
+    <span class="badge">PoE2 深度系统</span>
+    <span class="badge">D4 季节制运营</span>
+    <span class="badge">Discord 私域核心</span>
+    <span class="badge">理论构建BD社区</span>
+    <span class="badge">赛季驱动内容</span>
+  </div>
+  <p class="meta">基于《全球游戏用户社区平台地区调研》+《海外社区平台官号搭建SOP》定制 | 2026年6月</p>
+</div>
+
+<!-- ===== 导览 ===== -->
+<div class="toc">
+  <div class="toc-title">📑 导览目录</div>
+  <div class="toc-grid">
+    <a class="toc-item" href="#genre"><span class="toc-icon">🎯</span>品类特征分析</a>
+    <a class="toc-item" href="#personas"><span class="toc-icon">👤</span>用户画像分层</a>
+    <a class="toc-item" href="#platform-matrix"><span class="toc-icon">📊</span>平台优先级矩阵</a>
+    <a class="toc-item" href="#discord"><span class="toc-icon">💬</span>Discord 深度方案</a>
+    <a class="toc-item" href="#reddit"><span class="toc-icon">🔴</span>Reddit 方案</a>
+    <a class="toc-item" href="#twitch-youtube"><span class="toc-icon">📺</span>Twitch / YouTube</a>
+    <a class="toc-item" href="#steam"><span class="toc-icon">🎮</span>Steam 社区</a>
+    <a class="toc-item" href="#regional"><span class="toc-icon">🌍</span>区域落地适配</a>
+    <a class="toc-item" href="#timeline"><span class="toc-icon">📅</span>分阶段运营日历</a>
+    <a class="toc-item" href="#events"><span class="toc-icon">🔥</span>关键事件运营</a>
+    <a class="toc-item" href="#metrics"><span class="toc-icon">📈</span>指标体系</a>
+    <a class="toc-item" href="#appendix"><span class="toc-icon">📎</span>附录与来源</a>
+  </div>
+</div>
+
+
+<!-- ===== 一、品类特征分析 ===== -->
+<h2 id="genre">🎯 一、暗黑风 ARPG 品类社区特征分析</h2>
+
+<div class="region-card">
+<p>本方案面向的产品定位为：<strong>PoE2（流放之路2）的深度系统 × D4（暗黑破坏神4）的视觉体验与季节制运营</strong>的结合体。这是一个<strong>服务型暗黑类动作角色扮演游戏（Service-based Dark Fantasy ARPG）</strong>，其社区生态与其他品类的游戏有本质区别——核心差异在于：<strong>「Build 理论构建」是社区的第一驱动力</strong>。</p>
+</div>
+
+<h3>为什么 ARPG 社区与众不同？</h3>
+<div class="platform-section">
+<ul>
+  <li><strong>Build（流派构筑）是社交货币</strong> — 玩家在社区的"地位"来自发现/优化一套强力 Build 的能力，而非单纯的游戏时长或排名</li>
+  <li><strong>数据工具生态是基础设施</strong> — 类似 Path of Building、poe.ninja、Mobalytics 这类 BD 计算器/数据站是社区的"水电煤"，没有它们社区无法运转</li>
+  <li><strong>赛季/赛季制创造脉冲式活跃</strong> — 每个新赛季 = 社区的"新年"，所有玩家同时从零开始，讨论密度呈指数级爆发</li>
+  <li><strong>Hardcore（专家模式）玩家是意见领袖</strong> — HC 玩家的 Build 和策略被 SC（标准模式）玩家视为"权威"，他们天然成为社区 KOL</li>
+  <li><strong>交易经济催生独立子社区</strong> — 物品交易（无论是官方 AH 还是玩家 P2P）需要专门的交易频道/版块，这是 ARPG 特有的</li>
+  <li><strong>"Patch Note 文化"</strong> — 每次版本更新补丁都是社区最大的"事件"，玩家逐字解读、争论平衡性变化</li>
+</ul>
+</div>
+
+<h3>竞品社区数据参照</h3>
+<div class="stat-grid">
+  <div class="stat-box"><div class="num">~71,000</div><div class="label">PoE2 官方 Discord 成员</div></div>
+  <div class="stat-box"><div class="num">578,562</div><div class="label">PoE2 Steam 历史峰值在线</div></div>
+  <div class="stat-box"><div class="num">33,824</div><div class="label">D4 Twitch 月峰值观众</div></div>
+  <div class="stat-box"><div class="num">7,060</div><div class="label">D4 Twitch 月均观众</div></div>
+</div>
+<p class="source">来源：<a href="https://discordhub.net/server/path-of-exile-2" target="_blank">DiscordHub PoE2 Discord</a>（截至报告采集时 ~71K） · <a href="https://steamcharts.com/app/2694490" target="_blank">SteamCharts PoE2</a> · <a href="https://www.twitchmetrics.net/g/515024-diablo-iv" target="_blank">TwitchMetrics D4</a></p>
+
+<div class="chart-container">
+  <div class="chart-title">PoE2 Steam 在线人数趋势（2025.01–2026.06）— 赛季脉冲模型可视化</div>
+  <div class="chart-wrap tall">
+    <canvas id="chartPoE2Trend"></canvas>
+  </div>
+  <p class="source">重大版本 / 新赛季节点后，历史样本中平均在线人数约出现 +200% 至 +550% 的回升，随后逐月回落。数据更新至 2026.06（近 30 日）。<br>来源：<a href="https://steamcharts.com/app/2694490" target="_blank">SteamCharts Path of Exile 2</a></p>
+</div>
+
+<div class="key-insight dark">
+<strong>⚔️ 核心洞察：</strong>ARPG 社区的生命周期不是线性的，而是以赛季为单位的<strong>脉冲波</strong>。社区运营的所有关键动作（BD大赛、主播合作、AMA）都必须精准卡在赛季节点上。在赛季间隙期维持社区热度的能力，决定了一款 ARPG 的长线留存。
+</div>
+
+<!-- ===== 二、用户画像 ===== -->
+<h2 id="personas">👥 二、核心用户画像分层</h2>
+
+<div class="persona-grid">
+
+<div class="persona-card">
+  <h4>🧪 理论构建师（Theorycrafter）</h4>
+  <div class="persona-desc">
+    社区的"大脑"。花大量时间在计算器里测试技能协同、伤害公式、装备搭配。他们通常是每个赛季最早发布 Meta Build 的人。占比约 5–8%，对高质量讨论和传播内容贡献较高。
+  </div>
+  <div class="persona-tags">
+    <span class="persona-tag">核心创作者</span>
+    <span class="persona-tag">BD作者</span>
+    <span class="persona-tag">意见领袖</span>
+    <span class="persona-tag">高影响力</span>
+  </div>
+</div>
+
+<div class="persona-card">
+  <h4>📺 流媒体受众（Streamer Follower）</h4>
+  <div class="persona-desc">
+    通过 Rob2628、wudijo 等 ARPG 头部主播接触游戏的群体。他们的 Build 选择、游戏理解高度依赖主播推荐。占比约 25–30%，是社区中传播力最强的群体。
+  </div>
+  <div class="persona-tags">
+    <span class="persona-tag">内容消费者</span>
+    <span class="persona-tag">KOL跟随者</span>
+    <span class="persona-tag">口碑传播者</span>
+    <span class="persona-tag">转化关键</span>
+  </div>
+</div>
+
+<div class="persona-card">
+  <h4>🎮 休闲刷宝人（Casual Looter）</h4>
+  <div class="persona-desc">
+    喜欢爽快战斗和掉落快感，不深究数学最优解。跟着攻略玩 Meta Build，享受"割草"的快乐。占比最大约 40–45%，是付费的主力军（皮肤/Battle Pass）。
+  </div>
+  <div class="persona-tags">
+    <span class="persona-tag">最大基数</span>
+    <span class="persona-tag">付费主力</span>
+    <span class="persona-tag">留存敏感</span>
+    <span class="persona-tag">需引导</span>
+  </div>
+</div>
+
+<div class="persona-card">
+  <h4>💰 交易商/收藏家（Trader / Collector）</h4>
+  <div class="persona-desc">
+    对经济系统极度痴迷，把一半时间花在交易频道/AH 上。追求完美属性装备和稀有收藏品。占比约 10–15%，对游戏内经济健康度最敏感。
+  </div>
+  <div class="persona-tags">
+    <span class="persona-tag">经济敏感</span>
+    <span class="persona-tag">高黏性</span>
+    <span class="persona-tag">子社区活跃</span>
+    <span class="persona-tag">反馈密集</span>
+  </div>
+</div>
+
+<div class="persona-card">
+  <h4>💀 HC 专家模式玩家（Hardcore Player）</h4>
+  <div class="persona-desc">
+    死亡=永久损失的高风险玩家群体。他们的 Build 和策略被整个社区奉为圭臬。虽然占比仅 3–5%，但社区话语权极高，是天然的 KOL 池。
+  </div>
+  <div class="persona-tags">
+    <span class="persona-tag">天然KOL池</span>
+    <span class="persona-tag">高声望</span>
+    <span class="persona-tag">硬核标杆</span>
+    <span class="persona-tag">稀缺群体</span>
+  </div>
+</div>
+
+</div>
+
+<div class="chart-container">
+  <div class="chart-title">ARPG 用户画像构成模型</div>
+  <div class="chart-wrap short">
+    <canvas id="chartPersonas"></canvas>
+  </div>
+  <p class="source">模型参考：<a href="https://quanticfoundry.com/gamer-types/" target="_blank">Quantic Foundry Gamer Types</a> · <a href="https://gamedesigning.org/gaming/gamer-types/" target="_blank">Bartle Player Taxonomy</a> · <a href="https://www.reddit.com/r/pathofexile/" target="_blank">r/pathofexile 社区观察</a></p>
+</div>
+
+<!-- ===== 三、平台优先级矩阵 ===== -->
+<h2 id="platform-matrix"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg> 三、社区平台优先级矩阵（ARPG 品类定制）</h2>
+
+<p>通用 SOP 给出了全平台的优先级建议。针对 ARPG 品类，下列优先级围绕 Build 文化、赛季节奏、直播传播和平台使用场景制定。</p>
+
+<div class="priority-box">
+  <div class="pbox p0">
+    <div class="plabel">⚡ P0 生死攸关</div>
+    <div class="pname">Discord</div>
+    <div class="pdesc">ARPG 社区的绝对核心<br>Build 讨论/组队/交易</div>
+  </div>
+  <div class="pbox p0">
+    <div class="plabel">⚡ P0 生死攸关</div>
+    <div class="pname">Reddit</div>
+    <div class="pdesc">Build 分发的主阵地<br>r/GameName 是流量入口</div>
+  </div>
+  <div class="pbox p1">
+    <div class="plabel">🔶 P1 核心引擎</div>
+    <div class="pname">Twitch</div>
+    <div class="pdesc">ARPG 流量放大器<br>头部主播=免费获客</div>
+  </div>
+  <div class="pbox p1">
+    <div class="plabel">🔶 P1 核心引擎</div>
+    <div class="pname">YouTube</div>
+    <div class="pdesc">Build 教程/patch notes 长尾内容<br>SEO 搜索流量主入口</div>
+  </div>
+  <div class="pbox p2">
+    <div class="plabel">🔷 P2 重要补充</div>
+    <div class="pname">Steam 社区</div>
+    <div class="pdesc">PC 版必做<br>评测/指南/创意工坊</div>
+  </div>
+  <div class="pbox p2">
+    <div class="plabel">🔷 P2 重要补充</div>
+    <div class="pname">X/Twitter</div>
+    <div class="pdesc">Patch Notes 广播<br>开发者实时互动</div>
+  </div>
+  <div class="pbox p3">
+    <div class="plabel">🔄 P3 区域按需</div>
+    <div class="pname">Facebook / TikTok / LINE</div>
+    <div class="pdesc">拉美/东南亚/日本等移动端市场<br>视发行区域决定优先级</div>
+  </div>
+</div>
+
+<div class="key-insight">
+<strong>💡 与通用 SOP 的关键差异：</strong>基于 ARPG 的 Build 文化和直播传播特点，Reddit 可按 P0 运营，Twitch 接近 P0；Instagram / TikTok 对硬核 ARPG Build 讨论的直接价值低于休闲手游。
+</div>
+
+<div class="chart-container">
+  <div class="chart-title">ARPG vs 通用游戏品类 — 平台重要性对比</div>
+  <div class="chart-wrap medium">
+    <canvas id="chartPlatformCompare"></canvas>
+  </div>
+  <p class="source">评分维度：平台覆盖、Build 讨论适配度、赛季传播能力、直播带动能力和区域落地成本。</p>
+</div>
+
+<!-- ===== 四、Discord 深度方案 ===== -->
+<h2 id="discord">💬 四、Discord 官方服务器深度方案</h2>
+
+<div class="region-card">
+<div class="tag">P0 最高优先</div><div class="tag gold">ARPG 绝对核心</div>
+<p>Discord 是 ARPG 社区的<strong>绝对基础设施</strong>。对于 PoE2+D4 结合体而言，Discord 服务器的功能远远超出"聊天群"的范畴——它是一个集成了 <strong>Build 讨论、LFG 组队、物品交易、Bug 反馈、开发者 AMA</strong> 的综合性社区中枢。</p>
+</div>
+
+<h3>4.1 推荐频道结构（ARPG 定制版）</h3>
+<div class="channel-tree">
+  <div class="channel-category"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg> INFORMATION（信息区 — 只读/公告）</div>
+  <div class="channel-item"><span class="channel-hash">#</span>welcome <span class="channel-desc">— 新手引导 + 规则 + 角色自选 Bot 入口</span></div>
+  <div class="channel-item"><span class="channel-hash">#</span>announcements <span class="channel-desc">— 仅官方发布：版本更新/赛事/维护公告</span></div>
+  <div class="channel-item"><span class="channel-hash">#</span>patch-notes <span class="channel-desc">— 补丁详情 + 开发者设计意图说明（ARPG 核心！）</span></div>
+  <div class="channel-item"><span class="channel-hash">#</span>season-info <span class="channel-desc">— 当季主题/赛季机制/限时活动汇总</span></div>
+  <div class="channel-item"><span class="channel-hash">#</span>roadmap <span class="channel-desc">— 开发路线图 + 未来版本预告</span></div>
+  <div class="channel-item"><span class="channel-hash">#</span>bug-report-guide <span class="channel-desc">— 如何提交 Bug 的模板和流程</span></div>
+
+  <div class="channel-category">⚔️ BUILDS & THEORYCRAFTING（流派构筑 — 社区心脏）</div>
+  <div class="channel-item"><span class="channel-hash">#</span>build-sharing <span class="channel-desc">— 玩家分享自创 Build 的主频道（带 BD 格式模板 Bot）</span></div>
+  <div class="channel-item"><span class="channel-hash">#</span>build-help <span class="channel-desc">— 新手求教 Build 建议 / 属性分配问题</span></div>
+  <div class="channel-item"><span class="channel-hash">#</span>theorycrafting <span class="channel-desc">— 深度数学讨论：伤害公式/机制解析/数据挖掘</span></div>
+  <div class="channel-item"><span class="channel-hash">#</span>endgame-strategy <span class="channel-desc">— 终局内容攻略：地下城/BOSS/挑战打法</span></div>
+  <div class="channel-item"><span class="channel-hash">#</span>pvp-builds <span class="channel-desc">— PvP 专属 Build 讨论（如果有竞技模式）</span></div>
+  <div class="channel-item"><span class="channel-hash">#</span>hardcore-builds <span class="channel-desc">— HC 专家模式专用 Build 区（高 prestige）</span></div>
+  <div class="channel-item"><span class="channel-hash">#</span>class-channels <span class="channel-desc">— 按职业分频：#barbarian-builds #sorcerer-builds #rogue-builds ...</span></div>
+
+  <div class="channel-category">🤝 LFG & PARTY FIND（组队匹配）</div>
+  <div class="channel-item"><span class="channel-hash">#</span>lfg-general <span class="channel-desc">— 通用组队（按 Bot 模板发帖：职业/等级/目标/地区）</span></div>
+  <div class="channel-item"><span class="channel-hash">#</span>lfg-endgame <span class="channel-desc">— 终局内容组队（高难度副本/世界 BOSS）</span></div>
+  <div class="channel-item"><span class="channel-hash">#</span>lfg-pvp <span class="channel-desc">— PvP 组队/竞技场匹配</span></div>
+  <div class="channel-item"><span class="channel-hash">#</span>lfg-hardcore <span class="channel-desc">— HC 模式组队（死亡=永久损失，信任门槛更高）</span></div>
+  <div class="channel-item"><span class="channel-hash">#</span>lfg-trading <span class="channel-desc">— 交易面交/共享掉落分组</span></div>
+
+  <div class="channel-category">💰 TRADING ECONOMY（交易经济 — ARPG 特色）</div>
+  <div class="channel-item"><span class="channel-hash">#</span>trade-buy <span class="channel-desc">— 收购需求发布</span></div>
+  <div class="channel-item"><span class="channel-hash">#</span>trade-sell <span class="channel-desc">— 出售/拍卖发布</span></div>
+  <div class="channel-item"><span class="channel-hash">#</span>trade-price-check <span class="channel-desc">— 物品估价询问</span></div>
+  <div class="channel-item"><span class="channel-hash">#</span>economy-discussion <span class="channel-desc">— 游戏内经济趋势/通胀讨论/开发者经济调整反馈</span></div>
+
+  <div class="channel-category">💬 COMMUNITY（社区交流）</div>
+  <div class="channel-item"><span class="channel-hash">#</span>general <span class="channel-desc">— 自由聊天/闲聊/off-topic</span></div>
+  <div class="channel-item"><span class="channel-hash">#</span>media-share <span class="channel-desc">— 截图/视频/战利品展示（炫耀文化！）</span></div>
+  <div class="channel-item"><span class="channel-hash">#</span>lore-discussion <span class="channel-desc">— 剧情设定/世界观讨论（暗黑风 ARPG 粉丝热衷此道）</span></div>
+  <div class="channel-item"><span class="channel-hash">#</span>suggestions <span class="channel-desc">— 玩家建议/功能请求（定期由 CM 汇总给开发团队）</span></div>
+  <div class="channel-item"><span class="channel-hash">#</span>off-topic <span class="channel-desc">— 纯水聊/其他游戏</span></div>
+
+  <div class="channel-category">🌍 REGIONAL（地区频道）</div>
+  <div class="channel-item"><span class="channel-hash">#</span>english / #german / #french / #spanish / #portuguese / #japanese / #korean / #chinese-trad / #russian</div>
+
+  <div class="channel-category">🎙️ VOICE CHANNELS（语音频道）</div>
+  <div class="channel-item"><span class="channel-channel">🔊</span> General Voice / Endgame Raid Voice / HC Party Voice / Community Events Voice / Developer AMA Voice</div>
+
+  <div class="channel-category">🔔 NOTIFICATIONS（通知 — 仅 Bot 使用）</div>
+  <div class="channel-item"><span class="channel-hash">#</span>streamer-alerts <span class="channel-desc">— 合作主播开播通知</span></div>
+  <div class="channel-item"><span class="channel-hash">#</span>patch-alerts <span class="channel-desc">— 版本更新/紧急修复推送</span></div>
+</div>
+
+<h3>4.2 必配 Bot 工具链（ARPG 专用）</h3>
+<div class="platform-section">
+<table class="action-table">
+<tr><td>Bot 名称</td><td>功能</td><td>ARPG 场景价值</td></tr>
+<tr><td><strong>Mee6 / Carl-bot</strong></td><td>欢迎消息/等级系统/自动Mod</td><td>新人引导 + 活跃度激励（等级解锁专属频道）</td></tr>
+<tr><td><strong>Build Template Bot（自定义）</strong></td><td>Bd 发布格式化模板</td><td>强制统一格式：技能树链接/装备列表/伤害数据/适用场景 — 大幅提升 BD 质量</td></tr>
+<tr><td><strong>LFG Bot（如 PartyBot）</strong></td><td>组队帖子自动管理</td><td>自动过期/一键复制/按职业筛选/地区过滤 — 解决 ARPG 组队痛点</td></tr>
+<tr><td><strong>Trade Bot（自定义/API对接）</strong></td><td>物品价格查询/交易撮合</td><td>对接游戏内物品 API 或第三方数据站，实现 !price [物品名] 即时查询</td></tr>
+<tr><td><strong>Patch Notes Bot</strong></td><td>自动抓取/翻译补丁信息</td><td>版本更新时自动推送到 #patch-notes 并 @relevant-roles</td></tr>
+<tr><td><strong>Stat Tracker Bot</strong></td><td>玩家游戏数据查询</td><td>!stats [角色名] 显示通关时间/击杀数/装备评分 — 满足炫耀欲</td></tr>
+<tr><td><strong>DynaBot / Ticket Tool</strong></td><td>工单系统</td><td>Bug 提交/账号问题/客服工单 — 自动分类 + 内部流转</td></tr>
+</table>
+</div>
+
+<h3>4.3 角色权限系统设计</h3>
+<div class="platform-section">
+<p>利用 Discord 角色体系建立<strong>社区身份层级</strong>，这对 ARPG 至关重要——玩家会为了获得稀有角色标识而增加参与度。</p>
+<ul>
+  <li><span class="tag blue">Developer</span> — 开发团队成员（金色标识，最高信任）</li>
+  <li><span class="tag">Community Manager</span> — 社区运营团队</li>
+  <li><span class="tag red">Moderator</span> — 版主（可从资深玩家中招募志愿者）</li>
+  <li><span class="tag gold">Theorycrafter</span> — 认证的理论构建师（需提交至少 3 套高质量 Build 经审核授予）</li>
+  <li><span class="tag">HC Survivor</span> — HC 模式达到特定等级/终局的玩家（稀缺荣誉标识）</li>
+  <li><span class="tag">Season Champion</span> — 赛季排行榜前列玩家</li>
+  <li><span class="tag blue">Content Creator</span> — 认证的内容创作者（主播/Youtuber/写手）</li>
+  <li><span class="tag">Founder / Early Access</span> — 测试期/抢先体验玩家</li>
+  <li><span class="tag">Booster / Supporter</span> — Nitro 捐赠者或游戏内支持者</li>
+</ul>
+</div>
+
+<div class="key-insight dark">
+<strong>⚔️ Discord ARPG 运营心法：</strong>你的 Discord 不只是一个聊天室——它是游戏的"第二界面"。玩家在游戏中遇到问题时第一反应是切到 Discord 查 BD、找人组队、看 Patch Notes。如果 Discord 无法快速解决这些问题，玩家就会流失到第三方 Discord 或 Reddit。因此 <strong>搜索友好 + 信息架构清晰 + Bot 自动化</strong> 是三大命门。
+</div>
+
+<!-- ===== 五、Reddit 方案 ===== -->
+<h2 id="reddit">🔴 五、Reddit 官方 Subreddit 方案</h2>
+
+<div class="region-card">
+<div class="tag red">P0 生死攸关</div><div class="tag gold">Build 文化发源地</div>
+<p>Reddit 是 ARPG 社区的<strong>Build 文化发源地和搜索引擎入口</strong>。"Best Barbarian Build Season 10" 这类搜索词的首屏结果几乎必定是 Reddit 帖子。对于 PoE2+D4 结合体来说，Subreddit 不是"可有可无"的选项，而是<strong>获客漏斗的顶端</strong>。</p>
+</div>
+
+<h3>5.1 Subreddit 基础配置</h3>
+<div class="platform-section">
+<table class="action-table">
+<tr><td>配置项</td><td>ARPG 推荐设置</td><td>理由</td></tr>
+<tr><td>名称</td><td>r/GameName （首选）/ r/StudioName</td><td>短且好记；注意名称不可更改！</td></tr>
+<tr><td>Topic</td><td>Gaming</td><td>确保出现在游戏相关推荐中</td></tr>
+<tr><td>Type</td><td>Public</td><td>最大化曝光，ARPG 需要开放讨论氛围</td></tr>
+<tr><td>描述</td><td>官方社区 + Wiki 链接 + Discord 邀请</td><td>首句即体现官方身份</td></tr>
+</table>
+</div>
+
+<h3>5.2 Post Flair 分类（ARPG 专用）</h3>
+<div class="platform-section">
+<p>Post Flair 是 ARPG Subreddit 的灵魂——它决定了信息架构的可用性。一个 ARPG Subreddit 至少需要以下分类：</p>
+<ul>
+  <li><strong class="tag red">Build Guide</strong> — 完整 Build 教程（最高价值内容类型）</li>
+  <li><strong class="tag">Build Sharing</strong> — 玩家自创 Build 分享</li>
+  <li><strong class="tag gold">Question</strong> — 新手提问（需区分于 Build Help）</li>
+  <li><strong class="tag blue">Build Help</strong> — 求 Build 建议</li>
+  <li><strong class="tag">Loot Drop</strong> — 稀有掉落炫耀（ARPG 独有的"晒欧"文化）</li>
+  <li><strong class="tag">Discussion</strong> — 一般性讨论</li>
+  <li><strong class="tag red">Official</strong> — 官方公告（仅 Dev/CM 可用）</li>
+  <li><strong class="tag">Patch Notes</strong> — 版本更新（自动抓取或手动置顶）</li>
+  <li><strong class="tag">Bug Report</strong> — Bug 反馈</li>
+  <li><strong class="tag">Feedback</strong> — 功能建议</li>
+  <li><strong class="tag">Fan Art / Media</strong> — 同人创作/截图/视频</li>
+  <li><strong class="tag">Lore</strong> — 剧情/世界观讨论</li>
+  <li><strong class="tag blue">Meme</strong> — 梗图/搞笑内容（ARPG 社区的减压阀）</li>
+  <li><strong class="tag">Fluff</strong> — 轻量内容</li>
+</ul>
+</div>
+
+<h3>5.3 User Flair 身份标签</h3>
+<div class="platform-section">
+<ul>
+  <li><strong>[Developer]</strong> — 开发者</li>
+  <li><strong>[Community Manager]</strong> — 社区经理</li>
+  <li><strong>[Game Designer]</strong> — 游戏设计师</li>
+  <li><strong>[Verified Streamer]</strong> — 认证主播</li>
+  <li><strong>[HC Veteran]</strong> — HC 老兵（需证明）</li>
+  <li><strong>[Season Top X]</strong> — 赛季排行榜玩家</li>
+  <li><strong>[Theorycrafter]</strong> — 理论构建师（认证）</li>
+  <li><strong>[Mod]</strong> — 版主</li>
+</ul>
+</div>
+
+<h3>5.4 内容策略：让 Reddit 为你工作</h3>
+<div class="platform-section">
+<h4>日常运营节奏</h4>
+<ul>
+  <li><strong>每周一</strong>："Weekly Question Thread" — 汇聚所有零散提问，保持版面整洁</li>
+  <li><strong>每周三</strong>：官方/社区精选 Build 推荐（从 Discord #build-sharing 甄选优质内容转发）</li>
+  <li><strong>每月初</strong>：上月社区数据回顾（Top 帖子/活跃用户/开发者回复统计）</li>
+  <li><strong>Patch Day</strong>：第一时间发布完整 Patch Notes + 设计师评论（参考 D4 的 Campfire Chats 策略）</li>
+  <li><strong>Season Start</strong>：赛季启动 AMA + 赛季机制详解帖 + 预告帖提前一周发布</li>
+</ul>
+
+<h4>危机管理 Playbook</h4>
+<ul>
+  <li><strong>Nerf（削弱）引发不满时</strong>：开发者在评论区亲自解释 "Why"（参考暴雪 D4 S4 成功案例）</li>
+  <li><strong>Bug 导致经济崩溃时</strong>：第一时间透明公告 + 修复计划 + 补偿方案（不要试图掩盖）</li>
+  <li><strong>赛季延期/跳票时</strong>：提前坦诚沟通 + 给出具体原因（ARPG 玩家更看重诚实大于速度）</li>
+</ul>
+</div>
+
+<div class="key-insight">
+<strong>💡 Reddit ARPG 金律：</strong>不要把 Subreddit 当成"公告板"——那是 Facebook Page 干的事。Reddit 是<strong>对话发生的地方</strong>。官方账号的存在感应该体现在：<strong>高质量的回复 > 高质量的帖子</strong>。一个开发者在评论区耐心解释为什么某件装备被 Nerf 了，比发十篇公告更有价值。
+</div>
+
+<!-- ===== 六、Twitch / YouTube ===== -->
+<h2 id="twitch-youtube">📺 六、Twitch & YouTube 直播/视频策略</h2>
+
+<div class="region-card">
+<div class="tag">P1 核心引擎</div>
+<p>ARPG 是天生的直播友好型品类——刷怪过程具有强烈的视觉满足感，Build 测试充满不确定性（"这件装备能不能触发？！"），赛季开荒的紧张感极具观赏性。<strong>Twitch 头部主播是 ARPG 免费获客的最有效渠道，没有之一。</strong></p>
+
+<h3>竞品主播格局参考（Diablo IV）</h3>
+</div>
+
+<div class="chart-container">
+  <div class="chart-title">D4 头部主播语言分布（反映 ARPG 国际化社区格局）</div>
+  <div class="chart-wrap short">
+    <canvas id="chartD4Streamers"></canvas>
+  </div>
+  <p class="source">来源：<a href="https://www.twitchmetrics.net/g/515024-diablo-iv" target="_blank">TwitchMetrics Diablo IV</a> — 英语 52%、德语 12%、法语 9%、葡萄牙语 5%、西班牙语 5%</p>
+</div>
+
+<h3>6.1 Twitch 合作策略</h3>
+<div class="platform-section">
+<h4>主播分级合作模式</h4>
+<table class="action-table">
+<tr><td>级别</td><td>粉丝量级</td><td>合作方式</td><td>资源投入</td></tr>
+<tr><td><strong>S 级</strong></td><td>100K+</td><td>正式签约 / Drops 活动 / 首播权</td><td>付费 + 游戏内道具分成</td></tr>
+<tr><td><strong>A 级</strong></td><td>10K–100K</td><td>Drops / 渠道码 / 提前体验权</td><td>渠道码佣金 + 游戏内福利</td></tr>
+<tr><td><strong>B 级</strong></td><td>1K–10K</td><td>Press Account / 官方 Discord 认证 / 偶尔转发</td><td>低预算 / 以权益置换为主</td></tr>
+<tr><td><strong>潜力股</strong></td><td>&lt;1K 但质量高</td><td>纳入观察名单 / 未来储备</td><td>零成本</td></tr>
+</table>
+
+<h4>Drops 活动 SOP（ARPG 最有效的获客手段）</h4>
+<ul>
+  <li><strong>触发条件</strong>：观看 X 小时 → 获得 Y 奖励（外观/货币/抽签券）</li>
+  <li><strong>时机选择</strong>：必须在 <strong>新赛季首发周</strong> 或 <strong>重大版本更新周</strong> 执行——此时自然观众基数最大</li>
+  <li><strong>主播选择</strong>：覆盖多语种（EN/DE/FR/PT/ES/RU），兼顾大小主播（S 级拉动峰值，A-B 级铺量）</li>
+  <li><strong>奖励设计</strong>：纯外观/社交道具最佳（不影响平衡性）；避免给强度道具引发核心玩家反感</li>
+  <li><strong>参考案例</strong>：D4 每次 Season Launch 配合 Drops，Twitch 峰值观众可达均值的 <strong>4–5 倍</strong>（33,824 vs 7,060，<a href="https://www.twitchmetrics.net/g/515024-diablo-iv" target="_blank" style="color:var(--arpg-purple);">TwitchMetrics</a>）</li>
+</ul>
+</div>
+
+<h3>6.2 YouTube 内容矩阵</h3>
+<div class="platform-section">
+<p>YouTube 承担 ARPG 社区的<strong>长尾内容和 SEO 入口</strong>职能。玩家搜 "best barbarian build season 10" 时 YouTube 结果排在首页。</p>
+<table class="action-table">
+<tr><td>内容系列</td><td>频率</td><td>目的</td><td>示例标题风格</td></tr>
+<tr><td><strong>Build Guide 系列</strong></td><td>每赛季初集中产出</td><td>SEO 流量主入口</td><td>"Season 10 Best Sorcerer Build — 5M DPS Breakdown"</td></tr>
+<tr><td><strong>Patch Notes 解读</strong></td><td>每次更新后 24h 内</td><td>建立开发者信任</td><td>"Patch 2.3 Full Breakdown — Every Change Explained"</td></tr>
+<tr><td><strong>开发者日志（Dev Diary）</strong></td><td>双周/月更</td><td>情感连接/期待管理</td><td>"Making of: Designing the New Dungeon System"</td></tr>
+<tr><td><strong>赛季预告/总结</strong></td><td>赛季前后各一次</td><td>脉冲式流量捕获</td><td>"Season 11: Everything We Know So Far"</td></tr>
+<tr><td><strong>高光时刻集锦</strong></td><td>随热门事件</td><td>病毒传播素材</td><td>"World First HC Kill — No Deaths in 47 Hours!"</td></tr>
+</table>
+</div>
+
+<!-- ===== 七、Steam 社区 ===== -->
+<h2 id="steam">🎮 七、Steam 社区策略</h2>
+
+<div class="region-card">
+<div class="tag blue">P2 重要补充</div><div class="tag">PC 端必做</div>
+<p>如果产品登陆 Steam（绝大多数 PC ARPG 都会），Steam 社区是不可绕过的环节。Steam 评测是购买转化的<strong>最关键因素</strong>，社区指南和创意工坊（如有 MOD 支持）则是长线留存的核心。</p>
+</div>
+
+<div class="platform-section">
+<h4>关键动作清单</h4>
+<ul>
+  <li><strong>Steamworks 注册 + Developer Page 创建</strong>（参考 SOP 第 11 章，P0 优先）</li>
+  <li><strong>评测管理策略</strong>：
+    <ul>
+      <li>EA 期间：积极回应每条差评，展示迭代态度（ARPG 玩家非常看重"开发者在听"）</li>
+      <li>正式发售后：建立"已知问题列表"置顶帖 + 定期更新修复进度</li>
+      <li>避免：删除差评、水军好评、无实质回应的模板回复</li>
+    </ul>
+  </li>
+  <li><strong>社区指南激励计划</strong>：
+    <ul>
+      <li>鼓励 Theorycrafter 将 BD 攻略发布为 Steam Guide（内置排版工具）</li>
+      <li>优秀指南作者可获得游戏内称号/Discord 角色奖励</li>
+      <li>指南是 Steam SEO 的重要载体（"gameName best build" 搜索结果）</li>
+    </ul>
+  </li>
+  <li><strong>创意工坊（如支持 MOD）</strong>：
+    <ul>
+      <li>ARPG 的 MOD 生态 = 无限的内容生命力（参考 PoE 的皮肤/特效 MOD 文化）</li>
+      <li>设立 MOD 大赛 + 官方精选推荐</li>
+    </ul>
+  </li>
+  <li><strong>Steam 活动系统</strong>：
+    <ul>
+      <li>每个新赛季同步创建 Steam 活动（Free Weekend / Demo / 更新公告）</li>
+      <li>利用 Steam 动态（Steam News Feed）推送赛季信息</li>
+    </ul>
+  </li>
+</ul>
+</div>
+
+<!-- ===== 八、区域落地适配 ===== -->
+<h2 id="regional">🌍 八、区域落地适配策略</h2>
+
+<p>基于《全球游戏用户社区平台地区调研》，以下是针对本品的区域优先级和本地化策略：</p>
+
+<div class="chart-container">
+  <div class="chart-title">ARPG 品类 — 各区域优先级与平台组合</div>
+  <div class="chart-wrap medium">
+    <canvas id="chartRegionalMatrix"></canvas>
+  </div>
+  <p class="source">评分维度：市场规模、平台适配度、本地化门槛、KOL 生态和发行优先级。本地平台包含日本 X / Twitter、韩国 Naver Cafe、巴西 / 拉美 TikTok 等。</p>
+</div>
+
+<div class="platform-section">
+<h4>🇺🇸 北美 — 全球核心市场（Tier 1）</h4>
+<ul>
+  <li><strong>平台组合</strong>：Discord（主阵地）+ Reddit（r/GameName）+ Twitch（Drops 引擎）+ YouTube（SEO 长尾）</li>
+  <li><strong>语言</strong>：英语为主，西班牙语为辅（拉美裔玩家增长快）</li>
+  <li><strong>KOL 重点</strong>：签约 2–3 名 S 级英语 ARPG 主播 + 覆盖 10–15 名 A 级</li>
+  <li><strong>内容重点</strong>：Build Guides / HC 速通竞赛 / 赛季开荒直播 / 开发者 AMA</li>
+  <li><strong>社区经理</strong>：至少 1 名全职英语 CM（需懂 ARPG 黑话）</li>
+</ul>
+
+<h4>🇪🇺 欧洲 — 第二大市场（Tier 1）</h4>
+<ul>
+  <li><strong>德语区（DE）</strong>：独立 Discord 频道 #german + 德语 subreddit + 德语主播合作（德语占 D4 观众 11%）</li>
+  <li><strong>法语区（FR）</strong>：法语 Discord 频道 + 法语社区经理（SouInsane 等法语主播活跃）</li>
+  <li><strong>英语区（UK/北欧）</strong>：并入北美 Discord，无需额外投入</li>
+  <li><strong>注意</strong>：欧洲玩家对隐私和商业化更敏感，Drops 奖励不宜过于侵略性</li>
+</ul>
+
+<h4>🇯🇵 日本 — 特殊市场（Tier 2，视本地化程度而定）</h4>
+<ul>
+  <li><strong>核心挑战</strong>：日本 ARPG 市场相对小众（偏好 RPG > ARPG），但 D4/PoE 有稳定核心群体</li>
+  <li><strong>平台组合</strong>：X (Twitter)（主阵地，游戏新闻获取第1渠道）+ LINE（推送）+ YouTube（实况）+ 日本本土 Discord</li>
+  <li><strong>本地化要点</strong>：日语 UI/字幕必须母语级质量；VTuber 合作可能效果优于传统游戏主播</li>
+  <li><strong>日本 ARPG 社区特点</strong>：5ch 讨论活跃但管理松散，官方需派专人监控口碑</li>
+</ul>
+
+<h4>🇧🇷 巴西/拉美 — 高增长市场（Tier 2）</h4>
+<ul>
+  <li><strong>平台组合</strong>：Discord（巴西重要社区渠道）+ YouTube + TikTok（年轻触达）</li>
+  <li><strong>语言</strong>：葡萄牙语（巴西）+ 西班牙语（拉美其他）</li>
+  <li><strong>支付</strong>：接入 Pix。Pix 是巴西重要本地支付方式，适合游戏充值、礼包和本地促销场景。</li>
+  <li><strong>机会点</strong>：拉美 ARPG 竞争相对少，先发优势明显</li>
+</ul>
+
+<h4>🌴 东南亚 — 移动端延伸（Tier 2–3）</h4>
+<ul>
+  <li><strong>注意</strong>：如果产品仅有 PC 版，东南亚优先级降低；若有移动版则升至 Tier 1</li>
+  <li><strong>平台</strong>：Facebook Groups（菲律宾/越南）+ YouTube + WhatsApp（印尼/菲律宾公会）</li>
+  <li><strong>代表游戏参照</strong>：Free Fire / MLBB 的社区形态（如果产品偏向轻度 ARPG）</li>
+</ul>
+
+<h4>🇰🇷 韩国（可选）</h4>
+<ul>
+  <li><strong>前提</strong>：产品完成韩语本地化 + 可能需要韩国评级</li>
+  <li><strong>平台</strong>：Naver Cafe（官方社区）+ DC Inside（口碑管理）+ Chzzk/AfreecaTV（直播）</li>
+  <li><strong>韩国 ARPG 特点</strong>：Lost Ark 证明了韩国市场容量；但竞争激烈，需本地发行伙伴</li>
+</ul>
+</div>
+
+<!-- ===== 九、分阶段运营日历 ===== -->
+<h2 id="timeline">📅 九、分阶段运营日历（从零到上线及长线运营）</h2>
+
+<div class="phase-timeline">
+
+<div class="phase-item">
+  <h4>阶段一：地基期（产品公布前 T-6 ~ T-3 个月）</h4>
+  <div class="phase-time">目标：建立社区基础设施 + 积累种子用户</div>
+  <div class="region-card" style="margin:0;">
+    <table class="action-table">
+      <tr><td>Discord</td><td>创建服务器 → 基础频道结构 → 安全配置 → 邀请首批核心玩家（内测申请者/KOL/媒体）→ 目标 500–1,000 人</td></tr>
+      <tr><td>Reddit</td><td>提前 ≥30 天养号 → 创建 r/GameName → 装修 → 发布首个 Teaser 帖 → 目标 500–1,000 订阅</td></tr>
+      <tr><td>YouTube</td><td>创建 Brand Channel → 上传品牌资产 → 发布首个预告片 → 开启订阅通知</td></tr>
+      <tr><td>X/Twitter</td><td>创建账号 → 开始"开发幕后"系列推文（概念图/GIF/团队照片）→ 建立"开发者在说话"的人设</td></tr>
+      <tr><td>Steam</td><td>Steamworks 注册 → Developer Page 创建 → 添加至愿望单页面 → 目标 Wishlist 数</td></tr>
+      <tr><td>网站</td><td>官网上线 → 集成全部社媒链接 + Discord Widget + Newsletter 注册</td></tr>
+    </table>
+  </div>
+</div>
+
+<div class="phase-item">
+  <h4>阶段二：预热期（T-3 ~ T-0 首发日）</h4>
+  <div class="phase-time">目标：将社区热度推向峰值 + 驱动首发销量/下载量</div>
+  <div class="region-card" style="margin:0;">
+    <table class="action-table">
+      <tr><td>T-21 天</td><td>发布 Closed Beta 测试申请 → 仅限 Discord 成员 → 刺激加入</td></tr>
+      <tr><td>T-14 天</td><td>首个实机演示视频（YouTube）+ 预告片 2.0 → 全平台分发</td></tr>
+      <tr><td>T-7 天</td><td>开发者 AMA（Reddit + Discord 同步）→ 回答一切问题</td></tr>
+      <tr><td>T-3 天</td><td>媒体 Embargo 解禁 → 批量评测/预览视频放出</td></tr>
+      <tr><td>T-1 天</td><td>倒计时活动 + 最终预告片 → Discord 全员 @mention</td></tr>
+      <tr><td>T-0 首发日</td><td>Launch Stream（官方 Twitch 频道）+ Drops 激活 + 全平台公告同步</td></tr>
+      <tr><td colspan="2"><strong>首发周关键指标目标</strong>：Discord 在线峰值 ≥ 总成员 40% | Reddit 日活 ≥ 订阅数 15% | Twitch 并发观众 ≥ 5,000</td></tr>
+    </table>
+  </div>
+</div>
+
+<div class="phase-item">
+  <h4>阶段三：首发运营期（Day 1 ~ Day 30）</h4>
+  <div class="phase-time">目标：承接首发流量 → 降低早期流失 → 收集反馈快速迭代</div>
+  <div class="region-card" style="margin:0;">
+    <table class="action-table">
+      <tr><td>每日</td><td>CM 在 Discord/Reddit 巡逻回答玩家问题（高峰期每天 2+ 小时）</td></tr>
+      <tr><td>每周</td><td>"State of Game" 周报帖 → 已知问题 + 修复进度 + 下周计划</td></tr>
+      <tr><td>Day 7</td><td>首次 Hotfix 公布（展示响应速度）+ 首批玩家数据里程碑庆祝</td></tr>
+      <tr><td>Day 14</td><td>首个开发者 Campfire Chat 式直播（参考 D4 策略）→ 解释首发反馈 + 下个 Patch 预告</td></tr>
+      <tr><td>Day 21</td><td>UGC 激励活动启动（截图/视频/Build 分享大赛）→ 用玩家内容填充社区</td></tr>
+      <tr><td>Day 30</td><td>首月复盘报告 + 第一个大型 Patch 预告 → 为第一个"内容低谷期"做准备</td></tr>
+    </table>
+  </div>
+</div>
+
+<div class="phase-item">
+  <h4>阶段四：赛季常态化运营（Day 30 之后 / 进入赛季循环）</h4>
+  <div class="phase-time">目标：建立可持续的赛季脉冲节奏 → 长线留存</div>
+  <div class="region-card" style="margin:0;">
+    <table class="action-table">
+      <tr><td>赛季循环</td><td>每个赛季 3–4 个月 → 赛季末 2 周"淡季" → 赛季前 1 周预热 → 赛季首月爆发</td></tr>
+      <tr><td>赛季 T-7</td><td>赛季预告帖（Reddit 置顶）+ 预告视频 + Discord 赛季信息频道更新</td></tr>
+      <tr><td>赛季 T-0</td><td>赛季启动 AMA / Launch Stream / Drops 活动 / 全新 Build 理论环境开启</td></tr>
+      <tr><td>赛季 W+1</td><td>"Early Season Meta Report" — 第一波 Meta Build 汇总（官方或社区共创）</td></tr>
+      <tr><td>赛季中途</td><td>Mid-Season Balance Update（中小型 Patch）+ 相应的 Patch Notes 内容</td></tr>
+      <tr><td>赛季末 T-14</td><td>下赛季预告（Teaser）→ 维持期待感 → 赛季结束倒计时活动</td></tr>
+      <tr><td>淡季策略</td><td>UGC 大赛 / 社区创作激励 / 开发者日志 / 幕后故事 / Lore 深挖 → 填补内容真空</td></tr>
+    </table>
+  </div>
+</div>
+
+</div>
+
+<div class="chart-container">
+  <div class="chart-title">ARPG 社区活跃度与赛季周期关系示意</div>
+  <div class="chart-wrap tall">
+    <canvas id="chartSeasonCycle"></canvas>
+  </div>
+  <p class="source">模型基于 <a href="https://steamcharts.com/app/2694490" target="_blank">PoE2 Steam 在线人数数据</a>（2025.01–2026.06）归一化处理后绘制，展示首发峰值、内容衰减、赛季预热和新赛季爆发的典型节奏。</p>
+</div>
+
+<!-- ===== 十、关键事件运营 ===== -->
+<h2 id="events">🔥 十、关键事件运营 SOP</h2>
+
+<div class="platform-section">
+<h4>事件 A：版本更新 / Patch Day（最高优先级社区事件）</h4>
+<table class="action-table">
+<tr><td>T-72h</td><td>发布 Preview Post（Reddit）+ Discord #announcements 预告 → "Coming in 72 hours"</td></tr>
+<tr><td>T-24h</td><td>最终提醒 + Patch Notes 链接预告</td></tr>
+<tr><td>T-0</td><td>Patch Notes 全文发布（Reddit 置顶 + Discord #patch-notes + 官网 + X 同步）</td></tr>
+<tr><td>T+2h</td><td>Campfire Chat 式开发者直播（详细解释变更原因 — "The Why"）</td></tr>
+<tr><td>T+24h</td><td>社区反应收集 + FAQ 汇总帖（Reddit）→ 开发者在评论区补充回答</td></tr>
+<tr><td>T+72h</td><td>Hotfix（如有严重 Issue）+ 第一轮 Meta 分析帖出现（鼓励 UGC）</td></tr>
+</table>
+<p class="source">参考策略来源：<a href="https://www.ingamenews.com/2025/09/diablo-iv-season-10-blizzard-revives.html" target="_blank">InGameNews — D4 Campfire Chats 策略分析</a></p>
+</div>
+
+<div class="platform-section">
+<h4>事件 B：新赛季启动（年度最大社区事件）</h4>
+<table class="action-table">
+<tr><td>T-14d</td><td>赛季完整预告（机制/新内容/Battle Pass/时间表）</td></tr>
+<tr><td>T-7d</td><td>开发者 AMA（Reddit + Discord）→ 赛季细节问答</td></tr>
+<tr><td>T-3d</td><td>赛季预告片（Cinematic Trailer）全平台分发</td></tr>
+<tr><td>T-1d</td><td>最后预热 + 服务器就绪公告 + 所有社媒倒计时</td></tr>
+<tr><td>T-0</td><td>赛季上线！官方 Launch Stream（Twitch）+ Drops 激活 + 全平台公告轰炸</td></tr>
+<tr><td>Week 1</td><td>每日简报：服务器状态 + 已知问题 + 热门 Build 趋势 + 截图精选</td></tr>
+<tr><td>Week 2</td><td>"First Season Look Back" — 首周数据亮点（玩家数/时长/击杀数/稀有掉落截图）</td></tr>
+<tr><td>Week 3</td><td>Mid-Season 预告（如有）+ 第一次平衡性微调信号</td></tr>
+</table>
+</div>
+
+<div class="platform-section">
+<h4>事件 C：UGC / 社区大赛（淡季填空神器）</h4>
+<ul>
+  <li><strong>Build Writing Contest</strong>：最佳 Build 指南大赛（文字/视频双赛道）— 奖励：游戏内限定称号 + Nitro + 官方 BD 合集收录</li>
+  <li><strong>Screenshot Competition</strong>：最美战利品/最史诗场景/最搞笑 Bug 截图 — 奖励：外观道具</li>
+  <li><strong>HC Challenge</strong>：HC 模式速通/无伤挑战 — 奖励：HC 专属限定装饰</li>
+  <li><strong>Fan Art Contest</strong>：同人创作大赛（角色/场景/Meme）— 奖励：作品入选游戏加载画面</li>
+  <li><strong>Theorycrafting Challenge</strong>：给定约束条件下的最优 Build 设计 — 吸引硬核玩家参与</li>
+</ul>
+</div>
+
+<!-- ===== 十一、指标体系 ===== -->
+<h2 id="metrics">📈 十一、社区运营指标体系（KPIs）</h2>
+
+<div class="platform-section">
+<h4>分层指标框架</h4>
+<table class="action-table">
+<tr><td>层级</td><td>指标</td><td>目标值（参考）</td><td>监测频率</td></tr>
+<tr><td rowspan="3"><strong>规模层</strong></td><td>Discord 总成员</td><td>首发月 ≥5,000 | 一年 ≥50,000</td><td>周</td></tr>
+<tr><td>Reddit 订阅数</td><td>首发月 ≥3,000 | 一年 ≥30,000</td><td>周</td></tr>
+<tr><td>YouTube 订阅</td><td>首发季 ≥10,000 | 一年 ≥100,000</td><td>月</td></tr>
+<tr><td rowspan="3"><strong>活跃层</strong></td><td>Discord DAU / MAU 比</td><td>≥15%（健康基准）</td><td>日</td></tr>
+<tr><td>Reddit 日均发帖量</td><td>≥20 帖/天（活跃社区）</td><td>日</td></tr>
+<tr><td>Twitch 平均并发观众</td><td>非赛季 ≥500 | 赛季首周 ≥5,000</td><td>日</td></tr>
+<tr><td rowspan="3"><strong>质量层</strong></td><td>Bug 反馈 → 修复闭环率</td><td>≥70%（有回复+已修复/排期）</td><td>周</td></tr>
+<tr><td>开发者社区回复率</td><td>≥30% 的热帖有官方回复</td><td>周</td></tr>
+<tr><td>Build 指南 UGC 产出量</td><td>每赛季 ≥50 篇高质量 BD 帖</td><td>赛季</td></tr>
+<tr><td rowspan="2"><strong>转化层</strong></td><td>社区 → 游戏转化率</td><td>追踪 Wishlist → 购买转化</td><td>月</td></tr>
+<tr><td>Drops 活动新增玩家数</td><td>每次活动 ROI 计算</td><td>活动后</td></tr>
+</table>
+</div>
+
+<div class="key-insight dark">
+<strong>⚠️ ARPG 社区核心指标：</strong><strong>DAU/MAU 比</strong>（日活/月活比率）优先于成员总数。ARPG 社区极易出现“僵尸化”——大量玩家加群后从不发言，只看 Patch Notes。本方案将 10%–20% 设为健康观察区间，≥20% 作为强活跃目标；低于 10% 时，应检查频道结构、内容节奏和社区激活机制。<br><span class="source" style="display:inline;margin-top:4px;">来源：<a href="https://www.shno.co/marketing-statistics/user-engagement-statistics" target="_blank">Shno User Engagement Statistics</a> — 泛数字产品 DAU/MAU 基准。</span>
+</div>
+
+<!-- ===== 附录 ===== -->
+<h2 id="appendix">📎 附录</h2>
+
+<div class="region-card">
+<h3>附录 A：ARPG 社区必备外部工具/数据站</h3>
+<ul>
+  <li><strong>Build Planner / Calculator</strong> — 类似 Path of Building 的在线/离线 BD 计算工具（官方出品或官方认证社区项目）</li>
+  <li><strong>数据库 Wiki</strong> — 类似 poe2db.tw / d4builds.gg 的物品/技能/地图数据库（含 API）</li>
+  <li><strong>数据站</strong> — 类似 poe.ninja 的经济数据/Build 流行度/ ladder 排行追踪</li>
+  <li><strong>Discord Bot 托管</strong> — 推荐（可按需求扩展）</li>
+</ul>
+
+<h3>附录 B：数据来源与竞品社区参考</h3>
+<p style="font-size:0.82rem;color:var(--muted);margin-bottom:8px;">本报告引用的外部数据来源如下：</p>
+<ul>
+  <li><strong>Steam 在线数据：</strong><a href="https://steamcharts.com/app/2694490" target="_blank">SteamCharts — Path of Exile 2</a></li>
+  <li><strong>Twitch 数据：</strong><a href="https://www.twitchmetrics.net/g/515024-diablo-iv" target="_blank">TwitchMetrics — Diablo IV</a>（语言分布：EN 52%/DE 12%/FR 9%/PT 5%/ES 5%，数据随赛季波动）</li>
+  <li><strong>Discord 用户统计：</strong><a href="https://discord.com/blog/build-where-the-world-plays" target="_blank">Discord 官方 200M+ MAU</a>；<a href="https://discord.com/blog/building-on-the-social-layer-of-games-whats-new-from-gdc-2026" target="_blank">Discord 官方 90M+ DAU</a>；<a href="https://resourcera.com/data/social/discord-users/" target="_blank">Resourcera Discord Users by Country</a></li>
+  <li><strong>社区健康基准：</strong><a href="https://www.shno.co/marketing-statistics/user-engagement-statistics" target="_blank">Shno User Engagement Statistics 2026</a>（DAU/MAU 参考区间：10%–20%）</li>
+  <li><strong>巴西数字支付：</strong><a href="https://www.gamesbras.com/english-version/2025/10/9/payment-methods-pix-loses-exclusivity-and-sports-betting-soars-59178.html" target="_blank">GamesBras — 巴西数字娱乐 / 支付调研</a>（Pix 2025H1 63.29%）；<a href="https://www.pagbrasil.com/blog/markets/gaming/digital-payments-in-online-gaming-tailored-solutions-for-brazilian-players/" target="_blank">PagBrasil — 巴西游戏支付分析</a>（低收入人群信用卡覆盖问题）</li>
+  <li><strong>竞品社区：</strong><a href="https://discord.gg/pathofexile2" target="_blank">PoE2 Official Discord</a> (~71K members)；<a href="https://www.reddit.com/r/pathofexile/" target="_blank">r/pathofexile</a></li>
+  <li><strong>玩家动机模型：</strong><a href="https://quanticfoundry.com/gamer-types/" target="_blank">Quantic Foundry Gamer Types</a>；<a href="https://gamedesigning.org/gaming/gamer-types/" target="_blank">Bartle Player Taxonomy</a></li>
+  <li><strong>社区运营策略：</strong><a href="https://www.ingamenews.com/2025/09/diablo-iv-season-10-blizzard-revives.html" target="_blank">InGameNews — D4 Campfire Chats 策略分析</a></li>
+  <li><strong>MMO Population 估算：</strong><a href="https://mmo-population.com/game/path-of-exile" target="_blank">mmo-population.com/game/path-of-exile</a></li>
+</ul>
+
+<h3>附录 C：基础文档引用</h3>
+<ul>
+  <li>《全球游戏用户社区平台地区调研》— 区域平台数据和市占率依据</li>
+  <li>《海外主流社区平台官号搭建与认证 SOP》— 各平台搭建流程和认证要求</li>
+  <li>本方案是对以上两份文档的 <strong>品类定制深化</strong>，搭建流程请仍以 SOP 为准</li>
+</ul>
+</div>
+
+<div class="footer">
+  <p>暗黑风 ARPG 游戏 · 社区平台搭建与运营策略</p>
+  <p>品类定位：PoE2 + D4 结合体 | 基于《全球社区调研》+《海外SOP》定制深化 | 2026年6月</p>
+  <p>关键数据保留原始来源链接。</p>
+</div>
+
+</div>
+
+<!-- ===== CHARTS ===== -->
+
+
+
+<script>
+(function() {
+  if (!window.Chart || !window.ChartDataLabels) { console.error("Chart.js not loaded"); return; }
+  Chart.register(ChartDataLabels);
+  Chart.defaults.font.family = "-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif";
+  Chart.defaults.plugins.legend.labels.usePointStyle = true;
+
+  // 1. PoE2 Steam Trend
+  (function() {
+    var el = document.getElementById("chartPoE2Trend");
+    if (!el) return;
+    new Chart(el.getContext("2d"), {
+      type: "line",
+      data: {
+        labels: ["25.01","25.02","25.03","25.04","25.05","25.06","25.07","25.08","25.09","25.10","25.11","25.12","26.01","26.02","26.03","26.04","26.05","26.06*"],
+        datasets: [{ label: "平均在线玩家（26.06* 为 Last 30 Days）", data: [190494,88935,29923,92367,33895,15524,7866,25261,121310,36444,12281,79436,56873,19839,9087,6885,34052,72006], borderColor: "#7c3aed", backgroundColor: "rgba(124,58,237,0.08)", fill: true, tension: 0.3, pointRadius: 3, pointBackgroundColor: "#7c3aed" }]
+      },
+      options: { responsive:true, maintainAspectRatio:false, plugins:{legend:{display:false},datalabels:{display:false}}, scales:{y:{title:{display:true,text:"平均在线玩家",font:{size:11}},ticks:{callback:function(v){return v>=1000?(v/1000)+"K":v;}},grid:{color:"#e5e7eb"}},x:{title:{display:true,text:"月份",font:{size:11}},grid:{display:false},ticks:{maxRotation:45}}} }
+    });
+  })();
+
+  // 2. Personas Doughnut
+  (function() {
+    var el = document.getElementById("chartPersonas");
+    if (!el) return;
+    new Chart(el.getContext("2d"), {
+      type:"doughnut",
+      data:{ labels:["休闲刷宝人 42%","流媒体受众 27%","交易商/收藏家 12%","理论构建师 6%","HC专家玩家 4%","其他/未分类 9%"], datasets:[{data:[42,27,12,6,4,9],backgroundColor:["#6366f1","#8b5cf6","#ec4899","#f59e0b","#dc2626","#9ca3af"],borderWidth:2,borderColor:"#fff"}] },
+      options:{ responsive:true, maintainAspectRatio:false, plugins:{ legend:{position:"bottom",labels:{padding:12,font:{size:11}}}, datalabels:{color:"#fff",font:{size:12,weight:"bold"},formatter:function(v){return v+"%";},textStrokeColor:"rgba(0,0,0,0.3)",textStrokeWidth:2} } }
+    });
+  })();
+
+  // 3. Platform Compare Radar
+  (function() {
+    var el = document.getElementById("chartPlatformCompare");
+    if (!el) return;
+    new Chart(el.getContext("2d"), {
+      type:"radar",
+      data:{ labels:["Discord","Reddit","Twitch","YouTube","Steam","X/Twitter","Facebook","TikTok","LINE","Instagram"], datasets:[{label:"ARPG 品类",data:[10,10,9,8,7,6,3,2,2,2],borderColor:"#7c3aed",backgroundColor:"rgba(124,58,237,0.1)",borderWidth:2},{label:"通用游戏",data:[10,8,7,7,9,6,7,6,5,6],borderColor:"#6366f1",backgroundColor:"rgba(99,102,241,0.1)",borderWidth:2,borderDash:[5,5]}] },
+      options:{ responsive:true, maintainAspectRatio:false, plugins:{legend:{position:"bottom"},datalabels:{display:false}}, scales:{r:{min:0,max:10,ticks:{stepSize:2,display:false},grid:{color:"#e5e7eb"},pointLabels:{font:{size:10}}}} }
+    });
+  })();
+
+  // 4. D4 Streamers Doughnut
+  (function() {
+    var el = document.getElementById("chartD4Streamers");
+    if (!el) return;
+    new Chart(el.getContext("2d"), {
+      type:"doughnut", data:{ labels:["English 52%","Deutsch 12%","Français 9%","Português 5%","Español 5%","其他 17%"], datasets:[{data:[52,12,9,5,5,17],backgroundColor:["#2563eb","#f59e0b","#ec4899","#06c755","#8b5cf6","#9ca3af"],borderWidth:2,borderColor:"#fff"}] },
+      options:{ responsive:true, maintainAspectRatio:false, plugins:{ legend:{position:"bottom",labels:{padding:10,font:{size:10}}}, datalabels:{color:"#fff",font:{size:11,weight:"bold"},formatter:function(v){return v+"%";},textStrokeColor:"rgba(0,0,0,0.3)",textStrokeWidth:2} } }
+    });
+  })();
+
+  // 5. Regional Matrix Bar
+  (function() {
+    var el = document.getElementById("chartRegionalMatrix");
+    if (!el) return;
+    new Chart(el.getContext("2d"), {
+      type:"bar", data:{ labels:["北美(T1)","欧洲(T1)","日本(T2)","巴西/拉美(T2)","韩国(T2)","东南亚(T3)"], datasets:[{label:"Discord",data:[10,10,6,9,5,4],backgroundColor:"#7c3aed"},{label:"Reddit",data:[10,9,3,6,3,2],backgroundColor:"#ef4444"},{label:"Twitch",data:[10,8,5,7,6,4],backgroundColor:"#9146ff"},{label:"YouTube",data:[9,8,8,8,7,7],backgroundColor:"#ff0000"},{label:"本地平台",data:[2,2,10,4,9,8],backgroundColor:"#06c755"}] },
+      options:{ responsive:true, maintainAspectRatio:false, plugins:{legend:{position:"bottom"},datalabels:{display:false}}, scales:{y:{min:0,max:10,title:{display:true,text:"重要性 (1-10)",font:{size:10}},ticks:{stepSize:2},grid:{color:"#e5e7eb"}},x:{grid:{display:false},ticks:{font:{size:10}}}} }
+    });
+  })();
+
+  // 6. Season Cycle Line
+  (function() {
+    var el = document.getElementById("chartSeasonCycle");
+    if (!el) return;
+    new Chart(el.getContext("2d"), {
+      type:"line",
+      data:{
+        labels:["S1起点","W+1","W+2","W+3","W+4","W+5","W+6","W+7","W+8","W+9","W+10","W+11","W+12","淡季","S2预热","S2起点"],
+        datasets:[
+          { label:"社区活跃度指数", data:[95,80,65,55,48,42,38,35,33,31,30,28,27,25,45,98], borderColor:"#dc2626", backgroundColor:"rgba(220,38,38,0.08)", fill:true, tension:0.4, pointRadius:4, pointBackgroundColor:function(ctx){var v=ctx.dataset.data[ctx.dataIndex];return v>90?"#dc2626":v>60?"#f59e0b":"#6b7280";} },
+          { label:"玩家在线（归一化）", data:[90,75,58,48,40,35,30,28,26,24,23,22,21,20,40,92], borderColor:"#7c3aed", backgroundColor:"rgba(124,58,237,0.05)", fill:true, tension:0.4, pointRadius:3, pointBackgroundColor:"#7c3aed" }
+        ]
+      },
+      options:{ responsive:true, maintainAspectRatio:false, plugins:{legend:{position:"bottom"},datalabels:{display:false}}, scales:{y:{min:0,max:110,title:{display:true,text:"活跃度指数",font:{size:10}},grid:{color:"#e5e7eb"},ticks:{callback:function(v){if(v===95)return"S1 首发";if(v===98)return"S2 首发";if(v<=30&&v>=20)return"淡季谷底";return "";}}},x:{grid:{display:false},ticks:{font:{size:9},maxRotation:45}}} }
+    });
+  })();
+
+})();
+</script>
+
+    </main>
+
+    <footer id="contact" class="footer">
+      <div>© 2026 @heyhong</div>
+      <a href="mailto:hong@heyhong.net">hong@heyhong.net</a>
+    </footer>
+  </body>
+</html>

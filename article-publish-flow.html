@@ -1,0 +1,1588 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>游戏发行全流程手册 V1 — 全球发行全流程版 | HEYHONG</title>
+    <link rel="stylesheet" href="article-pages.css" />
+    <link rel="stylesheet" href="article-doc.css" />
+    
+  </head>
+  <body class="publish-flow-page">
+    <header class="header">
+      <a class="brand" href="index.html" aria-label="HEYHONG 首页">
+        <img src="assets/logo.png" alt="HEYHONG" />
+      </a>
+      <nav class="nav" aria-label="主导航">
+        <a href="articles.html">发行</a>
+        <a href="index.html#games">产品</a>
+        <a href="#contact">联系</a>
+      </nav>
+    </header>
+
+    <main>
+<!-- NAV -->
+<nav class="doc-nav">
+  <div class="doc-nav-inner">
+    <span class="doc-nav-title">全球发行全流程手册</span>
+    <span class="doc-nav-pill p0 active" onclick="scrollToPhase('p0')">P0 立项</span>
+    <span class="doc-nav-pill p1" onclick="scrollToPhase('p1')">P1 筹备</span>
+    <span class="doc-nav-pill p2" onclick="scrollToPhase('p2')">P2 首曝</span>
+    <span class="doc-nav-pill p3" onclick="scrollToPhase('p3')">P3 测试</span>
+    <span class="doc-nav-pill p4" onclick="scrollToPhase('p4')">P4 公测</span>
+    <span class="doc-nav-pill p5" onclick="scrollToPhase('p5')">P5 长线</span>
+    <span class="doc-nav-sep"></span>
+    <button class="expand-btn" onclick="toggleAllPhases()">全部展开/折叠</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="doc-cover doc-container wide shell">
+  <h1>游戏发行全流程手册</h1>
+  <div class="subtitle">全球发行 · 全流程版</div>
+  <div class="doc-hero-tags">
+    <span>V1 · 全球发行全流程版</span><span>调研数据截至 2026 Q2</span><span>覆盖移动端 + PC/Steam</span><span>国内 & 海外同框对照</span><span>全数据附来源链接</span>
+  </div>
+</section>
+
+<!-- 数据说明 -->
+<section class="doc-container wide shell" style="margin:0 auto 20px;">
+  <div style="background:var(--c-amber-bg); border:1px solid var(--c-amber-light); border-radius:var(--radius); padding:14px 18px; font-size:12px; color:var(--c-amber); line-height:1.7;">
+    <strong>数据说明：</strong>本手册中标注来源的引用来自官方文档或公开行业报告；未标注来源的数值、阈值、样本量、周期等均为<strong>行业经验值或内部管理基准</strong>，实施前请结合项目品类、目标市场与最新平台政策进行校准。各阶段 KPI 区域仅保留需关注的维度，具体数值基准由项目组结合自身历史数据与品类标准自定义。遇到政策/数据更新，请以官方口径为准。
+  </div>
+</section>
+
+<!-- ====== UNIFIED DASHBOARD ====== -->
+<div class="doc-container wide shell">
+
+  <!-- 国内发行关键数据 -->
+  <div class="db-section">
+    <div class="db-section-header">
+      <span class="db-badge cn-badge">国内</span>
+      <span class="db-label">发行关键数据</span>
+      <span class="db-count">6 项</span>
+    </div>
+    <div class="dashboard">
+      <div class="dash-card cn">
+        <h3><span class="region-tag cn-tag">国内</span>安卓联运渠道分成</h3>
+        <div class="value">50%</div>
+        <div class="note">TapTap免分成 · B站30-50% · 腾讯-华为已降至10-20%（2025.4）</div>
+      </div>
+      <div class="dash-card cn">
+        <h3><span class="region-tag cn-tag">国内</span>App Store 中国</h3>
+        <div class="value">25%</div>
+        <div class="note">小企业12%（App Store年收益<$1M）· 2026.3.15下调</div>
+      </div>
+      <div class="dash-card cn">
+        <h3><span class="region-tag cn-tag">国内</span>版号审批周期</h3>
+        <div class="value">3~6 月</div>
+        <div class="note">6步流程 · 复杂项目可达6-12月 · 游企帮2026</div>
+      </div>
+      <div class="dash-card cn">
+        <h3><span class="region-tag cn-tag">国内</span>TOP100买量成本（2025H1）</h3>
+        <div class="value">&gt;180 亿</div>
+        <div class="note">同比+86.6% · 伽马数据</div>
+      </div>
+      <div class="dash-card cn">
+        <h3><span class="region-tag cn-tag">国内</span>归因方式</h3>
+        <div class="value">自建 / 三方</div>
+        <div class="note">Android ID+OAID+CAID · iOS 亦需 ATT 授权后获取 IDFA</div>
+      </div>
+      <div class="dash-card cn">
+        <h3><span class="region-tag cn-tag">国内</span>合规要求</h3>
+        <div class="value">版号+防沉迷+实名</div>
+        <div class="note">测试期即需接入 · 海外：GDPR/CCPA/COPPA+分级</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 海外发行关键数据 -->
+  <div class="db-section">
+    <div class="db-section-header">
+      <span class="db-badge gl-badge">海外</span>
+      <span class="db-label">发行关键数据</span>
+      <span class="db-count">6 项</span>
+    </div>
+    <div class="dashboard">
+      <div class="dash-card global">
+        <h3><span class="region-tag gl-tag">海外</span>Google Play / App Store</h3>
+        <div class="value">30%</div>
+        <div class="note">首$1M→15%</div>
+      </div>
+      <div class="dash-card global">
+        <h3><span class="region-tag gl-tag">海外</span>Steam / Epic 阶梯分成</h3>
+        <div class="value">30→25→20% / 12%</div>
+        <div class="note">Steam：$10M / $50M 阈值降档 · Epic：固定12%</div>
+      </div>
+      <div class="dash-card global">
+        <h3><span class="region-tag gl-tag">海外</span>全球月均广告主</h3>
+        <div class="value">84,000+</div>
+        <div class="note">同比+21.9% · SocialPeta/Aarki 2026</div>
+      </div>
+      <div class="dash-card global">
+        <h3><span class="region-tag gl-tag">海外</span>2025 Steam 新游</h3>
+        <div class="value">20,282 款</div>
+        <div class="note">仅3%达1,000+评论 · Chris Zukowski</div>
+      </div>
+      <div class="dash-card global">
+        <h3><span class="region-tag gl-tag">海外</span>iOS归因限制</h3>
+        <div class="value">SKAN概率归因</div>
+        <div class="note">ATT opt-in 率约35% · 游戏品类 40-50%（2025 Q2）</div>
+      </div>
+      <div class="dash-card global">
+        <h3><span class="region-tag gl-tag">海外</span>海外归因体系</h3>
+        <div class="value">MMP统一</div>
+        <div class="note">AppsFlyer/Adjust/Singular/Kochava</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ====== COMPREHENSIVE COMPARISON ====== -->
+<div class="doc-container wide shell">
+  <section class="cmp-section">
+    <div class="cmp-title"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg> 全维度对比总表 · 国内 vs 海外并排对照</div>
+    <div style="overflow-x:auto;">
+    <table class="cmp-table">
+      <thead>
+        <tr><th style="width:12%">对比维度</th><th class="cn-col" style="width:44%">🇨🇳 国内发行</th><th class="gl-col" style="width:44%">🌍 海外发行</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>核心渠道</strong></td>
+          <td class="cn-col">App Store + 硬核联盟（华为/OPPO/vivo/小米）+ 应用宝 + TapTap + B站 + 抖音/快手小游戏 + 微信小游戏</td>
+          <td class="gl-col">App Store + Google Play + Steam + Epic + 主机（PSN/Xbox Live/Nintendo eShop）+ 各地本土商店（ONE Store/华为AppGallery海外版等）</td>
+        </tr>
+        <tr>
+          <td><strong>联运分成</strong></td>
+          <td class="cn-col">安卓联运渠道 50%（硬核联盟标准；腾讯-华为2025.4新协议降至10-20%），TapTap 0%，B站 30~50%，应用宝约50%</td>
+          <td class="gl-col">App Store/Google Play 30%（首$1M→15%），Steam 30%→25%→20%（阶梯），Epic 12%</td>
+        </tr>
+        <tr>
+          <td><strong>合规审核</strong></td>
+          <td class="cn-col"><strong>版号是生命线</strong>：6步流程→3~6个月（复杂项目6-12月），测试期即需接入国家统一防沉迷+实名认证，无版号不得上线运营；上线前需完成等保测评（至少二级）</td>
+          <td class="gl-col"><strong>分级制度为主</strong>：IARC（移动端）/ESRB（北美）/PEGI（欧洲）/GRAC（韩国）/USK（德国）/Classification（澳大利亚）/ClassInd（巴西）年龄分级，GDPR（欧洲）/CCPA（加州）/COPPA（儿童）隐私合规</td>
+        </tr>
+        <tr>
+          <td><strong>买量平台</strong></td>
+          <td class="cn-col">巨量引擎（抖音）+ 腾讯广告（微信/QQ）+ 快手 + 百度信息流 + 阿里汇川；平台聚合度高</td>
+          <td class="gl-col">Meta（Facebook/Instagram）+ Google Ads + TikTok + Snapchat + Unity Ads + ironSource + AppLovin；平台碎片化</td>
+        </tr>
+        <tr>
+          <td><strong>归因体系</strong></td>
+          <td class="cn-col">大厂自建归因，中小厂用三方（热云/引力引擎等）。Android ID + OAID + CAID + IP+UA多参数归因；iOS 全球均需 ATT 授权后获取 IDFA，国内亦依赖 SKAN/AdAttributionKit 做概率归因</td>
+          <td class="gl-col">统一采买MMP三方（AppsFlyer/Adjust/Singular/Kochava）。Android用GAID，iOS用SKAN/AdAttributionKit概率归因（ATT opt-in 率约35%，游戏品类 40-50%）</td>
+        </tr>
+        <tr>
+          <td><strong>广告基建</strong></td>
+          <td class="cn-col">多账户矩阵策略：单产品可配置数十至百余账户（具体数量视平台风控政策动态调整）；直客可提供人群包、优质流量加成、手动干预</td>
+          <td class="gl-col">少账户合并策略：平台建议账户越少越好，依赖机器学习自动优化；直客不提供人群包/流量加成，数据保护严格</td>
+        </tr>
+        <tr>
+          <td><strong>素材策略</strong></td>
+          <td class="cn-col">短视频（15-30s）为主，抖音/快手风格化；真人实拍+剧情类素材占比高；素材迭代极快，月更换率&gt;80%</td>
+          <td class="gl-col">可玩广告+视频+静态图多形式；各平台风格差异大（TikTok偏娱乐/Meta偏社交）；本地化素材需适配各地文化</td>
+        </tr>
+        <tr>
+          <td><strong>支付体系</strong></td>
+          <td class="cn-col">微信支付 + 支付宝 占绝对主导，接入简单统一</td>
+          <td class="gl-col">信用卡/借记卡 + PayPal + 各区域本地支付（日本 PayPay / 韩国 KakaoPay，东南亚GrabPay/GoPay/Dana，欧洲Klarna，巴西Pix，印度UPI等）</td>
+        </tr>
+        <tr>
+          <td><strong>社区运营</strong></td>
+          <td class="cn-col">QQ群+微信群（私域）+ 微博 + B站 + 抖音 + TapTap + 小红书 + 贴吧</td>
+          <td class="gl-col">Discord + Reddit + Twitter(X) + YouTube + TikTok + Facebook Groups + 各地区特色（LINE/Naver Cafe/KakaoTalk等）</td>
+        </tr>
+        <tr>
+          <td><strong>客户服务</strong></td>
+          <td class="cn-col">直客驻场办公、周末响应、提供竞品数据/优质人群包/流量加成、关系驱动型</td>
+          <td class="gl-col">视频会议沟通、周末/节假日找不到人、数据保护严格不透露竞品信息、流程驱动型</td>
+        </tr>
+        <tr>
+          <td><strong>本地化要求</strong></td>
+          <td class="cn-col">仅中文即可，但需注意简中/繁中差异（港澳台市场）</td>
+          <td class="gl-col">必须多语言本地化，涉及翻译+文化适配+法律合规+本地支付+本地客服</td>
+        </tr>
+        <tr>
+          <td><strong>测试策略</strong></td>
+          <td class="cn-col">技术测试→删档内测→不删档计费测试，需版号后才可计费；测试用户获取依赖渠道联运+社区招募</td>
+          <td class="gl-col">Soft Launch（小市场实测）→ CBT/OBT → Global Launch；可在加拿大/菲律宾/澳大利亚等做小额付费验证</td>
+        </tr>
+        <tr>
+          <td><strong>KOL生态</strong></td>
+          <td class="cn-col">抖音/快手达人 + B站UP主 + 微博大V + 小红书博主；以短视频+直播为主要形式</td>
+          <td class="gl-col">YouTube + Twitch + TikTok 创作者；直播+长视频评测为主，注重真实性而非精致宣传</td>
+        </tr>
+        <tr>
+          <td><strong>定价策略</strong></td>
+          <td class="cn-col">F2P为主流，付费下载几乎不可行；首充/月卡/战令为核心变现模型</td>
+          <td class="gl-col">F2P（移动端）+ Premium（PC/主机买断制）+ 混合变现（Battle Pass+DLC）；Steam用户对价格敏感</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+</div>
+
+<!-- TIMELINE -->
+<div class="doc-container wide shell">
+  <section class="timeline-section">
+    <div class="section-title">发行全景时间线（点击跳转详情）</div>
+    <div class="tl-bar">
+      <div class="tl-phase p0" onclick="scrollToPhase('p0')"><div class="tl-num">P0</div><div class="tl-name">立项评估</div><div class="tl-time">1~3 个月</div></div>
+      <div class="tl-phase p1" onclick="scrollToPhase('p1')"><div class="tl-num">P1</div><div class="tl-name">发行筹备</div><div class="tl-time">国内 6~9 个月 / 海外 3~6 个月</div></div>
+      <div class="tl-phase p2" onclick="scrollToPhase('p2')"><div class="tl-num">P2</div><div class="tl-name">首曝预热</div><div class="tl-time">2~4 个月</div></div>
+      <div class="tl-phase p3" onclick="scrollToPhase('p3')"><div class="tl-num">P3</div><div class="tl-name">测试验证</div><div class="tl-time">3~5 个月</div></div>
+      <div class="tl-phase p4" onclick="scrollToPhase('p4')"><div class="tl-num">P4</div><div class="tl-name">公测冲量</div><div class="tl-time">首月爆发</div></div>
+      <div class="tl-phase p5" onclick="scrollToPhase('p5')"><div class="tl-num">P5</div><div class="tl-name">长线运营</div><div class="tl-time">持续·永续</div></div>
+    </div>
+  </section>
+</div>
+
+<!-- ===================== P0 ===================== -->
+<div class="doc-container wide shell"><div class="phase-block p0 open" id="p0">
+  <div class="phase-header" onclick="togglePhase('p0')">
+    <div class="ph-left"><div class="ph-badge">P0</div><div class="ph-info"><h2>立项评估</h2><span class="ph-sub">约 1~3 个月 · 决定"是否值得做"</span></div></div>
+    <div class="ph-arrow">▶</div>
+  </div>
+  <div class="phase-body">
+    <div class="phase-intro">
+      <h3>阶段核心任务</h3>
+      <p>发行商在立项阶段的核心是<strong>风险识别与回报测算</strong>。国内与海外的差异在这一阶段就已显现：国内需评估版号获取可行性与合规成本，海外需评估目标区域市场的本地化投入与渠道碎片化风险。无论哪条路径，获客成本同比+12%、用户规模仅+2%（Aarki/SocialPeta 2026白皮书）的大背景下，对品类赛道的判断和ROI回收模型的准确度直接决定了后续投入的命门。</p>
+      <div class="goal-tags"><span>Go/No-Go决策</span><span>锁定关键风险项</span><span>明确合作模型</span><span>初步LTV估算</span></div>
+    </div>
+
+    <!-- CN vs Global Callouts -->
+    <div class="region-callout cn"><h4>🇨🇳 国内专属 · 立项阶段关键差异</h4>
+      <ul>
+        <li><strong>版号可行性前置评估</strong>：必须确认研发方是否具备版号申请资质（ICP证+出版单位+软著），预估版号周期（3-6个月，复杂项目6-12月）纳入总时间线</li>
+        <li><strong>品类政策风险审查</strong>：部分品类（棋牌/捕鱼/传奇类）版号审批更严或受限，需提前研判</li>
+        <li><strong>联运渠道合作模型预判</strong>：是否需要硬核联盟联运？安卓渠道50%分成（头部厂商已有突破：腾讯-华为2025.4新协议降至10-20%）对LTV模型的冲击评估</li>
+        <li><strong>买量成本国内基准</strong>：2025H1 TOP100手游买量成本&gt;180亿元（+86.6% YoY），ROI回收模型需更保守</li>
+        <li><strong>防沉迷合规成本</strong>：从测试期即需接入国家统一防沉迷系统+实名认证，这是硬性成本项</li>
+      </ul>
+    </div>
+
+    <div class="region-callout global"><h4>🌍 海外专属 · 立项阶段关键差异</h4>
+      <ul>
+        <li><strong>目标区域市场优先级</strong>：T1（北美/日韩/西欧）vs T2（东南亚/拉美/中东）vs T3 市场分层，决定本地化投入规模</li>
+        <li><strong>年龄分级预判</strong>：IARC（移动端）/ESRB（北美）/PEGI（欧洲）分级对内容设计的约束</li>
+        <li><strong>GDPR/CCPA合规成本</strong>：欧洲和加州的数据隐私合规是硬性要求，违者罚款可达€2000万或全球年营收4%（取高者）</li>
+        <li><strong>本地化投入预算估算</strong>：至少5-8种语言起步，翻译+文化适配+LQA+本地客服团队</li>
+        <li><strong>海外支付渠道评估</strong>：信用卡+PayPal+各区域本地支付的接入成本和时间</li>
+        <li><strong>平台碎片化风险</strong>：不同于国内少数几个大平台，海外渠道零散，归因和投放管理复杂度高</li>
+      </ul>
+    </div>
+
+    <!-- P0 易遗漏提醒 -->
+    <div class="checklist-panel">
+      <h4>⚠️ P0 立项评估 — 本阶段容易遗漏的事项提醒</h4>
+      <ul class="easy-miss-list">
+        <li>先把研发方资质（营业执照、版号相关资质、核心团队背景）摸清，再谈合作——很多团队在这里踩坑后才补课</li>
+        <li>把核心商标在国内/海外主要市场提前查重并启动注册，避免上线后被动——商标抢注是高频雷区</li>
+      </ul>
+    </div>
+
+    <div class="module-grid">
+      <div class="module-card">
+        <div class="module-card-header" onclick="toggleModule(this)"><div style="display:flex;align-items:center;"><div class="mod-dot" style="background:var(--c-blue)"></div><h4 style="color:var(--c-blue)">产品评估</h4></div><span class="mod-chevron">▶</span></div>
+        <div class="module-card-body"><ul class="mod-steps">
+          <li><span class="sub-tag t-who">内部评测组</span> 核心玩法可行性分析：梳理机制、循环、目标、反馈四要素</li>
+          <li><span class="sub-tag t-who">发行制作人</span> 品类赛道竞品深度扫描：多款对标产品，输出竞品对比矩阵</li>
+          <li><span class="sub-tag t-who">用户研究</span> 目标用户画像初步研判：年龄、性别、游戏偏好、付费习惯</li>
+          <li><span class="sub-tag t-deadline">双轨评估</span> 国内适配性：是否符合国内用户审美/操作习惯？海外适配性：品类在目标区域的接受度？</li>
+          <li><span class="sub-tag t-who">内部评测组</span> DEMO/原型版本试玩评测：手感、节奏、留存潜力三维评分</li>
+          <li><span class="sub-tag t-deadline">必须项</span> 研发进度里程碑审核 & 团队交付能力 & 历史口碑评估</li>
+          <li><span class="sub-tag t-who">技术评测</span> 技术栈成熟度：引擎选型、网络架构、性能基准、跨平台能力</li>
+          <li><span class="sub-tag t-who">技术评测</span> 技术债务与代码审计：尤其对于代理或并购老项目，需评估代码可维护性、文档完整性、第三方依赖授权与重构成本</li>
+          <li>核心玩法差异化程度评分：内部设定评分通过门槛</li>
+        </ul></div>
+      </div>
+      <div class="module-card">
+        <div class="module-card-header" onclick="toggleModule(this)">
+          <div style="display:flex;align-items:center;"><div class="mod-dot" style="background:var(--c-blue)"></div><h4 style="color:var(--c-blue)">商务 & 法务尽调</h4></div>
+          <span class="mod-chevron">▶</span>
+        </div>
+        <div class="module-card-body"><ul class="mod-steps">
+          <li><span class="sub-tag t-who">商务经理</span> 研发团队背景审查：核心成员履历、项目历史、过往交付记录</li>
+          <li><span class="sub-tag t-deadline">关键</span> IP/版权/授权权属核查：商标、美术资产、BGM、代码库合规</li>
+          <li><span class="sub-tag t-deadline">国内专项</span> 版号申请资质核查：ICP证 + 出版单位资质 + 软著</li>
+          <li><span class="sub-tag t-deadline">海外专项</span> 商标/PCT专利海外布局核查 + GDPR数据保护官（DPO）需求确认</li>
+          <li><span class="sub-tag t-who">财务分析</span> 研发方资金状况与资金缺口评估</li>
+          <li>发行权区域划分：全球独家 vs 区域独家 vs 非独家代理 vs 国内/海外分签</li>
+          <li>合作结构设计：纯代理分成 vs 预付款+分成 vs 联合研发 vs 投资控股</li>
+          <li><span class="sub-tag t-deadline">法务审核</span> 分层分成模型设计：流水阶梯分成 / 净收入分成 / 混合模式</li>
+          <li>里程碑支付条款 + 终止条款 & 退出机制</li>
+        </ul></div>
+      </div>
+      <div class="module-card">
+        <div class="module-card-header" onclick="toggleModule(this)">
+          <div style="display:flex;align-items:center;"><div class="mod-dot" style="background:var(--c-blue)"></div><h4 style="color:var(--c-blue)">市场研判</h4></div>
+          <span class="mod-chevron">▶</span>
+        </div>
+        <div class="module-card-body"><ul class="mod-steps">
+          <li><span class="sub-tag t-tool">数据工具</span> 品类市场容量测算（TAM / SAM / SOM 三层模型）</li>
+          <li><span class="sub-tag t-deadline">双轨测算</span> 国内市场：Sensor Tower/七麦/DataEye；海外市场：data.ai/Sensor Tower/Statista</li>
+          <li>竞品上线档期分析矩阵：未来 6~12 个月避免品类撞车（国内版号节奏+海外大作档期）</li>
+          <li>目标平台流量生态分析：国内（iOS+安卓联运+小游戏+Steam）/ 海外（App Store+Google Play+Steam+主机）</li>
+          <li><span class="sub-tag t-tool">模型推算</span> 潜力用户规模估算（基于对标产品的下载量/DAU回归）</li>
+          <li>初步 LTV / CPI / ROAS 回收模型：国内+海外分别建立预测模型</li>
+          <li><span class="sub-tag t-who">品类顾问</span> 品类市场趋势研判：结构性增长 vs 存量竞争 vs 萎缩赛道</li>
+          <li><span class="sub-tag t-deadline">政策风险</span> 目标市场政策突变风险评估：如印度封禁中国游戏、土耳其/印尼本地化内容要求、欧盟数字市场法(DMA)等可能影响上线或运营的区域性政策</li>
+        </ul></div>
+      </div>
+      <div class="module-card">
+        <div class="module-card-header" onclick="toggleModule(this)">
+          <div style="display:flex;align-items:center;"><div class="mod-dot" style="background:var(--c-blue)"></div><h4 style="color:var(--c-blue)">内部立项审批</h4></div>
+          <span class="mod-chevron">▶</span>
+        </div>
+        <div class="module-card-body"><ul class="mod-steps">
+          <li>投入总预算初步测算：营销费 + 运营人力 + 技术基建 + 本地化 + 合规 + 储备金</li>
+          <li><span class="sub-tag t-deadline">双轨预算</span> 国内版预算 vs 海外版预算分别列出（渠道分成差异显著影响模型）</li>
+          <li>风险等级定级（S/A/B/C 四级）：国内（版号+合规风险）+海外（本地化+法律风险）综合评分</li>
+          <li><span class="sub-tag t-who">评审委员会</span> 发行产品线优先级排队：按投产比(ROI)和战略意义排序</li>
+          <li><span class="sub-tag t-deadline">关键节点</span> 内部立项会议评审通过</li>
+          <li>签署发行意向书(LOI) / 条款清单(Term Sheet)：明确发行区域划分</li>
+          <li>立项后内部资源预分配：指定发行制作人 + 国内/海外核心团队成员</li>
+          <li><span class="sub-tag t-deadline">决策周期</span> 从首次接洽到 Go/No-Go：简单项目周期较短，复杂项目（中大型 IP/跨平台/海外多区域）周期较长</li>
+        </ul></div>
+      </div>
+      <div class="module-card">
+        <div class="module-card-header" onclick="toggleModule(this)">
+          <div style="display:flex;align-items:center;"><div class="mod-dot" style="background:var(--c-blue)"></div><h4 style="color:var(--c-blue)">投资回报模型</h4></div>
+          <span class="mod-chevron">▶</span>
+        </div>
+        <div class="module-card-body"><ul class="mod-steps">
+          <li><span class="sub-tag t-tool">财务模型</span> 构建项目全周期现金流预测模型：总投入估算（开发成本+发行成本）vs 预期收入（分渠道×分成比例）</li>
+          <li><span class="sub-tag t-who">财务分析</span> IRR（内部收益率）计算：衡量项目全周期投资回报效率的核心指标</li>
+          <li><span class="sub-tag t-who">财务分析</span> NPV（净现值）折现估算：按项目风险等级选取折现率和预测周期</li>
+          <li><span class="sub-tag t-deadline">关键</span> 投资回收期预估：休闲品类回收较快 / 中度品类回收周期适中 / 重度品类回收周期较长，需按品类基准校准</li>
+          <li><span class="sub-tag t-tool">敏感度分析</span> CPI / 次留 / LTV 三维敏感度矩阵，识别最大风险因子</li>
+          <li><span class="sub-tag t-deadline">双轨测算</span> 国内版本：联运渠道 50% 分成后净收入 / 海外版本：App Store/Google Play 30% 分成后净收入</li>
+          <li><span class="sub-tag t-who">评审委员会</span> 盈亏平衡点测算：DAU、付费率、ARPPU 三重门槛下的上线标准推导</li>
+          <li>最坏/基准/乐观三种场景预估，确定下行风险可接受范围</li>
+        </ul></div>
+      </div>
+      <div class="module-card">
+        <div class="module-card-header" onclick="toggleModule(this)">
+          <div style="display:flex;align-items:center;"><div class="mod-dot" style="background:var(--c-blue)"></div><h4 style="color:var(--c-blue)">研发成本基准</h4></div>
+          <span class="mod-chevron">▶</span>
+        </div>
+        <div class="module-card-body"><ul class="mod-steps">
+          <li><span class="sub-tag t-tool">品类基准</span> 超休闲/小游戏：$50K-200K（2-6个月），中度休闲（Match-3/跑酷/模拟）：$200K-1M（6-12个月）</li>
+          <li><span class="sub-tag t-tool">品类基准</span> 中度RPG/卡牌/放置：$1M-5M（12-18个月），重度MMO/SLG/开放世界：$5M-50M+（2-4年）</li>
+          <li><span class="sub-tag t-who">财务分析</span> 研发成本结构分析：人力成本（通常占 60-70%）、外包/美术/音效、引擎授权费、办公运营</li>
+          <li><span class="sub-tag t-deadline">双轨差异</span> 国内研发团队成本约为海外同级别团队的 50-70%（行业经验值），但版号合规成本需额外预算</li>
+          <li><span class="sub-tag t-deadline">关键</span> 发行预算单独测算：营销费通常为研发成本的数倍（重度SLG品类可达更高倍数）</li>
+          <li><span class="sub-tag t-who">商务经理</span> 根据研发成本基准判断 CP 报价是否合理：同类项目横向对比，偏离基准过多需提出说明</li>
+          <li><span class="sub-tag t-tool">模型</span> 总项目预算 = 研发成本 + 发行营销预算 + 运营储备金 + 不可预见费（各项占比按项目规模和品类校准）</li>
+          <li>成本超支预警：游戏项目普遍存在超支风险，立项阶段即建立弹性预算缓冲</li>
+        </ul></div>
+      </div>
+    </div>
+    <div class="kpi-section"><h4>阶段核心 KPI 参照</h4>
+      <div class="kpi-grid">
+        <div class="kpi-item"><span class="kpi-icon">⏱</span><div class="kpi-info"><div class="kpi-label">内部审核决策周期</div></div></div>
+        <div class="kpi-item"><span class="kpi-icon">📋</span><div class="kpi-info"><div class="kpi-label">DEMO 玩法评分门槛</div></div></div>
+        <div class="kpi-item"><span class="kpi-icon">🔍</span><div class="kpi-info"><div class="kpi-label">竞品扫描覆盖数</div></div></div>
+        <div class="kpi-item"><span class="kpi-icon">📊</span><div class="kpi-info"><div class="kpi-label">初步 LTV/CPI 比</div></div></div>
+        <div class="kpi-item"><span class="kpi-icon">💰</span><div class="kpi-info"><div class="kpi-label">IRR 基准</div></div></div>
+        <div class="kpi-item"><span class="kpi-icon">📄</span><div class="kpi-info"><div class="kpi-label">版号资质确认（国内）</div></div></div>
+        <div class="kpi-item"><span class="kpi-icon">🌐</span><div class="kpi-info"><div class="kpi-label">目标区域TAM测算（海外）</div></div></div>
+        <div class="kpi-item"><span class="kpi-icon">⚠️</span><div class="kpi-info"><div class="kpi-label">回收期上限</div></div></div>
+      </div>
+    </div>
+    <div class="ref-box"><h4>行业参照</h4>
+      <p>部分头部发行商/投资机构披露立项通过率约 5–10%（行业经验值，非官方统计，请结合内部历史数据确认）。国内额外因素：传奇/棋牌类版号审批几乎停滞，二次元等品类审批相对宽松。海外额外因素：欧洲GDPR罚款可达€2000万或全球年营收4%（取高者），北美COPPA对儿童数据保护严格。</p>
+      <p style="margin-top:4px;font-size:9px;color:#6b6504;">来源：<a href="https://www.youqibang.com/index/guide/banhao_process.html" target="_blank" style="color:inherit;">游企帮 2026版号流程</a> · <a href="https://developer.apple.com/news/?id=dadukodv" target="_blank" style="color:inherit;">Apple Developer News 2026.03.12</a> · <a href="https://gdpr-info.eu/issues/fines-penalties/" target="_blank" style="color:inherit;">gdpr-info.eu Art.83</a> · <a href="https://gamegrowthadvisor.com/blog/2026-03-17-mobile-game-retention-strategies-2026/" target="_blank" style="color:inherit;">GameGrowthAdvisor 2026</a></p></div>
+  </div>
+</div></div>
+
+<!-- ===================== P1 ===================== -->
+<div class="doc-container wide shell"><div class="phase-block p1" id="p1">
+  <div class="phase-header" onclick="togglePhase('p1')">
+    <div class="ph-left"><div class="ph-badge">P1</div><div class="ph-info"><h2>发行筹备</h2><span class="ph-sub">国内 6~9 个月（含版号）· 海外 3~6 个月 · 搭建发行基础设施</span></div></div>
+    <div class="ph-arrow">▶</div>
+  </div>
+  <div class="phase-body">
+    <div class="phase-intro">
+      <h3>阶段核心任务</h3>
+      <p>立项确认后搭建发行执行体系，产出<strong>《发行策略书》</strong>。国内外的筹备路径在此阶段出现最大分岔：国内重点是联运渠道签约+版号送审+巨量/腾讯广告基建；海外重点是多语言本地化管线+MMP归因接入+全球商店页上线+各区域社区阵地搭建。GameDiscoverCo 2025年数据显示，Steam高转化游戏平均预发布可见期约214天（低转化游戏约411天）。</p>
+      <div class="goal-tags"><span>输出《发行策略书》</span><span>完成各渠道签约</span><span>搭建素材流水线</span><span>数据/技术基建就绪</span></div>
+    </div>
+
+    <div class="region-callout cn"><h4>🇨🇳 国内专属 · P1筹备关键差异</h4>
+      <ul>
+        <li><strong>版号送审启动</strong>：P1阶段必须启动版号申请流程（6步×3-6个月，复杂项目6-12月），这是国内发行的前置硬条件 · <a href="https://www.nppa.gov.cn/nppa/channels/317.shtml" target="_blank">审批公示</a></li>
+        <li><strong>联运渠道签约</strong>：硬核联盟（华为/OPPO/vivo/小米）+ 应用宝 + TapTap + B站 + 好游快爆，安卓联运分成50%（注：2025.4腾讯-华为新协议已降至10-20%，头部厂商有议价空间）· <a href="https://developer.huawei.com/consumer/cn/appgallery/" target="_blank">华为</a> · <a href="https://open.oppomobile.com/" target="_blank">OPPO</a> · <a href="https://dev.vivo.com.cn/" target="_blank">vivo</a> · <a href="https://dev.mi.com/" target="_blank">小米</a></li>
+        <li><strong>巨量引擎+腾讯广告账户体系搭建</strong>：多账户矩阵策略，单产品可配置数十至百余账户（具体数量视平台风控政策动态调整）· <a href="https://www.oceanengine.com/" target="_blank">巨量引擎</a> · <a href="https://e.qq.com/" target="_blank">腾讯广告</a></li>
+        <li><strong>防沉迷系统接入</strong>：技术团队必须在P1完成国家统一防沉迷SDK接入+实名认证系统联调 · <a href="https://www.nppa.gov.cn/" target="_blank">国家新闻出版署</a></li>
+        <li><strong>等保测评启动</strong>：国内网游上线前需完成网络安全等级保护（至少二级，部分涉及用户数据或交易的项目需三级），P1 阶段应启动定级与测评流程 · <a href="https://www.mps.gov.cn/" target="_blank">公安部网安局</a></li>
+        <li><strong>微信小游戏/抖音小游戏版本评估</strong>：如果适合，小游戏版本与APP版本并行开发 · <a href="https://developers.weixin.qq.com/minigame/dev/guide/" target="_blank">微信小游戏</a> · <a href="https://developer.open-douyin.com/" target="_blank">抖音开放平台</a></li>
+        <li><strong>国内社区阵地</strong>：官方QQ群+微信群+微博+B站+抖音+TapTap+小红书账号矩阵搭建</li>
+      </ul>
+    </div>
+
+    <div class="region-callout global"><h4>🌍 海外专属 · P1筹备关键差异</h4>
+      <ul>
+        <li><strong>本地化管线搭建</strong>：翻译团队+LQA+文化适配顾问，至少覆盖5-8种语言（英/日/韩/德/法/西/葡/泰等）</li>
+        <li><strong>Google Play / App Store / Steam 商店页上线</strong>：多语言ASO优化，各区域关键词独立研究 · <a href="https://play.google.com/console/" target="_blank">Google Play Console</a> · <a href="https://developer.apple.com/app-store/" target="_blank">App Store Connect</a> · <a href="https://partner.steamgames.com/" target="_blank">Steamworks</a></li>
+        <li><strong>MMP归因系统接入</strong>：AppsFlyer / Adjust / Singular / Kochava 中选一，这是海外归因的强制需求 · <a href="https://dev.appsflyer.com/" target="_blank">AppsFlyer</a> · <a href="https://dev.adjust.com/" target="_blank">Adjust</a></li>
+        <li><strong>GDPR/CCPA隐私合规框架搭建</strong>：隐私政策多语言版本+用户数据管理后台+Cookie Consent · <a href="https://gdpr.eu/" target="_blank">GDPR</a> · <a href="https://oag.ca.gov/privacy/ccpa" target="_blank">CCPA</a></li>
+        <li><strong>IARC/ESRB/PEGI年龄分级申请</strong>：各平台和各区域的分级要求不同，需要逐一处理 · <a href="https://www.globalratings.com/" target="_blank">IARC</a> · <a href="https://www.esrb.org/" target="_blank">ESRB</a> · <a href="https://pegi.info/" target="_blank">PEGI</a></li>
+        <li><strong>海外支付系统接入</strong>：信用卡+PayPal+各地区本地支付（日本 PayPay / 韩国 KakaoPay等）· <a href="https://developer.paypal.com/" target="_blank">PayPal</a> · <a href="https://stripe.com/docs/payments" target="_blank">Stripe</a> · <a href="https://developers.xsolla.com/" target="_blank">Xsolla</a></li>
+        <li><strong>海外社区阵地</strong>：Discord+Reddit+Twitter(X)+YouTube+TikTok+Facebook+各地区特色平台</li>
+        <li><strong>Steam专项</strong>：胶囊图艺术+20个标签优化+商店页描述多语言版本，越早创建越好</li>
+        <li><strong>Console平台认证（如适用）</strong>：PS/Xbox/Switch 的 TRC/TCR/Lotcheck 技术合规认证周期长，P1 阶段应尽早提交开发者账号申请与认证文档 · <a href="https://partners.playstation.net/" target="_blank">PlayStation Partners</a> · <a href="https://developer.microsoft.com/games/" target="_blank">Xbox Developer</a> · <a href="https://developer.nintendo.com/" target="_blank">Nintendo Developer Portal</a></li>
+        <li><strong>IAA广告聚合接入</strong>：休闲/超休闲产品需接入广告变现聚合，海外 MAX（AppLovin）/ LevelPlay（ironSource）/ AdMob，国内 Pangle/优量汇/快手联盟 · <a href="https://www.applovin.com/max/" target="_blank">MAX</a> · <a href="https://www.pangleglobal.com/" target="_blank">Pangle</a></li>
+      </ul>
+    </div>
+
+    <!-- P1 易遗漏提醒 -->
+    <div class="checklist-panel">
+      <h4>⚠️ P1 发行筹备 — 本阶段容易遗漏的事项提醒</h4>
+      <ul class="easy-miss-list">
+        <li>各区域 ASO 关键词要独立研究，不要直接复用中文词表——海外每个市场的搜索习惯和热词完全不同</li>
+        <li>支付链路在上线前要端到端跑通（国内微信/支付宝，海外 Google Play/Apple IAP），很多团队到上线日才发现支付异常</li>
+        <li>核心海外市场的商标记得通过马德里体系一并注册，省钱也省事——单独逐国注册成本远高于体系内批量申请</li>
+      </ul>
+    </div>
+
+    <div class="module-grid">
+      <div class="module-card">
+        <div class="module-card-header" onclick="toggleModule(this)"><div style="display:flex;align-items:center;"><div class="mod-dot" style="background:var(--c-purple)"></div><h4 style="color:var(--c-purple)">发行策略制定</h4></div><span class="mod-chevron">▶</span></div>
+        <div class="module-card-body"><ul class="mod-steps">
+          <li><span class="sub-tag t-who">品牌策划</span> 品牌定位：一句话卖点 + 品牌故事 + 差异化矩阵</li>
+          <li><span class="sub-tag t-who">用户研究</span> 目标用户精细化画像：国内人群包 + 海外各区域TGI指数分析（多核心人群/区域）</li>
+          <li>定价策略 & 付费模型设计：国内F2P为主 vs 海外F2P+Premium混合</li>
+          <li><span class="sub-tag t-deadline">双轨渠道矩阵</span> 国内：联运+买量+小游戏 / 海外：App Store+Google Play+Steam+主机+本地商店</li>
+          <li><span class="sub-tag t-deadline">交付物</span> 发行排期总日历：从筹备到上线后6个月双轨节点</li>
+          <li>发行区域优先级：国内核心城市 vs 海外T1/T2/T3市场分层</li>
+          <li>本地化语言版本优先级规划：国内简中→繁中（港澳台）/ 海外按市场ROI排序</li>
+        </ul></div>
+      </div>
+      <div class="module-card">
+        <div class="module-card-header" onclick="toggleModule(this)"><div style="display:flex;align-items:center;"><div class="mod-dot" style="background:var(--c-purple)"></div><h4 style="color:var(--c-purple)">素材生产体系</h4></div><span class="mod-chevron">▶</span></div>
+        <div class="module-card-body"><ul class="mod-steps">
+          <li><span class="sub-tag t-who">美术总监</span> 视觉VI体系建立：LOGO、字体、色板、Key Art风格指南</li>
+          <li>核心美术资产需求清单(Asset Checklist)：按阶段×场景×尺寸×格式</li>
+          <li><span class="sub-tag t-tool">制作排期</span> 宣传物料制作总计划：PV/CG/实机/SNS素材/买量素材分类管理</li>
+          <li><span class="sub-tag t-deadline">版权清关</span> 音频资产全球授权确认：音乐/SFX/配音的授权区域、期限、平台、改编权及转授权条款，避免全球发行时版权纠纷</li>
+          <li><span class="sub-tag t-deadline">双轨素材</span> 国内：抖音竖版短视频+巨量素材规格 / 海外：各平台素材尺寸+可玩广告</li>
+          <li>本地化素材适配：国内（简中） vs 海外（多语言版本+文化适配性审查）</li>
+          <li>UGC/KOL素材授权规则 & 素材银行(Content Bank)搭建</li>
+          <li><span class="sub-tag t-deadline">Lead Time</span> 主视觉素材提前充足周期、短视频素材提前适当周期完成</li>
+        </ul></div>
+      </div>
+      <div class="module-card">
+        <div class="module-card-header" onclick="toggleModule(this)"><div style="display:flex;align-items:center;"><div class="mod-dot" style="background:var(--c-purple)"></div><h4 style="color:var(--c-purple)">渠道商务对接</h4></div><span class="mod-chevron">▶</span></div>
+        <div class="module-card-body"><ul class="mod-steps">
+          <li><span class="sub-tag t-deadline">国内渠道</span> 硬核联盟+应用宝+TapTap+B站+好游快爆联运签约</li>
+          <li><span class="sub-tag t-deadline">海外平台</span> App Store/Google Play/Steam/Epic/主机平台(PS/Xbox/Switch)入驻</li>
+          <li><span class="sub-tag t-who">商务经理</span> 买量渠道代理：国内（巨量/腾讯/快手） vs 海外（Meta/Google/TikTok/Snapchat）</li>
+          <li><span class="sub-tag t-deadline">关键</span> 所有渠道签约在上线前完成</li>
+        </ul></div>
+      </div>
+      <div class="module-card">
+        <div class="module-card-header" onclick="toggleModule(this)"><div style="display:flex;align-items:center;"><div class="mod-dot" style="background:var(--c-purple)"></div><h4 style="color:var(--c-purple)">技术 & 数据基建</h4></div><span class="mod-chevron">▶</span></div>
+        <div class="module-card-body"><ul class="mod-steps">
+          <li><span class="sub-tag t-deadline">必须尽早</span> 数据埋点方案：用户行为事件体系设计，提交研发执行</li>
+          <li><span class="sub-tag t-deadline">双轨归因</span> 国内：自建或三方（热云/引力引擎等） / 海外：MMP（AppsFlyer/Adjust等）</li>
+          <li><span class="sub-tag t-deadline">国内专项</span> 防沉迷SDK+实名认证系统接入</li>
+          <li><span class="sub-tag t-deadline">国内专项</span> 数据出境合规：若国内用户个人信息需传输至境外服务器或第三方，需完成《个人信息保护法》下的个人信息保护影响评估（PIA/PIPL assessment），并满足安全评估/标准合同/认证等法定路径</li>
+          <li><span class="sub-tag t-deadline">海外专项</span> GDPR合规框架+年龄分级系统+Cookie Consent</li>
+          <li>BI看板搭建：国内+海外双轨数据看板（DAU/收入/留存/买量ROI）</li>
+          <li>官网&落地页：国内版（ICP备案）+ 海外版（多语言+CDN全球加速）</li>
+          <li>CRM/客服体系筹建：国内（企业微信+在线客服）/ 海外（Zendesk+多语言）</li>
+        </ul></div>
+      </div>
+      <div class="module-card">
+        <div class="module-card-header" onclick="toggleModule(this)"><div style="display:flex;align-items:center;"><div class="mod-dot" style="background:var(--c-purple)"></div><h4 style="color:var(--c-purple)">安全 & 反作弊体系</h4></div><span class="mod-chevron">▶</span></div>
+        <div class="module-card-body"><ul class="mod-steps">
+          <li><span class="sub-tag t-deadline">必须项</span> 反作弊SDK选型：国内（腾讯MTP/网易易盾/数美）/ 海外（EasyAntiCheat/BattlEye/Denuvo）</li>
+          <li><span class="sub-tag t-who">安全工程师</span> 客户端防护：代码混淆+反调试+内存保护+加速/修改器检测</li>
+          <li><span class="sub-tag t-who">安全工程师</span> 服务端防护：协议加密+行为序列分析+异常数据检测+机器人识别</li>
+          <li><span class="sub-tag t-deadline">国内专项</span> 实名认证+防沉迷系统严格校验，防绕过机制（人脸识别/活体检测备选）</li>
+          <li><span class="sub-tag t-deadline">海外专项</span> 账号安全体系：强制2FA+设备指纹+异地登录检测+多语言安全策略</li>
+          <li><span class="sub-tag t-who">运营</span> 支付风控：退款欺诈检测 + 黑卡/盗刷监控 + 异常大额充值拦截</li>
+          <li><span class="sub-tag t-deadline">关键</span> 安全方案需在上线前至少经历1次渗透测试+1次外挂对抗演练</li>
+          <li>处罚分级SOP：警告→短期封禁→永久封禁→设备封禁，需在用户协议中明确告知</li>
+        </ul></div>
+      </div>
+      <div class="module-card">
+        <div class="module-card-header" onclick="toggleModule(this)"><div style="display:flex;align-items:center;"><div class="mod-dot" style="background:var(--c-purple)"></div><h4 style="color:var(--c-purple)">ASO & 商店页优化策略</h4></div><span class="mod-chevron">▶</span></div>
+        <div class="module-card-body"><ul class="mod-steps">
+          <li><span class="sub-tag t-deadline">双轨并行</span> 国内App Store + 各安卓商店页 vs 海外App Store + Google Play + Steam独立策略</li>
+          <li><span class="sub-tag t-deadline">关键词研究</span> 国内：各渠道热搜词+竞品覆盖词 / 海外：各区域语言独立关键词漏斗（多语种覆盖）</li>
+          <li><span class="sub-tag t-deadline">素材规格</span> 图标(1024px)+截图(5-8张/区域)+预览视频(15-30s)，国内需竖版素材，海外横版为主</li>
+          <li><span class="sub-tag t-tool">工具</span> 国内：七麦数据/点点数据 / 海外：AppTweak/SensorTower/AppFollow/SteamDB</li>
+          <li><span class="sub-tag t-deadline">Steam专项</span> 20个标签策略：选择高流量+低竞争标签组合，前3个权重最高</li>
+          <li>描述文案A/B测试：短描述（Google Play Short Description ≤80字符截断）+ 长描述（前3句决定转化率）</li>
+          <li>评分/评论储备策略：上线前种子用户定向邀请、关键词评论区引导</li>
+        </ul></div>
+      </div>
+      <div class="module-card">
+        <div class="module-card-header" onclick="toggleModule(this)"><div style="display:flex;align-items:center;"><div class="mod-dot" style="background:var(--c-purple)"></div><h4 style="color:var(--c-purple)">服务器架构规划</h4></div><span class="mod-chevron">▶</span></div>
+        <div class="module-card-body"><ul class="mod-steps">
+          <li><span class="sub-tag t-who">技术总监</span> 服务器容量预估：基于品类DAU预测×峰值冗余倍数× 单用户带宽/计算需求</li>
+          <li><span class="sub-tag t-deadline">国内</span> 国内服：腾讯云/阿里云/华为云主力节点，华南/华东/华北多Region部署</li>
+          <li><span class="sub-tag t-deadline">海外</span> 全球区域服规划：北美（AWS us-east）+ 欧洲（AWS eu-west）+ 亚太（AWS ap-southeast）+ 中东</li>
+          <li><span class="sub-tag t-tool">CDN选型</span> 全球CDN加速：CloudFront（海外）+ 腾讯云CDN（国内）+ Akamai（高要求场景备选）</li>
+          <li><span class="sub-tag t-deadline">SLA标准</span> 延迟目标：按区域设定延迟与可用性SLA标准</li>
+          <li><span class="sub-tag t-who">运维</span> 服务器架构方案文档：含拓扑图+容灾策略+自动扩缩容+灰度发布+热更新能力</li>
+          <li><span class="sub-tag t-deadline">关键</span> 压测标准：需达到预估峰值CCU数倍以上的承载能力，上线前完成全链路压测</li>
+          <li>数据库部署方案：国内（独立部署）/ 海外（各区域本地数据库+全球数据同步），GDPR数据驻留合规</li>
+        </ul></div>
+      </div>
+      <div class="module-card">
+        <div class="module-card-header" onclick="toggleModule(this)"><div style="display:flex;align-items:center;"><div class="mod-dot" style="background:var(--c-purple)"></div><h4 style="color:var(--c-purple)">ASO & 商店页优化</h4></div><span class="mod-chevron">▶</span></div>
+        <div class="module-card-body"><ul class="mod-steps">
+          <li><span class="sub-tag t-tool">方法论</span> 关键词池建立：SEM竞品反查+自动联想+用户评论语义分析，每区域建立充足候选词池</li>
+          <li><span class="sub-tag t-tool">分级策略</span> 关键词优先级矩阵：搜索量×竞争度四象限（核心词/长尾词/品牌词/蹭量词）</li>
+          <li><span class="sub-tag t-deadline">标题优化</span> 标题格式规范：[游戏名] – [核心关键词1] [核心关键词2] · [副标题差异化卖点]；App Store ≤30字符，Google Play ≤50字符</li>
+          <li><span class="sub-tag t-deadline">描述优化</span> 商店描述字段标准化：Google Play Short Description（≤80字符，前3句决定转化率）+ Full Description（≥500字SEO内容）；App Store 描述字段需直接在前3句命中核心卖点</li>
+          <li><span class="sub-tag t-tool">视觉优化</span> Icon A/B测试（多版方案对比）+ 截图前几张决定大部分转化，必须包含玩法实截图</li>
+          <li><span class="sub-tag t-deadline">双轨ASO</span> 国内：App Store + 各安卓商店独立优化 / 海外：App Store + Google Play各语言独立页面</li>
+          <li><span class="sub-tag t-tool">持续迭代</span> ASO持续追踪：榜单排名变化、关键词覆盖数增长、转化率漏斗</li>
+          <li><span class="sub-tag t-deadline">评测引导</span> 评分&评论策略：上线首周采用情景化引导触发（完成关键成就后弹窗），维持高评分</li>
+        </ul></div>
+      </div>
+    </div>
+    <div class="kpi-section"><h4>阶段核心 KPI 参照</h4>
+      <div class="kpi-grid">
+        <div class="kpi-item"><span class="kpi-icon">📄</span><div class="kpi-info"><div class="kpi-label">发行策略书完成</div></div></div>
+        <div class="kpi-item"><span class="kpi-icon">🤝</span><div class="kpi-info"><div class="kpi-label">渠道签约完成率</div></div></div>
+        <div class="kpi-item"><span class="kpi-icon">📡</span><div class="kpi-info"><div class="kpi-label">数据埋点完成率</div></div></div>
+        <div class="kpi-item"><span class="kpi-icon">🛡</span><div class="kpi-info"><div class="kpi-label">国内：防沉迷接入</div></div></div>
+        <div class="kpi-item"><span class="kpi-icon">🔐</span><div class="kpi-info"><div class="kpi-label">反作弊方案就绪</div></div></div>
+        <div class="kpi-item"><span class="kpi-icon">🌍</span><div class="kpi-info"><div class="kpi-label">海外：本地化语种</div></div></div>
+        <div class="kpi-item"><span class="kpi-icon">🔗</span><div class="kpi-info"><div class="kpi-label">海外：MMP接入</div></div></div>
+        <div class="kpi-item"><span class="kpi-icon">🏷</span><div class="kpi-info"><div class="kpi-label">ASO关键词池</div></div></div>
+      </div>
+    </div>
+    <div class="ref-box"><h4>行业参照</h4><p>Steam最佳预发布可见期214天（高转化率Top 20游戏的平均数值，GameDiscoverCo 2025）。国内TOP100手游买量成本2025H1超180亿元（伽马数据），买量基建必须前置。米哈游崩坏：星穹铁道预注册破1000万，证明了多平台同步+高密度信息释放+品牌势能驱动的有效性。Aarki/SocialPeta 2026白皮书：全球月均广告主84,000+（+21.9% YoY），获客成本同比+12%、用户规模仅+2%。</p>
+    <p style="margin-top:4px;font-size:9px;color:#6b6504;">来源：<a href="https://finance.sina.com.cn/jjxw/2025-08-06/doc-infkacvn8212756.shtml" target="_blank" style="color:inherit;">伽马数据 2025.08</a> · <a href="https://newsletter.gamediscover.co/p/the-state-of-steam-wishlist-conversions" target="_blank" style="color:inherit;">GameDiscoverCo 2025.10</a> · <a href="https://investgame.net/wp-content/uploads/2026/04/2026-04-07-investgame_socialpeta_x_singular_x_aarki_2026_global_mobile_gaming_wp.pdf" target="_blank" style="color:inherit;">Aarki/SocialPeta/Singular 2026白皮书</a> · <a href="https://howtomarketagame.com/2025/03/26/benchmarks-how-many-wishlists-can-i-get-from-steam-next-fest/" target="_blank" style="color:inherit;">Chris Zukowski/howtomarketagame</a> · <a href="https://developer.apple.com/news/?id=dadukodv" target="_blank" style="color:inherit;">developer.apple.com</a></p></div>
+  </div>
+</div></div>
+
+<!-- ===================== P2 ===================== -->
+<div class="doc-container wide shell"><div class="phase-block p2" id="p2">
+  <div class="phase-header" onclick="togglePhase('p2')">
+    <div class="ph-left"><div class="ph-badge">P2</div><div class="ph-info"><h2>首曝预热</h2><span class="ph-sub">约 2~4 个月 · 第一次让玩家看见</span></div></div>
+    <div class="ph-arrow">▶</div>
+  </div>
+  <div class="phase-body">
+    <div class="phase-intro">
+      <h3>阶段核心任务</h3>
+      <p>首曝是品牌建设的决定性瞬间。国内首曝主阵地是<strong>B站+抖音+TapTap</strong>三件套，海外则是<strong>YouTube+Twitter(X)+Steam</strong>三件套。国内注重"话题造势+KOL矩阵引爆"，海外注重"媒体关系+愿望单积累+社区冷启动"。2025-2026年数据显示，Steam Next Fest期间Demo试玩→愿望单转化率中位数为16.33%，70th分位约20%（即约前30%产品转化率≥20%）。</p>
+      <div class="goal-tags"><span>首曝话题热度达标</span><span>预约蓄水启动</span><span>媒体基础认知建立</span><span>社区冷启动成功</span></div>
+    </div>
+
+    <div class="region-callout cn"><h4>🇨🇳 国内专属 · P2首曝关键差异</h4>
+      <ul>
+        <li><strong>首曝主阵地</strong>：B站（核心PV发布）+ 抖音（短视频传播）+ TapTap（核心玩家社区）+ 微博（话题扩散）</li>
+        <li><strong>KOL策略</strong>：优先合作B站UP主+抖音达人，强调"真玩实感"而非精美CG，国内用户对"假演示"极度敏锐</li>
+        <li><strong>预约蓄水</strong>：TapTap预约量（最重要的国内口碑指标）+ B站预约 + 各联运渠道预约 + 官网预约</li>
+        <li><strong>媒体关系</strong>：游民星空/3DM/游研社/触乐/TapTap编辑推荐 + 头部游戏自媒体</li>
+        <li><strong>话题运营</strong>：微博热搜话题策划 + 抖音挑战赛 + B站二创激励活动</li>
+        <li><strong>注意事项</strong>：未获版号前不得开放付费预约（仅可免费预约），不得进行商业化宣传</li>
+        <li><strong>广告法合规</strong>：宣传素材避免使用“国家级”“最佳”“第一”等极限词；涉及抽奖/概率活动需公示概率与规则；不得对未上线内容作虚假承诺 · <a href="https://www.samr.gov.cn/" target="_blank">国家市场监督管理总局</a></li>
+      </ul>
+    </div>
+
+    <div class="region-callout global"><h4>🌍 海外专属 · P2首曝关键差异</h4>
+      <ul>
+        <li><strong>首曝主阵地</strong>：YouTube（预告片首发）+ Twitter(X)（话题扩散）+ Steam（愿望单积累）+ Reddit（核心玩家讨论）</li>
+        <li><strong>媒体先行沟通</strong>：Embargo禁运协议，提前12周触达IGN/GameSpot/Kotaku/PC Gamer等Tier-1媒体</li>
+        <li><strong>Steam愿望单策略</strong>：含UTM追踪的分渠道推广链接，愿望单是发布日销量的最强预测指标</li>
+        <li><strong>Steam Next Fest</strong>：每个游戏仅能参加一次，需在有≥500-1000愿望单基础后参加以最大化算法曝光</li>
+        <li><strong>媒体评测副本</strong>：67%记者希望提前≥3周获得评测副本</li>
+        <li><strong>社区Discord建制</strong>：海外最重要的私域社区，官方Discord服务器的活跃度直接影响口碑传播</li>
+        <li><strong>众筹预热补充（独立游戏适用）</strong>：Kickstarter/Indiegogo 可作为首曝期验证市场需求与补充资金的补充路径，需在 P2 前期规划奖励档位、实物回报物流与平台规则合规 · <a href="https://www.kickstarter.com/" target="_blank">Kickstarter</a> · <a href="https://www.indiegogo.com/" target="_blank">Indiegogo</a></li>
+      </ul>
+    </div>
+
+    <!-- P2 易遗漏提醒 -->
+    <div class="checklist-panel">
+      <h4>⚠️ P2 首曝预热 — 本阶段容易遗漏的事项提醒</h4>
+      <ul class="easy-miss-list">
+        <li>提前给媒体发 Embargo 协议，让记者在首曝日统一发稿——没有禁运管理，首曝声量会被零散稀释</li>
+        <li>准备一份云端可即玩的 Demo（浏览器串流），方便记者和主播即时体验——下载安装门槛会让大量媒体放弃试玩</li>
+      </ul>
+    </div>
+
+    <div class="module-grid">
+      <div class="module-card">
+        <div class="module-card-header" onclick="toggleModule(this)"><div style="display:flex;align-items:center;"><div class="mod-dot" style="background:var(--c-orange)"></div><h4 style="color:var(--c-orange)">首曝物料制作 & 首发</h4></div><span class="mod-chevron">▶</span></div>
+        <div class="module-card-body"><ul class="mod-steps">
+          <li><span class="sub-tag t-deadline">重磅物料</span> 概念预告片（60-120s）：氛围/世界观/情绪，非纯玩法</li>
+          <li>核心玩法Reveal Trailer（90-180s）：实机画面为主，前10秒展示核心操作</li>
+          <li><span class="sub-tag t-deadline">双轨版本</span> 国内版：竖版+横版，适配抖音/B站 / 海外版：横版为主，适配YouTube</li>
+          <li><span class="sub-tag t-tool">Steam专项</span> 胶囊图优化：标题+1个关键视觉，确保缩略图尺寸即可辨识</li>
+          <li>商店页截图轮播（≥5张实机图）：展示内容深度和视觉多样性</li>
+          <li>Key Art/主视觉海报多尺寸版本：横版(16:9)+竖版(9:16)+方形(1:1)</li>
+          <li>官网正式上线（国内：ICP备案 / 海外：多语言+全球CDN）</li>
+        </ul></div>
+      </div>
+      <div class="module-card">
+        <div class="module-card-header" onclick="toggleModule(this)"><div style="display:flex;align-items:center;"><div class="mod-dot" style="background:var(--c-orange)"></div><h4 style="color:var(--c-orange)">KOL & 媒体矩阵</h4></div><span class="mod-chevron">▶</span></div>
+        <div class="module-card-body"><ul class="mod-steps">
+          <li><span class="sub-tag t-deadline">国内KOL</span> B站UP主（头部+腰部）+ 抖音达人 + 小红书博主 分池管理（A/B/C三档）</li>
+          <li><span class="sub-tag t-deadline">海外KOL</span> YouTube Creator + Twitch Streamer + TikTok Creator 分区域签约</li>
+          <li><span class="sub-tag t-deadline">国内媒体</span> 游民星空/3DM/游研社/TapTap 编辑推荐位争取</li>
+          <li><span class="sub-tag t-deadline">海外媒体</span> Embargo协议+IGN/GameSpot/Kotaku等Tier-1触达</li>
+          <li>媒体资料包准备：Fact Sheet/预告片/截图包/Key Art/开发者简介</li>
+          <li>云串流Demo用于媒体试玩：消除平台障碍，浏览器即玩，含取证水印</li>
+        </ul></div>
+      </div>
+      <div class="module-card">
+        <div class="module-card-header" onclick="toggleModule(this)"><div style="display:flex;align-items:center;"><div class="mod-dot" style="background:var(--c-orange)"></div><h4 style="color:var(--c-orange)">社区冷启动</h4></div><span class="mod-chevron">▶</span></div>
+        <div class="module-card-body"><ul class="mod-steps">
+          <li><span class="sub-tag t-deadline">国内</span> QQ群+微信群+微博超话+B站官方号+TapTap开发者入驻+小红书官方号</li>
+          <li><span class="sub-tag t-deadline">海外</span> Discord服务器+Reddit子版+Twitter(X)官方号+YouTube频道+TikTok官方号</li>
+          <li>玩家情绪监控机制上线：关键词监控+情感分析+负面爆发预警</li>
+          <li>话题词&Hashtag规划：国内微博话题+抖音话题 / 海外Twitter+Reddit标签矩阵</li>
+          <li>UGC激励计划设计：Fan Art/COS/攻略/二创活动</li>
+        </ul></div>
+      </div>
+      <div class="module-card">
+        <div class="module-card-header" onclick="toggleModule(this)"><div style="display:flex;align-items:center;"><div class="mod-dot" style="background:var(--c-orange)"></div><h4 style="color:var(--c-orange)">预约蓄水</h4></div><span class="mod-chevron">▶</span></div>
+        <div class="module-card-body"><ul class="mod-steps">
+          <li><span class="sub-tag t-deadline">国内预约</span> TapTap预约+B站预约+各联运渠道预约+官网预约（版号下来前不可付费预约）</li>
+          <li><span class="sub-tag t-deadline">海外预约</span> App Store/Google Play预约+Steam愿望单+官网邮件订阅</li>
+          <li><span class="sub-tag t-deadline">设计关键</span> 预约奖励体系：阶梯奖励/社交裂变奖励/里程碑解锁</li>
+          <li>预约量目标分解到各渠道：国内（TapTap>联运>官网）/ 海外（Steam>App Store>Google Play）</li>
+          <li><span class="sub-tag t-tool">小额测试</span> 买量预热测试：国内（巨量小预算测试） / 海外（Meta/Google小预算测试）</li>
+          <li>Steam Next Fest参与计划（仅一次机会，务必时机最优）</li>
+        </ul></div>
+      </div>
+      <div class="module-card">
+        <div class="module-card-header" onclick="toggleModule(this)"><div style="display:flex;align-items:center;"><div class="mod-dot" style="background:var(--c-orange)"></div><h4 style="color:var(--c-orange)">线下展会 & 媒体活动</h4></div><span class="mod-chevron">▶</span></div>
+        <div class="module-card-body"><ul class="mod-steps">
+          <li><span class="sub-tag t-deadline">国内展会</span> ChinaJoy（7月底，B2C+B2B双区参展策略）/ WePlay（11月，独立游戏首选）/ 核聚变（品牌口碑）</li>
+          <li><span class="sub-tag t-deadline">海外展会</span> Summer Game Fest（6月，替代E3）/ Gamescom（8月，欧洲最大）/ Tokyo Game Show（9月，日本）/ PAX系列</li>
+          <li><span class="sub-tag t-deadline">核心动作</span> 媒体试玩区搭建：每站至少5-10台试玩设备，专人引导+现场问卷收集</li>
+          <li><span class="sub-tag t-who">PR团队</span> 展会专属预告片/试玩Demo制作（区别于线上版本，需适配展会节奏和噪音环境）</li>
+          <li><span class="sub-tag t-tool">预算规划</span> 单站参展预算：国内展和海外展预算差异显著（含展位+搭建+差旅+物料+翻译）</li>
+          <li><span class="sub-tag t-deadline">媒体关系</span> 展前30天启动记者邀约+展位预览简报（Press Kit含Key Art+试玩版+FAQ+团队简介）</li>
+          <li><span class="sub-tag t-deadline">关键</span> 展会期间收集有效问卷用于产品调整和PR素材制作</li>
+          <li>展会定制周边：徽章/海报/T恤/限定Digital Asset，用于社交传播和品牌记忆点</li>
+        </ul></div>
+      </div>
+      <div class="module-card">
+        <div class="module-card-header" onclick="toggleModule(this)"><div style="display:flex;align-items:center;"><div class="mod-dot" style="background:var(--c-orange)"></div><h4 style="color:var(--c-orange)">竞品档期避让机制</h4></div><span class="mod-chevron">▶</span></div>
+        <div class="module-card-body"><ul class="mod-steps">
+          <li><span class="sub-tag t-tool">核心工具</span> 竞品档期热力图：标注未来12个月同类竞品的上线窗口+测试窗口+大版本更新窗口</li>
+          <li><span class="sub-tag t-deadline">避让阈值</span> 同品类3A/大作：前后较长周期回避 / 腰部同类产品：中等周期回避 / 非同品类大作：较短周期回避</li>
+          <li><span class="sub-tag t-deadline">国内专项</span> 关注版号发放节奏：大批量版号下发后的1-2个月为高密度上线期，应提前或延后</li>
+          <li><span class="sub-tag t-deadline">海外专项</span> 关注Steam大促/主机平台季节性促销周期（夏促/冬促/黑五），避免在大促期间发布</li>
+          <li><span class="sub-tag t-tool">决策标准</span> 冲突指数计算：[竞品量级权重×时间临近度×用户重叠度] 超过安全阈值即判定为危险重叠</li>
+          <li><span class="sub-tag t-who">市场分析</span> 差异化窗口策略：如果无法完全避让，则通过定价/内容/平台差异化在夹缝中切入</li>
+          <li><span class="sub-tag t-deadline">动态调整</span> 档期调整并非一锤定音：竞品延期的"意外窗口"应及时捕捉，敏捷上线</li>
+          <li>备选方案：准备多个备选上线窗口（最优方案/次优方案/应急预案）</li>
+        </ul></div>
+      </div>
+    </div>
+    <div class="kpi-section"><h4>阶段核心 KPI 参照</h4>
+      <div class="kpi-grid">
+        <div class="kpi-item"><span class="kpi-icon">🎬</span><div class="kpi-info"><div class="kpi-label">首曝视频播放量</div></div></div>
+        <div class="kpi-item"><span class="kpi-icon">📥</span><div class="kpi-info"><div class="kpi-label">首周预约/愿望单转化率</div></div></div>
+        <div class="kpi-item"><span class="kpi-icon">📱</span><div class="kpi-info"><div class="kpi-label">国内：TapTap预约量</div></div></div>
+        <div class="kpi-item"><span class="kpi-icon">⭐</span><div class="kpi-info"><div class="kpi-label">海外：Steam愿望单日增量</div></div></div>
+        <div class="kpi-item"><span class="kpi-icon">🎮</span><div class="kpi-info"><div class="kpi-label">SNF Demo转化率</div></div></div>
+        <div class="kpi-item"><span class="kpi-icon">📍</span><div class="kpi-info"><div class="kpi-label">展会展位数</div></div></div>
+        <div class="kpi-item"><span class="kpi-icon">📰</span><div class="kpi-info"><div class="kpi-label">媒体报道覆盖数</div></div></div>
+        <div class="kpi-item"><span class="kpi-icon">⚡</span><div class="kpi-info"><div class="kpi-label">竞品冲突指数</div></div></div>
+      </div>
+    </div>
+    <div class="ref-box"><h4>行业参照</h4><p>国内：米哈游崩坏：星穹铁道预注册破1000万（2023.1.29 米游社公告）。海外：Steam Next Fest每个游戏仅能参加一次，需在愿望单≥500-1000后参加。愿望单→首周销量中位数0.15x（含成人/低价游戏；定价>$10的标准游戏基准为0.10x，基于愿望单≥25,000的游戏；愿望单&lt;5,000的独立游戏通常约0.10-0.12x）。SNF Demo转化率中位16.33%，Top 30%可达20%+。</p><p style="margin-top:4px;color:var(--c-amber);font-size:12px;"><strong>⚠ Steam 2026.6.4 首页改版影响</strong>：Popular Upcoming（即将推出）入口阈值从约 7K-10K 愿望单跃升至约 80K 愿望单，且更依赖个性化日历（每位用户每日仅2个 slot）。中小游戏不能将 Popular Upcoming 作为主要自然量来源，Steam Next Fest 和外部引流（KOL/社区/媒体）的重要性进一步上升。</p>
+    <p style="margin-top:4px;font-size:9px;color:#6b6504;">来源：<a href="https://newsletter.gamediscover.co/p/the-state-of-steam-wishlist-conversions" target="_blank" style="color:inherit;">GameDiscoverCo 2025.10</a> · <a href="https://howtomarketagame.com/2025/03/26/benchmarks-how-many-wishlists-can-i-get-from-steam-next-fest/" target="_blank" style="color:inherit;">Chris Zukowski/howtomarketagame 2025.03</a> · <a href="https://playruo.com/blog/game-embargo-management-remote-preview-guide" target="_blank" style="color:inherit;">Big Games Machine 2024</a></p></div>
+  </div>
+</div></div>
+
+<!-- ===================== P3 ===================== -->
+<div class="doc-container wide shell"><div class="phase-block p3" id="p3">
+  <div class="phase-header" onclick="togglePhase('p3')">
+    <div class="ph-left"><div class="ph-badge">P3</div><div class="ph-info"><h2>测试验证</h2><span class="ph-sub">约 3~5 个月 · 用数据做上线前的风险保险</span></div></div>
+    <div class="ph-arrow">▶</div>
+  </div>
+  <div class="phase-body">
+    <div class="phase-intro">
+      <h3>阶段核心任务</h3>
+      <p>测试阶段的核心风控：在花掉大规模买量预算前，用有限用户验证留存和付费。顶级工作室通常进行多轮（常见 5-15 次）玩法测试。国内与海外测试节奏差异显著：国内受版号制约——版号到手后才能做计费测试；海外可通过Soft Launch（菲律宾/加拿大等小市场）提前做实付费验证。</p>
+      <div class="goal-tags"><span>核心留存达标</span><span>付费模型验证</span><span>买量成本基准确立</span><span>产品达上线门槛</span></div>
+    </div>
+
+    <div class="region-callout cn"><h4>🇨🇳 国内专属 · P3测试关键差异</h4>
+      <ul>
+        <li><strong>版号时序约束</strong>：版号到手前只能做删档不付费测试，无法获取真实付费数据→这是在版号周期中最痛苦的不确定性</li>
+        <li><strong>测试节奏</strong>：CDK技术测试→删档封闭测试（核心玩法+留存）→版号到手后→不删档计费测试</li>
+        <li><strong>防沉迷贯穿全测试周期</strong>：测试阶段即需强制接入防沉迷+实名认证，不能用游客模式给未实名用户服务</li>
+        <li><strong>买量校准</strong>：测试期买量主要通过巨量引擎+腾讯广告，素材以短视频为主</li>
+        <li><strong>联运渠道专项测试</strong>：在硬核联盟各渠道做数据对比测试，验证各渠道用户质量差异</li>
+        <li><strong>计费测试后数据</strong>：才是国内上线的Go/No-Go决策依据</li>
+      </ul>
+    </div>
+
+    <div class="region-callout global"><h4>🌍 海外专属 · P3测试关键差异</h4>
+      <ul>
+        <li><strong>Soft Launch（软启动）</strong>：在1-2个小市场（菲律宾/加拿大/澳大利亚/印尼等）做真实全链路测试，含真实付费</li>
+        <li><strong>Steam Playtest</strong>：云串流方式，每轮20-50名测试者，可多轮迭代</li>
+        <li><strong>iOS SKAN/AdAttributionKit归因挑战</strong>：ATT opt-in 率约35%（Adjust Q2 2025），游戏子品类 40-50%（体育50%、超休闲43%、动作40%），需要配置 SKAdNetwork 4.0 或 AdAttributionKit，建立概率归因模型和增量测试(Lift Test)</li>
+        <li><strong>Android 隐私沙盒影响</strong>：Google Privacy Sandbox 逐步限制 Android Advertising ID（GAID）的可用性，海外 Android 归因需提前测试 Privacy Sandbox API（Topics、FLEDGE、Attribution Reporting 等）兼容性，并准备替代归因方案</li>
+        <li><strong>买量校准多区域</strong>：需按T1/T2/T3市场分别建立CPI/ROAS基准，CPI差异可达3-5倍</li>
+        <li><strong>本地化内容测试</strong>：多语言版本需由本地玩家进行LQA（语言质量保证）和体验测试</li>
+        <li><strong>Steam Next Fest Demo</strong>：可作为测试节点，同时兼具营销和测试双重目的</li>
+      </ul>
+    </div>
+
+    <!-- P3 易遗漏提醒 -->
+    <div class="checklist-panel">
+      <h4>⚠️ P3 测试验证 — 本阶段容易遗漏的事项提醒</h4>
+      <ul class="easy-miss-list">
+        <li>提交应用商店前，按审核红线逐项自查（隐私权限、第三方登录、内容合规）——被拒一次就损失 3-7 天上线窗口</li>
+        <li>客服工单系统要按预计 DAU 做压测，上线后客服被压垮是常见事故</li>
+        <li>国内版号信息一定要在游戏启动画面正确展示，未展示可能被要求下架整改</li>
+      </ul>
+    </div>
+
+    <div class="module-grid">
+      <div class="module-card">
+        <div class="module-card-header" onclick="toggleModule(this)"><div style="display:flex;align-items:center;"><div class="mod-dot" style="background:var(--c-green)"></div><h4 style="color:var(--c-green)">测试类型规划</h4></div><span class="mod-chevron">▶</span></div>
+        <div class="module-card-body"><ul class="mod-steps">
+          <li><span class="sub-tag t-who">技术团队</span> 技术测试（CDK内测）：压力测试、服务器承载力、客户端兼容性</li>
+          <li>删档封闭测试（外测）：核心玩法验证+留存观测（需足够有效样本量）</li>
+          <li><span class="sub-tag t-deadline">国内：版号到手后</span> 不删档计费测试：验证充值/支付链路完整性</li>
+          <li><span class="sub-tag t-deadline">海外：不受版号限制</span> Soft Launch 真实付费验证（菲律宾/加拿大等小市场）</li>
+          <li><span class="sub-tag t-deadline">重要</span> 渠道专项测试：国内联运渠道 vs 海外各区域渠道用户质量对比</li>
+          <li>付费模型A/B测试：礼包结构、定价、首充门槛、战令时机</li>
+          <li><span class="sub-tag t-tool">Steam专项</span> Playtest：云串流方式，每轮通常招募数十名测试者（规模视测试目标与版本稳定性调整）</li>
+        </ul></div>
+      </div>
+      <div class="module-card">
+        <div class="module-card-header" onclick="toggleModule(this)"><div style="display:flex;align-items:center;"><div class="mod-dot" style="background:var(--c-green)"></div><h4 style="color:var(--c-green)">投放与买量校准</h4></div><span class="mod-chevron">▶</span></div>
+        <div class="module-card-body"><ul class="mod-steps">
+          <li>测试期买量素材创意测试：按素材类型（视频/可玩/H5）测试CTR和IPM</li>
+          <li><span class="sub-tag t-tool">核心任务</span> 买量oCPM/oCPC模型校准：国内（巨量/腾讯）+海外（Meta/Google/TikTok）</li>
+          <li><span class="sub-tag t-deadline">必须完成</span> 各渠道CPM/CPA/CPC成本摸底（按品类×区域分别建立基准）</li>
+          <li>归因链路全流程验证：国内自建/三方 vs 海外MMP数据与BI看板三方对齐</li>
+          <li>ROI回收模型实测更新：D7/D14/D30 ROAS实际vs预测修正</li>
+          <li>渠道质量对比分析：按CPI÷LTV比值排序，淘汰低效渠道</li>
+          <li><span class="sub-tag t-deadline">海外专项</span> SKAN增量测试(Lift Test)：因果推断方法量化广告真实价值</li>
+        </ul></div>
+      </div>
+      <div class="module-card">
+        <div class="module-card-header" onclick="toggleModule(this)"><div style="display:flex;align-items:center;"><div class="mod-dot" style="background:var(--c-green)"></div><h4 style="color:var(--c-green)">数据分析 & 健康诊断</h4></div><span class="mod-chevron">▶</span></div>
+        <div class="module-card-body"><ul class="mod-steps">
+          <li><span class="sub-tag t-deadline">最重要指标</span> 次留/七留/30留健康性判断（按品类基准对照）</li>
+          <li>ARPPU/首充率/付费深度分析</li>
+          <li>用户行为漏斗：注册→首次对战→首次充值→第二日留存各环节转化率</li>
+          <li><span class="sub-tag t-deadline">关键洞察</span> 流失节点定位：在哪个关卡/等级/时间点出现大规模流失</li>
+          <li>LTV模型修正：基于实测数据的更新</li>
+          <li>国内+海外分区域分渠道数据对比：发现结构性差异</li>
+          <li>首次用户体验(FTUE)分析：第1/2/3次会话分别回放分析</li>
+        </ul></div>
+      </div>
+      <div class="module-card">
+        <div class="module-card-header" onclick="toggleModule(this)"><div style="display:flex;align-items:center;"><div class="mod-dot" style="background:var(--c-green)"></div><h4 style="color:var(--c-green)">产品反馈闭环</h4></div><span class="mod-chevron">▶</span></div>
+        <div class="module-card-body"><ul class="mod-steps">
+          <li>玩家反馈分级处理：P0（致命Bug/上线阻断）→P1（体验差）→P2（优化建议）</li>
+          <li>高频BUG优先级列表：按影响面×严重度×修复成本三维排序</li>
+          <li>核心玩法数值平衡复盘</li>
+          <li><span class="sub-tag t-who">发行制作人</span> 研发优化需求池管理：测试反馈→研发需求→版本排期→验证</li>
+          <li><span class="sub-tag t-deadline">最终交付</span> 测试报告输出&上线评审会议：Go/No-Go上线决策</li>
+          <li>上线前Checklist逐项确认：国内版+海外版分别清单</li>
+        </ul></div>
+      </div>
+      <div class="module-card">
+        <div class="module-card-header" onclick="toggleModule(this)"><div style="display:flex;align-items:center;"><div class="mod-dot" style="background:var(--c-green)"></div><h4 style="color:var(--c-green)">测试样本量 & 统计标准</h4></div><span class="mod-chevron">▶</span></div>
+        <div class="module-card-body"><ul class="mod-steps">
+          <li><span class="sub-tag t-tool">统计标准</span> 置信度95% + 误差±3%：核心指标（D1留存）的样本量需求，需按统计公式计算有效用户数</li>
+          <li><span class="sub-tag t-tool">按指标分层</span> D7留存样本量：需初始样本×D1留存率 ≥ 按7天衰减后仍满足统计显著性</li>
+          <li><span class="sub-tag t-deadline">付费验证</span> 付费率验证（国内计费/海外Soft Launch）：需按目标付费率反推所需有效用户量</li>
+          <li><span class="sub-tag t-tool">最少基线</span> 各测试阶段样本量要求递增：玩法测试需基础量 / 留存测试需更大样本 / 付费测试需足够付费事件 / 买量测试需大规模验证</li>
+          <li><span class="sub-tag t-deadline">付费样本动态计算</span> 目标付费率低于5%时，需按置信度95%、误差±1% 动态提升样本量（如目标付费率2%约需 19,000 有效用户）；避免因付费事件稀疏导致误判</li>
+          <li><span class="sub-tag t-deadline">海外Soft Launch</span> 推荐小市场样本：菲律宾（100万日活池）/ 加拿大（高价值验证）/ 澳大利亚（英语市场代表）</li>
+          <li><span class="sub-tag t-tool">方法论</span> 增量测试(Incrementality Test)：控制组vs实验组，需充足双组用户量以检测显著Lift</li>
+          <li><span class="sub-tag t-who">数据分析</span> 多变量测试注意事项：一次只变少数变量，A/B测试周期需足够长（避免周中/周末偏差）</li>
+          <li>样本污染防范：排除内部账号/测试账号/明显异常设备的数据对结论的干扰</li>
+        </ul></div>
+      </div>
+      <div class="module-card">
+        <div class="module-card-header" onclick="toggleModule(this)"><div style="display:flex;align-items:center;"><div class="mod-dot" style="background:var(--c-green)"></div><h4 style="color:var(--c-green)">作弊 & 刷量鉴别</h4></div><span class="mod-chevron">▶</span></div>
+        <div class="module-card-body"><ul class="mod-steps">
+          <li><span class="sub-tag t-deadline">必须项</span> 点击欺诈检测：CTIT（Click-to-Install Time）异常值过滤（正常0-300s，>24h标记可疑）</li>
+          <li><span class="sub-tag t-tool">设备指纹</span> 设备指纹去重：IP+DeviceID+OS版本+屏幕分辨率多维判重，排除虚拟机/模拟器刷量</li>
+          <li><span class="sub-tag t-who">数据分析</span> 异常行为模式：CTR异常偏高 / 安装时间集中度 / 单设备多账号 / 静默卸载后复装</li>
+          <li><span class="sub-tag t-deadline">归因污染</span> 归因劫持检测：有机量异常占比偏高 / 品牌词自然量被劫持 / 点击到展示比例异常</li>
+          <li><span class="sub-tag t-tool">流量质量</span> 渠道作弊率基准：国内需关注积分墙/任务激励掺量比例，海外关注Click Spam</li>
+          <li><span class="sub-tag t-deadline">健康标准</span> 作弊率控制：设定作弊率容忍阈值，超标的渠道立即暂停直至问题澄清</li>
+          <li><span class="sub-tag t-who">UA团队</span> 渠道黑白名单机制：基于历史作弊率建立动态信任评分，自动调整渠道出价权重</li>
+          <li>第三方防作弊服务：国内（热云/Adjust Fraud Prevention）/ 海外（AppsFlyer Protect360 / Adjust Fraud Prevention）</li>
+        </ul></div>
+      </div>
+      <div class="module-card">
+        <div class="module-card-header" onclick="toggleModule(this)"><div style="display:flex;align-items:center;"><div class="mod-dot" style="background:var(--c-green)"></div><h4 style="color:var(--c-green)">客服压力测试</h4></div><span class="mod-chevron">▶</span></div>
+        <div class="module-card-body"><ul class="mod-steps">
+          <li><span class="sub-tag t-deadline">SLA标准</span> 建立客服响应时间SLA：P0（支付/封禁类）最快响应 / P1（Bug/功能）适中响应 / P2（咨询）标准响应</li>
+          <li><span class="sub-tag t-who">客服主管</span> 客服工具链就绪确认：国内（企业微信+在线客服+电话）/ 海外（Zendesk/Helpshift+Discord Bot+邮件）</li>
+          <li><span class="sub-tag t-deadline">容载压力测试</span> 模拟上线峰值：按DAU比例推算日常客服请求量，事故/开服峰值可临时升至更高比例</li>
+          <li><span class="sub-tag t-tool">压力场景</span> 压力测试场景：支付失败高峰+游戏Bug熔断+社区群诉事件 三重并发模拟</li>
+          <li><span class="sub-tag t-deadline">多语言准备</span> 海外客服多语言覆盖（至少英语/日语/韩语/繁中），小语种可采用机器翻译+人工复核</li>
+          <li><span class="sub-tag t-who">客服主管</span> FAQ知识库搭建：充足常见问题标准回复模板（含中英文版本），AI客服先行拦截大部分常见问题</li>
+          <li><span class="sub-tag t-deadline">预警阈值</span> 客服告警机制：单小时工单量突增 / 相似问题集中度过高 / 退款率突增，自动触发升级</li>
+          <li>客服质量考核维度：首次响应率 + 满意度 + 一次性解决率</li>
+        </ul></div>
+      </div>
+    </div>
+
+    <div class="kpi-section"><h4>分品类核心关注维度</h4>
+      <p style="font-size:11px;color:var(--c-text-sec);margin-bottom:8px;">具体留存/回收基准因品类差异较大，建议项目组结合自身历史数据与第三方行业报告自定义，不设定统一阈值。下表仅列出各品类长线运营中需重点关注的核心策略方向。</p>
+      <table class="checklist-table">
+        <thead><tr><th>品类</th><th>核心策略方向</th></tr></thead>
+        <tbody>
+          <tr><td>Match/三消</td><td>元层深度、收集系统</td></tr>
+          <tr><td>Midcore RPG</td><td>简化引导、公会钩子</td></tr>
+          <tr><td>Strategy/4X SLG</td><td>内容频率、联盟机制</td></tr>
+          <tr><td>Hypercasual</td><td>广告变现、品类升级</td></tr>
+          <tr><td>Casual Puzzle</td><td>元层解锁、活动频率</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="kpi-section" style="margin-top:14px;"><h4>上线需关注的指标</h4>
+      <p style="font-size:11px;color:var(--c-amber);margin-bottom:8px;">以下维度为测试验证阶段需重点监控的指标，具体健康线/阈值由项目组结合品类基准与历史数据自定义。</p>
+      <div class="kpi-grid">
+        <div class="kpi-item"><span class="kpi-icon">📊</span><div class="kpi-info"><div class="kpi-label">D1留存（跨品类健康线）</div></div></div>
+        <div class="kpi-item"><span class="kpi-icon">📉</span><div class="kpi-info"><div class="kpi-label">D7留存（跨品类健康线）</div></div></div>
+        <div class="kpi-item"><span class="kpi-icon">💰</span><div class="kpi-info"><div class="kpi-label">首月回收ROAS</div></div></div>
+        <div class="kpi-item"><span class="kpi-icon">🎮</span><div class="kpi-info"><div class="kpi-label">首小时完成率</div></div></div>
+        <div class="kpi-item"><span class="kpi-icon">📄</span><div class="kpi-info"><div class="kpi-label">国内：版号状态</div></div></div>
+        <div class="kpi-item"><span class="kpi-icon">🚫</span><div class="kpi-info"><div class="kpi-label">退款率（Steam）</div></div></div>
+      </div>
+    </div>
+    <div class="ref-box"><h4>行业参照</h4><p>Aarki数据：超过95%手游用户30天内流失。Singular 2025数据：Q3是海外UA显著反弹季。国内TOP100手游2025H1买量成本&gt;180亿元（+86.6% YoY），测试阶段的买量成本校准直接影响上线后的ROI回收。</p>
+    <p style="margin-top:4px;font-size:9px;color:#6b6504;">来源：<a href="https://gamegrowthadvisor.com/blog/2026-03-17-mobile-game-retention-strategies-2026/" target="_blank" style="color:inherit;">GameGrowthAdvisor 2026</a> · <a href="https://www.businessofapps.com/data/mobile-game-retention-rates/" target="_blank" style="color:inherit;">Business of Apps 2026</a> · <a href="https://www.gameanalytics.com/cn/reports/2026-mobile-pc-gaming-benchmarks" target="_blank" style="color:inherit;">GameAnalytics 2026</a> · <a href="https://investgame.net/wp-content/uploads/2026/04/2026-04-07-investgame_socialpeta_x_singular_x_aarki_2026_global_mobile_gaming_wp.pdf" target="_blank" style="color:inherit;">Aarki/SocialPeta/Singular 2026白皮书</a> · <a href="https://finance.sina.com.cn/jjxw/2025-08-06/doc-infkacvn8212756.shtml" target="_blank" style="color:inherit;">伽马数据 2025.08</a> · <a href="https://www.jiemian.com/article/13956622.html" target="_blank" style="color:inherit;">DataEye</a></p></div>
+  </div>
+</div></div>
+
+<!-- ===================== P4 ===================== -->
+<div class="doc-container wide shell"><div class="phase-block p4" id="p4">
+  <div class="phase-header" onclick="togglePhase('p4')">
+    <div class="ph-left"><div class="ph-badge">P4</div><div class="ph-info"><h2>公测冲量</h2><span class="ph-sub">上线首月 · 开服即决战</span></div></div>
+    <div class="ph-arrow">▶</div>
+  </div>
+  <div class="phase-body">
+    <div class="phase-intro">
+      <h3>阶段核心任务</h3>
+      <p>上线首月是资源集中引爆期。前72小时的流量密度决定后续自然量的命脉。国内侧重<strong>联运渠道首发资源+KOL矩阵+买量冲榜</strong>，海外侧重<strong>Steam Popular New Releases（原New & Trending）榜+媒体评测集中发布+各区域分阶段上线</strong>。差评率需控制在健康线以内。</p>
+      <div class="goal-tags"><span>首日/首周DAU达成</span><span>首月流水达标</span><span>榜单冲榜</span><span>口碑基础健康</span></div>
+    </div>
+
+    <div class="region-callout cn"><h4>🇨🇳 国内专属 · P4公测关键差异</h4>
+      <ul>
+        <li><strong>联运渠道首发资源</strong>：硬核联盟各商店banner位+应用宝首发推荐+TapTap编辑推荐，这是国内最大的流量杠杆</li>
+        <li><strong>买量主力平台</strong>：巨量引擎（抖音）+腾讯广告（微信/QQ）+快手，单日预算可达数百万级</li>
+        <li><strong>多账户矩阵投放</strong>：根据平台当前政策配置多账户跑量，利用平台基建红利最大化曝光（具体账户规模需视风控政策动态调整）</li>
+        <li><strong>直客驻场支持</strong>：大推期间平台直客可驻场，提供人群包、流量加成、实时数据支持</li>
+        <li><strong>冲榜策略</strong>：App Store免费榜/畅销榜+各安卓渠道热度榜，首日下载量直接影响后续7天的自然量</li>
+        <li><strong>社群爆发运营</strong>：QQ群+微信群在开服当天充当高效的新手引导+舆情缓冲池</li>
+      </ul>
+    </div>
+
+    <div class="region-callout global"><h4>🌍 海外专属 · P4公测关键差异</h4>
+      <ul>
+        <li><strong>Steam冲榜核心</strong>：前48小时收入约需$8,000+才能进入Popular New Releases（原New & Trending）榜；首周销量vs愿望单转化中位数约15%（GameDiscoverCo），≥12%可作为保守参考线（经验值）。注意：Steam 2026.6.4首页改版后，Popular Upcoming阈值跃升至约80K愿望单，中小游戏更依赖Next Fest+外部引流</li>
+        <li><strong>Steam 2026.6.4首页改版</strong>：Popular Upcoming（即将推出）入口阈值大幅上升，个性化日历每日仅2个slot；不能将其作为中小游戏主要自然量来源</li>
+        <li><strong>各区域分阶段上线</strong>：不一定全球同步——可按T1→T2→T3分阶段，让服务器压力和运营团队有缓冲</li>
+        <li><strong>买量主力</strong>：Meta+Google Ads+TikTok，预算按70/20/10法则分配（70%已验证渠道+20%扩展+10%实验）</li>
+        <li><strong>媒体评测禁运</strong>：Steam在发布前24h解除，移动端同步发布时解除</li>
+        <li><strong>Steam10条评测门槛</strong>：Steam评分需≥10条评测才会显示，开服24h内务必突破</li>
+        <li><strong>海外平台无"直客驻场"概念</strong>：节假日找不到人，投放异常需自助工单系统处理</li>
+        <li><strong>退款率管理</strong>：Steam 2小时/14天退款政策会显著影响净收入；Google Play/Apple IAP 退款规则与申诉流程不同，需在上线前建立退款监控与归因剔除机制，目标退款率&lt;10%</li>
+        <li><strong>首发地区与时区选择</strong>：Steam 全球同步发售 vs 区域错峰发售各有利弊——全球同步利于社区热度集中爆发，区域错峰可分散服务器压力并允许团队按时段响应；需根据团队运营能力和目标市场选择</li>
+      </ul>
+    </div>
+
+    <!-- P4 易遗漏提醒 -->
+    <div class="checklist-panel">
+      <h4>⚠️ P4 公测冲量 — 本阶段容易遗漏的事项提醒</h4>
+      <ul class="easy-miss-list">
+        <li>海外各区域定价要再核一遍，土耳其/阿根廷等汇率波动大的区域要重点关注——定价失准会直接冲击收入和退款率</li>
+        <li>热修复能力要提前验证：能否快速推一个客户端补丁？上线首日几乎必然需要紧急修复</li>
+        <li>归因三方数据（MMP / BI 看板 / 广告平台）要对齐，否则数据打架影响买量决策——上线日是最容易出数据口径混乱的时候</li>
+      </ul>
+    </div>
+
+    <div class="module-grid">
+      <div class="module-card">
+        <div class="module-card-header" onclick="toggleModule(this)"><div style="display:flex;align-items:center;"><div class="mod-dot" style="background:var(--c-amber)"></div><h4 style="color:var(--c-amber)">上线事件营销</h4></div><span class="mod-chevron">▶</span></div>
+        <div class="module-card-body"><ul class="mod-steps">
+          <li><span class="sub-tag t-deadline">国内重磅</span> 开服直播/线上发布会：B站+抖音双平台，制作人/主策出镜</li>
+          <li><span class="sub-tag t-deadline">海外重磅</span> Twitch直播+YouTube首映，联动海外KOL同步</li>
+          <li>KOL/达人矩阵同步首发内容释放：72小时内密集发布</li>
+          <li>媒体评测集中发布：国内（游民/3DM/TapTap）/ 海外（Embargo解除后集中发布）</li>
+          <li><span class="sub-tag t-deadline">国内关键</span> 联运渠道首发推荐位资源兑现</li>
+          <li><span class="sub-tag t-deadline">海外关键</span> Steam Popular New Releases（原New & Trending）冲刺+App Store/Google Play Feature争取</li>
+        </ul></div>
+      </div>
+      <div class="module-card">
+        <div class="module-card-header" onclick="toggleModule(this)"><div style="display:flex;align-items:center;"><div class="mod-dot" style="background:var(--c-amber)"></div><h4 style="color:var(--c-amber)">大规模买量投放</h4></div><span class="mod-chevron">▶</span></div>
+        <div class="module-card-body"><ul class="mod-steps">
+          <li>开服买量全量跑通：所有渠道预算按预先分配权重一次性释放</li>
+          <li><span class="sub-tag t-deadline">国内</span> 巨量引擎多账户矩阵投放+腾讯广告+快手（账户规模视平台政策调整）</li>
+          <li><span class="sub-tag t-deadline">海外</span> Meta+Google+TikTok+Snapchat+Unity Ads多渠道组合</li>
+          <li><span class="sub-tag t-tool">高频迭代</span> 素材矩阵快速更新（前72小时每6小时更换低效素材）</li>
+          <li><span class="sub-tag t-deadline">关键</span> 实时ROI监控+熔断机制：ROAS连续2小时不达标自动减投</li>
+          <li>付费用户LTV分层追踪：0-24h/24-72h/3-7天/7-30天各窗口动态更新</li>
+          <li><span class="sub-tag t-tool">预算分配</span> 预算分配原则：大部分投入已验证渠道+适当扩展+少量实验</li>
+          <li>国内iOS vs Android 买量预算分配：Android CPI低40-60%但iOS变现效率更高</li>
+        </ul></div>
+      </div>
+      <div class="module-card">
+        <div class="module-card-header" onclick="toggleModule(this)"><div style="display:flex;align-items:center;"><div class="mod-dot" style="background:var(--c-amber)"></div><h4 style="color:var(--c-amber)">首月活动运营</h4></div><span class="mod-chevron">▶</span></div>
+        <div class="module-card-body"><ul class="mod-steps">
+          <li><span class="sub-tag t-deadline">Day0就绪</span> 开服福利礼包设计：新手签到7天/14天奖励链</li>
+          <li>限时活动节奏规划：按Week1-4设计不同付费钩子和活跃钩子</li>
+          <li>拉新/拉留/促付费三类活动联动：社交裂变+每日任务+首充双倍</li>
+          <li>公会/社交系统激活活动：首周内推动玩家加入公会（SLG品类尤其重要）</li>
+          <li>首月版本内容节奏把控：确保30天内不出现"内容断崖"</li>
+          <li><span class="sub-tag t-deadline">时机关键</span> Battle Pass在Day3-7引入</li>
+        </ul></div>
+      </div>
+      <div class="module-card">
+        <div class="module-card-header" onclick="toggleModule(this)"><div style="display:flex;align-items:center;"><div class="mod-dot" style="background:var(--c-amber)"></div><h4 style="color:var(--c-amber)">舆情与口碑维护</h4></div><span class="mod-chevron">▶</span></div>
+        <div class="module-card-body"><ul class="mod-steps">
+          <li><span class="sub-tag t-deadline">7×24h</span> 实时舆情监控：国内（微博/贴吧/TapTap/B站） vs 海外（Reddit/Twitter/Discord/Steam评测）</li>
+          <li>差评分类处理SOP：BUG类→技术团队 / 内容不满→产品评估 / 情绪发泄→社区疏导</li>
+          <li>媒体&玩家关系维护：国内（大R/UP主专人跟进） vs 海外（Discord社区经理+RedditAMA）</li>
+          <li><span class="sub-tag t-deadline">Steam专项</span> 10条评测门槛，开服24h内务必突破；差评率控制在健康线以内</li>
+          <li><span class="sub-tag t-who">PR团队</span> 成绩公告与话题炒热：首日数据海报/里程碑数炫耀</li>
+        </ul></div>
+      </div>
+      <div class="module-card">
+        <div class="module-card-header" onclick="toggleModule(this)"><div style="display:flex;align-items:center;"><div class="mod-dot" style="background:var(--c-amber)"></div><h4 style="color:var(--c-amber)">首月日运营节奏</h4></div><span class="mod-chevron">▶</span></div>
+        <div class="module-card-body"><ul class="mod-steps">
+          <li><span class="sub-tag t-deadline">Day 1-3（开服爆发期）</span> 全量广告投放+全渠道KOL内容集中发布+首充/登录礼+服务器排队管理</li>
+          <li><span class="sub-tag t-deadline">Day 1-3</span> 直播陪玩（国内B站/抖音主播，海外Twitch/YouTube主播多线同时在线）</li>
+          <li><span class="sub-tag t-deadline">Day 4-7（数据观察期）</span> 首日用户D2/D3留存数据反馈，买量素材快速迭代（72小时出首轮优化方案）</li>
+          <li><span class="sub-tag t-deadline">Day 4-7</span> 主流评论/评测集中爆发期应对：差评率监控，P0问题尽快修复并发公告</li>
+          <li><span class="sub-tag t-deadline">Day 8-14（活动加码期）</span> 首个版本活动上线（限时副本/联动/赛事），节奏衔接"新鲜感指数"峰值</li>
+          <li><span class="sub-tag t-deadline">Day 8-14</span> LTV追踪数据回传至UA模型，开始淘汰低效渠道和低效素材</li>
+          <li><span class="sub-tag t-deadline">Day 15-30（内容衔接期）</span> 发布首个大版本更新预告（新角色/新地图/新系统），维持自然量稳定</li>
+          <li><span class="sub-tag t-deadline">Day 15-30</span> 开启首月复盘：DAU衰减曲线分析+付费用户分层+LTV预测模型修正→制定2-3月策略</li>
+        </ul></div>
+      </div>
+      <div class="module-card">
+        <div class="module-card-header" onclick="toggleModule(this)"><div style="display:flex;align-items:center;"><div class="mod-dot" style="background:var(--c-amber)"></div><h4 style="color:var(--c-amber)">应用商店审核红线自查</h4></div><span class="mod-chevron">▶</span></div>
+        <div class="module-card-body"><ul class="mod-steps">
+          <li><span class="sub-tag t-deadline">App Store</span> 禁止：隐藏功能/热更新绕过审核/强制好评弹窗/未说明的数据收集/第三方支付引导</li>
+          <li><span class="sub-tag t-deadline">Google Play</span> 禁止：误导声明/垃圾关键词/重复包/未经用户同意的后台行为/不完整功能描述</li>
+          <li><span class="sub-tag t-deadline">国内安卓商店</span> 版号信息展示+防沉迷接入+实名认证+隐私政策URL，缺一不可上架</li>
+          <li><span class="sub-tag t-tool">自查方法</span> 使用各平台官方审核指南逐项核对：<a href="https://developer.apple.com/app-store/review/guidelines/" target="_blank">Apple审核指南</a> · <a href="https://play.google.com/about/developer-content-policy/" target="_blank">Google Play政策</a> · <a href="https://partner.steamgames.com/doc/store/review_process" target="_blank">Steam审核流程</a></li>
+          <li><span class="sub-tag t-who">法务</span> 隐私政策合规确认：国内（个保法+数据安全法） / 海外（GDPR+CCPA+COPPA）</li>
+          <li><span class="sub-tag t-deadline">关键</span> 审核周期预估：App Store（1-3天）/ Google Play（2-7天）/ Steam（1-5天）/ 国内安卓商店（3-14天）</li>
+          <li><span class="sub-tag t-deadline">应急准备</span> 被拒后的快速申诉通道：准备合规说明文档模板+紧急联系人，被拒后24小时内响应</li>
+          <li>建议提交审核前预留被拒缓冲时间（各平台额外周期），紧急修复后提交间隔需足够</li>
+        </ul></div>
+      </div>
+      <div class="module-card">
+        <div class="module-card-header" onclick="toggleModule(this)"><div style="display:flex;align-items:center;"><div class="mod-dot" style="background:var(--c-amber)"></div><h4 style="color:var(--c-amber)">紧急回滚 & 热修复 SOP</h4></div><span class="mod-chevron">▶</span></div>
+        <div class="module-card-body"><ul class="mod-steps">
+          <li><span class="sub-tag t-deadline">P0 Bug定义</span> 支付结算异常/核心玩法不可用/数据安全事件/大规模无法登录 → 30分钟内决策启动应急</li>
+          <li><span class="sub-tag t-deadline">决策树</span> 影响面评估：影响面大 → 全服停服维护 / 影响面中等 → 分区热修复 / 影响面小 → 灰度修复</li>
+          <li><span class="sub-tag t-who">技术团队</span> 热修复能力前置：客户端（Lua热更/资源热更）+ 服务端（不停服热更），P0场景需快速上线补丁</li>
+          <li><span class="sub-tag t-who">运营主管</span> 玩家公告模板库：预置P0/P1/P2三级公告模板（含道歉话术+问题说明+修复时间+补偿方案）</li>
+          <li><span class="sub-tag t-deadline">补偿SOP</span> 按影响程度分级补偿：轻度（补偿道具）→中度（全服补偿+限定称号）→重度（全服补偿+限定+退款）</li>
+          <li><span class="sub-tag t-deadline">应急演练</span> 上线前必须完成至少1次应急演练：模拟P0故障→30分钟全流程响应→问题复盘</li>
+          <li><span class="sub-tag t-who">PR团队</span> 舆情应急预案：差评集中爆发>50条/小时 → 社区禁言+官方声明+主播安抚 三线并行</li>
+          <li>应急响应团队：24/7值班安排（首周全天候 / 首月夜间值守），明确各角色响应时限和升级路径</li>
+        </ul></div>
+      </div>
+    </div>
+
+    <div class="kpi-section"><h4>阶段核心 KPI 参照</h4>
+      <div class="kpi-grid">
+        <div class="kpi-item"><span class="kpi-icon">👥</span><div class="kpi-info"><div class="kpi-label">首日DAU</div></div></div>
+        <div class="kpi-item"><span class="kpi-icon">💵</span><div class="kpi-info"><div class="kpi-label">首月流水完成率</div></div></div>
+        <div class="kpi-item"><span class="kpi-icon">🛠</span><div class="kpi-info"><div class="kpi-label">P0 Bug修复时效</div></div></div>
+        <div class="kpi-item"><span class="kpi-icon">⭐</span><div class="kpi-info"><div class="kpi-label">差评率</div></div></div>
+        <div class="kpi-item"><span class="kpi-icon">📈</span><div class="kpi-info"><div class="kpi-label">首周销量vs愿望单(Steam)</div></div></div>
+        <div class="kpi-item"><span class="kpi-icon">🇨🇳</span><div class="kpi-info"><div class="kpi-label">国内：联运首日新增</div></div></div>
+        <div class="kpi-item"><span class="kpi-icon">🌍</span><div class="kpi-info"><div class="kpi-label">海外：Steam首日评测数</div></div></div>
+        <div class="kpi-item"><span class="kpi-icon">📅</span><div class="kpi-info"><div class="kpi-label">首月D2留存</div></div></div>
+      </div>
+    </div>
+    <div class="ref-box"><h4>行业参照</h4><p>典型UA预算分配：30%付费媒体+20-25% PR+KOL+15-20%内容制作。国内TOP100手游买量成本2025H1同比+86.6%。海外：Aarki全漏斗框架显示UA与RT联动可提升20% LTV。Steam Popular New Releases（原New & Trending）约需$8,000+前48小时销售额。注意：Steam 2026.6.4首页改版后，Popular Upcoming 阈值跃升至约80K愿望单，中小游戏需更依赖 Next Fest + KOL/社区/媒体引流。</p>
+    <p style="margin-top:4px;font-size:9px;color:#6b6504;">来源：<a href="https://finance.sina.com.cn/jjxw/2025-08-06/doc-infkacvn8212756.shtml" target="_blank" style="color:inherit;">伽马数据 2025.08</a> · <a href="https://investgame.net/wp-content/uploads/2026/04/2026-04-07-investgame_socialpeta_x_singular_x_aarki_2026_global_mobile_gaming_wp.pdf" target="_blank" style="color:inherit;">Aarki/Singular 2026</a> · <a href="https://www.gamermarkt.com/blog/steam-store-redesign-indie-games-discoverability-risk/" target="_blank" style="color:inherit;">gamermarkt.com 2026</a> · <a href="https://www.businessofapps.com/data/mobile-game-retention-rates/" target="_blank" style="color:inherit;">Business of Apps 2026</a></p></div>
+  </div>
+</div></div>
+
+<!-- ===================== P5 ===================== -->
+<div class="doc-container wide shell"><div class="phase-block p5" id="p5">
+  <div class="phase-header" onclick="togglePhase('p5')">
+    <div class="ph-left"><div class="ph-badge">P5</div><div class="ph-info"><h2>长线运营</h2><span class="ph-sub">持续进行 · 精细化耕耘 + 生命周期管理</span></div></div>
+    <div class="ph-arrow">▶</div>
+  </div>
+  <div class="phase-body">
+    <div class="phase-intro">
+      <h3>阶段核心任务</h3>
+      <p>上线后从冲量切换到精细化运营。核心是维持健康留存曲线+持续优化LTV+版本内容节奏。国内长线运营的核心武器是<strong>私域社群（QQ群/微信群）+节日活动日历+买量持续迭代</strong>；海外长线运营的核心是<strong>社区生态（Discord/Reddit）+赛季内容节奏+跨区域本地化运营</strong>。95%+的玩家30天内流失，胜负手在于把Day30+的高参与度玩家培育成稳定付费生态。</p>
+      <div class="goal-tags"><span>健康留存曲线</span><span>LTV持续优化</span><span>社区活跃度</span><span>版本口碑正向</span></div>
+    </div>
+
+    <div class="region-callout cn"><h4>🇨🇳 国内专属 · P5长线运营关键差异</h4>
+      <ul>
+        <li><strong>私域社群运营</strong>：QQ群+微信群是核心阵地，分层运营（大R群/公会群/新人群），群活跃度直接影响留存</li>
+        <li><strong>节日活动日历</strong>：春节/五一/暑假/国庆/双11/周年庆等中国特有节日节奏，是最大的付费波峰</li>
+        <li><strong>买量持续迭代</strong>：82.5%+广告主月均更新素材，月均新素材占比58.1%，持续寻找新的素材方向和人群包</li>
+        <li><strong>小游戏/APP双端运营</strong>：如果适合品类，微信小游戏/抖音小游戏是重要增量渠道</li>
+        <li><strong>抖音/B站内容持续输出</strong>：攻略/搞笑/剧情类短视频保持品牌热度</li>
+        <li><strong>IP联动/跨界合作</strong>：国内IP联动（动漫/影视/品牌）是高效的内容供给和拉新手段</li>
+      </ul>
+    </div>
+
+    <div class="region-callout global"><h4>🌍 海外专属 · P5长线运营关键差异</h4>
+      <ul>
+        <li><strong>Discord社区生态</strong>：海外最重要的私域阵地，官方服务器的成员数/活跃度/消息量直接关联留存和付费</li>
+        <li><strong>Reddit子版运营</strong>：官方+玩家自发双轨并行，AMA（Ask Me Anything）是高效的开发者-玩家沟通方式</li>
+        <li><strong>多区域差异化运营</strong>：日韩（高ARPU/高要求）+北美（内容驱动）+东南亚（价格敏感/社交驱动）+欧洲（合规优先）</li>
+        <li><strong>赛季内容全球同步</strong>：Battle Pass/赛季更新需做到全球同步或时差最小化</li>
+        <li><strong>Twitch/YouTube直播生态</strong>：鼓励创作者持续产出，直播掉落(Drops)是海外特有的留存工具</li>
+        <li><strong>本地化节日运营</strong>：圣诞节/感恩节/万圣节/夏日祭/农历新年（海外版）等</li>
+        <li><strong>跨平台扩展决策</strong>：移动→PC（Steam）/ PC→移动 / 主机平台移植。需注意各平台操控适配、分辨率/性能分级、商店审核差异与平台独占协议限制</li>
+        <li><strong>IP联动法务</strong>：长期运营中动漫/影视/品牌/IP合作需明确授权范围（角色/音乐/剧情/二次创作/周边）、期限、区域、衍生权利与退出机制，避免联动到期后内容无法继续使用</li>
+      </ul>
+    </div>
+
+    <!-- P5 易遗漏提醒 -->
+    <div class="checklist-panel">
+      <h4>⚠️ P5 长线运营 — 本阶段容易遗漏的事项提醒</h4>
+      <ul class="easy-miss-list">
+        <li>创作者/UGC 内容要单独算 ROI，别只看播放量——真正要看的是自然新增与买量效率的对比，很多团队的创作者计划只有曝光没有转化</li>
+        <li>每季度至少做一次大力度召回，休眠用户池是隐形损失——召回成本远低于新获客成本</li>
+      </ul>
+    </div>
+
+    <div class="module-grid">
+      <div class="module-card">
+        <div class="module-card-header" onclick="toggleModule(this)"><div style="display:flex;align-items:center;"><div class="mod-dot" style="background:var(--c-teal)"></div><h4 style="color:var(--c-teal)">版本节奏管理</h4></div><span class="mod-chevron">▶</span></div>
+        <div class="module-card-body"><ul class="mod-steps">
+          <li>月度/季度版本内容规划：小活动（月度）+中型更新（赛季2-4周）+大型DLC/扩展（年度）</li>
+          <li>赛季/主线剧情更新节奏：与玩法生态匹配的故事情节推进</li>
+          <li><span class="sub-tag t-deadline">双轨日历</span> 国内节日（春节/暑假/国庆）+海外节日（圣诞/感恩/万圣）活动模板</li>
+          <li><span class="sub-tag t-deadline">窗口策略</span> 重大版本避开同品类大作档期（国内+海外分别监控）</li>
+          <li>首次大型内容更新安排在Day45-60，避免Day30遭遇"内容断崖"</li>
+        </ul></div>
+      </div>
+      <div class="module-card">
+        <div class="module-card-header" onclick="toggleModule(this)"><div style="display:flex;align-items:center;"><div class="mod-dot" style="background:var(--c-teal)"></div><h4 style="color:var(--c-teal)">用户精细化运营</h4></div><span class="mod-chevron">▶</span></div>
+        <div class="module-card-body"><ul class="mod-steps">
+          <li>RFM用户分层运营：按Recency×Frequency×Monetary分多组</li>
+          <li><span class="sub-tag t-deadline">持续优化</span> 流失用户召回：国内（微信/短信/电话）+海外（Push+Email+再营销广告）</li>
+          <li>付费用户VIP体系运营：分层级特权+专属客服+专属内容</li>
+          <li>社区UGC激励机制：国内（B站/抖音二创）+海外（Reddit/YouTube/Discord内容创作者计划）</li>
+          <li>用户调研与NPS追踪：季度调查，结果直接输入版本规划</li>
+          <li>推送策略：国内微信+App Push / 海外Email+App Push+Discord公告</li>
+        </ul></div>
+      </div>
+      <div class="module-card">
+        <div class="module-card-header" onclick="toggleModule(this)"><div style="display:flex;align-items:center;"><div class="mod-dot" style="background:var(--c-teal)"></div><h4 style="color:var(--c-teal)">商业化持续优化</h4></div><span class="mod-chevron">▶</span></div>
+        <div class="module-card-body"><ul class="mod-steps">
+          <li>付费模型持续A/B测试：礼包结构/定价弹窗/限时折扣频率</li>
+          <li>卖点/套餐结构动态调整：基于用户分群的差异化推送礼包</li>
+          <li><span class="sub-tag t-deadline">策略事件</span> 联名/IP合作商业化评估：国内（动漫/影视）+海外（IP方合作）</li>
+          <li>二次商业化内容开发：外观/皮肤/限定道具/经验加成</li>
+          <li>订阅制/季票模式探索：中重度游戏人均月度ARPPU提升方案</li>
+          <li><span class="sub-tag t-deadline">海外专项</span> 各区域定价策略差异化：日韩定价偏高/东南亚偏低/欧美中位</li>
+        </ul></div>
+      </div>
+      <div class="module-card">
+        <div class="module-card-header" onclick="toggleModule(this)"><div style="display:flex;align-items:center;"><div class="mod-dot" style="background:var(--c-teal)"></div><h4 style="color:var(--c-teal)">数据复盘 & 生命周期决策</h4></div><span class="mod-chevron">▶</span></div>
+        <div class="module-card-body"><ul class="mod-steps">
+          <li><span class="sub-tag t-tool">月度固定</span> 月度/季度经营复盘：P&L+Cohort分析+渠道效率排序</li>
+          <li>留存/付费衰减曲线持续监控：发现拐点立即警示</li>
+          <li><span class="sub-tag t-deadline">决策依据</span> 续投/停投买量决策：DAU自然增量>衰减量则持续投放</li>
+          <li>渠道组合动态优化：每季度根据ROAS数据重新分配预算权重</li>
+          <li><span class="sub-tag t-tool">双轨对比</span> 国内+海外各区域ROI独立评估，决定资源再分配</li>
+          <li><span class="sub-tag t-tool">长效管理</span> EOL预案规划：服务器保留/离线版/续作铺垫</li>
+          <li>跨平台扩展决策：国内移动→PC/海外移动→Steam→主机</li>
+        </ul></div>
+      </div>
+      <div class="module-card">
+        <div class="module-card-header" onclick="toggleModule(this)"><div style="display:flex;align-items:center;"><div class="mod-dot" style="background:var(--c-teal)"></div><h4 style="color:var(--c-teal)">数值膨胀管理</h4></div><span class="mod-chevron">▶</span></div>
+        <div class="module-card-body"><ul class="mod-steps">
+          <li><span class="sub-tag t-tool">核心指标</span> 战力/经济系统膨胀率监控：控制新版本单次战力增幅和年度复合膨胀率（SLG/MMO品类尤其重要）</li>
+          <li><span class="sub-tag t-deadline">经济健康度</span> 虚拟经济系统健康度评分卡：通胀率 + Gini系数 + 流通速率</li>
+          <li><span class="sub-tag t-who">数值策划</span> 版本间数值增幅控制：每个新版本内容战力增幅需设上限，与年度复合膨胀率目标对齐</li>
+          <li><span class="sub-tag t-deadline">预警机制</span> 数值崩溃预警：头部玩家付费占比过高 / 0氪玩家进度差距过大 → 触发数值重组</li>
+          <li><span class="sub-tag t-tool">平衡手段</span> 追平机制设计：新玩家加速追赶（经验值/资源加成）、老玩家转移奖励（绝版外观/称号）</li>
+          <li><span class="sub-tag t-who">运营</span> 退环境策略：按赛季/大版本重置部分数值体系（Battle Pass/排名），避免无限膨胀</li>
+          <li><span class="sub-tag t-tool">监控面板</span> 建立实时数值健康面板：各战力段玩家分布/各稀有度道具持有率/各消费层级ARPPU趋势</li>
+          <li>经典教训：曾有SLG产品因1年内战力膨胀10倍以上导致玩家断层，3个月内日活跌至峰值20%（示意案例，非具体产品）</li>
+        </ul></div>
+      </div>
+      <div class="module-card">
+        <div class="module-card-header" onclick="toggleModule(this)"><div style="display:flex;align-items:center;"><div class="mod-dot" style="background:var(--c-teal)"></div><h4 style="color:var(--c-teal)">EOL 停服预案</h4></div><span class="mod-chevron">▶</span></div>
+        <div class="module-card-body"><ul class="mod-steps">
+          <li><span class="sub-tag t-deadline">触发条件</span> EOL触发监测：DAU持续衰减至极低位 + 月衰减率居高不下 + 月流水无法覆盖运营成本 → 启动EOL评估</li>
+          <li><span class="sub-tag t-deadline">国内特殊</span> 版号注销流程+停服报备：提前≥30天公告用户，并按出版单位/主管部门要求办理相关手续；保留未消耗虚拟货币退款机制</li>
+          <li><span class="sub-tag t-deadline">法律要求</span> 法律通知周期：国内≥30天提前公告 / 海外各区域不同（欧盟GDPR要求≥30天，部分州有更严规定）</li>
+          <li><span class="sub-tag t-who">运营主管</span> 渐进式停服方案：Phase1（关闭充值+公告）→Phase2（关闭新用户注册）→Phase3（正式停服）</li>
+          <li><span class="sub-tag t-deadline">玩家补偿</span> 停服补偿方案：未消耗虚拟货币退款（国内法规强制要求）+ 指定替代游戏转移奖励</li>
+          <li><span class="sub-tag t-deadline">数据方案</span> 玩家数据迁移方案：导出工具+数据存档下载 / 离线版客户端（独立游戏可选项）</li>
+          <li><span class="sub-tag t-who">PR团队</span> 社区告别活动：限定绝版内容+感谢信+制作团队告别信+续作预告（如有）</li>
+          <li>EOL预算预留：停服运营成本（客服+服务器最低维护）+ 退款准备金，建议预留适当比例总营收</li>
+        </ul></div>
+      </div>
+      <div class="module-card">
+        <div class="module-card-header" onclick="toggleModule(this)"><div style="display:flex;align-items:center;"><div class="mod-dot" style="background:var(--c-teal)"></div><h4 style="color:var(--c-teal)">合服 & 并服策略</h4></div><span class="mod-chevron">▶</span></div>
+        <div class="module-card-body"><ul class="mod-steps">
+          <li><span class="sub-tag t-deadline">触发指标</span> 合服触发条件：单服DAU降至活跃峰值极低比例 / 付费用户过少 / 社区活跃度极低</li>
+          <li><span class="sub-tag t-tool">匹配规则</span> 合服匹配算法：服务器开服时间相近 + 综合战力中位数接近 + 付费总额相近</li>
+          <li><span class="sub-tag t-deadline">公告节奏</span> 合服公告时间线：T-14天预公告→T-7天详情公告→T-1天停服提醒→T日合服执行</li>
+          <li><span class="sub-tag t-who">运营</span> 跨服补偿方案：后开服务器按开服时间差给予经验/资源补偿（1-2周/档位）</li>
+          <li><span class="sub-tag t-deadline">技术方案</span> 数据合并技术方案：名称冲突规则（后开服者加后缀+免费改名券）+ 公会/排行榜重置策略</li>
+          <li><span class="sub-tag t-deadline">保护期</span> 合服后保护期：首周世界Boss适当增强 / 竞技场匹配偏宽松 / 设置免战期</li>
+          <li><span class="sub-tag t-tool">效果追踪</span> 合服效果评估：合服后1/2/4周DAU变化率+付费回升率+社区活跃度，不达标则启动下轮合服</li>
+          <li>合服天花板：单服最终承载上限按品类设定，超过合并上限则转入跨服玩法模式</li>
+        </ul></div>
+      </div>
+      <div class="module-card">
+        <div class="module-card-header" onclick="toggleModule(this)"><div style="display:flex;align-items:center;"><div class="mod-dot" style="background:var(--c-teal)"></div><h4 style="color:var(--c-teal)">创作者经济</h4></div><span class="mod-chevron">▶</span></div>
+        <div class="module-card-body"><ul class="mod-steps">
+          <li><span class="sub-tag t-tool">分成模型</span> 创作者分成模型设计：直播/Drops分成（5-15%流水归因）、视频二创激励（按播放量阶梯奖励）</li>
+          <li><span class="sub-tag t-deadline">平台生态</span> 直播Drops系统接入：Twitch Drops（海外）/ B站直播Drops（国内），观播时长兑换游戏内奖励</li>
+          <li><span class="sub-tag t-tool">达人分级</span> 创作者等级体系：新人（0-1K粉）→成长（1K-10K）→核心（10K-100K）→明星（100K+），逐级递增权益</li>
+          <li><span class="sub-tag t-deadline">激励标准</span> 各等级激励：新人（专属礼包+曝光扶持）/ 成长（周边礼盒+优先测试）/ 核心（分成+线下邀请）/ 明星（定制皮肤分成）</li>
+          <li><span class="sub-tag t-deadline">关键指标</span> 创作者计划ROI：内容产出量×平均播放量×自然新增归因需达到买量渠道同等效率</li>
+          <li><span class="sub-tag t-tool">平台覆盖</span> 国内（B站/抖音/小红书/快手）+ 海外（YouTube/Twitch/TikTok/Twitter），每平台维持签约创作者</li>
+          <li><span class="sub-tag t-who">社区运营</span> UGC内容激励：攻略/同人图/Cosplay/二创视频月度评选，奖金+游戏内限定道具</li>
+          <li>长期目标：创作者贡献自然新增占比逐步提升，降低买量依赖</li>
+        </ul></div>
+      </div>
+      <div class="module-card">
+        <div class="module-card-header" onclick="toggleModule(this)"><div style="display:flex;align-items:center;"><div class="mod-dot" style="background:var(--c-teal)"></div><h4 style="color:var(--c-teal)">小游戏生态专项</h4></div><span class="mod-chevron">▶</span></div>
+        <div class="module-card-body"><ul class="mod-steps">
+          <li><span class="sub-tag t-deadline">平台政策</span> 2026微信小游戏IAP新游首发实行「5000万流水内不分成」平台让利政策；IAA买量场景注册激励可选：1-30天广告流水40%（快回收）或 1-90天广告流水35%（长线），具体以 <a href="https://developers.weixin.qq.com/minigame/introduction/commercialization/guide/ad-monetization.html" target="_blank">微信小游戏官方文档</a> 为准</li>
+          <li><span class="sub-tag t-deadline">平台选择</span> 微信小游戏（MAU 5亿+，男性53%/女性47%，一二线城市占45%，24-40岁占一半，40岁以上占40% / 2026年开发者大会公布） vs 抖音小游戏（2025年DAU同比+120%，小游戏行业MAU约6亿）vs 双平台并行</li>
+          <li><span class="sub-tag t-tool">技术适配</span> 包体限制：微信小游戏主包≤4MB，主包+分包总计≤30MB（资源可远程加载扩展），需深度裁剪引擎和资源</li>
+          <li><span class="sub-tag t-deadline">买量差异</span> 小游戏买量模型不同：微信以社交裂变为主（分享率是核心指标），抖音以feed流原生广告为主</li>
+          <li><span class="sub-tag t-deadline">审核流程</span> 微信小游戏过审要点：版号（IAP必须）+软著+隐私合规+类目资质，审核周期约7-15个工作日</li>
+          <li><span class="sub-tag t-who">运营</span> 社交裂变设计：排行榜+群排行+邀请有奖+拼团/互助+红包裂变（合规框架内）</li>
+          <li><span class="sub-tag t-tool">变现模式</span> 小游戏变现选择：IAP（需版号）+ IAA（广告变现，激励视频CPM行业常见区间约¥20-40，实际受品类、用户质量与季节波动影响，需以实时数据为准）+ 混合变现</li>
+          <li><span class="sub-tag t-deadline">关键差异</span> 小游戏用户行为差异：平均单次时长约6-8分钟（App为15-20分钟，行业经验值，需结合实测校准），需重构新手引导和留存设计</li>
+          <li>数据参考：2025年微信小游戏广告消耗同比上涨约20%（IAA类超30%），IAA游戏eCPM下降趋势需在ROI模型中体现（腾讯营销/2025微信广告生态大会）</li>
+        </ul></div>
+      </div>
+      <div class="module-card">
+        <div class="module-card-header" onclick="toggleModule(this)"><div style="display:flex;align-items:center;"><div class="mod-dot" style="background:var(--c-teal)"></div><h4 style="color:var(--c-teal)">音频资产长线管理</h4></div><span class="mod-chevron">▶</span></div>
+        <div class="module-card-body"><ul class="mod-steps">
+          <li><span class="sub-tag t-deadline">版权续约</span> 背景音乐、音效库、主题曲等授权需按版本更新节奏提前续约；尤其注意授权到期前 3-6 个月启动谈判，避免版本内容被迫下线</li>
+          <li><span class="sub-tag t-deadline">配音本地化</span> 长期版本新增剧情/角色/活动需规划多语言配音录制、LQA 验收与口型/字幕同步，按区域优先级分批落地</li>
+          <li><span class="sub-tag t-tool">资产版本控制</span> 建立音频资产版本库：原始工程文件、交付文件、授权证书、使用范围记录，便于审计与多平台适配</li>
+          <li><span class="sub-tag t-deadline">平台差异</span> 主机/PC/移动端音频格式、采样率、压缩标准、杜比/DTS 支持各不相同，移植或跨平台更新需重新验证</li>
+          <li><span class="sub-tag t-who">音频团队</span> 动态混音与性能预算：长线版本中新增音频内容需持续监控内存、CPU 占用与包体增量，确保不突破目标平台预算</li>
+        </ul></div>
+      </div>
+      <div class="module-card">
+        <div class="module-card-header" onclick="toggleModule(this)"><div style="display:flex;align-items:center;"><div class="mod-dot" style="background:var(--c-teal)"></div><h4 style="color:var(--c-teal)">AI UGC & 内容合规</h4></div><span class="mod-chevron">▶</span></div>
+        <div class="module-card-body"><ul class="mod-steps">
+          <li><span class="sub-tag t-deadline">国内合规</span> 中国《生成式AI服务管理办法》：AI生成广告素材必须显著标识（"AI生成"字样），违规面临下架+罚款</li>
+          <li><span class="sub-tag t-deadline">海外合规</span> 海外平台AI素材披露规则：Meta要求标记AI生成的广告素材 / Google Ads要求AI内容声明 / YouTube需勾选"合成内容"</li>
+          <li><span class="sub-tag t-who">法务</span> AI素材版权风险：AI生成图像的版权归属在中国和欧美仍存争议，商业化素材建议人工二次创作降险</li>
+          <li><span class="sub-tag t-tool">AI应用场景</span> 合理使用：本地化翻译初稿/广告文案灵感/素材A/B方案快速生成/客服Bot自动回复（标注AI身份）</li>
+          <li><span class="sub-tag t-deadline">禁止场景</span> 不宜使用：核心KOL代言/品牌主视觉/游戏内高价值资产/涉及现实人物形象的素材</li>
+          <li><span class="sub-tag t-deadline">内部流程</span> AI素材内审流程：AI生成→人工审核→合规标识→上线追踪，保留审核记录≥2年</li>
+          <li><span class="sub-tag t-who">PR团队</span> 舆情防范：避免"AI生成素材冒充真人代言"的负面舆情，用户对AI内容态度日益敏感</li>
+          <li><span class="sub-tag t-deadline">UGC 内容审核</span> 玩家生成内容（UGC）需建立审核机制：国内符合《网络信息内容生态治理规定》，海外符合各平台社区准则；明确平台责任边界与举报处理流程</li>
+          <li>2025-2026趋势：平台AI检测能力持续增强，合规成本持续上升，建议建立AI素材专用审核流水线</li>
+        </ul></div>
+      </div>
+    </div>
+
+    <div class="kpi-section"><h4>阶段核心 KPI 参照</h4>
+      <div class="kpi-grid">
+        <div class="kpi-item"><span class="kpi-icon">📉</span><div class="kpi-info"><div class="kpi-label">月流水留存比</div></div></div>
+        <div class="kpi-item"><span class="kpi-icon">👤</span><div class="kpi-info"><div class="kpi-label">付费用户D30留存</div></div></div>
+        <div class="kpi-item"><span class="kpi-icon">📈</span><div class="kpi-info"><div class="kpi-label">社区月活增长</div></div></div>
+        <div class="kpi-item"><span class="kpi-icon">⭐</span><div class="kpi-info"><div class="kpi-label">评分稳定性</div></div></div>
+        <div class="kpi-item"><span class="kpi-icon">🔄</span><div class="kpi-info"><div class="kpi-label">D14留存</div></div></div>
+        <div class="kpi-item"><span class="kpi-icon">💡</span><div class="kpi-info"><div class="kpi-label">NPS分数</div></div></div>
+        <div class="kpi-item"><span class="kpi-icon">📊</span><div class="kpi-info"><div class="kpi-label">数值膨胀控制</div></div></div>
+        <div class="kpi-item"><span class="kpi-icon">🎨</span><div class="kpi-info"><div class="kpi-label">创作者贡献新增</div></div></div>
+      </div>
+    </div>
+    <div class="ref-box"><h4>行业参照</h4><p>社交关系是留存最强的杠杆——4X SLG中参与联盟的玩家游戏时间是非联盟玩家的3-4倍。Aarki：UA与RT联动可提升20% LTV。国内私域社群运营对留存的影响在最近3年被头部发行商反复验证。2025年月均新素材占比58.1%（SocialPeta），82.5%+广告主月均更新素材。</p>
+    <p style="margin-top:4px;font-size:9px;color:#6b6504;">来源：<a href="https://investgame.net/wp-content/uploads/2026/04/2026-04-07-investgame_socialpeta_x_singular_x_aarki_2026_global_mobile_gaming_wp.pdf" target="_blank" style="color:inherit;">Aarki/SocialPeta/Singular 2026白皮书</a> · <a href="https://www.sohu.com/a/1028330683_204824" target="_blank" style="color:inherit;">2026微信小游戏开发者大会</a> · <a href="https://www.sohu.com/a/994164277_121778725" target="_blank" style="color:inherit;">MoonFox/月狐数据 2026白皮书</a> · <a href="https://www.jiemian.com/article/13956622.html" target="_blank" style="color:inherit;">DataEye 2025</a></p></div>
+  </div>
+</div></div>
+
+<!-- ===================== CHANNEL MATRIX ===================== -->
+<div class="doc-container wide shell" style="margin-top:44px;">
+  <section class="cmp-section">
+    <div class="cmp-title"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg> 发行渠道矩阵 · 国内 vs 海外对照（附官方接入文档）</div>
+    <div class="ch-matrix">
+      <div class="ch-card cn-card">
+        <h4>🇨🇳 国内主要发行渠道</h4>
+        <table>
+          <tr><td>App Store</td><td>iOS唯一官方渠道，中国区分成25%（小企业12%，2026.3起）</td></tr>
+          <tr><td>华为应用市场</td><td>硬核联盟核心，联运分成50%（腾讯-华为2025.4已降至10-20%），活跃率14%+</td></tr>
+          <tr><td>OPPO软件商店</td><td>硬核联盟，联运分成50%</td></tr>
+          <tr><td>vivo应用商店</td><td>硬核联盟，联运分成50%</td></tr>
+          <tr><td>小米应用商店</td><td>硬核联盟，联运分成50%</td></tr>
+          <tr><td>应用宝</td><td>腾讯旗下安卓商店，依托微信/QQ生态</td></tr>
+          <tr><td>TapTap</td><td>核心玩家社区，0分成，预约量是最重要的口碑指标</td></tr>
+          <tr><td>B站</td><td>二次元/独立游戏首选社区渠道，联运分成30-50%</td></tr>
+          <tr><td>好游快爆</td><td>独立游戏推荐平台，用户质量高</td></tr>
+          <tr><td>微信小游戏</td><td>2025年爆发式增长，适合休闲/中轻度品类</td></tr>
+          <tr><td>抖音小游戏</td><td>短视频+小游戏联动，获客成本低</td></tr>
+          <tr><td>Steam国区</td><td>PC游戏首选，30%分成阶梯制</td></tr>
+          <tr><td>WeGame</td><td>腾讯PC平台，国内最大本土PC游戏平台</td></tr>
+        </table>
+        <div class="ref-box" style="margin-top:12px;">
+          <h4>🔗 接入文档直达</h4>
+          <p>
+            <a href="https://developer.apple.com/cn/app-store/" target="_blank">App Store Connect</a> ·
+            <a href="https://developer.huawei.com/consumer/cn/appgallery/" target="_blank">华为AppGallery Connect</a> ·
+            <a href="https://open.oppomobile.com/" target="_blank">OPPO开放平台</a> ·
+            <a href="https://dev.vivo.com.cn/" target="_blank">vivo开发者</a> ·
+            <a href="https://dev.mi.com/" target="_blank">小米开放平台</a> ·
+            <a href="https://open.qq.com/" target="_blank">应用宝开放平台</a> ·
+            <a href="https://developer.taptap.com/" target="_blank">TapTap开发者</a> ·
+            <a href="https://open.bilibili.com/" target="_blank">B站游戏开放平台</a> ·
+            <a href="https://developers.weixin.qq.com/minigame/dev/guide/" target="_blank">微信小游戏开发文档</a> ·
+            <a href="https://developer.open-douyin.com/" target="_blank">抖音开放平台</a> ·
+            <a href="https://partner.steamgames.com/" target="_blank">Steamworks</a> ·
+            <a href="https://www.wegame.com.cn/developer/" target="_blank">WeGame开发者</a>
+          </p>
+        </div>
+      </div>
+      <div class="ch-card gl-card">
+        <h4>🌍 海外主要发行渠道</h4>
+        <table>
+          <tr><td>App Store</td><td>全球iOS唯一渠道，30%→首$1M→15%</td></tr>
+          <tr><td>Google Play</td><td>全球Android主渠道，30%→首$1M→15%</td></tr>
+          <tr><td>Steam</td><td>全球最大PC平台，30%→25%→20%阶梯制，2025年发布20,282款游戏</td></tr>
+          <tr><td>Epic Games Store</td><td>12%分成，独占+免费游戏策略吸引用户</td></tr>
+          <tr><td>GOG</td><td>无DRM PC平台，欧洲市场影响力大</td></tr>
+          <tr><td>PlayStation Network</td><td>索尼主机平台，北美/欧洲/日本核心</td></tr>
+          <tr><td>Xbox Live</td><td>微软主机+PC Game Pass生态</td></tr>
+          <tr><td>Nintendo eShop</td><td>任天堂Switch平台，日本市场尤其强势</td></tr>
+          <tr><td>ONE Store</td><td>韩国本土Android商店，历史高位约15%，近年受Google Play挤压份额波动于5-15%</td></tr>
+          <tr><td>DMM Games</td><td>日本本土PC游戏平台</td></tr>
+          <tr><td>华为AppGallery（海外版）</td><td>在东南亚/中东/拉美有一定份额</td></tr>
+          <tr><td>Samsung Galaxy Store</td><td>三星设备预装商店</td></tr>
+        </table>
+        <div class="ref-box" style="margin-top:12px;">
+          <h4>🔗 接入文档直达</h4>
+          <p>
+            <a href="https://developer.apple.com/app-store/" target="_blank">App Store Connect</a> ·
+            <a href="https://play.google.com/console/" target="_blank">Google Play Console</a> ·
+            <a href="https://partner.steamgames.com/" target="_blank">Steamworks</a> ·
+            <a href="https://dev.epicgames.com/" target="_blank">Epic Developer Portal</a> ·
+            <a href="https://www.gog.com/partner" target="_blank">GOG Partner Portal</a> ·
+            <a href="https://partners.playstation.net/" target="_blank">PlayStation Partners</a> ·
+            <a href="https://developer.microsoft.com/en-us/games/" target="_blank">Xbox Developer</a> ·
+            <a href="https://developer.nintendo.com/" target="_blank">Nintendo Developer</a> ·
+            <a href="https://dev.onestore.co.kr/" target="_blank">ONE Store Developer</a> ·
+            <a href="https://games.dmm.com/" target="_blank">DMM Games</a> ·
+            <a href="https://developer.huawei.com/consumer/en/appgallery/" target="_blank">Huawei AppGallery（海外）</a> ·
+            <a href="https://developer.samsung.com/galaxy-store" target="_blank">Samsung Galaxy Store</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="ch-matrix" style="margin-top:12px;">
+      <div class="ch-card cn-card">
+        <h4>🇨🇳 国内买量平台</h4>
+        <table>
+          <tr><td>巨量引擎</td><td>抖音+今日头条+西瓜视频，国内最大买量平台</td></tr>
+          <tr><td>腾讯广告</td><td>微信+QQ+腾讯视频+腾讯新闻，社交生态闭环</td></tr>
+          <tr><td>快手</td><td>短视频买量第二极，下沉市场覆盖好</td></tr>
+          <tr><td>百度信息流</td><td>搜索+信息流，适合品牌词防守</td></tr>
+          <tr><td>阿里汇川</td><td>UC+优酷，补充渠道</td></tr>
+          <tr><td>B站</td><td>原生内容植入，适合二次元/独立游戏</td></tr>
+        </table>
+      </div>
+      <div class="ch-card gl-card">
+        <h4>🌍 海外买量平台</h4>
+        <table>
+          <tr><td>Meta Ads</td><td>Facebook+Instagram，全球最大社交买量平台</td></tr>
+          <tr><td>Google Ads</td><td>搜索+YouTube+AdMob+Display Network</td></tr>
+          <tr><td>TikTok for Business</td><td>短视频买量，全球化覆盖，年轻用户为主</td></tr>
+          <tr><td>Snapchat</td><td>熟人社交，新奇个性化投放，欧美年轻用户</td></tr>
+          <tr><td>Unity Ads</td><td>游戏内视频广告，IAA变现联动</td></tr>
+          <tr><td>ironSource</td><td>休闲/超休闲游戏买量+变现一体</td></tr>
+          <tr><td>AppLovin</td><td>AI驱动买量，2025年增长迅猛</td></tr>
+          <tr><td>Twitter(X) Ads</td><td>游戏社区天然阵地，日本/欧美覆盖好</td></tr>
+          <tr><td>Reddit Ads</td><td>精准子版定向，核心玩家触达</td></tr>
+        </table>
+      </div>
+    </div>
+    <div class="ch-matrix" style="margin-top:12px;">
+      <div class="ch-card cn-card">
+        <h4>🇨🇳 国内社区/社媒阵地</h4>
+        <table>
+          <tr><td>微信群/QQ群</td><td>核心私域，分层运营，公告+活动触达</td></tr>
+          <tr><td>微博</td><td>话题扩散+舆情主战场+蓝V运营</td></tr>
+          <tr><td>B站</td><td>PUGC内容+二创+官方频道</td></tr>
+          <tr><td>抖音</td><td>短视频传播+直播+挑战赛</td></tr>
+          <tr><td>TapTap</td><td>核心玩家社区+评分系统+开发者入驻</td></tr>
+          <tr><td>小红书</td><td>女性用户+生活方式内容，新兴游戏社区</td></tr>
+          <tr><td>贴吧</td><td>特定品类（SLG/二次元）仍有价值</td></tr>
+        </table>
+      </div>
+      <div class="ch-card gl-card">
+        <h4>🌍 海外社区/社媒阵地</h4>
+        <table>
+          <tr><td>Discord</td><td>核心私域，游戏社区标配，官方服务器运营</td></tr>
+          <tr><td>Reddit</td><td>子版运营+AMA+口碑传播，欧美核心</td></tr>
+          <tr><td>Twitter (X)</td><td>公告+舆情+开发者互动，日本/欧美核心</td></tr>
+          <tr><td>YouTube</td><td>长视频+预告片+创作者生态</td></tr>
+          <tr><td>TikTok</td><td>短视频传播+挑战赛，年轻用户覆盖</td></tr>
+          <tr><td>Facebook Groups</td><td>社群运营，东南亚/拉美/中东覆盖好</td></tr>
+          <tr><td>Twitch</td><td>直播+Drop，PC/主机游戏核心</td></tr>
+          <tr><td>LINE</td><td>日本/东南亚/中国台湾核心社交</td></tr>
+          <tr><td>KakaoTalk</td><td>韩国核心社交平台</td></tr>
+          <tr><td>Naver Cafe</td><td>韩国游戏社区核心</td></tr>
+        </table>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ===================== CHECKLIST ===================== -->
+<div class="doc-container wide shell" style="margin-top:44px;">
+  <div class="section-title">跨阶段发行检查清单（30项核心检查点 · 国内 + 海外同框对照）</div>
+  <table class="checklist-table">
+    <thead><tr><th>#</th><th>检查项</th><th>阶段</th><th>国内</th><th>海外</th><th>负责方</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>竞品深度扫描完成</td><td>P0</td><td>✅</td><td>✅</td><td>发行制作人</td></tr>
+      <tr><td>2</td><td>IP/版权尽调通过</td><td>P0</td><td>✅</td><td>✅（含国际商标）</td><td>法务</td></tr>
+      <tr><td>3</td><td>版号申请资质确认（国内专项）</td><td>P0</td><td>✅</td><td>—</td><td>法务+商务</td></tr>
+      <tr><td>4</td><td>目标区域GDPR/CCPA合规评估（海外专项）</td><td>P0</td><td>—</td><td>✅</td><td>法务</td></tr>
+      <tr><td>5</td><td>LTV/CPI模型初版完成</td><td>P0</td><td>✅</td><td>✅</td><td>数据分析</td></tr>
+      <tr><td>6</td><td>立项评审Go决策通过</td><td>P0</td><td>✅</td><td>✅</td><td>委员会</td></tr>
+      <tr><td>7</td><td>发行策略书输出（含双轨方案）</td><td>P1</td><td>✅</td><td>✅</td><td>发行制作人</td></tr>
+      <tr><td>8</td><td>版号送审启动（国内专项）</td><td>P1</td><td>✅</td><td>—</td><td>法务+出版单位</td></tr>
+      <tr><td>9</td><td>本地化管线搭建完成（多语种，海外专项）</td><td>P1</td><td>—</td><td>✅</td><td>本地化团队</td></tr>
+      <tr><td>10</td><td>防沉迷/实名系统接入（国内专项）</td><td>P1</td><td>✅</td><td>—</td><td>技术团队</td></tr>
+      <tr><td>11</td><td>数据埋点方案交付研发</td><td>P1</td><td>✅</td><td>✅</td><td>数据分析</td></tr>
+      <tr><td>12</td><td>归因系统接入完成</td><td>P1</td><td>✅（自建/三方）</td><td>✅（MMP）</td><td>技术+数据</td></tr>
+      <tr><td>13</td><td>联运渠道签约完成</td><td>P1</td><td>✅（硬核联盟等）</td><td>—</td><td>商务</td></tr>
+      <tr><td>14</td><td>平台商店页全量上线</td><td>P1</td><td>✅（App Store+联运）</td><td>✅（App Store+GP+Steam）</td><td>运营+美术</td></tr>
+      <tr><td>15</td><td>首支概念预告片完成</td><td>P2</td><td>✅（双版本）</td><td>✅（多语言字幕）</td><td>美术+视频</td></tr>
+      <tr><td>16</td><td>媒体资料包准备就绪</td><td>P2</td><td>✅</td><td>✅（含Embargo协议）</td><td>PR</td></tr>
+      <tr><td>17</td><td>预约/愿望单系统上线</td><td>P2</td><td>✅（TapTap+联运）</td><td>✅（Steam+GP+AS）</td><td>运营+技术</td></tr>
+      <tr><td>18</td><td>社区阵地全量开通</td><td>P2</td><td>✅（Q群+微信+微博+B站+抖音+TapTap）</td><td>✅（Discord+Reddit+Twitter+YT+TikTok）</td><td>社区运营</td></tr>
+      <tr><td>19</td><td>Steam Next Fest确认参与（海外专项）</td><td>P2</td><td>—</td><td>✅</td><td>发行制作人</td></tr>
+      <tr><td>20</td><td>首轮技术测试完成</td><td>P3</td><td>✅（CDK内测）</td><td>✅（Playtest/Soft Launch）</td><td>技术+QA</td></tr>
+      <tr><td>21</td><td>D1留存达标（品类基准）</td><td>P3</td><td>✅按品类校准</td><td>✅按品类校准</td><td>数据分析</td></tr>
+      <tr><td>22</td><td>版号取得 & 计费测试完成（国内专项）</td><td>P3</td><td>✅</td><td>—</td><td>法务+运营</td></tr>
+      <tr><td>23</td><td>Soft Launch付费验证完成（海外专项）</td><td>P3</td><td>—</td><td>✅</td><td>运营+数据</td></tr>
+      <tr><td>24</td><td>买量成本基准确立</td><td>P3</td><td>✅（巨量/腾讯基准）</td><td>✅（按区域分渠道基准）</td><td>UA团队</td></tr>
+      <tr><td>25</td><td>上线Go/No-Go评审通过</td><td>P3</td><td>✅</td><td>✅</td><td>委员会</td></tr>
+      <tr><td>26</td><td>开服活动方案就绪</td><td>P4</td><td>✅</td><td>✅</td><td>运营</td></tr>
+      <tr><td>27</td><td>KOL内容排期确认（72h日历）</td><td>P4</td><td>✅（B站+抖音达人）</td><td>✅（YouTube+Twitch创作者）</td><td>市场+KOL管理</td></tr>
+      <tr><td>28</td><td>实时舆情监控启动（7×24h）</td><td>P4</td><td>✅（微博/TapTap/B站）</td><td>✅（Reddit/Twitter/Steam）</td><td>社区+PR</td></tr>
+      <tr><td>29</td><td>首月复盘报告输出</td><td>P4→P5</td><td>✅（双轨对比数据）</td><td>✅（分区域分渠道）</td><td>全体发行团队</td></tr>
+      <tr><td>30</td><td>长线版本路标确认（12个月）</td><td>P5</td><td>✅（含国内节日）</td><td>✅（含全球节日+区域特色）</td><td>发行+研发</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ===================== PAYMENT COMPARISON ===================== -->
+<div class="doc-container wide shell" style="margin-top:44px;">
+  <section class="cmp-section">
+    <div class="cmp-title">💳 支付体系与本地化要求 · 国内 vs 海外对照（附接入文档）</div>
+    <div class="ch-matrix">
+      <div class="ch-card cn-card">
+        <h4>🇨🇳 国内支付方式</h4>
+        <table>
+          <tr><td>微信支付</td><td>绝对主流，覆盖率≥90% · <a href="https://pay.weixin.qq.com/" target="_blank">官方接入</a></td></tr>
+          <tr><td>支付宝</td><td>覆盖率≥80%，与微信支付互补 · <a href="https://open.alipay.com/" target="_blank">官方接入</a></td></tr>
+          <tr><td>Apple Pay（StoreKit）</td><td>iOS用户补充选项 · <a href="https://developer.apple.com/in-app-purchase/" target="_blank">StoreKit文档</a></td></tr>
+          <tr><td>云闪付/银行卡</td><td>少数场景补充 · <a href="https://open.unionpay.com/" target="_blank">银联开放平台</a></td></tr>
+        </table>
+        <div class="ref-box" style="margin-top:12px;">
+          <h4>🔗 国内支付SDK汇总</h4>
+          <p>
+            国内支付接入通常两个SDK即覆盖95%+场景：
+            <a href="https://pay.weixin.qq.com/wiki/doc/apiv3/" target="_blank">微信支付API V3</a> ·
+            <a href="https://opendocs.alipay.com/open/204/105297" target="_blank">支付宝APP支付</a> ·
+            <a href="https://developer.apple.com/documentation/storekit" target="_blank">Apple StoreKit 2</a><br>
+            游戏内购场景：国内iOS直接用StoreKit，安卓端微信/支付宝双通道，无需对接Google Play Billing
+          </p>
+        </div>
+      </div>
+      <div class="ch-card gl-card">
+        <h4>🌍 海外各区域支付方式（需差异化接入）</h4>
+        <table>
+          <tr><td>全球通用</td><td>Visa/Mastercard/Amex · <a href="https://developer.apple.com/in-app-purchase/" target="_blank">Apple IAP</a> · <a href="https://developer.android.com/google/play/billing" target="_blank">Google Play Billing</a></td></tr>
+          <tr><td>PayPal</td><td>全球覆盖最广的第三方支付 · <a href="https://developer.paypal.com/" target="_blank">PayPal Developer</a></td></tr>
+          <tr><td>北美</td><td>信用卡为主+PayPal+Apple Pay+Google Pay · <a href="https://stripe.com/docs/payments" target="_blank">Stripe Payments</a></td></tr>
+          <tr><td>欧洲</td><td>信用卡+Klarna（先买后付）+Sofort/iDEAL（本地银行转账） · <a href="https://docs.klarna.com/" target="_blank">Klarna API</a></td></tr>
+          <tr><td>日本</td><td>信用卡+PayPay（主流）+便利店支付；LINE Pay 已逐步退出日本本土市场 · <a href="https://developer.paypay.ne.jp/" target="_blank">PayPay API</a></td></tr>
+          <tr><td>韩国</td><td>信用卡+KakaoPay+Naver Pay+Toss+文化商品券 · <a href="https://developers.kakao.com/" target="_blank">KakaoPay API</a></td></tr>
+          <tr><td>东南亚</td><td>GrabPay+GoPay+OVO+Touch'n Go+GCash+PayMaya · <a href="https://developer.grab.com/" target="_blank">Grab Developer</a></td></tr>
+          <tr><td>拉美</td><td>信用卡+Boleto（巴西）+Mercado Pago+OXXO（墨西哥） · <a href="https://www.mercadopago.com/developers" target="_blank">Mercado Pago API</a></td></tr>
+          <tr><td>中东</td><td>信用卡+STC Pay+现金卡 · <a href="https://www.checkout.com/" target="_blank">Checkout.com</a></td></tr>
+        </table>
+        <div class="ref-box" style="margin-top:12px;">
+          <h4>🔗 海外支付聚合方案</h4>
+          <p>
+            建议使用支付聚合平台统一对接，避免逐个接入各地区支付：
+            <a href="https://developers.xsolla.com/" target="_blank">Xsolla（游戏专属）</a> ·
+            <a href="https://stripe.com/docs/payments" target="_blank">Stripe（全球覆盖广）</a> ·
+            <a href="https://docs.adyen.com/" target="_blank">Adyen（企业级）</a> ·
+            <a href="https://www.braintreepayments.com/" target="_blank">Braintree（PayPal旗下）</a> ·
+            <a href="https://developer.android.com/google/play/billing" target="_blank">Google Play Billing（Android内购必接）</a> ·
+            <a href="https://developer.apple.com/in-app-purchase/" target="_blank">Apple In-App Purchase（iOS内购必接）</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ===================== MMP & ATTRIBUTION LINKS ===================== -->
+<div class="doc-container wide shell" style="margin-top:44px;">
+  <section class="cmp-section">
+    <div class="cmp-title"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg> 归因 & 数据基建接入文档 · 国内 + 海外</div>
+    <div class="ch-matrix">
+      <div class="ch-card cn-card">
+        <h4>🇨🇳 国内归因/数据工具</h4>
+        <table>
+          <tr><td>热云数据</td><td>国内手游买量归因主流平台 · <a href="https://www.trackingio.com/" target="_blank">TrackingIO</a></td></tr>
+          <tr><td>引力引擎</td><td>小游戏归因分析 · <a href="https://www.gravity-engine.com/" target="_blank">官方</a></td></tr>
+          <tr><td>巨量引擎数据</td><td>抖音买量数据回传 · <a href="https://www.oceanengine.com/" target="_blank">巨量引擎</a></td></tr>
+          <tr><td>腾讯广告归因</td><td>腾讯系买量数据 · <a href="https://e.qq.com/" target="_blank">腾讯广告</a></td></tr>
+          <tr><td>TalkingData</td><td>移动数据分析平台 · <a href="https://www.talkingdata.com/" target="_blank">TalkingData</a></td></tr>
+          <tr><td>友盟+</td><td>阿里系移动统计 · <a href="https://www.umeng.com/" target="_blank">友盟+</a></td></tr>
+          <tr><td>数数科技</td><td>游戏数据分析引擎（TA系统） · <a href="https://www.thinkingdata.cn/" target="_blank">ThinkingData</a></td></tr>
+        </table>
+      </div>
+      <div class="ch-card gl-card">
+        <h4>🌍 海外MMP归因平台</h4>
+        <table>
+          <tr><td>AppsFlyer</td><td>市场份额第一，SDK接入文档完善 · <a href="https://dev.appsflyer.com/" target="_blank">AppsFlyer Dev</a></td></tr>
+          <tr><td>Adjust</td><td>防作弊能力强，AppLovin旗下 · <a href="https://dev.adjust.com/" target="_blank">Adjust Docs</a></td></tr>
+          <tr><td>Singular</td><td>ROI分析领先 · <a href="https://www.singular.net/developers/" target="_blank">Singular Dev</a></td></tr>
+          <tr><td>Kochava</td><td>企业级归因，支持电视/OTT归因 · <a href="https://support.kochava.com/" target="_blank">Kochava Docs</a></td></tr>
+          <tr><td>Branch</td><td>深度链接+归因一体 · <a href="https://docs.branch.io/" target="_blank">Branch Docs</a></td></tr>
+          <tr><td>SKAdNetwork</td><td>Apple官方归因框架 · <a href="https://developer.apple.com/documentation/storekit/skadnetwork" target="_blank">SKAN文档</a></td></tr>
+          <tr><td>Google Attribution</td><td>Google Ads归因 · <a href="https://developers.google.com/app-conversion-tracking" target="_blank">Google App Attribution</a></td></tr>
+        </table>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ===================== ANTI-CHEAT & COMPLIANCE LINKS ===================== -->
+<div class="doc-container wide shell" style="margin-top:44px;">
+  <section class="cmp-section">
+    <div class="cmp-title">🛡 反作弊 & 合规SDK接入文档 · 国内 + 海外</div>
+    <div class="ch-matrix">
+      <div class="ch-card cn-card">
+        <h4>🇨🇳 国内反作弊 & 合规</h4>
+        <table>
+          <tr><td>腾讯MTP</td><td>手游反作弊 · <a href="https://cloud.tencent.com/product/mtp" target="_blank">腾讯云MTP</a></td></tr>
+          <tr><td>网易易盾</td><td>内容安全+反作弊 · <a href="https://dun.163.com/" target="_blank">网易易盾</a></td></tr>
+          <tr><td>数美科技</td><td>反欺诈/反作弊/内容审核 · <a href="https://www.ishumei.com/" target="_blank">数美科技</a></td></tr>
+          <tr><td>防沉迷系统</td><td>国家新闻出版署统一防沉迷SDK · <a href="https://www.nppa.gov.cn/" target="_blank">国家新闻出版署</a></td></tr>
+          <tr><td>实名认证</td><td>国家新闻出版署统一实名认证+防沉迷系统 · <a href="https://www.nppa.gov.cn/" target="_blank">国家新闻出版署</a></td></tr>
+          <tr><td>版号查询</td><td>国家新闻出版署审批查询 · <a href="https://www.nppa.gov.cn/nppa/channels/317.shtml" target="_blank">审批结果公示</a></td></tr>
+        </table>
+      </div>
+      <div class="ch-card gl-card">
+        <h4>🌍 海外反作弊 & 合规</h4>
+        <table>
+          <tr><td>EasyAntiCheat</td><td>Epic旗下，PC/主机反作弊 · <a href="https://www.easy.ac/" target="_blank">EasyAntiCheat</a></td></tr>
+          <tr><td>BattlEye</td><td>PC反作弊，逃离塔科夫/PUBG使用 · <a href="https://www.battleye.com/" target="_blank">BattlEye</a></td></tr>
+          <tr><td>Denuvo</td><td>PC反篡改/反盗版 · <a href="https://irdeto.com/denuvo/" target="_blank">Denuvo by Irdeto</a></td></tr>
+          <tr><td>IARC</td><td>国际年龄分级联盟（全球通用） · <a href="https://www.globalratings.com/" target="_blank">IARC</a></td></tr>
+          <tr><td>ESRB</td><td>北美游戏分级 · <a href="https://www.esrb.org/" target="_blank">ESRB</a></td></tr>
+          <tr><td>PEGI</td><td>欧洲游戏分级 · <a href="https://pegi.info/" target="_blank">PEGI</a></td></tr>
+          <tr><td>GDPR合规</td><td>欧盟通用数据保护条例 · <a href="https://gdpr.eu/" target="_blank">GDPR.eu</a> · <a href="https://commission.europa.eu/law/law-topic/data-protection_en" target="_blank">EU官方</a></td></tr>
+          <tr><td>CCPA合规</td><td>加州消费者隐私法 · <a href="https://oag.ca.gov/privacy/ccpa" target="_blank">CA Attorney General</a></td></tr>
+          <tr><td>COPPA合规</td><td>美国儿童在线隐私保护法 · <a href="https://www.ftc.gov/legal-library/browse/rules/childrens-online-privacy-protection-rule-coppa" target="_blank">FTC COPPA</a></td></tr>
+        </table>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p><strong>游戏发行全流程手册 · 全球发行全流程版 V1</strong></p>
+  <p>基于2025–2026年全球游戏市场实际数据&头部发行商实践 | 国内与海外同框对照 | 所有数据均附原始来源链接</p>
+  <p style="margin-top:8px;">文档版本 V1 · 2026.06.26 · 全球发行全流程版 · 供内部发行团队参考</p>
+</footer>
+
+
+
+<div class="doc-container wide shell" style="margin-top:44px;">
+  <div class="cmp-section">
+    <div class="cmp-title">📚 数据来源与参考链接</div>
+    <div style="overflow-x:auto; font-size:11px; line-height:1.8; color:var(--c-text-sec);">
+      <table class="checklist-table">
+        <thead><tr><th width="30%">数据来源</th><th width="50%">引用要点</th><th width="20%">链接</th></tr></thead>
+        <tbody>
+          <tr><td>Apple Developer</td><td>中国区App Store佣金下调：30%→25%，小企业15%→12%（2026.3.15生效）</td><td><a href="https://developer.apple.com/news/?id=dadukodv" target="_blank" style="font-size:10px;">developer.apple.com</a></td></tr>
+          <tr><td>Steamworks / Valve</td><td>Steam分成阶梯：30%→25%→20%（$10M/$50M阈值），Coming Soon页面政策</td><td><a href="https://partner.steamgames.com/doc/store/coming_soon" target="_blank" style="font-size:10px;">partner.steamgames.com</a></td></tr>
+          <tr><td>伽马数据 2025</td><td>2025H1 TOP100手游买量成本>180亿（+86.6% YoY），《中国上市/非上市游戏企业竞争力报告》</td><td><a href="https://finance.sina.com.cn/jjxw/2025-08-06/doc-infkacvn8212756.shtml" target="_blank" style="font-size:10px;">finance.sina.com.cn</a></td></tr>
+          <tr><td>SocialPeta/Singular/Aarki 2026白皮书</td><td>全球月均广告主84,000+（+21.9%），获客成本+12%用户+2%，95%用户30天流失，UA+RT联动+20% LTV，月均新素材占比58.1%</td><td><a href="https://investgame.net/wp-content/uploads/2026/04/2026-04-07-investgame_socialpeta_x_singular_x_aarki_2026_global_mobile_gaming_wp.pdf" target="_blank" style="font-size:10px;">investgame.net</a></td></tr>
+          <tr><td>GameGrowthAdvisor 2026</td><td>分品类D1/D7/D30留存中位数，Top-Quartile上线门槛标准，4X SLG联盟玩家vs非联盟3-4倍游戏时间</td><td><a href="https://gamegrowthadvisor.com/blog/2026-03-17-mobile-game-retention-strategies-2026/" target="_blank" style="font-size:10px;">gamegrowthadvisor.com</a></td></tr>
+          <tr><td>Business of Apps 2026</td><td>Match D1 32.6%/D30 7.1%，Strategy D1 25.3%，iOS D1 35.7% vs Android 27.5%</td><td><a href="https://www.businessofapps.com/data/mobile-game-retention-rates/" target="_blank" style="font-size:10px;">businessofapps.com</a></td></tr>
+          <tr><td>GameDiscoverCo 2025</td><td>Steam高愿望基数游戏（>25k愿望单）首周销售中位数0.15x，定价>$10降至0.10x；高转化游戏平均预发布期约214天（低转化约411天）</td><td><a href="https://gamedevreports.substack.com/p/gamediscoverco-the-state-of-steam" target="_blank" style="font-size:10px;">gamedevreports.substack.com</a></td></tr>
+          <tr><td>HowToMarketAGame / Chris Zukowski</td><td>SNF Demo转化率中位16.33%/70th 20%，Pre-Steam页面规则5条，2025 Steam 20,282款新游（608款1000+评论=3%）</td><td><a href="https://howtomarketagame.com/2025/03/26/benchmarks-how-many-wishlists-can-i-get-from-steam-next-fest/" target="_blank" style="font-size:10px;">howtomarketagame.com</a></td></tr>
+          <tr><td>Big Games Machine 2024</td><td>67%记者希望提前≥3周获得评测副本（150+游戏记者调查）</td><td><a href="https://playruo.com/blog/game-embargo-management-remote-preview-guide" target="_blank" style="font-size:10px;">playruo.com</a></td></tr>
+          <tr><td>GDPR / gdpr-info.eu</td><td>Art.83(5)：严重违规罚款上限€2000万或全球年营收4%（取高者）</td><td><a href="https://gdpr-info.eu/issues/fines-penalties/" target="_blank" style="font-size:10px;">gdpr-info.eu</a></td></tr>
+          <tr><td>DataEye 2025</td><td>2025在投手游APP超2.3万款（+17% YoY），2024年为20,054款</td><td><a href="https://www.jiemian.com/article/13956622.html" target="_blank" style="font-size:10px;">jiemian.com</a></td></tr>
+          <tr><td>2026微信小游戏开发者大会</td><td>MAU 5亿+，开发者50万+，IAP首发流水5000万内不分成，日互动超1亿次</td><td><a href="https://www.sohu.com/a/1028330683_204824" target="_blank" style="font-size:10px;">sohu.com</a></td></tr>
+          <tr><td>MoonFox/月狐数据 2026</td><td>小游戏市场规模535.4亿（2025），MAU约6亿，抖音小游戏DAU同比+120%</td><td><a href="https://www.sohu.com/a/994164277_121778725" target="_blank" style="font-size:10px;">sohu.com</a></td></tr>
+          <tr><td>gamermarkt.com 2026</td><td>Steam New & Trending前48h需约$8,000+销售额；Steam 2026.6.4改版：Popular Upcoming阈值从7K-10K升至约80K愿望单</td><td><a href="https://www.gamermarkt.com/blog/steam-store-redesign-indie-games-discoverability-risk/" target="_blank" style="font-size:10px;">gamermarkt.com</a></td></tr>
+          <tr><td>Logicity 2026</td><td>Steam 2026.6.4 Popular Upcoming改版：最低入选愿望单从约6K-7K升至约80K（开发者实测）</td><td><a href="https://logicity.in/en/blog/steam-redesign-raises-indie-visibility-bar-from-7k-to-80k-wishlists" target="_blank" style="font-size:10px;">logicity.in</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+</div>
+</div>
+<script>
+function togglePhase(id) { document.getElementById(id).classList.toggle('open'); }
+function toggleModule(header) { header.parentElement.classList.toggle('open'); }
+function scrollToPhase(id) {
+  const el = document.getElementById(id);
+  if (el) { el.scrollIntoView({behavior:'smooth',block:'start'}); if (!el.classList.contains('open')) el.classList.add('open'); }
+  document.querySelectorAll('.doc-nav-pill').forEach(p=>p.classList.remove('active'));
+  const pill = document.querySelector(`.doc-nav-pill.${id}`);
+  if (pill) pill.classList.add('active');
+}
+function toggleAllPhases() {
+  const all = document.querySelectorAll('.phase-block');
+  const anyClosed = Array.from(all).some(b => !b.classList.contains('open'));
+  all.forEach(b => { if (anyClosed) b.classList.add('open'); else b.classList.remove('open'); });
+}
+// Intersection Observer for nav pills
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.id;
+      document.querySelectorAll('.doc-nav-pill').forEach(p=>p.classList.remove('active'));
+      const pill = document.querySelector(`.doc-nav-pill.${id}`);
+      if (pill) pill.classList.add('active');
+    }
+  });
+}, {rootMargin:'-80px 0px -70% 0px'});
+document.querySelectorAll('.phase-block').forEach(el=>observer.observe(el));
+</script>
+
+    </main>
+
+    <footer id="contact" class="footer">
+      <div>© 2026 @heyhong</div>
+      <a href="mailto:hong@heyhong.net">hong@heyhong.net</a>
+    </footer>
+  </body>
+</html>
