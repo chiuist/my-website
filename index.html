@@ -3,888 +3,286 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HEYHONG | Game Publishing & Indie Games</title>
-    <link rel="preload" as="image" href="assets/banners/banner-01.jpg" />
-    <style>
-      :root {
-        color-scheme: dark;
-        --bg: #07090d;
-        --panel: rgba(15, 20, 29, 0.82);
-        --panel-strong: rgba(20, 26, 38, 0.94);
-        --line: rgba(255, 255, 255, 0.1);
-        --text: #f7f9fc;
-        --muted: #aeb8c6;
-        --soft: #738091;
-        --orange: #ff8a1c;
-        --gold: #ffc44d;
-        --green: #49d196;
-        --cyan: #55d7d0;
-        --radius: 24px;
-        --container-max: 1280px;
-        --container-pad: clamp(20px, 4vw, 48px);
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-
-      html {
-        scroll-behavior: smooth;
-      }
-
-      body {
-        margin: 0;
-        min-width: 320px;
-        background:
-          radial-gradient(circle at 10% 10%, rgba(255, 138, 28, 0.16), transparent 30rem),
-          radial-gradient(circle at 88% 38%, rgba(85, 215, 208, 0.18), transparent 34rem),
-          radial-gradient(circle at 22% 82%, rgba(98, 72, 180, 0.15), transparent 28rem),
-          linear-gradient(135deg, #06070a 0%, #0a0d12 42%, #05070b 100%);
-        color: var(--text);
-        font-family:
-          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-          "PingFang SC", "Microsoft YaHei", sans-serif;
-      }
-
-      body::before {
-        position: fixed;
-        inset: 0;
-        z-index: -2;
-        pointer-events: none;
-        content: "";
-        background-image:
-          linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(255, 255, 255, 0.032) 1px, transparent 1px);
-        background-size: 108px 108px;
-        mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.75), transparent 90%);
-      }
-
-      a {
-        color: inherit;
-        text-decoration: none;
-      }
-
-      button,
-      a {
-        -webkit-tap-highlight-color: transparent;
-      }
-
-      .page {
-        width: 100%;
-        margin: 0;
-      }
-
-      .header {
-        position: sticky;
-        top: 0;
-        z-index: 20;
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        height: 108px;
-        padding-left: max(var(--container-pad), calc((100vw - var(--container-max)) / 2));
-        padding-right: max(var(--container-pad), calc((100vw - var(--container-max)) / 2));
-        border-bottom: 1px solid rgba(255, 255, 255, 0.055);
-        background: linear-gradient(
-          180deg,
-          rgba(7, 9, 13, 0.78) 0%,
-          rgba(7, 9, 13, 0.48) 68%,
-          rgba(7, 9, 13, 0) 100%
-        );
-        backdrop-filter: blur(16px);
-        box-shadow: 0 18px 50px rgba(0, 0, 0, 0.16);
-      }
-
-      .brand {
-        display: inline-flex;
-        align-items: center;
-        gap: 14px;
-        min-width: 0;
-      }
-
-      .brand img {
-        width: 116px;
-        height: 58px;
-        object-fit: contain;
-      }
-
-      .brand-mark {
-        display: none;
-        color: var(--soft);
-        font-size: 12px;
-        font-weight: 700;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-      }
-
-      .nav {
-        display: flex;
-        align-items: center;
-        gap: clamp(18px, 3vw, 44px);
-        margin-left: auto;
-        color: #d7dde6;
-        font-size: 14px;
-        font-weight: 700;
-      }
-
-      .nav a {
-        opacity: 0.8;
-        transition: opacity 160ms ease, color 160ms ease;
-      }
-
-      .nav a:hover {
-        color: var(--gold);
-        opacity: 1;
-      }
-
-      main {
-        overflow: hidden;
-      }
-
-      section {
-        scroll-margin-top: 112px;
-        padding-left: max(var(--container-pad), calc((100vw - var(--container-max)) / 2));
-        padding-right: max(var(--container-pad), calc((100vw - var(--container-max)) / 2));
-      }
-
-      .hero {
-        padding: 0;
-      }
-
-      .eyebrow {
-        margin: 0 0 20px;
-        color: var(--green);
-        font-size: 13px;
-        font-weight: 900;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-      }
-
-      .hero-banner {
-        position: relative;
-        display: block;
-        width: 100%;
-        height: clamp(420px, calc(100vh - 108px), 760px);
-        background:
-          url("assets/banners/banner-01.jpg"),
-          radial-gradient(circle at 68% 30%, rgba(255, 138, 28, 0.2), transparent 22rem),
-          radial-gradient(circle at 80% 70%, rgba(85, 215, 208, 0.22), transparent 28rem),
-          linear-gradient(135deg, #080a0f 0%, #141820 44%, #07191b 100%);
-        background-position: center;
-        background-size: cover;
-      }
-
-      .hero-banner::after {
-        position: absolute;
-        inset: auto 0 0;
-        height: 28%;
-        background: linear-gradient(180deg, rgba(5, 8, 11, 0), #05080b 88%);
-        content: "";
-        pointer-events: none;
-      }
-
-      .hero + .content-section {
-        padding-top: 56px;
-      }
-
-      .content-section {
-        position: relative;
-        padding-top: 86px;
-        padding-bottom: 34px;
-      }
-
-      .article-showcase,
-      .games-showcase {
-        display: grid;
-        gap: clamp(34px, 6vw, 92px);
-        align-items: center;
-      }
-
-      .article-showcase {
-        grid-template-columns: minmax(460px, 0.92fr) minmax(360px, 0.78fr);
-      }
-
-      .article-visuals {
-        display: grid;
-        gap: 28px;
-      }
-
-      .games-showcase {
-        grid-template-columns: minmax(280px, 0.42fr) minmax(600px, 1fr);
-        padding-top: 44px;
-      }
-
-      .section-copy h2 {
-        margin: 0;
-        font-size: clamp(34px, 4vw, 52px);
-        line-height: 1.1;
-        letter-spacing: 0;
-      }
-
-      .section-title-row {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: flex-end;
-        gap: 14px 38px;
-      }
-
-      .section-copy p {
-        max-width: 470px;
-        margin: 22px 0 0;
-        color: var(--muted);
-        font-size: 16px;
-        line-height: 1.75;
-      }
-
-      .mosaic-grid {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 24px;
-      }
-
-      .mosaic-card {
-        --card-y: 0px;
-        position: relative;
-        display: block;
-        aspect-ratio: 1.85 / 1;
-        min-height: 156px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 28px;
-        background: linear-gradient(135deg, var(--tone-a), var(--tone-b)), #151b24;
-        box-shadow: 0 22px 60px rgba(0, 0, 0, 0.28);
-        cursor: pointer;
-        transform: translateY(var(--card-y)) scale(1);
-        transition: transform 260ms ease, border-color 260ms ease, box-shadow 260ms ease;
-        overflow: hidden;
-      }
-
-      .mosaic-card:nth-child(2),
-      .mosaic-card:nth-child(4) {
-        --card-y: 26px;
-      }
-
-      .mosaic-card:hover {
-        z-index: 3;
-        border-color: rgba(255, 255, 255, 0.22);
-        box-shadow: 0 30px 82px rgba(0, 0, 0, 0.4);
-        transform: translateY(var(--card-y)) scale(1.045);
-      }
-
-      .mosaic-card::before,
-      .game-art::before {
-        position: absolute;
-        inset: 0;
-        background:
-          var(--image),
-          linear-gradient(135deg, var(--tone-a), var(--tone-b)),
-          #18202b;
-        background-position: center;
-        background-size: cover;
-        content: "";
-        transition: transform 360ms ease;
-      }
-
-      .mosaic-card::after {
-        position: absolute;
-        inset: 0;
-        z-index: 1;
-        background: linear-gradient(180deg, transparent 34%, rgba(0, 0, 0, 0.7));
-        content: "";
-      }
-
-      .mosaic-card span {
-        position: absolute;
-        left: 18px;
-        right: 18px;
-        bottom: 16px;
-        z-index: 2;
-        color: #ffffff;
-        font-size: 15px;
-        font-weight: 900;
-        line-height: 1.3;
-      }
-
-      .optional-meta {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-      }
-
-      .mosaic-meta {
-        position: absolute;
-        left: 18px;
-        right: 18px;
-        top: 16px;
-        z-index: 2;
-      }
-
-      .meta-pill {
-        display: inline-flex;
-        align-items: center;
-        min-height: 24px;
-        padding: 0 9px;
-        border: 1px solid rgba(255, 255, 255, 0.14);
-        border-radius: 999px;
-        background: rgba(7, 10, 14, 0.42);
-        color: rgba(239, 244, 250, 0.9);
-        font-size: 11px;
-        font-weight: 800;
-      }
-
-      .text-link {
-        position: relative;
-        display: inline-flex;
-        align-items: center;
-        gap: 14px;
-        margin-top: 28px;
-        color: #f8fafc;
-        font-size: 15px;
-        font-weight: 900;
-      }
-
-      .section-title-row .text-link {
-        margin: 0 0 1px;
-      }
-
-      .text-link::after {
-        width: 30px;
-        content: "→";
-        font-size: 22px;
-        font-weight: 700;
-        line-height: 1;
-        transform: translateY(-1px);
-      }
-
-      .game-deck {
-        display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 18px;
-        align-items: end;
-      }
-
-      .game-card {
-        position: relative;
-        display: flex;
-        color: inherit;
-        min-height: 360px;
-        flex-direction: column;
-        align-items: center;
-        padding: 52px 16px 18px;
-        border: 1px solid var(--line);
-        border-radius: 28px;
-        background: var(--panel);
-        box-shadow: 0 28px 76px rgba(0, 0, 0, 0.3);
-        cursor: pointer;
-        transform: scale(1);
-        transition: transform 260ms ease, border-color 260ms ease, box-shadow 260ms ease;
-      }
-
-      .game-card:hover {
-        z-index: 3;
-        border-color: rgba(255, 255, 255, 0.22);
-        box-shadow: 0 34px 90px rgba(0, 0, 0, 0.44);
-        transform: scale(1.035);
-      }
-
-      .game-avatar {
-        position: absolute;
-        top: -38px;
-        display: block;
-        width: 76px;
-        height: 76px;
-        border: 6px solid #07090d;
-        border-radius: 50%;
-        background:
-          var(--avatar),
-          linear-gradient(135deg, var(--tone-a), var(--tone-b)),
-          #131923;
-        background-position: center;
-        background-size: cover;
-        overflow: hidden;
-      }
-
-      .quote-mark {
-        color: #ff405f;
-        font-size: 28px;
-        font-weight: 900;
-        line-height: 1;
-      }
-
-      .game-card h3 {
-        margin: 8px 0 0;
-        text-align: center;
-        font-size: 19px;
-        line-height: 1.25;
-      }
-
-      .game-platform {
-        display: inline-flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 6px;
-        margin-top: 8px;
-        color: var(--muted);
-        font-size: 12px;
-        font-weight: 800;
-      }
-
-      .platform-pill {
-        display: inline-flex;
-        align-items: center;
-        min-height: 24px;
-        padding: 0 9px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.04);
-      }
-
-      .game-card p {
-        min-height: 66px;
-        margin: 16px 0 20px;
-        color: var(--muted);
-        text-align: center;
-        font-size: 13px;
-        line-height: 1.7;
-      }
-
-      .game-art {
-        position: relative;
-        display: block;
-        width: 100%;
-        aspect-ratio: 2.12 / 1;
-        margin-top: auto;
-        border-radius: 22px;
-        background: linear-gradient(135deg, var(--tone-a), var(--tone-b)), #18202b;
-        overflow: hidden;
-      }
-
-      .footer {
-        display: grid;
-        justify-items: center;
-        gap: 6px;
-        margin: 72px clamp(20px, 5vw, 72px) 34px;
-        padding: 0;
-        color: rgba(200, 206, 216, 0.72);
-        text-align: center;
-        font-size: 13px;
-        font-weight: 600;
-        line-height: 1.5;
-      }
-
-      .footer a {
-        color: rgba(170, 178, 192, 0.78);
-      }
-
-      @media (max-width: 980px) {
-        .header {
-          height: 88px;
-          flex-wrap: nowrap;
-          gap: 12px;
-          padding-block: 14px;
-        }
-
-        section {
-          scroll-margin-top: 104px;
-        }
-
-        .nav {
-          width: auto;
-          margin-left: auto;
-          justify-content: flex-end;
-          gap: clamp(18px, 5vw, 34px);
-          overflow-x: visible;
-        }
-
-        .article-showcase,
-        .games-showcase {
-          grid-template-columns: 1fr;
-        }
-
-        .article-showcase {
-          align-items: start;
-          gap: 28px;
-        }
-
-        .article-showcase .section-copy {
-          order: -1;
-        }
-
-        .article-showcase .article-visuals {
-          order: 2;
-          gap: 14px;
-        }
-
-        .article-showcase .mosaic-card {
-          height: clamp(132px, 24vw, 180px);
-          min-height: 0;
-          aspect-ratio: auto;
-          border-radius: 22px;
-        }
-
-        .hero-banner {
-          height: clamp(380px, 60vh, 620px);
-        }
-
-        .mosaic-card:nth-child(2),
-        .mosaic-card:nth-child(4) {
-          --card-y: 0px;
-          transform: none;
-        }
-
-        .game-deck {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-          gap: 40px 14px;
-          align-items: stretch;
-        }
-
-        .game-card {
-          min-height: 300px;
-          padding: 40px 12px 14px;
-          border-radius: 22px;
-        }
-
-        .game-avatar {
-          top: -28px;
-          width: 58px;
-          height: 58px;
-          border-width: 5px;
-        }
-
-        .quote-mark {
-          font-size: 22px;
-        }
-
-        .game-card h3 {
-          font-size: 17px;
-        }
-
-        .game-platform {
-          margin-top: 6px;
-          font-size: 11px;
-        }
-
-        .game-card p {
-          min-height: 54px;
-          margin: 12px 0 14px;
-          font-size: 12px;
-          line-height: 1.55;
-        }
-
-        .game-art {
-          border-radius: 18px;
-        }
-      }
-
-      @media (max-width: 620px) {
-        .brand img {
-          width: 96px;
-          height: 48px;
-        }
-
-        .brand-mark {
-          display: none;
-        }
-
-        .content-section {
-          padding-top: 28px;
-          padding-bottom: 20px;
-        }
-
-        .hero-banner {
-          height: clamp(280px, 58vh, 440px);
-        }
-
-        .hero + .content-section {
-          padding-top: 28px;
-        }
-
-        #games.content-section {
-          padding-top: 34px;
-        }
-
-        .mosaic-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .article-showcase .article-visuals {
-          gap: 12px;
-        }
-
-        .article-showcase .mosaic-card {
-          height: clamp(118px, 34vw, 150px);
-          border-radius: 20px;
-        }
-
-        .mosaic-card span {
-          left: 16px;
-          right: 16px;
-          bottom: 14px;
-          font-size: 14px;
-        }
-
-        .section-title-row {
-          gap: 12px 26px;
-        }
-
-        .section-title-row .text-link {
-          margin-bottom: 1px;
-        }
-
-        .games-showcase {
-          gap: 40px;
-        }
-
-        .game-deck {
-          gap: 34px 12px;
-        }
-
-        .game-card {
-          min-height: 242px;
-          padding: 32px 10px 12px;
-          border-radius: 20px;
-        }
-
-        .game-avatar {
-          top: -24px;
-          width: 50px;
-          height: 50px;
-          border-width: 4px;
-        }
-
-        .game-card h3 {
-          font-size: 15px;
-        }
-
-        .game-platform {
-          min-height: 18px;
-          font-size: 10px;
-        }
-
-        .game-card p {
-          min-height: 46px;
-          margin: 10px 0 12px;
-          font-size: 11px;
-          line-height: 1.45;
-        }
-
-        .game-art {
-          aspect-ratio: 1.65 / 1;
-          border-radius: 16px;
-        }
-
-        .footer {
-          font-size: 12px;
-        }
-      }
-
-      @media (prefers-reduced-motion: reduce) {
-        html {
-          scroll-behavior: auto;
-        }
-
-        *,
-        *::before,
-        *::after {
-          transition-duration: 0.01ms !important;
-          animation-duration: 0.01ms !important;
-          animation-iteration-count: 1 !important;
-        }
-      }
-    </style>
+    <meta
+      name="description"
+      content="Chiuist / HEYHONG：游戏发行实践、AI 产品实验与独立创作。"
+    />
+    <meta name="theme-color" content="#f4f1eb" />
+    <title>Chiuist / HEYHONG — Game Publishing & AI Products</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css"
+    />
+    <link rel="preload" as="image" href="assets/hero-orbit.png" />
+    <link rel="stylesheet" href="home.css" />
+    <script src="home.js" defer></script>
   </head>
   <body>
-    <div class="page">
-      <header class="header">
-        <a class="brand" href="index.html" aria-label="HEYHONG 首页">
-          <img src="assets/logo.png" alt="HEYHONG" />
+    <a class="skip-link" href="#main">跳到主要内容</a>
+
+    <header class="site-header" data-header>
+      <a class="brand" href="#top" aria-label="HEYHONG 首页">
+        <img src="assets/logo.png" alt="HEYHONG" />
+      </a>
+
+      <nav class="desktop-nav" aria-label="主导航">
+        <a href="#notes">发行笔记</a>
+        <a href="#experiments">产品实验</a>
+        <a href="#contact">联系我</a>
+      </nav>
+
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-label="打开导航菜单"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        data-menu-toggle
+      >
+        <i class="ri-menu-3-line" aria-hidden="true"></i>
+      </button>
+
+      <nav class="mobile-nav" id="mobile-menu" aria-label="移动端导航" data-mobile-menu hidden>
+        <a href="#notes">发行笔记</a>
+        <a href="#experiments">产品实验</a>
+        <a href="#contact">联系我</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero shell" id="top" aria-labelledby="hero-title">
+        <div class="hero-copy" data-reveal>
+          <p class="kicker">CHUIST / HEYHONG</p>
+          <h1 id="hero-title">
+            <span>Game Publishing.</span>
+            <span>AI Products.</span>
+            <span>Indie Maker.</span>
+          </h1>
+          <p class="hero-intro">
+            在游戏发行的全局视角中，把复杂工作拆成可复用的方法；也用 AI
+            放大内容、产品与增长的可能性，持续做独立的产品实验。
+          </p>
+
+          <div class="hero-actions">
+            <a class="primary-link" href="#notes">
+              探索精选作品
+              <i class="ri-arrow-right-line" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-visual" data-reveal>
+          <img
+            src="assets/hero-orbit.png"
+            alt="由轨道与节点组成的抽象网络，代表发行系统与产品连接"
+            width="1254"
+            height="1254"
+          />
+        </div>
+
+        <a class="scroll-cue" href="#notes">
+          <span>Scroll to explore</span>
+          <i class="ri-arrow-down-line" aria-hidden="true"></i>
         </a>
-        <nav class="nav" aria-label="主导航">
-          <a href="#articles">发行</a>
-          <a href="#games">产品</a>
-          <a href="#contact">联系</a>
-        </nav>
-      </header>
+      </section>
 
-      <main>
-        <section id="banner" class="hero">
-          <div class="hero-banner" role="img" aria-label="HEYHONG 品牌宣传图"></div>
-        </section>
+      <section class="notes shell ruled-section" id="notes" aria-labelledby="notes-title">
+        <div class="section-heading" data-reveal>
+          <p class="section-label"><span>发行笔记</span> / SELECTED NOTES</p>
+          <h2 id="notes-title">把经验，整理成可以复用的方法。</h2>
+          <a class="section-link" href="articles.html">
+            查看全部
+            <i class="ri-arrow-right-line" aria-hidden="true"></i>
+          </a>
+        </div>
 
-        <section id="articles" class="content-section">
-          <div class="article-showcase">
-            <div class="article-visuals">
-              <div class="mosaic-grid" id="articleGrid" aria-label="发行文章图片入口"></div>
-            </div>
-            <div class="section-copy">
-              <p class="eyebrow">Game Publishing</p>
-              <div class="section-title-row">
-                <h2>游戏发行</h2>
-                <a class="text-link" href="articles.html">See all</a>
-              </div>
-              <p>
-                沉淀 SOP、流程、策略和复盘文章，把发行期的复杂工作拆成可复用的方法资产。
-              </p>
-            </div>
-          </div>
-        </section>
+        <div class="notes-list">
+          <a class="note-row" href="article-publish-flow.html" data-reveal>
+            <span class="row-number">01</span>
+            <span class="row-main">
+              <strong>全球发行流程手册</strong>
+              <span>P0–P5 六阶段全流程，从立项准备到上线复盘。</span>
+            </span>
+            <span class="row-action">
+              阅读
+              <i class="ri-arrow-right-line" aria-hidden="true"></i>
+            </span>
+          </a>
 
-        <section id="games" class="content-section">
-          <div class="games-showcase">
-            <div class="section-copy">
-              <p class="eyebrow">AI Products</p>
-              <div class="section-title-row">
-                <h2>AI产品</h2>
-                <a class="text-link" href="#games">See all</a>
-              </div>
-              <p>
-                展示基于 AI 能力开发的产品原型、工具和落地案例，方便用户与合作方快速了解方向。
-              </p>
-            </div>
-            <div class="game-deck" id="gameGrid" aria-label="AI 开发产品列表"></div>
-          </div>
-        </section>
-      </main>
+          <a class="note-row" href="article-overseas-infra.html" data-reveal>
+            <span class="row-number">02</span>
+            <span class="row-main">
+              <strong>海外发行基建</strong>
+              <span>商店页、素材、数据与协作底座的搭建方法。</span>
+            </span>
+            <span class="row-action">
+              阅读
+              <i class="ri-arrow-right-line" aria-hidden="true"></i>
+            </span>
+          </a>
 
-      <footer id="contact" class="footer">
-        <div>© 2026 @heyhong</div>
-        <a href="mailto:hong@heyhong.net">hong@heyhong.net</a>
-      </footer>
-    </div>
+          <a class="note-row" href="article-community-sop.html" data-reveal>
+            <span class="row-number">03</span>
+            <span class="row-main">
+              <strong>海外社区搭建 SOP</strong>
+              <span>从阵地选择、内容节奏到用户互动维护。</span>
+            </span>
+            <span class="row-action">
+              阅读
+              <i class="ri-arrow-right-line" aria-hidden="true"></i>
+            </span>
+          </a>
 
-    <script>
-      const articleConfig = [
-        {
-          title: "全球发行流程手册",
-          summary: "梳理游戏全球发行从准备、上线到复盘的关键流程和执行节点。",
-          url: "article-publish-flow.html",
-          image: "assets/articles/article-01.jpg",
-          meta: [],
-          toneA: "#172533",
-          toneB: "#53301a",
-        },
-        {
-          title: "海外发行基建",
-          summary: "搭建商店页、素材、数据和协作底座，让海外发行进入可执行状态。",
-          url: "article-overseas-infra.html",
-          image: "assets/articles/article-02.jpg",
-          meta: [],
-          toneA: "#162d2a",
-          toneB: "#38432b",
-        },
-        {
-          title: "海外社区搭建 SOP",
-          summary: "沉淀海外社区从阵地选择、内容节奏到用户互动维护的搭建流程。",
-          url: "article-community-sop.html",
-          image: "assets/articles/article-03.jpg",
-          meta: [],
-          toneA: "#241a33",
-          toneB: "#12343a",
-        },
-        {
-          title: "AI 对发行运营的增效",
-          summary: "用 AI 拆解流程、素材和复盘任务，提高发行运营的响应效率。",
-          url: "article-ai-ops.html",
-          image: "assets/articles/article-04.jpg",
-          meta: [],
-          toneA: "#2a2436",
-          toneB: "#594026",
-        },
-      ];
+          <a class="note-row" href="article-ai-ops.html" data-reveal>
+            <span class="row-number">04</span>
+            <span class="row-main">
+              <strong>AI 对发行运营的增效</strong>
+              <span>用 AI 拆解流程、素材和复盘任务，提高响应效率。</span>
+            </span>
+            <span class="row-action">
+              阅读
+              <i class="ri-arrow-right-line" aria-hidden="true"></i>
+            </span>
+          </a>
+        </div>
+      </section>
 
-      const productConfig = [
-        {
-          title: "AI Content Hub",
-          platform: "Web Tool",
-          summary: "面向发行内容的选题、脚本和素材方向管理工具。",
-          url: "#",
-          image: "assets/products/product-01-cover.jpg",
-          avatar: "assets/products/product-01-avatar.jpg",
-          platforms: [],
-          toneA: "#253c24",
-          toneB: "#8a4d19",
-        },
-        {
-          title: "Launch Copilot",
-          platform: "Workflow",
-          summary: "把上线排期、检查清单和风险提醒整理成可执行流程。",
-          url: "#",
-          image: "assets/products/product-02-cover.jpg",
-          avatar: "assets/products/product-02-avatar.jpg",
-          platforms: [],
-          toneA: "#132946",
-          toneB: "#4a2475",
-        },
-        {
-          title: "UA Creative Lab",
-          platform: "Prototype",
-          summary: "用于拆解素材方向、记录测试结论和沉淀创意模板。",
-          url: "#",
-          image: "assets/products/product-03-cover.jpg",
-          avatar: "assets/products/product-03-avatar.jpg",
-          platforms: [],
-          toneA: "#3b2331",
-          toneB: "#135047",
-        },
-        {
-          title: "Insight Brief",
-          platform: "AI Report",
-          summary: "把数据观察、用户反馈和复盘结论生成结构化简报。",
-          url: "#",
-          image: "assets/products/product-04-cover.jpg",
-          avatar: "assets/products/product-04-avatar.jpg",
-          platforms: [],
-          toneA: "#2b3046",
-          toneB: "#7a4c1b",
-        },
-      ];
+      <section
+        class="experiments shell ruled-section"
+        id="experiments"
+        aria-labelledby="experiments-title"
+      >
+        <div class="section-heading compact" data-reveal>
+          <p class="section-label"><span>产品实验</span> / EXPERIMENTS</p>
+          <h2 id="experiments-title">用产品验证想法，而不只是谈论它。</h2>
+        </div>
 
-      function renderPills(items, className = "meta-pill") {
-        if (!items || items.length === 0) return "";
-        return items.map((item) => `<span class="${className}">${item}</span>`).join("");
-      }
+        <div class="experiment-list">
+          <button
+            class="experiment-row"
+            type="button"
+            data-product="AI Content Hub"
+            data-summary="面向游戏发行内容的选题、脚本与素材方向管理，让创意讨论和执行记录处于同一个上下文。"
+            data-focus="内容工作流 / AI 辅助创作"
+            data-reveal
+          >
+            <span class="row-number">01</span>
+            <span class="product-icon" aria-hidden="true">
+              <i class="ri-layout-masonry-line"></i>
+            </span>
+            <span class="row-main">
+              <strong>AI Content Hub</strong>
+              <span>选题、脚本与素材方向管理。</span>
+            </span>
+            <span class="row-action">
+              了解更多
+              <i class="ri-arrow-right-line" aria-hidden="true"></i>
+            </span>
+          </button>
 
-      function mediaStyle(item, extra = "") {
-        return `--tone-a: ${item.toneA}; --tone-b: ${item.toneB}; --image: url('${item.image}'); ${extra}`;
-      }
+          <button
+            class="experiment-row"
+            type="button"
+            data-product="Launch Copilot"
+            data-summary="把上线排期、检查清单和风险提醒整理成可执行的发行流程，帮助团队更早发现遗漏。"
+            data-focus="发行流程 / 风险检查"
+            data-reveal
+          >
+            <span class="row-number">02</span>
+            <span class="product-icon" aria-hidden="true">
+              <i class="ri-rocket-2-line"></i>
+            </span>
+            <span class="row-main">
+              <strong>Launch Copilot</strong>
+              <span>上线排期、检查清单与风险提醒。</span>
+            </span>
+            <span class="row-action">
+              了解更多
+              <i class="ri-arrow-right-line" aria-hidden="true"></i>
+            </span>
+          </button>
 
-      function renderArticles() {
-        document.querySelector("#articleGrid").innerHTML = articleConfig
-          .map(
-            (item) => `
-              <a class="mosaic-card" href="${item.url}" style="${mediaStyle(item)}">
-                ${item.meta?.length ? `<div class="optional-meta mosaic-meta">${renderPills(item.meta)}</div>` : ""}
-                <span>${item.title}</span>
-              </a>
-            `,
-          )
-          .join("");
-      }
+          <button
+            class="experiment-row"
+            type="button"
+            data-product="UA Creative Lab"
+            data-summary="用于拆解广告素材方向、记录测试结论，并把有效的创意假设沉淀成下一轮可以复用的模板。"
+            data-focus="素材测试 / 创意复盘"
+            data-reveal
+          >
+            <span class="row-number">03</span>
+            <span class="product-icon" aria-hidden="true">
+              <i class="ri-bar-chart-box-line"></i>
+            </span>
+            <span class="row-main">
+              <strong>UA Creative Lab</strong>
+              <span>素材假设、测试记录与创意模板。</span>
+            </span>
+            <span class="row-action">
+              了解更多
+              <i class="ri-arrow-right-line" aria-hidden="true"></i>
+            </span>
+          </button>
 
-      function renderGames() {
-        document.querySelector("#gameGrid").innerHTML = productConfig
-          .map(
-            (item) => `
-              <a class="game-card" href="${item.url}" aria-label="${item.title} 商店链接" style="${mediaStyle(item, `--avatar: url('${item.avatar}')`)}">
-                <div class="game-avatar" aria-hidden="true"></div>
-                <div class="quote-mark">“</div>
-                <h3>${item.title}</h3>
-                ${
-                  item.platforms?.length
-                    ? `<div class="game-platform">${renderPills(item.platforms, "platform-pill")}</div>`
-                    : item.platform
-                      ? `<div class="game-platform">${item.platform}</div>`
-                      : ""
-                }
-                <p>${item.summary}</p>
-                <div class="game-art" aria-hidden="true"></div>
-              </a>
-            `,
-          )
-          .join("");
-      }
+          <button
+            class="experiment-row"
+            type="button"
+            data-product="Insight Brief"
+            data-summary="把数据观察、用户反馈和复盘结论压缩为结构化简报，让下一步行动更加明确。"
+            data-focus="洞察整理 / AI 报告"
+            data-reveal
+          >
+            <span class="row-number">04</span>
+            <span class="product-icon" aria-hidden="true">
+              <i class="ri-file-chart-line"></i>
+            </span>
+            <span class="row-main">
+              <strong>Insight Brief</strong>
+              <span>数据观察、用户反馈与复盘简报。</span>
+            </span>
+            <span class="row-action">
+              了解更多
+              <i class="ri-arrow-right-line" aria-hidden="true"></i>
+            </span>
+          </button>
+        </div>
+      </section>
 
-      renderArticles();
-      renderGames();
-    </script>
+    </main>
+
+    <footer class="site-footer shell" id="contact">
+      <a class="footer-contact" href="mailto:hong@heyhong.net">
+        hong@heyhong.net
+        <i class="ri-arrow-up-right-line" aria-hidden="true"></i>
+      </a>
+      <a href="#top">
+        回到顶部
+        <i class="ri-arrow-up-line" aria-hidden="true"></i>
+      </a>
+    </footer>
+
+    <dialog class="product-dialog" data-product-dialog>
+      <div class="dialog-bar">
+        <span>PRODUCT EXPERIMENT</span>
+        <button type="button" aria-label="关闭产品详情" data-dialog-close>
+          <i class="ri-close-line" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div class="dialog-content">
+        <p class="dialog-focus" data-dialog-focus></p>
+        <h2 data-dialog-title></h2>
+        <p data-dialog-summary></p>
+        <a href="mailto:hong@heyhong.net?subject=Product%20experiment">
+          交流这个产品
+          <i class="ri-arrow-up-right-line" aria-hidden="true"></i>
+        </a>
+      </div>
+    </dialog>
   </body>
 </html>
