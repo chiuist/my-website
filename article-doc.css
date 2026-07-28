@@ -2920,3 +2920,139 @@ h2 .pb {
 .icon-pc { color: #888; }
 .icon-console { color: #999; }
 .icon-doc { color: #aaa; }
+
+/* ===== Light editorial theme compatibility ===== */
+
+:root {
+  --c-text: #11110f;
+  --c-text-sec: #5f5d57;
+  --c-text-hint: #817e77;
+  --c-surface: #fffdf8;
+  --c-border: rgba(17, 17, 15, 0.12);
+  --c-bg: #f4f1eb;
+  --c-blue: #2d6fa3;
+  --c-purple: #6658a6;
+  --c-orange: #c94b20;
+  --c-green: #527844;
+  --c-amber: #966817;
+  --c-teal: #38786b;
+  --section-bg: rgba(255, 253, 248, 0.78);
+  --shadow: 0 12px 34px rgba(17, 17, 15, 0.08);
+}
+
+.doc-body hr,
+.doc-cover,
+.doc-nav,
+.doc-toc,
+.doc-card,
+.region-card,
+.detail-card,
+.module-card,
+.dash-card,
+.stat-box,
+.ch-card,
+.kpi-item,
+.platform-section,
+.phase,
+.phase-block,
+.doc-body table,
+.comparison-table,
+.asset-table,
+.action-table,
+.checklist-table,
+.cmp-table {
+  border-color: rgba(17, 17, 15, 0.12);
+}
+
+.doc-toc,
+.doc-card,
+.region-card,
+.detail-card,
+.module-card,
+.dash-card,
+.stat-box,
+.ch-card,
+.kpi-item,
+.platform-section,
+.phase-block {
+  background: rgba(255, 253, 248, 0.88);
+  box-shadow: 0 10px 30px rgba(17, 17, 15, 0.07);
+}
+
+.phase,
+.phase-intro,
+.goal-tags span,
+.toc-item {
+  border-color: rgba(17, 17, 15, 0.1);
+  background: rgba(255, 253, 248, 0.72);
+}
+
+.doc-nav {
+  top: 88px;
+  border-bottom-color: rgba(17, 17, 15, 0.12);
+  background: rgba(244, 241, 235, 0.94);
+}
+
+.doc-nav-title {
+  color: var(--text);
+}
+
+.doc-nav-pill {
+  border-color: rgba(17, 17, 15, 0.14);
+  background: rgba(255, 253, 248, 0.72);
+  color: var(--muted);
+}
+
+.doc-nav-pill:hover {
+  border-color: rgba(17, 17, 15, 0.28);
+  color: var(--text);
+}
+
+.doc-nav-sep {
+  background: rgba(17, 17, 15, 0.14);
+}
+
+.publish-flow-page .doc-cover p,
+.platform-ops-page .doc-cover p,
+.community-sop-page .doc-cover p,
+.arpg-strategy-page .doc-cover p {
+  color: var(--muted);
+}
+
+.publish-flow-page .doc-cover .badge,
+.platform-ops-page .doc-cover .badge,
+.community-sop-page .doc-cover .badge,
+.arpg-strategy-page .doc-cover .badge,
+.publish-flow-page .doc-hero-tags span,
+.platform-ops-page .doc-hero-tags span,
+.community-sop-page .doc-hero-tags span,
+.arpg-strategy-page .doc-hero-tags span {
+  border-color: rgba(17, 17, 15, 0.14);
+  background: rgba(255, 253, 248, 0.78);
+  color: var(--muted);
+}
+
+.doc-body th,
+.comparison-table th,
+.asset-table th,
+.action-table th,
+.checklist-table th,
+.cmp-table th {
+  color: var(--text);
+  background: rgba(240, 90, 36, 0.08);
+}
+
+.doc-body td,
+.comparison-table td,
+.asset-table td,
+.action-table td,
+.checklist-table td,
+.cmp-table td {
+  border-color: rgba(17, 17, 15, 0.09);
+}
+
+@media (max-width: 620px) {
+  .doc-nav {
+    top: 76px;
+  }
+}
