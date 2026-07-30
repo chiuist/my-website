@@ -4,26 +4,28 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>暗黑ARPG社区搭建与运营 | HEYHONG</title>
-    <link rel="stylesheet" href="article-pages.css" />
-    <link rel="stylesheet" href="article-doc.css" />
+    <link rel="stylesheet" href="article-pages.css?v=20260729-2" />
+    <link rel="stylesheet" href="article-doc.css?v=20260729-2" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.0.1/dist/chartjs-plugin-annotation.min.js"></script>
     
   </head>
   <body class="arpg-strategy-page">
+    <a class="skip-link" href="#main">跳到主要内容</a>
+
     <header class="header">
       <a class="brand" href="index.html" aria-label="HEYHONG 首页">
         <img src="assets/logo.png" alt="HEYHONG" />
       </a>
       <nav class="nav" aria-label="主导航">
-        <a href="articles.html">发行</a>
-        <a href="index.html#games">产品</a>
+        <a href="articles.html">发行笔记</a>
+        <a href="index.html#experiments">产品实验</a>
         <a href="#contact">联系</a>
       </nav>
     </header>
 
-    <main>
+    <main id="main">
 <div class="doc-container shell">
 
 <!-- ===== 封面 ===== -->
@@ -752,7 +754,7 @@
 (function() {
   if (!window.Chart || !window.ChartDataLabels) { console.error("Chart.js not loaded"); return; }
   Chart.register(ChartDataLabels);
-  Chart.defaults.font.family = "-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif";
+  Chart.defaults.font.family = "-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',Arial,sans-serif";
   Chart.defaults.plugins.legend.labels.usePointStyle = true;
 
   // 1. PoE2 Steam Trend
@@ -834,7 +836,7 @@
     </main>
 
     <footer id="contact" class="footer">
-      <div>© 2026 @heyhong</div>
+      <div>© 2026 HEYHONG / CHUIST</div>
       <a href="mailto:hong@heyhong.net">hong@heyhong.net</a>
     </footer>
   </body>

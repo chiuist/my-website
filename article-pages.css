@@ -1,23 +1,23 @@
 :root {
   color-scheme: light;
-  --bg: #f4f1eb;
+  --bg: #f3efe7;
   --panel: #fffdf8;
   --line: #cbc7bf;
   --line-strong: #96928a;
-  --text: #11110f;
-  --muted: #6f6e68;
+  --text: #141310;
+  --muted: #6e6a62;
   --soft: #8e8b84;
-  --orange: #f05a24;
-  --gold: #f05a24;
+  --orange: #e75420;
+  --gold: #e75420;
   --green: #627a54;
   --cyan: #527a78;
   --radius: 0;
-  --container-max: 1240px;
-  --container-pad: clamp(22px, 4vw, 64px);
-  --display:
-    "Manrope", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
-  --body:
-    "Noto Sans SC", "Manrope", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --container-max: 1320px;
+  --container-pad: clamp(22px, 4vw, 68px);
+  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;
+  --display: var(--font);
+  --body: var(--font);
 }
 
 * {
@@ -50,6 +50,21 @@ main {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+.skip-link {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 100;
+  padding: 10px 14px;
+  background: var(--text);
+  color: var(--panel);
+  transform: translateY(-160%);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
 }
 
 .header {
@@ -94,9 +109,10 @@ a {
   align-items: center;
   gap: clamp(20px, 3.2vw, 48px);
   margin-left: auto;
-  font-family: var(--display);
-  font-size: 13px;
+  font-family: var(--body);
+  font-size: 11px;
   font-weight: 600;
+  letter-spacing: 0.06em;
 }
 
 .nav a {
@@ -144,10 +160,10 @@ a {
 .article-meta {
   margin: 0;
   color: var(--orange);
-  font-family: var(--display);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
+  font-family: var(--body);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.13em;
   text-transform: uppercase;
 }
 
@@ -155,10 +171,10 @@ a {
   max-width: 900px;
   margin: 0;
   font-family: var(--display);
-  font-size: clamp(48px, 7vw, 104px);
-  font-weight: 800;
-  letter-spacing: -0.06em;
-  line-height: 0.98;
+  font-size: clamp(58px, 7.6vw, 112px);
+  font-weight: 400;
+  letter-spacing: -0.045em;
+  line-height: 0.9;
 }
 
 .page-hero > p:last-child {
@@ -175,6 +191,7 @@ a {
 }
 
 .article-card {
+  position: relative;
   display: grid;
   grid-template-columns: 88px minmax(0, 1fr) 32px;
   gap: 28px;
@@ -182,18 +199,37 @@ a {
   min-height: 164px;
   padding: 28px 10px 28px 4px;
   border-bottom: 1px solid var(--line);
-  transition: padding 180ms ease, background-color 180ms ease;
+  transition: padding 220ms ease;
 }
 
 .article-card:hover {
   padding-right: 22px;
   padding-left: 18px;
-  background: color-mix(in srgb, var(--panel) 56%, transparent);
+}
+
+.article-card::after {
+  position: absolute;
+  right: 0;
+  bottom: -1px;
+  left: 0;
+  height: 1px;
+  background: var(--orange);
+  content: "";
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.article-card:hover::after,
+.article-card:focus-visible::after {
+  transform: scaleX(1);
+  transform-origin: left;
 }
 
 .article-index {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 38px;
+  color: var(--muted);
+  font-family: var(--display);
+  font-size: 24px;
   line-height: 1;
 }
 
@@ -205,10 +241,10 @@ a {
 .article-card h2 {
   margin: 0;
   font-family: var(--display);
-  font-size: clamp(24px, 3vw, 38px);
-  font-weight: 700;
-  letter-spacing: -0.035em;
-  line-height: 1.18;
+  font-size: clamp(28px, 3.2vw, 44px);
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 1.08;
 }
 
 .article-card p:not(.article-meta) {
@@ -240,10 +276,6 @@ a {
   min-width: 0;
 }
 
-.article-cover {
-  display: none;
-}
-
 .article-body {
   color: #292824;
   font-size: 17px;
@@ -262,15 +294,17 @@ a {
   margin: 64px 0 18px;
   font-family: var(--display);
   font-size: clamp(28px, 4vw, 44px);
-  letter-spacing: -0.04em;
-  line-height: 1.2;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
 }
 
 .article-body h3 {
   margin: 42px 0 14px;
   font-family: var(--display);
   font-size: 23px;
-  letter-spacing: -0.02em;
+  font-weight: 400;
+  letter-spacing: -0.015em;
 }
 
 .article-body p,
@@ -296,7 +330,7 @@ a {
   margin-top: 58px;
   padding-bottom: 5px;
   border-bottom: 1px solid var(--orange);
-  font-family: var(--display);
+  font-family: var(--body);
   font-size: 14px;
   font-weight: 700;
 }
@@ -313,7 +347,7 @@ a {
 .side-panel h3 {
   margin: 0 0 18px;
   color: var(--orange);
-  font-family: var(--display);
+  font-family: var(--body);
   font-size: 11px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -342,10 +376,100 @@ a {
   padding-inline: var(--container-pad);
   border-top: 1px solid var(--line);
   color: var(--muted);
-  font-family: var(--display);
+  font-family: var(--body);
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.04em;
+}
+
+/* Compact index: keep long-form article typography untouched. */
+.article-list-page .header {
+  min-height: 80px;
+  border-bottom: 0;
+}
+
+.article-list-page .nav a::after {
+  display: none;
+}
+
+.article-list-page .nav a[aria-current="page"] {
+  color: var(--orange);
+}
+
+.article-list-page .page-hero {
+  grid-template-columns: 120px minmax(0, 1fr);
+  gap: 24px;
+  padding-top: clamp(46px, 5vw, 64px);
+  padding-bottom: clamp(34px, 4vw, 48px);
+}
+
+.article-list-page .page-hero h1 {
+  max-width: 760px;
+  font-size: clamp(42px, 4.8vw, 68px);
+  font-weight: 500;
+  letter-spacing: -0.038em;
+  line-height: 0.98;
+}
+
+.article-list-page .page-hero > p:last-child {
+  max-width: 650px;
+  margin-top: 8px;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.article-list-page .article-grid {
+  padding-bottom: clamp(58px, 7vw, 88px);
+  border-top: 0;
+}
+
+.article-list-page .article-card {
+  grid-template-columns: 56px minmax(0, 1fr) 28px;
+  gap: 22px;
+  min-height: 112px;
+  margin-inline: -12px;
+  padding: 17px 12px;
+  border-bottom: 0;
+  transition: background-color 180ms ease;
+}
+
+.article-list-page .article-card:hover {
+  padding: 17px 12px;
+  background: color-mix(in srgb, var(--text) 3.5%, transparent);
+}
+
+.article-list-page .article-card::after {
+  display: none;
+}
+
+.article-list-page .article-index {
+  font-size: 18px;
+}
+
+.article-list-page .article-card-content {
+  gap: 3px;
+}
+
+.article-list-page .article-card h2 {
+  font-size: clamp(22px, 2.25vw, 30px);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.14;
+}
+
+.article-list-page .article-card p:not(.article-meta) {
+  margin-top: 2px;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.article-list-page .article-card > i {
+  font-size: 18px;
+}
+
+.article-list-page .footer {
+  min-height: 72px;
+  border-top: 0;
 }
 
 :focus-visible {
@@ -360,6 +484,15 @@ a {
   }
 
   .page-hero .eyebrow {
+    grid-row: auto;
+  }
+
+  .article-list-page .page-hero {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .article-list-page .page-hero .eyebrow {
     grid-row: auto;
   }
 
@@ -409,6 +542,26 @@ a {
     font-size: 52px;
   }
 
+  .article-list-page .header {
+    min-height: 70px;
+  }
+
+  .article-list-page .page-hero {
+    padding-top: 38px;
+    padding-bottom: 32px;
+  }
+
+  .article-list-page .page-hero h1 {
+    font-size: 40px;
+    line-height: 1;
+  }
+
+  .article-list-page .page-hero > p:last-child {
+    margin-top: 2px;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
   .article-card {
     grid-template-columns: 46px minmax(0, 1fr) 24px;
     gap: 14px;
@@ -430,6 +583,36 @@ a {
     font-size: 12px;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
+  }
+
+  .article-list-page .article-card {
+    grid-template-columns: 36px minmax(0, 1fr) 20px;
+    gap: 12px;
+    min-height: 100px;
+    margin-inline: -8px;
+    padding: 14px 8px;
+  }
+
+  .article-list-page .article-card:hover {
+    padding: 14px 8px;
+  }
+
+  .article-list-page .article-index {
+    font-size: 17px;
+  }
+
+  .article-list-page .article-card h2 {
+    font-size: 19px;
+  }
+
+  .article-list-page .article-card p:not(.article-meta) {
+    font-size: 12px;
+    line-height: 1.45;
+  }
+
+  .article-list-page .footer {
+    min-height: 96px;
+    padding-block: 24px;
   }
 
   .article-body {

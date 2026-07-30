@@ -4,23 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>游戏发行全流程手册 V1 — 全球发行全流程版 | HEYHONG</title>
-    <link rel="stylesheet" href="article-pages.css" />
-    <link rel="stylesheet" href="article-doc.css" />
+    <link rel="stylesheet" href="article-pages.css?v=20260729-2" />
+    <link rel="stylesheet" href="article-doc.css?v=20260729-2" />
     
   </head>
   <body class="publish-flow-page">
+    <a class="skip-link" href="#main">跳到主要内容</a>
+
     <header class="header">
       <a class="brand" href="index.html" aria-label="HEYHONG 首页">
         <img src="assets/logo.png" alt="HEYHONG" />
       </a>
       <nav class="nav" aria-label="主导航">
-        <a href="articles.html">发行</a>
-        <a href="index.html#games">产品</a>
+        <a href="articles.html">发行笔记</a>
+        <a href="index.html#experiments">产品实验</a>
         <a href="#contact">联系</a>
       </nav>
     </header>
 
-    <main>
+    <main id="main">
 <!-- NAV -->
 <nav class="doc-nav">
   <div class="doc-nav-inner">
@@ -1576,12 +1578,39 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, {rootMargin:'-80px 0px -70% 0px'});
 document.querySelectorAll('.phase-block').forEach(el=>observer.observe(el));
+
+function syncExpandedState(control) {
+  const target = control.classList.contains('phase-header')
+    ? control.parentElement
+    : control.classList.contains('module-card-header')
+      ? control.parentElement
+      : null;
+  if (target) control.setAttribute('aria-expanded', String(target.classList.contains('open')));
+}
+
+document.querySelectorAll('[onclick]:not(button):not(a)').forEach(control => {
+  control.setAttribute('role', 'button');
+  control.setAttribute('tabindex', '0');
+  syncExpandedState(control);
+
+  control.addEventListener('keydown', event => {
+    if (event.key !== 'Enter' && event.key !== ' ') return;
+    event.preventDefault();
+    control.click();
+  });
+
+  control.addEventListener('click', () => queueMicrotask(() => syncExpandedState(control)));
+});
+
+document.querySelectorAll('a[target="_blank"]').forEach(link => {
+  link.setAttribute('rel', 'noopener noreferrer');
+});
 </script>
 
     </main>
 
     <footer id="contact" class="footer">
-      <div>© 2026 @heyhong</div>
+      <div>© 2026 HEYHONG / CHUIST</div>
       <a href="mailto:hong@heyhong.net">hong@heyhong.net</a>
     </footer>
   </body>

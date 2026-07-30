@@ -9,27 +9,26 @@
     />
     <meta name="theme-color" content="#f4f1eb" />
     <title>Chiuist / HEYHONG — Game Publishing & AI Products</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css"
     />
-    <link rel="preload" as="image" href="assets/hero-orbit.png" />
-    <link rel="stylesheet" href="home.css" />
+    <link rel="preload" as="image" href="assets/hero-orbit-alpha.png" />
+    <link rel="stylesheet" href="home.css?v=20260729-5" />
     <script src="home.js" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">跳到主要内容</a>
 
     <header class="site-header" data-header>
-      <a class="brand" href="#top" aria-label="HEYHONG 首页">
-        <img src="assets/logo.png" alt="HEYHONG" />
-      </a>
+      <div class="masthead-brand">
+        <a class="brand" href="#top" aria-label="HEYHONG 首页">
+          <img src="assets/logo.png" alt="HEYHONG" />
+        </a>
+        <span class="masthead-name">CHUIST / HEYHONG</span>
+      </div>
+
+      <span class="masthead-issue">ISSUE 01 · SUMMER 2026</span>
 
       <nav class="desktop-nav" aria-label="主导航">
         <a href="#notes">发行笔记</a>
@@ -58,7 +57,7 @@
     <main id="main">
       <section class="hero shell" id="top" aria-labelledby="hero-title">
         <div class="hero-copy" data-reveal>
-          <p class="kicker">CHUIST / HEYHONG</p>
+          <p class="kicker">INDEPENDENT PRACTICE / 01</p>
           <h1 id="hero-title">
             <span>Game Publishing.</span>
             <span>AI Products.</span>
@@ -79,11 +78,12 @@
 
         <div class="hero-visual" data-reveal>
           <img
-            src="assets/hero-orbit.png"
+            src="assets/hero-orbit-alpha.png"
             alt="由轨道与节点组成的抽象网络，代表发行系统与产品连接"
             width="1254"
             height="1254"
           />
+          <p class="hero-manifesto">REASON IN SYSTEMS, FREEDOM IN CREATION.</p>
         </div>
 
         <a class="scroll-cue" href="#notes">
@@ -94,8 +94,9 @@
 
       <section class="notes shell ruled-section" id="notes" aria-labelledby="notes-title">
         <div class="section-heading" data-reveal>
-          <p class="section-label"><span>发行笔记</span> / SELECTED NOTES</p>
-          <h2 id="notes-title">把经验，整理成可以复用的方法。</h2>
+          <h2 class="section-label" id="notes-title">
+            <span>发行笔记</span> / SELECTED NOTES
+          </h2>
           <a class="section-link" href="articles.html">
             查看全部
             <i class="ri-arrow-right-line" aria-hidden="true"></i>
@@ -105,7 +106,17 @@
         <div class="notes-list">
           <a class="note-row" href="article-publish-flow.html" data-reveal>
             <span class="row-number">01</span>
+            <span class="note-thumb">
+              <img
+                src="assets/editorial/note-01-publishing-flow.jpg"
+                alt=""
+                width="1536"
+                height="1024"
+                loading="lazy"
+              />
+            </span>
             <span class="row-main">
+              <span class="row-meta">PROCESS / SYSTEM</span>
               <strong>全球发行流程手册</strong>
               <span>P0–P5 六阶段全流程，从立项准备到上线复盘。</span>
             </span>
@@ -117,7 +128,17 @@
 
           <a class="note-row" href="article-overseas-infra.html" data-reveal>
             <span class="row-number">02</span>
+            <span class="note-thumb">
+              <img
+                src="assets/editorial/note-02-overseas-infrastructure.jpg"
+                alt=""
+                width="1536"
+                height="1024"
+                loading="lazy"
+              />
+            </span>
             <span class="row-main">
+              <span class="row-meta">INFRASTRUCTURE</span>
               <strong>海外发行基建</strong>
               <span>商店页、素材、数据与协作底座的搭建方法。</span>
             </span>
@@ -129,7 +150,17 @@
 
           <a class="note-row" href="article-community-sop.html" data-reveal>
             <span class="row-number">03</span>
+            <span class="note-thumb">
+              <img
+                src="assets/editorial/note-03-community-network.jpg"
+                alt=""
+                width="1536"
+                height="1024"
+                loading="lazy"
+              />
+            </span>
             <span class="row-main">
+              <span class="row-meta">COMMUNITY / SOP</span>
               <strong>海外社区搭建 SOP</strong>
               <span>从阵地选择、内容节奏到用户互动维护。</span>
             </span>
@@ -141,7 +172,17 @@
 
           <a class="note-row" href="article-ai-ops.html" data-reveal>
             <span class="row-number">04</span>
+            <span class="note-thumb">
+              <img
+                src="assets/editorial/note-04-ai-operations.jpg"
+                alt=""
+                width="1536"
+                height="1024"
+                loading="lazy"
+              />
+            </span>
             <span class="row-main">
+              <span class="row-meta">AI / OPERATIONS</span>
               <strong>AI 对发行运营的增效</strong>
               <span>用 AI 拆解流程、素材和复盘任务，提高响应效率。</span>
             </span>
@@ -158,9 +199,10 @@
         id="experiments"
         aria-labelledby="experiments-title"
       >
-        <div class="section-heading compact" data-reveal>
-          <p class="section-label"><span>产品实验</span> / EXPERIMENTS</p>
-          <h2 id="experiments-title">用产品验证想法，而不只是谈论它。</h2>
+        <div class="section-heading" data-reveal>
+          <h2 class="section-label" id="experiments-title">
+            <span>产品实验</span> / EXPERIMENTS
+          </h2>
         </div>
 
         <div class="experiment-list">
