@@ -81,4 +81,33 @@ No actionable P0, P1, or P2 findings remain.
 
 No actionable P0, P1, or P2 findings remain for the imported manuals.
 
+## Platform manual spacing and width correction
+
+- Scope: all five imported platform manuals, with the supplied 好游快爆 screenshot used as the primary visual finding.
+- Source screenshot: `/var/folders/6t/ss1z7tms7g7d56rpt0l1rbg00000gn/T/codex-clipboard-7aa7a07c-64db-4c29-8420-26160b925236.png`.
+- Live before: `/Users/hong/.codex/visualizations/2026/07/29/019facff-8342-7ed1-a539-e0c47d0795e6/my-website-qa/manual-spacing-20260803/01-haoyoukuaibao-live-before.jpg`.
+- Existing long-form reference: `/Users/hong/.codex/visualizations/2026/07/29/019facff-8342-7ed1-a539-e0c47d0795e6/my-website-qa/manual-spacing-20260803/02-existing-platform-article-reference.jpg`.
+- Final implementation: `/Users/hong/.codex/visualizations/2026/07/29/019facff-8342-7ed1-a539-e0c47d0795e6/my-website-qa/manual-spacing-20260803/03-haoyoukuaibao-local-after.jpg`.
+- Same-viewport before/after comparison: `/Users/hong/.codex/visualizations/2026/07/29/019facff-8342-7ed1-a539-e0c47d0795e6/my-website-qa/manual-spacing-20260803/04-before-after-comparison.jpg`.
+- Existing-page/implementation comparison: `/Users/hong/.codex/visualizations/2026/07/29/019facff-8342-7ed1-a539-e0c47d0795e6/my-website-qa/manual-spacing-20260803/05-old-layout-vs-manual-after.jpg`.
+
+### Corrected findings
+
+- P1 spacing defect: 好游快爆 used 58 px cover padding plus a 44 px directory margin and 70 px first-heading margin. The visible gaps are now 28 px from tags to directory and 24 px from directory to first heading.
+- P1 width inconsistency: the affected manual body was only 984 px wide at a 2048 px viewport. Every manual now uses the existing 1320 px long-form content width.
+- P2 section rhythm: inherited 56 px section margins and 8 px section padding were stacking with heading margins. Manual sections now reset both values and use one shared heading rhythm.
+- P2 alignment inconsistency: cover labels, directory labels, and section headings now share the same left edge on all five desktop and mobile structures.
+- TapTap's real overview/callout between the directory and first numbered section remains intact; it was not treated as blank space.
+- All five HTML files now request `manual-pages.css?v=20260803-2` so browsers and the edge cache receive the corrected stylesheet.
+
+### Verification
+
+- Desktop viewport: 2048 × 1228 px (2033 px layout viewport). All five pages report 1320 px content width, aligned cover/directory/heading edges, and no horizontal overflow.
+- Mobile viewport: 390 × 844 px (375 px layout viewport). All five pages report cover and directory width of 375 px, 20 px content alignment, and no horizontal overflow.
+- Mobile tables remain contained and horizontally scroll only within their own table region when necessary.
+- The sticky directory interaction was rechecked: one `#stage3` target was found, navigation updated the hash to `#stage3`, and exactly one active directory item remained.
+- `git diff --check`: passed.
+
+No actionable P0, P1, or P2 findings remain for this correction.
+
 final result: passed
