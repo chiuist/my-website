@@ -1,0 +1,675 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>抖音 + 快手手游入驻流程手册 | HEYHONG</title>
+<style>
+:root {
+  --bg: #f4f1eb;
+  --card: #fffdf8;
+  --text: #2c2c2c;
+  --text-light: #666;
+  --orange: #f05a24;
+  --orange-light: #fff0eb;
+  --border: #e8e3db;
+  --green: #2e7d32;
+  --green-bg: #e8f5e9;
+  --red: #c62828;
+  --red-bg: #ffebee;
+  --blue: #1565c0;
+  --blue-bg: #e3f2fd;
+  --purple: #6a1b9a;
+  --purple-bg: #f3e5f5;
+  --container-pad: clamp(22px, 4vw, 64px);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", sans-serif;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 48px var(--container-pad) 80px;
+}
+/* Header */
+.header {
+  text-align: center;
+  padding: 48px 0 32px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 40px;
+}
+.header h1 {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: 0.02em;
+  margin-bottom: 8px;
+}
+.header .subtitle {
+  font-size: 15px;
+  color: var(--text-light);
+  font-weight: 400;
+}
+.header .meta {
+  margin-top: 16px;
+  font-size: 13px;
+  color: #aaa;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+/* Sections */
+section { margin-bottom: 40px; }
+h2 {
+  font-size: 21px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--orange);
+  color: var(--text);
+}
+h3 {
+  font-size: 17px;
+  font-weight: 600;
+  margin: 24px 0 12px;
+  color: var(--text);
+}
+h4 {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 16px 0 6px;
+}
+/* Platform Tag */
+.platform-tag {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+.tag-dy { background: #111; color: #fff; }
+.tag-ks { background: #ff4906; color: #fff; }
+/* Cards */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin-bottom: 16px;
+}
+.card h4 { margin-top: 0; }
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0;
+  font-size: 14px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+}
+thead { background: #faf7f2; }
+th, td {
+  text-align: left;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+  overflow-wrap: anywhere;
+}
+th { font-weight: 600; font-size: 13px; color: var(--text-light); }
+tr:last-child td { border-bottom: none; }
+/* Flow */
+.flow-section {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin-bottom: 16px;
+}
+.flow-title {
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 12px;
+  padding-left: 16px;
+  border-left: 3px solid var(--orange);
+}
+.flow-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.flow-step {
+  position: relative;
+  padding-left: 28px;
+}
+.flow-step::before {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 8px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--orange);
+}
+.flow-step::after {
+  content: '';
+  position: absolute;
+  left: 8px;
+  top: 16px;
+  width: 2px;
+  height: calc(100% + 4px);
+  background: var(--border);
+}
+.flow-step:last-child::after { display: none; }
+.flow-step h4 { font-size: 14px; margin: 0 0 2px; }
+.flow-step p { font-size: 13px; color: var(--text-light); margin: 0; }
+/* Callout */
+.callout {
+  padding: 14px 18px;
+  border-radius: 6px;
+  margin: 12px 0;
+  font-size: 14px;
+  line-height: 1.7;
+}
+.callout.info { background: #f0f7ff; border-left: 3px solid var(--blue); }
+.callout.warning { background: #fffbf0; border-left: 3px solid var(--orange); }
+.callout.tip { background: var(--green-bg); border-left: 3px solid var(--green); }
+.callout p { margin: 0; }
+.official-links {
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--border);
+  font-size: 13px;
+  color: var(--text-light);
+  line-height: 1.8;
+}
+/* Lists */
+ul { padding-left: 20px; margin: 8px 0; }
+li { margin-bottom: 4px; font-size: 14px; }
+li.done { color: var(--text); }
+p { font-size: 14px; margin-bottom: 10px; color: var(--text); }
+strong { color: var(--text); }
+a { color: var(--orange); text-decoration: none; }
+a:hover { text-decoration: underline; }
+/* Compare Grid */
+.compare-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 12px 0;
+}
+.compare-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 18px 20px;
+}
+.compare-card h4 {
+  margin: 0 0 10px;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+/* Stats bar */
+.stats-row {
+  display: flex;
+  gap: 16px;
+  margin: 16px 0;
+  flex-wrap: wrap;
+}
+.stat-item {
+  flex: 1;
+  min-width: 150px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+  text-align: center;
+}
+.stat-num { font-size: 24px; font-weight: 700; color: var(--orange); }
+.stat-label { font-size: 12px; color: var(--text-light); margin-top: 4px; }
+/* Responsive */
+@media (max-width: 640px) {
+  .container { padding: 24px 16px 60px; }
+  .compare-grid { grid-template-columns: 1fr; }
+  .stats-row { flex-direction: column; }
+  .header .meta { gap: 6px 14px; }
+  table { display: block; overflow-x: auto; font-size: 12px; }
+  th, td { min-width: 110px; padding: 8px 10px; }
+}
+</style>
+
+    <meta name="description" content="抖音原生手游与快手 Android 联运从入驻、接入、审核到上线和退服的完整流程手册。" />
+
+    <meta name="theme-color" content="#f4f1eb" />
+    <link rel="stylesheet" href="article-pages.css?v=20260803-1" />
+    <link rel="stylesheet" href="article-doc.css?v=20260803-1" />
+    <link rel="stylesheet" href="manual-pages.css?v=20260803-1" />
+    <script src="manual-pages.js?v=20260803-1" defer></script>
+
+  </head>
+  <body class="manual-page douyin-kuaishou-mobile-game-page">
+    <a class="skip-link" href="#main">跳到主要内容</a>
+
+    <header class="header">
+      <a class="brand" href="index.html" aria-label="HEYHONG 首页">
+        <img src="assets/logo.png" alt="HEYHONG" />
+      </a>
+      <nav class="nav" aria-label="主导航">
+        <a href="articles.html" aria-current="page">发行笔记</a>
+        <a href="index.html#experiments">产品实验</a>
+        <a href="#contact">联系</a>
+      </nav>
+    </header>
+
+    <main id="main">
+<div class="doc-container wide shell manual-document doc-body">
+
+<section class="doc-cover manual-cover">
+  <p class="eyebrow">DOMESTIC PLATFORM / MOBILE GAME</p>
+  <h1>抖音 + 快手 · 手游入驻与发行流程手册</h1>
+  <p class="subtitle">覆盖抖音原生手游与快手 Android 联运的注册、接入、审核、上线和退服流程</p>
+  <p class="meta">
+    <span>版本 2026.07</span>
+    <span>正式执行版</span>
+    <span>最后核验 2026-07-29</span>
+    <span>面向中国大陆开发者</span>
+  </p>
+</section>
+
+<!-- ===== 1. 账号与主体 ===== -->
+<section id="stage1">
+  <h2>1. 账号、主体与认证</h2>
+
+  <h3><span class="platform-tag tag-dy">抖音</span> 原生手游厂商入驻</h3>
+  <p>主入口：<a href="https://game.open.douyin.com" target="_blank" rel="noopener">game.open.douyin.com</a>。本手册的抖音主流程为游戏厂商合作平台，不使用通用开放平台的小游戏、小程序或小玩法主体规则。</p>
+  <table>
+    <thead><tr><th>材料</th><th>执行要求</th></tr></thead>
+    <tbody>
+      <tr><td>企业营业执照</td><td>主体名称、统一社会信用代码及有效期与后台填写一致</td></tr>
+      <tr><td>法定代表人身份证件</td><td>按后台要求提交正反面及身份信息</td></tr>
+      <tr><td>入驻申请函</td><td>使用平台模板并按要求签章</td></tr>
+      <tr><td>增值电信业务经营许可证（ICP）</td><td>抖音游戏平台现行操作指南列为入驻必备材料</td></tr>
+    </tbody>
+  </table>
+  <div class="callout info">
+    <p><strong>主体管理：</strong>统一社会信用代码和主体类型不支持直接变更；正式提交前应确认运营主体、软著主体、版号运营单位及授权链的一致性。</p>
+  </div>
+
+  <h3><span class="platform-tag tag-ks">快手</span> Android 游戏联运入驻</h3>
+  <p>通过快手游戏生态合作平台完成管理员账号认证、协议签署、游戏资料和结算信息管理。管理员账号代表开发者办理入驻、协议、费用结算、达人和数据管理等事项；具体准入材料及商务流程以游戏生态合作平台当前页面和已签协议为准。</p>
+
+  <p class="official-links"><strong>官方参考：</strong><br>
+    抖音游戏平台操作指南 → <a href="https://open.douyin.com/platform/resource/docs/ability/game-promotion-ability/start/douyin-game-platform-guide/" target="_blank" rel="noopener">查看文档</a><br>
+    快手游戏联运入门指南 → <a href="https://ks-game-docs.kuaishou.com/guide/activity/1.gettingStart.html" target="_blank" rel="noopener">查看文档</a><br>
+    快手游戏生态合作平台服务协议 → <a href="https://ks-game-docs.kuaishou.com/policy/service.html" target="_blank" rel="noopener">查看协议</a>
+  </p>
+</section>
+
+<!-- ===== 2. 游戏创建 ===== -->
+<section id="stage2">
+  <h2>2. 游戏创建与包型选择</h2>
+
+  <h3><span class="platform-tag tag-dy">抖音</span> 创建或认领原生游戏</h3>
+  <p>主体审核通过后进入 <a href="https://game.open.douyin.com" target="_blank" rel="noopener">game.open.douyin.com</a>。如系统识别到历史合作游戏，可认领并复用已有资料；认领用于减少重复填写，不代表审核提速。</p>
+
+  <h4>包型决策</h4>
+  <table>
+    <thead><tr><th>合作场景</th><th>包型与配置</th><th>执行要点</th></tr></thead>
+    <tbody>
+      <tr><td>游戏资料分发、开放 SDK、发行人计划等</td><td>官方包</td><td>按游戏创建页和具体增值服务要求配置，不接入未申请的联运能力</td></tr>
+      <tr><td>普通联运</td><td>联运包，SDK 中 <code>union_mode=0</code></td><td>完成登录、支付、服务端验签和渠道包验收</td></tr>
+      <tr><td>直播联运</td><td>联运包，SDK 中 <code>union_mode=1</code></td><td>先申请合作并签署协议，再完成 SDK 接入和联运包上传</td></tr>
+    </tbody>
+  </table>
+
+  <div class="flow-steps">
+    <div class="flow-step">
+      <h4>填写游戏资料</h4>
+      <p>填写名称、开发商、分类、简介、隐私政策和安装包信息；开发商按软著著作权人填写，主体不一致时补齐授权链。</p>
+    </div>
+    <div class="flow-step">
+      <h4>配置状态和分发信息</h4>
+      <p>Android 状态包括暂未上架、开始下载和开放下载；按实际发行节点申请开放预约，配置监测链接和 schema 地址。</p>
+    </div>
+    <div class="flow-step">
+      <h4>提交平台资质字段</h4>
+      <p>上传软著、版号及代理授权材料。现行直播联运指南对不含内购的产品提供承诺书并将证书编号填“0”的提交路径；该路径只代表平台材料受理方式，不构成出版审批豁免。</p>
+    </div>
+    <div class="flow-step">
+      <h4>提交审核</h4>
+      <p>抖音游戏平台现行指南称提交游戏资料后将在 <strong>3 个工作日内</strong>通知审核结果；驳回后按反馈补件并重新提审。</p>
+    </div>
+  </div>
+
+  <h3><span class="platform-tag tag-ks">快手</span> 创建 Android 联运游戏</h3>
+  <div class="flow-steps">
+    <div class="flow-step"><h4>确认合作方案</h4><p>在游戏生态合作平台或与对接人员确认分发、联运、结算和内容经营范围，完成协议及主体信息。</p></div>
+    <div class="flow-step"><h4>获取接入参数</h4><p>取得游戏 AppID、当前版本 SDK、参考 Demo 和必接美术资源；Android 包名须以 <code>.kuaishou</code> 结尾。接入支付时生成 RSA 4096-bit 密钥对，并向快手提交开发者支付公钥。</p></div>
+    <div class="flow-step"><h4>制作并验收渠道包</h4><p>接入联运 SDK、快手闪屏和角标，完成登录、实名、防沉迷、支付及隐私合规自测后提交平台验收。</p></div>
+    <div class="flow-step"><h4>发布与持续维护</h4><p>按合作后台和书面排期发布；母包更新时同步制作、验收并维护最新联运包。</p></div>
+  </div>
+  <p class="official-links"><strong>官方参考：</strong><br>
+    抖音游戏平台操作指南 → <a href="https://open.douyin.com/platform/resource/docs/ability/game-promotion-ability/start/douyin-game-platform-guide/" target="_blank" rel="noopener">查看文档</a><br>
+    抖音直播联运接入指南 → <a href="https://open.douyin.com/platform/resource/docs/ability/game-promotion-ability/united-operation-cooperation/live/guide/" target="_blank" rel="noopener">查看文档</a><br>
+    快手游戏联运入门指南 → <a href="https://ks-game-docs.kuaishou.com/guide/activity/1.gettingStart.html" target="_blank" rel="noopener">查看文档</a>
+  </p>
+</section>
+
+<!-- ===== 3. 物料规格 ===== -->
+<section id="stage3">
+  <h2>3. 物料规格速查</h2>
+
+  <table>
+    <thead><tr><th>物料</th><th><span class="platform-tag tag-dy">抖音原生手游</span></th><th><span class="platform-tag tag-ks">快手 Android 联运</span></th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>游戏 ICON</strong></td>
+        <td>512×512 px 直角，JPG/PNG/JPEG，≤1MB</td>
+        <td>256×256 px，≤100KB</td>
+      </tr>
+      <tr>
+        <td><strong>宣传视频</strong></td>
+        <td>1920×1080，MP4，≤1024MB（视频封面展示在游戏站顶部）</td>
+        <td>按合作后台当前模板提交</td>
+      </tr>
+      <tr>
+        <td><strong>宣传图 / 封面</strong></td>
+        <td>1920×1080，JPG/PNG/JPEG，≤2MB</td>
+        <td>按合作后台当前模板提交</td>
+      </tr>
+      <tr>
+        <td><strong>游戏截图 / 介绍图</strong></td>
+        <td>4–6 张，横屏 1920×1080 / 竖屏 1080×1920，JPG/PNG/JPEG，≤2MB/张</td>
+        <td>按合作后台当前模板提交</td>
+      </tr>
+      <tr>
+        <td><strong>游戏名称 / 开发商</strong></td>
+        <td>名称按后台字段填写；开发商按软著著作权人填写，主体不一致时补授权</td>
+        <td>与资质、包体和协议中的游戏名称及主体保持一致</td>
+      </tr>
+      <tr>
+        <td><strong>游戏简介</strong></td>
+        <td>公开接入指南未列统一字数上限，以后台计数器为准</td>
+        <td>以合作后台当前字段为准</td>
+      </tr>
+      <tr>
+        <td><strong>平台品牌素材</strong></td>
+        <td>按具体 SDK 或联运合作要求配置</td>
+        <td>母包必须加入快手提供的闪屏和角标，使用当前官方素材包</td>
+      </tr>
+      <tr>
+        <td><strong>分享素材</strong></td>
+        <td>按已申请的开放 SDK 能力和后台模板配置</td>
+        <td>仅拓展版联运 SDK 包含游戏内视频分享能力</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout info">
+    <p><strong>制作原则：</strong>仅把公开文档中的精确规格作为固定要求；需登录控制台或合作群下发的模板应在每次提审前复核并记录版本。</p>
+  </div>
+  <p class="official-links"><strong>官方参考：</strong><br>
+    抖音游戏平台操作指南 → <a href="https://open.douyin.com/platform/resource/docs/ability/game-promotion-ability/start/douyin-game-platform-guide/" target="_blank" rel="noopener">查看物料要求</a><br>
+    快手游戏联运入门指南 → <a href="https://ks-game-docs.kuaishou.com/guide/activity/1.gettingStart.html" target="_blank" rel="noopener">查看图标、包名和支付公钥要求</a>
+  </p>
+</section>
+
+<!-- ===== 4. 技术验收 ===== -->
+<section id="stage4">
+  <h2>4. 技术接入与验收清单</h2>
+
+  <h3><span class="platform-tag tag-dy">抖音</span> 官方包与联运包</h3>
+  <table>
+    <thead><tr><th>验收域</th><th>官方包</th><th>普通 / 直播联运包</th></tr></thead>
+    <tbody>
+      <tr><td>身份参数</td><td>核对游戏 ID、开放平台应用、包名、签名和已申请权限</td><td>核对 <code>app_id</code>、<code>app_secret</code>、包名、签名；普通联运 <code>union_mode=0</code>，直播联运 <code>union_mode=1</code></td></tr>
+      <tr><td>版本</td><td>安装包版本号、VersionCode、下载地址和页面展示版本一致</td><td>VersionCode 和 VersionName 均不为空；母包、渠道包和服务端版本配置一致</td></tr>
+      <tr><td>登录</td><td>仅验收已申请的开放能力，不默认接入联运账号体系</td><td>客户端取得 token 后由游戏服务端完成校验并取得游戏用户标识；覆盖登录、切换账号、退出和异常重试</td></tr>
+      <tr><td>支付与验签</td><td>无联运支付时按官服支付链路验收</td><td>校验订单金额、商品、订单号、签名和服务端回调；回调必须幂等，并以服务端结果入账</td></tr>
+      <tr><td>隐私与权限</td><td colspan="2">隐私政策主体、SDK 清单、权限用途和实际行为一致；按当前 SDK 文档完成初始化时机与权限自测</td></tr>
+      <tr><td>分发回归</td><td colspan="2">验证 schema、监测链接、下载/安装/更新、弱网、崩溃、账号和支付异常；保留自测记录与可回滚包</td></tr>
+    </tbody>
+  </table>
+  <div class="callout warning">
+    <p><strong>直播联运排期：</strong>官方流程为申请接入、签署协议、接入 Android 联运 SDK、上传联运包，并未要求等官服正式上线后才开始。计划在首发启用时，应在公测前完成申请、合同、技术接入和包体验收。</p>
+  </div>
+
+  <h3><span class="platform-tag tag-ks">快手</span> Android 联运包</h3>
+  <ul>
+    <li>从官方 SDK 下载页获取当前最新版基础版或拓展版，使用最新版 AAR 和参考 Demo。</li>
+    <li>基础版验收登录、实名认证、防沉迷、支付、悬浮球/用户中心和数据上报；需要游戏内视频分享时使用拓展版。</li>
+    <li>核对 AppID、Android 包名、签名、版本号和渠道配置；包名须以 <code>.kuaishou</code> 结尾，母包加入官方闪屏和角标资源。</li>
+    <li>在快手后台开启实名认证和防沉迷后，验证 SDK 登录时的实名弹窗、未成年人时段限制和异常账号处理。</li>
+    <li>支付签名使用 RSA 4096-bit 密钥，签名及验签算法为 <code>SHA512WithRSA</code>；签名时排除 <code>null</code> 和空字符串字段，并按字段名升序拼接。</li>
+    <li>下单由游戏服务端使用开发者私钥签名，快手使用开发者提交的公钥验签；支付回调由游戏服务端使用快手提供的中台支付公钥验签。验签通过且服务端确认成功后再发货。</li>
+    <li>支付验收覆盖重复通知、退款、掉单、金额篡改和订单幂等；客户端支付完成回调不作为支付成功的唯一依据。</li>
+    <li>按最新隐私说明核对 SDK 采集字段、三方 SDK、权限申请和用户同意前后的初始化行为。</li>
+  </ul>
+
+  <p class="official-links"><strong>官方参考：</strong><br>
+    抖音联运 Android 接入文档 → <a href="https://open.douyin.com/platform/resource/docs/ability/game-promotion-ability/united-operation-cooperation/live/android-guide/" target="_blank" rel="noopener">查看文档</a><br>
+    快手联运 SDK 下载 → <a href="https://ks-game-docs.kuaishou.com/guide/activity/2.SDKDownload.html" target="_blank" rel="noopener">查看文档</a><br>
+    快手实名认证与防沉迷 → <a href="https://ks-game-docs.kuaishou.com/guide/activity/4.realName.html" target="_blank" rel="noopener">查看文档</a><br>
+    快手隐私合规 → <a href="https://ks-game-docs.kuaishou.com/guide/activity/5.secret.html" target="_blank" rel="noopener">查看文档</a><br>
+    快手支付接入与签名规则 → <a href="https://ks-game-docs.kuaishou.com/guide/activity/6.payment.html" target="_blank" rel="noopener">查看文档</a>
+  </p>
+</section>
+
+<!-- ===== 5. 测试与发布 ===== -->
+<section id="stage5">
+  <h2>5. 预约、测试与发布</h2>
+
+  <h3><span class="platform-tag tag-dy">抖音</span> 原生手游</h3>
+  <div class="flow-steps">
+    <div class="flow-step"><h4>创建详情页并提交资料</h4><p>完成游戏资料、物料、隐私政策和资质字段，选择与合作方案一致的包型并提交审核。</p></div>
+    <div class="flow-step"><h4>按节点申请预约或下载</h4><p>在版本管理中申请开放预约、更新游戏资料或开放下载；预约、预下载、测试活动和首发资源是否开放，以后台当前能力及书面运营方案为准。</p></div>
+    <div class="flow-step"><h4>完成测试与联运验收</h4><p>官方包按申请能力测试；普通/直播联运包完成客户端、服务端和支付验收。计划首发启用直播联运时，不得把 SDK 接入推迟到正式上线后。</p></div>
+    <div class="flow-step"><h4>上线与版本维护</h4><p>确认页面状态、下载包、开服时间、监测和回滚包后发布；后续在版本管理中更新资料和包体，联运包跟随官服版本维护。</p></div>
+  </div>
+
+  <h3><span class="platform-tag tag-ks">快手</span> Android 联运</h3>
+  <p>测试资格、渠道包验收、开放下载和首发排期按游戏生态合作平台当前流程及合作协议执行。公开文档未给出适用于所有项目的统一审核 SLA，不将内部缓冲时间写成平台承诺。</p>
+
+  <div class="callout tip">
+    <p><strong>发布门禁：</strong>发行、研发、QA、法务和财务应共同确认“资质通过、包体一致、登录支付通过、隐私合规、监测可用、公告就绪、回滚可执行”后再发布。</p>
+  </div>
+  <p class="official-links"><strong>官方参考：</strong><br>
+    抖音游戏平台操作指南 → <a href="https://open.douyin.com/platform/resource/docs/ability/game-promotion-ability/start/douyin-game-platform-guide/" target="_blank" rel="noopener">查看预约、下载和版本流程</a><br>
+    抖音直播联运接入指南 → <a href="https://open.douyin.com/platform/resource/docs/ability/game-promotion-ability/united-operation-cooperation/live/guide/" target="_blank" rel="noopener">查看联运流程</a><br>
+    快手游戏联运入门指南 → <a href="https://ks-game-docs.kuaishou.com/guide/activity/1.gettingStart.html" target="_blank" rel="noopener">查看接入流程</a>
+  </p>
+</section>
+
+<!-- ===== 6. 合规资质 ===== -->
+<section id="stage6">
+  <h2>6. 合规与资质要求</h2>
+
+  <table>
+    <thead><tr><th>事项</th><th>监管 / 平台口径</th><th><span class="platform-tag tag-dy">抖音原生手游</span></th><th><span class="platform-tag tag-ks">快手 Android 联运</span></th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>ICP 许可证</strong></td>
+        <td>与 APP 备案不是同一事项，是否依法需要经营许可证还应结合实际业务判断</td>
+        <td>游戏平台现行入驻指南将增值电信业务经营许可证列为必备材料</td>
+        <td>按经营业务、合作协议及后台要求准备，不以 APP 备案代替经营许可证判断</td>
+      </tr>
+      <tr>
+        <td><strong>APP 备案</strong></td>
+        <td>境内提供互联网信息服务的 APP 主办者应依法履行备案</td>
+        <td>原生安装包应完成与运营主体、包名一致的 APP 备案，并在平台资料中如实填写</td>
+        <td>Android 联运包提交与运营主体、包名及实际产品一致的 APP 备案信息</td>
+      </tr>
+      <tr>
+        <td><strong>软件著作权</strong></td>
+        <td>软件名称、版本、著作权人和授权关系真实一致</td>
+        <td>平台资质必填；开发商按软著著作权人填写，主体不一致时提交授权</td>
+        <td>按平台和协议提交，授权取得权利时补完整授权链</td>
+      </tr>
+      <tr>
+        <td><strong>网络游戏出版审批（版号）</strong></td>
+        <td>平台材料受理方式不能替代网络游戏出版审批判断；正式向公众提供服务前由法务和出版单位按产品形态确认</td>
+        <td>平台在有内购游戏的资质清单中要求版号；纯广告产品的“承诺书 + 编号 0”仅是平台提交路径，不代表法定豁免</td>
+        <td>按监管要求、合作协议和后台资质字段准备</td>
+      </tr>
+      <tr>
+        <td><strong>实名认证与防沉迷</strong></td>
+        <td>所有网络游戏必须接入国家新闻出版署网络游戏防沉迷实名验证系统，所有用户使用真实有效身份信息注册、登录</td>
+        <td>现行指南在有内购游戏的平台字段中要求备案识别码，并绑定“北京字节跳动科技有限公司”；产品仍须履行普遍实名和防沉迷义务</td>
+        <td>联运 SDK 提供实名和防沉迷能力，需在后台启用并完成成年人、未成年人和异常账号实测</td>
+      </tr>
+      <tr>
+        <td><strong>隐私与个人信息</strong></td>
+        <td>隐私政策、SDK 清单、权限用途、个人信息处理和实际代码行为保持一致</td>
+        <td>隐私政策应明确开发商主体，或说明隐私政策主体与开发商的关系</td>
+        <td>按 Android 联运 SDK 隐私说明逐项披露，禁止超范围收集和强制索权</td>
+      </tr>
+      <tr>
+        <td><strong>授权链</strong></td>
+        <td>软著、版号、商标、IP、音乐、美术和肖像等权利均应可追溯</td>
+        <td>软著或版号主体与认证主体不一致时提交相应授权书</td>
+        <td>权利为授权取得时提交授权证明，确保授权范围覆盖平台分发、营销和商业化</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout warning">
+    <p><strong>事项边界：</strong>增值电信业务经营许可证、APP 备案和网络游戏出版审批分别核验。平台后台允许提交不等于已经满足全部监管义务。</p>
+  </div>
+  <p class="official-links"><strong>官方参考：</strong><br>
+    移动互联网应用程序备案通知 → <a href="https://www.gov.cn/zhengce/zhengceku/202308/content_6897341.htm" target="_blank" rel="noopener">查看文件</a><br>
+    网络出版服务管理规定 → <a href="https://www.cac.gov.cn/2016-02/15/c_1118048596.htm" target="_blank" rel="noopener">查看文件</a><br>
+    防止未成年人沉迷网络游戏通知 → <a href="https://www.nppa.gov.cn/xxfb/tzgs/202108/t20210830_666285.html" target="_blank" rel="noopener">查看文件</a><br>
+    快手实名认证与防沉迷 → <a href="https://ks-game-docs.kuaishou.com/guide/activity/4.realName.html" target="_blank" rel="noopener">查看文档</a><br>
+    快手隐私合规 → <a href="https://ks-game-docs.kuaishou.com/guide/activity/5.secret.html" target="_blank" rel="noopener">查看文档</a>
+  </p>
+</section>
+
+<!-- ===== 7. 分成与结算 ===== -->
+<section id="stage7">
+  <h2>7. 商业化、分成与结算</h2>
+
+  <div class="compare-grid">
+    <div class="compare-card">
+      <h4><span class="platform-tag tag-dy">抖音</span> 原生手游</h4>
+      <p style="font-size:13px;color:var(--text-light);">公开接入指南未给出适用于所有游戏的统一分成比例，收入分配以具体合作协议为准。</p>
+      <ul style="font-size:13px;">
+        <li><strong>直播 / 普通联运：</strong>渠道、平台、主播或其他参与方的比例按签署协议执行</li>
+        <li><strong>账单：</strong>直播联运指南说明每月推送上月账单，合同归档后可查询</li>
+        <li><strong>对账：</strong>按订单明细、退款明细、支付回调和服务端订单核对差异</li>
+      </ul>
+    </div>
+    <div class="compare-card">
+      <h4><span class="platform-tag tag-ks">快手</span> Android 联运</h4>
+      <p style="font-size:13px;color:var(--text-light);">联运分成、支付通道费、达人营销成本、退款承担和账期均以游戏生态合作平台页面及已签协议为准，不使用其他产品线或历史通用比例代替 Android 联运合同。</p>
+    </div>
+  </div>
+
+  <div class="callout warning">
+    <p><strong>动态商业政策：</strong>分成、税率、支付通道费、达人费用和账期会调整。财务测算必须保存当期后台截图、协议版本和政策更新时间，不把历史比例或其他产品线规则用于手游联运。</p>
+  </div>
+  <p class="official-links"><strong>官方参考：</strong><br>
+    抖音直播联运接入指南 → <a href="https://open.douyin.com/platform/resource/docs/ability/game-promotion-ability/united-operation-cooperation/live/guide/" target="_blank" rel="noopener">查看合作与账单说明</a><br>
+    快手支付接入与签名规则 → <a href="https://ks-game-docs.kuaishou.com/guide/activity/6.payment.html" target="_blank" rel="noopener">查看文档</a><br>
+    快手游戏生态合作平台服务协议 → <a href="https://ks-game-docs.kuaishou.com/policy/service.html" target="_blank" rel="noopener">查看协议</a>
+  </p>
+</section>
+
+<!-- ===== 8. 平台特色 ===== -->
+<section id="stage8">
+  <h2>8. 运营能力与资源申请</h2>
+
+  <h3><span class="platform-tag tag-dy">抖音</span> 原生手游</h3>
+  <table>
+    <thead><tr><th>能力类型</th><th>可执行事项</th><th>准入方式</th></tr></thead>
+    <tbody>
+      <tr><td>基础运营</td><td>游戏资料、版本管理、预约/下载状态、数据服务</td><td>完成主体和游戏审核后按后台开放能力操作</td></tr>
+      <tr><td>企业号关联</td><td>在企业号和游戏站之间展示关联入口</td><td>登录抖音企业号完成关联</td></tr>
+      <tr><td>开放服务</td><td>绑定抖音开放平台应用，申请分享等能力</td><td>按所需权限单独申请并验收</td></tr>
+      <tr><td>普通 / 直播联运</td><td>联运登录、支付、主播推广和内容分发</td><td>按合作申请、协议、SDK 和渠道包验收流程执行</td></tr>
+      <tr><td>其他增值能力</td><td>发行人计划、云游戏、互动玩法等</td><td>是否开放及前置条件以当前后台、邀约或书面运营方案为准</td></tr>
+    </tbody>
+  </table>
+  <p>作者任务、预创角、礼包、促供给或成长活动等能力，仅在后台实际可见并取得当前规则时纳入项目排期；定向运营方案不得写成所有厂商的必经流程。</p>
+
+  <h3><span class="platform-tag tag-ks">快手</span> Android 联运</h3>
+  <table>
+    <thead><tr><th>资源 / 能力</th><th>适用产品线</th><th>执行口径</th></tr></thead>
+    <tbody>
+      <tr><td>搜索、内容场景和中心化入口</td><td>经批准的联运游戏</td><td>由游戏表现、活动、投放或商务方案决定，不承诺固定位置和天数</td></tr>
+      <tr><td>达人营销</td><td>经批准的合作项目</td><td>准入、预算承担、达人结算和厂商分成按具体任务规则和协议确认</td></tr>
+      <tr><td>视频分享</td><td>Android 联运拓展版</td><td>使用拓展版 SDK 并完成分享回流验收</td></tr>
+      <tr><td>联运支付与结算</td><td>Android 联运</td><td>按联运 SDK、后台账单和已签协议执行，不复用其他产品线的分成公式</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout info">
+    <p><strong>排期规则：</strong>只有获得后台资格、书面活动规则或确认排期的资源才能进入项目甘特图；平台可能提供某项资源，不等于每个游戏都能获得固定曝光。</p>
+  </div>
+  <p class="official-links"><strong>官方参考：</strong><br>
+    抖音游戏平台操作指南 → <a href="https://open.douyin.com/platform/resource/docs/ability/game-promotion-ability/start/douyin-game-platform-guide/" target="_blank" rel="noopener">查看运营能力</a><br>
+    快手联运 SDK 下载 → <a href="https://ks-game-docs.kuaishou.com/guide/activity/2.SDKDownload.html" target="_blank" rel="noopener">查看基础版与分享版能力</a><br>
+    快手游戏生态合作平台服务协议 → <a href="https://ks-game-docs.kuaishou.com/policy/service.html" target="_blank" rel="noopener">查看平台运营规则</a>
+  </p>
+</section>
+
+<!-- ===== 9. 更新与退服 ===== -->
+<section id="stage9">
+  <h2>9. 版本更新、暂停服务与退服</h2>
+
+  <table>
+    <thead><tr><th>产品线</th><th>版本更新 / 回滚</th><th>暂停与终止运营</th></tr></thead>
+    <tbody>
+      <tr><td>抖音原生手游</td><td>在版本管理中更新游戏资料和包体；联运包与官服版本同步，发布前保留上一稳定包和配置</td><td>按平台后台、合作协议和用户权益要求完成公告、关闭新增与支付、资产处理、下架申请和结算收尾</td></tr>
+      <tr><td>快手 Android 联运</td><td>更新母包时同步生成并验收快手渠道包，核对 SDK、版本号、支付和隐私变化</td><td>游戏生态合作平台服务协议要求终止运营至少提前 60 日在游戏内及服务页面公告并关闭支付，公告持续至正式下线</td></tr>
+    </tbody>
+  </table>
+
+  <h3>退服执行清单</h3>
+  <ul>
+    <li>法务确认合同通知期、用户公告、退款或虚拟资产处理方案。</li>
+    <li>研发冻结充值入口和新账号入口，保留必要的查询、退款和客服能力。</li>
+    <li>发行同步游戏内、详情页、官网和客服渠道公告，并保存发布证明。</li>
+    <li>财务完成订单、退款、平台账单、发票、达人费用和保证金核对。</li>
+    <li>数据负责人按隐私政策和法律要求完成数据留存、迁移、删除或匿名化。</li>
+    <li>下架后继续处理客服、退款、申诉和监管请求，直至合同及用户义务结清。</li>
+  </ul>
+
+  <p class="official-links"><strong>官方参考：</strong><br>
+    抖音游戏平台操作指南 → <a href="https://open.douyin.com/platform/resource/docs/ability/game-promotion-ability/start/douyin-game-platform-guide/" target="_blank" rel="noopener">查看版本管理</a><br>
+    快手游戏生态合作平台服务协议 → <a href="https://ks-game-docs.kuaishou.com/policy/service.html" target="_blank" rel="noopener">查看更新与终止运营要求</a>
+  </p>
+</section>
+
+<!-- ===== 10. FAQ ===== -->
+<section id="stage10">
+  <h2>10. 常见问题（FAQ）</h2>
+
+  <div class="card"><h4>Q1：个人开发者能按本手册入驻吗？</h4><p>抖音原生手游主流程按游戏平台列出的企业材料执行。快手 Android 联运主体条件以游戏生态合作平台的准入页面和协议为准。小游戏和小玩法不适用本手册。</p></div>
+  <div class="card"><h4>Q2：同一款原生手游可以同时进入抖音和快手吗？</h4><p>技术上可以分别适配抖音原生手游和快手 Android 联运，但包体、SDK、账号、支付和结算均独立。是否存在独家、首发期、渠道包或资源限制，以各平台已签协议和书面政策为准。</p></div>
+  <div class="card"><h4>Q3：抖音后台允许纯广告游戏上传承诺书并填“0”，是否等于不需要版号？</h4><p>不等于。该操作只表示抖音直播联运后台当前提供的材料提交路径，不构成出版审批豁免。正式提供网络游戏服务前，应由法务和出版单位按产品形态确认审批条件。</p></div>
+  <div class="card"><h4>Q4：抖音创建游戏时都选官方包吗？</h4><p>不是。包型取决于合作方案：资料分发、开放 SDK 或发行人计划等使用官方包；普通联运和直播联运使用相应联运包，并分别配置 <code>union_mode=0</code> 或 <code>1</code>。</p></div>
+  <div class="card"><h4>Q5：审核周期如何排期？</h4><p>抖音游戏资料现行指南为提交后 3 个工作日内通知结果。快手 Android 联运没有适用于所有项目的公开统一 SLA，应按合作后台和书面排期执行，并为驳回、重新出包和复验预留时间。</p></div>
+  <div class="card"><h4>Q6：快手手游是否支持 iOS 联运？</h4><p>本手册核验到的快手联运 SDK 与下载文档为 Android 路径。iOS 是否开放及其接入方式，应以游戏生态合作平台当前能力和书面合作方案为准。</p></div>
+</section>
+
+</div>
+    </main>
+
+    <footer id="contact" class="footer">
+      <div>© 2026 HEYHONG / CHUIST</div>
+      <a href="mailto:hong@heyhong.net">hong@heyhong.net</a>
+    </footer>
+  </body>
+</html>

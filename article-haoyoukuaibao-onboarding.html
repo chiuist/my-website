@@ -1,0 +1,969 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>好游快爆新游入驻流程手册 | HEYHONG</title>
+<style>
+  :root {
+    --bg: #f4f1eb;
+    --panel: #fffdf8;
+    --text: #11110f;
+    --muted: #6b6560;
+    --soft: #a39e99;
+    --orange: #f05a24;
+    --blue: #2d6fa3;
+    --green: #527844;
+    --amber: #966817;
+    --border: rgba(17, 17, 15, 0.08);
+    --container-max: 1080px;
+    --container-pad: clamp(22px, 4vw, 64px);
+    --radius: 8px;
+    --shadow: 0 1px 2px rgba(17, 17, 15, 0.05), 0 2px 8px rgba(17, 17, 15, 0.03);
+    --display: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    --body: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+
+  body {
+    margin: 0;
+    font-family: var(--body);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.8;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--orange); text-decoration: none; transition: opacity 0.15s; }
+  a:hover { opacity: 0.8; text-decoration: underline; }
+  a:visited { color: var(--orange); }
+
+  code {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 13px;
+    background: rgba(17, 17, 15, 0.06);
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: var(--text);
+  }
+
+  /* ===== Header ===== */
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    min-height: 88px;
+    display: flex;
+    align-items: center;
+    padding: 0 var(--container-pad);
+    background: rgba(244, 241, 235, 0.92);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: var(--container-max);
+    margin: 0 auto;
+  }
+
+  .logo {
+    font-family: var(--display);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: 0.3px;
+  }
+
+  .logo span { color: var(--orange); }
+
+  .nav { display: flex; gap: 20px; }
+
+  .nav a {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.2px;
+    transition: color 0.15s;
+  }
+
+  .nav a:hover { color: var(--text); }
+
+  /* ===== Cover ===== */
+  .doc-cover {
+    padding: 48px 0 32px;
+    border-bottom: 1px solid rgba(17, 17, 15, 0.08);
+    margin-bottom: 28px;
+    text-align: center;
+  }
+
+  .doc-cover h1 {
+    margin: 0 0 16px;
+    font-family: var(--display);
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 800;
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+    color: var(--text);
+  }
+
+  .doc-hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 18px;
+  }
+
+  .doc-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 12px;
+    border-radius: 999px;
+    background: rgba(255, 253, 248, 0.72);
+    border: 1px solid rgba(17, 17, 15, 0.1);
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  .doc-tag.orange { background: rgba(240, 90, 36, 0.08); border-color: rgba(240, 90, 36, 0.2); color: var(--orange); font-weight: 600; }
+
+  /* ===== Layout ===== */
+  .doc-body {
+    width: min(100%, calc(var(--container-max) + var(--container-pad) * 2));
+    margin: 0 auto;
+    padding: 0 var(--container-pad) 80px;
+  }
+
+  .doc-body h2 {
+    margin: 48px 0 22px;
+    font-family: var(--display);
+    font-size: clamp(22px, 2.6vw, 28px);
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--text);
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--orange);
+    display: inline-block;
+  }
+
+  .doc-body h3 {
+    margin: 32px 0 12px;
+    font-family: var(--display);
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--orange);
+    line-height: 1.4;
+  }
+
+  .doc-body h4 {
+    margin: 20px 0 8px;
+    font-family: var(--display);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.4;
+  }
+
+  .doc-body p { margin: 0 0 14px; color: var(--muted); font-size: 15px; line-height: 1.75; }
+
+  .doc-body ul, .doc-body ol { margin: 0 0 16px; padding-left: 22px; }
+
+  .doc-body li { margin-bottom: 6px; color: var(--muted); font-size: 15px; line-height: 1.7; }
+
+  .doc-body li strong { color: var(--text); }
+
+  .doc-body table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 18px 0;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .doc-body th {
+    text-align: left;
+    padding: 10px 14px;
+    font-weight: 600;
+    color: var(--text);
+    background: rgba(17, 17, 15, 0.04);
+    border-bottom: 1px solid rgba(17, 17, 15, 0.12);
+    white-space: nowrap;
+  }
+
+  .doc-body td {
+    padding: 10px 14px;
+    color: var(--muted);
+    border-bottom: 1px solid rgba(17, 17, 15, 0.06);
+    vertical-align: top;
+  }
+
+  .doc-body tr:hover td { background: rgba(17, 17, 15, 0.02); }
+
+  /* ===== Cards ===== */
+  .doc-card, .stage-card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    margin-bottom: 16px;
+    box-shadow: var(--shadow);
+  }
+
+  .doc-card h3, .stage-card h3 { margin-top: 0; }
+
+  /* ===== Callout ===== */
+  .callout {
+    border-left: 4px solid var(--orange);
+    background: rgba(240, 90, 36, 0.04);
+    border-color: rgba(240, 90, 36, 0.15);
+    margin: 18px 0;
+    padding: 14px 18px;
+    border-radius: 0 6px 6px 0;
+    border: 1px solid rgba(240, 90, 36, 0.12);
+    border-left-width: 4px;
+  }
+
+  .callout.info {
+    border-left-color: var(--blue);
+    background: rgba(45, 111, 163, 0.04);
+    border-color: rgba(45, 111, 163, 0.12);
+    border-left-width: 4px;
+  }
+
+  .callout.warn {
+    border-left-color: var(--amber);
+    background: rgba(150, 104, 23, 0.04);
+    border-color: rgba(150, 104, 23, 0.12);
+    border-left-width: 4px;
+  }
+
+  .callout.success {
+    border-left-color: var(--green);
+    background: rgba(17, 17, 15, 0.03);
+    border-color: rgba(82, 120, 68, 0.12);
+    border-left-width: 4px;
+  }
+
+  .callout p { margin: 0; font-size: 14px; }
+  .callout strong { color: var(--text); }
+
+  /* ===== Flow steps ===== */
+  .flow-steps {
+    position: relative;
+    margin: 20px 0;
+    padding: 20px 24px 20px 48px;
+    background: rgba(17, 17, 15, 0.025);
+    border: 1px solid rgba(17, 17, 15, 0.06);
+    border-radius: 10px;
+  }
+
+  .flow-steps::before {
+    content: '';
+    position: absolute;
+    left: 26px;
+    top: 32px;
+    bottom: 32px;
+    width: 2px;
+    background: rgba(17, 17, 15, 0.1);
+  }
+
+  .flow-step {
+    position: relative;
+    padding: 8px 0 8px 22px;
+  }
+
+  .flow-step::before {
+    content: '';
+    position: absolute;
+    left: -22px;
+    top: 14px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--orange);
+    border: 2px solid var(--bg);
+    box-shadow: 0 0 0 2px rgba(240, 90, 36, 0.25);
+  }
+
+  .flow-step h4 {
+    margin: 0 0 4px;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  .flow-step p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .flow-step p strong { color: var(--text); }
+
+  /* ===== Compact FAQ ===== */
+  .faq-item {
+    padding: 14px 18px;
+    border: 1px solid rgba(17, 17, 15, 0.08);
+    border-radius: 8px;
+    background: rgba(255, 253, 248, 0.7);
+    margin-bottom: 10px;
+  }
+
+  .faq-item h4 {
+    margin: 0 0 6px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  .faq-item p {
+    margin: 0;
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* ===== Footer ===== */
+  .site-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 96px;
+    padding-inline: var(--container-pad);
+    border-top: 1px solid var(--border);
+    background: var(--bg);
+  }
+
+  .site-footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: var(--container-max);
+    margin: 0 auto;
+  }
+
+  .footer-copy { font-size: 12px; color: var(--soft); letter-spacing: 0.3px; }
+  .footer-links { display: flex; gap: 18px; }
+  .footer-links a { font-size: 12px; color: var(--muted); text-decoration: none; font-weight: 500; }
+  .footer-links a:hover { color: var(--text); text-decoration: none; }
+
+  /* ===== Responsive ===== */
+  @media (max-width: 820px) {
+    .nav { display: none; }
+    html { scroll-padding-top: 76px; }
+    .doc-cover { padding: 40px 0 28px; }
+    .doc-cover h1 { font-size: 30px; }
+    .doc-body h2 { font-size: 22px; }
+    .doc-body h3 { font-size: 16px; }
+    .site-footer { flex-direction: column; align-items: flex-start; gap: 12px; min-height: 112px; padding-block: 30px; }
+  }
+
+  @media (max-width: 620px) {
+    .header { min-height: 76px; }
+    html { scroll-padding-top: 64px; }
+    .doc-cover { padding: 32px 0 24px; }
+    .doc-cover h1 { font-size: 26px; }
+    .doc-body table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .doc-body th, .doc-body td { padding: 10px 12px; font-size: 12px; }
+    .doc-card, .stage-card, .callout { padding: 16px 18px; }
+    .flow-steps { padding: 16px 18px 16px 40px; }
+    .flow-steps::before { left: 22px; }
+  }
+</style>
+
+    <meta name="description" content="好游快爆新游从开发者认证、预约测试到正式首发和长线运营的入驻流程手册。" />
+
+    <meta name="theme-color" content="#f4f1eb" />
+    <link rel="stylesheet" href="article-pages.css?v=20260803-1" />
+    <link rel="stylesheet" href="article-doc.css?v=20260803-1" />
+    <link rel="stylesheet" href="manual-pages.css?v=20260803-1" />
+    <script src="manual-pages.js?v=20260803-1" defer></script>
+
+  </head>
+  <body class="manual-page haoyoukuaibao-onboarding-page">
+    <a class="skip-link" href="#main">跳到主要内容</a>
+
+    <header class="header">
+      <a class="brand" href="index.html" aria-label="HEYHONG 首页">
+        <img src="assets/logo.png" alt="HEYHONG" />
+      </a>
+      <nav class="nav" aria-label="主导航">
+        <a href="articles.html" aria-current="page">发行笔记</a>
+        <a href="index.html#experiments">产品实验</a>
+        <a href="#contact">联系</a>
+      </nav>
+    </header>
+
+    <main id="main">
+<!-- HEADER -->
+
+
+<!-- HERO -->
+<div class="doc-body doc-container wide shell manual-document">
+  <section class="doc-cover manual-cover">
+  <p class="eyebrow">CHANNEL / ONBOARDING</p>
+    <h1>好游快爆新游入驻流程手册</h1>
+    <div class="doc-hero-tags">
+      <span class="doc-tag orange">开发者平台</span>
+      <span class="doc-tag">个人 / 企业</span>
+      <span class="doc-tag">预约 · 测试 · 首发</span>
+      <span class="doc-tag">零分成</span>
+    </div>
+  </section>
+
+<!-- ===== 1. 开发者入驻与认证 ===== -->
+<section id="stage1">
+  <h2>1. 开发者入驻与认证</h2>
+
+  <h3>1.1 注册开发者账号</h3>
+  <p>前往 <a href="https://open.3839.com" target="_blank" rel="noopener">好游快爆开发者平台</a>，点击右上角「注册」，填写信息即可完成账号注册。已有好游快爆 APP 账号可直接登录。</p>
+
+  <div class="callout warn">
+    <p><strong>温馨提示：</strong>考虑到人员变动，<strong>不建议使用私人手机号注册开发者平台主账号</strong>。建议使用公司固定邮箱或企业邮箱。</p>
+  </div>
+
+  <h3>1.2 选择开发者类型并填写资料</h3>
+  <p>注册完成后，点击右上角「管理中心」，选择对应的开发者类型：</p>
+
+  <table>
+    <thead>
+      <tr><th>类型</th><th>所需材料</th><th>格式 / 大小</th><th>备注</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>个人开发者</strong></td>
+        <td>本人身份证照片</td>
+        <td>JPG / PNG，≤ 3 MB</td>
+        <td>一个身份证号只能认证一个账户</td>
+      </tr>
+      <tr>
+        <td><strong>企业开发者</strong></td>
+        <td>营业执照原件复印件（加盖公司印泥公章 + 手写「日期 + 仅用于注册好游快爆开发者平台账号使用」）</td>
+        <td>JPG / PNG，≤ 3 MB</td>
+        <td>一个统一社会信用代码只能认证一个账户</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>1.3 验证与提交审核</h3>
+  <p>填写开发者资料后，通过「获取验证码」完成手机号和电子邮箱验证，然后点击「提交审核」。快爆工作人员将在 <strong>1 ~ 3 个工作日</strong>内完成账号审核，审核通过后即可进入开发者平台进行游戏上传。</p>
+
+  <div class="callout">
+    <p><strong>重要限制：</strong>个人身份认证、企业信息认证、银行信息提交后<strong>不可修改</strong>。如需修改请联系快爆商务处理。</p>
+  </div>
+
+  <p style="margin-top:16px;"><strong>📎 官方参考：</strong><br>开发者入驻流程 → <a href="https://open.3839.com/console/docs/#/guide/register" target="_blank" rel="noopener">open.3839.com/console/docs/#/guide/register</a><br>开发者平台首页 → <a href="https://open.3839.com" target="_blank" rel="noopener">open.3839.com</a></p>
+</section>
+
+<!-- ===== 2. 创建游戏详情页 ===== -->
+<section id="stage2">
+  <h2>2. 创建游戏详情页</h2>
+
+  <h3>2.1 创建游戏</h3>
+  <p>登录开发者平台 → 进入「管理中心」→ 切换选择厂商 → 点击「创建游戏」（可通过主界面左下入口切换至 PC 游戏 &amp; 小游戏管理页面）。完善游戏基础信息后提交创建。</p>
+
+  <h3>2.2 选择游戏状态</h3>
+  <p>创建游戏后，进入「游戏信息」，可选择不同游戏状态进行创建发布。不同状态对应不同的信息字段和审核要求。全部填写完毕后提交审核，正常在 <strong>1 ~ 2 个工作日</strong>内审核，审核通过后游戏将在好游快爆 APP 上架供玩家预约/下载。</p>
+
+  <h3>2.3 物料清单</h3>
+  <table>
+    <thead>
+      <tr><th>物料类型</th><th>规格要求</th><th>文件大小</th><th>数量要求</th><th>备注</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>游戏 ICON</strong></td>
+        <td>256 × 256 px，直角方形图，JPG / PNG</td>
+        <td>≤ 80 KB</td>
+        <td>1 张（必需）</td>
+        <td>静态图，不可传动态 ICON；平台统一裁切处理</td>
+      </tr>
+      <tr>
+        <td><strong>游戏截图</strong></td>
+        <td>推荐 1280 × 720 px，最大 2000 × 2000 px，JPG / PNG，统一横图或竖图</td>
+        <td>≤ 2 MB / 张</td>
+        <td>至少 3 张，建议 ≥ 5 张</td>
+        <td>无水印，确保图片清晰；不可含其他平台图标或名称；不可使用真人素材</td>
+      </tr>
+      <tr>
+        <td><strong>游戏封面图</strong></td>
+        <td>1280 × 720 px，JPG / PNG</td>
+        <td>≤ 1 MB</td>
+        <td>1 张（必需）</td>
+        <td>LOGO 放中间或偏右位置，不带广告宣传语；不可使用真人素材</td>
+      </tr>
+      <tr>
+        <td><strong>游戏视频</strong></td>
+        <td>最低 720 × 405 px，建议 1280 × 720 px，MP4</td>
+        <td>≤ 1 GB</td>
+        <td>可选</td>
+        <td>建议上传高清视频</td>
+      </tr>
+      <tr>
+        <td><strong>视频封面图</strong></td>
+        <td>1280 × 720 px，JPG / PNG</td>
+        <td>≤ 1 MB</td>
+        <td>1 张（上传视频时必需）</td>
+        <td>无水印，确保图片清晰</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>2.4 文字描述规范</h3>
+  <ul>
+    <li><strong>一句话描述：</strong>≤ 24 个字，简要说明游戏玩法和特色</li>
+    <li><strong>游戏介绍：</strong>对游戏玩法、特色等进行描述</li>
+    <li><strong>开发者的话：</strong>开发者对玩家所要说的话</li>
+    <li>不可出现实际玩法与游戏内容描述不符的问题</li>
+    <li>不可含有其他游戏平台的名称、介绍、引述等内容</li>
+    <li>不可出现含有其他市场名称或引导至其他市场下载应用的描述</li>
+  </ul>
+
+  <div class="callout warn">
+    <p><strong>常见驳回原因：</strong>ICON 含诱导字样（拿/领/送/赢/抢/红包/提现）、截图含其他平台水印、游戏名称与资质不一致、隐私政策链接无效、ICON 使用真人头像未提供代言人协议、ICON 含误导性数字角标、截图/视频含血腥恐怖内容、名称使用违规/侵权词汇（私服、破解版、中文版、汉化版、外挂版）、使用广告法违规词（最好玩、最好、行内第一等）。</p>
+  </div>
+
+  <p style="margin-top:16px;"><strong>📎 官方参考：</strong><br>游戏提交流程 → <a href="https://open.3839.com/console/docs/#/operation/creategame" target="_blank" rel="noopener">open.3839.com/console/docs/#/operation/creategame</a><br>游戏审核规范 → <a href="https://open.3839.com/console/docs/#/operation/specification" target="_blank" rel="noopener">open.3839.com/console/docs/#/operation/specification</a></p>
+</section>
+
+<!-- ===== 3. 开放预约 ===== -->
+<section id="stage3">
+  <h2>3. 开放预约</h2>
+
+  <h3>3.1 预约阶段的作用</h3>
+  <p>预约阶段是游戏首曝和积累核心用户的黄金窗口。开发者提前对称游戏信息和计划，准备首曝素材、福利活动等，在预约开启后可第一时间获得推荐曝光，触达游戏潜在用户。</p>
+
+  <h3>3.2 筹备阶段运营实操</h3>
+
+  <h4>基础资料准备</h4>
+  <p>通过优质、符合平台调性的素材，第一时间精准触达核心用户，为游戏聚集第一波种子核心用户。</p>
+  <ul>
+    <li><strong>游戏 ICON：</strong>尺寸 256 × 256 px；如为 IP 游戏，icon 尽量选用对 IP 用户有吸引力的角色；如为知名厂商旗下游戏，icon 要带上厂商角标（多数玩家会以角标来判断是否为官方正版）</li>
+    <li><strong>游戏截图：</strong>横版 16:9，竖版 9:16</li>
+    <li><strong>游戏视频：</strong>分辨率 1280 × 720</li>
+    <li><strong>宣传图：</strong>常用必备尺寸 1280 × 720、1360 × 760、800 × 400</li>
+  </ul>
+
+  <h4>上线预约里程碑活动</h4>
+  <p>搭建预约时同步上线预约里程碑活动，通过明确的预约目标和有吸引力的奖励拉动预约量。</p>
+  <ul>
+    <li><strong>确认预约目标：</strong>需根据实际情况合理制定目标，快爆运营会评估并给出优化建议</li>
+    <li><strong>确认预约奖励：</strong>奖励要有吸引力且有一定门槛（游戏里不易获取，或为快爆独家奖励）</li>
+    <li><strong>活动素材：</strong>奖励图标尺寸 96 × 96 px，PNG 格式；头部图片素材尺寸 750 × 562 px，PSD 格式，需体现游戏特色并带有游戏 LOGO</li>
+  </ul>
+
+  <h4>入驻论坛发布官宣帖</h4>
+  <p>搭建好预约后要同步入驻论坛，发布官宣帖进行首曝。官宣帖内容可以是开发者的话、游戏介绍等，有趣、简明扼要地突出亮点。搭配官宣预约活动或首曝活动，鼓励玩家分享传播，有助于让游戏冲上期待榜。</p>
+
+  <h3>3.3 预约运营机制</h3>
+  <p>好游快爆通过以下方式持续为预约期游戏导入流量：</p>
+  <ul>
+    <li><strong>运营推荐：</strong>通过游戏节点的运营推荐、官方内容、活动运营，持续增加预约新增量</li>
+    <li><strong>唤醒老用户：</strong>持续唤醒和活跃已预约的老用户</li>
+    <li><strong>社区预热：</strong>结合游戏内容爆料、反馈建议收集，配合福利活动等运营，在社区与玩家直接交流</li>
+    <li><strong>编辑运营：</strong>高质量的编辑运营团队协助内容推荐和曝光</li>
+  </ul>
+
+  <h3>3.4 预约期合规</h3>
+  <ul>
+    <li>页面展示信息真实准确，不虚假宣传</li>
+    <li>隐私政策 URL 有效可访问</li>
+    <li>APP 备案号（如有）正确填写</li>
+    <li><strong>无版号的游戏不得开启任何支付功能</strong></li>
+  </ul>
+
+  <p style="margin-top:16px;"><strong>📎 官方参考：</strong><br>游戏全生命周期 — 筹备阶段 → <a href="https://open.3839.com/console/docs/#/gamecycle/preparations" target="_blank" rel="noopener">open.3839.com/console/docs/#/gamecycle/preparations</a></p>
+</section>
+
+<!-- ===== 4. 预热阶段 ===== -->
+<section id="stage4">
+  <h2>4. 预热阶段</h2>
+
+  <div class="callout info">
+    <p><strong>核心要点：</strong>预热阶段是筹备（搭建预约页）后、测试开启前的关键运营期。快爆会协助开发者经营维护好种子核心用户群体，通过官方内容运营与活动持续累计预约关注量。</p>
+    <p style="margin-bottom:0;">关键行为：发帖等日常预热、活动拉新、社区互动维护、快爆联动定制</p>
+  </div>
+
+  <h3>4.1 游戏预热宣传</h3>
+  <p>日常做好预热宣传，<strong>每周至少 1 次</strong>运营动作，最好保持 <strong>2~3 次</strong>的频率，<strong>每两周有一次重点内容曝光</strong>。这样才能持续带动预约量。预热内容类型包括：</p>
+  <ul>
+    <li><strong>游戏爆料：</strong>爆料测试计划、介绍游戏玩法、角色、原画、设计理念等</li>
+    <li><strong>官方蓝贴：</strong>曝光游戏研发进度与内容</li>
+    <li><strong>策划面对面：</strong>收集玩家问题，回答玩家疑问</li>
+  </ul>
+  <p style="font-size:13px;color:var(--soft);margin-top:-8px;">预热内容务必保持详实，突出玩家感兴趣的内容。无有效内容可曝光时宁可不去曝光——无效内容及长期无测试消息，反而容易引起玩家反感，导致取消预约和差评。</p>
+
+  <h3>4.2 活动拉新促活</h3>
+  <p>除内容向吸引外，通过有奖活动做拉新与促活，吸引更多玩家分享传播。活动主题可为：庆祝预约量突破 XX、有奖话题讨论、晒预约赢奖励、庆祝游戏 XX 节点等。</p>
+
+  <h3>4.3 互动讨论与社区维护</h3>
+  <p>保持与用户的互动讨论，通过精细化评论/论坛维护实现聚量、提升粉丝关注、制造影响力。根据玩家评论内容进行用心回复，打造趣味人设。</p>
+
+  <h3>4.4 联动定制</h3>
+  <p>通过联动定制提升游戏在快爆内影响力。当前已与超过 <strong>100 款以上</strong>游戏进行了以「<strong>小爆哥</strong>」为主要素材的定制联动。</p>
+  <ul>
+    <li><strong>游戏内定制：</strong>结合快爆元素做游戏内定制内容——角色、宠物、皮肤、道具、装扮、称号等，具体根据游戏实际情况来定。越早制作越能持续带量。</li>
+    <li><strong>快爆内定制：</strong>在快爆内定制游戏的专属头衔称号，玩家通过特定活动或达成条件在快爆内获取并展示。快爆会持续放大定制效果，在站内外做多样化推广，帮助提高预约和下载转化。</li>
+  </ul>
+
+  <p style="margin-top:16px;"><strong>📎 官方参考：</strong><br>预热阶段运营 → <a href="https://open.3839.com/console/docs/#/gamecycle/preheating" target="_blank" rel="noopener">open.3839.com/console/docs/#/gamecycle/preheating</a></p>
+</section>
+
+<!-- ===== 5. 测试阶段 ===== -->
+<section id="stage5">
+  <h2>5. 测试阶段</h2>
+
+  <h3>5.1 测试的核心价值</h3>
+  <p>通过测试资格招募和测试，进一步筛选核心用户，同时通过这批用户扩散影响更多用户，持续提升游戏预约新增转化。通过测试验证游戏玩法内容，收集玩家反馈建议，助力游戏不断调优。</p>
+
+  <h3>5.2 测试类型说明</h3>
+  <p>好游快爆支持按以下维度灵活配置测试：</p>
+  <table>
+    <thead>
+      <tr><th>维度</th><th>可选方式</th><th>说明</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>是否限量</strong></td>
+        <td>限量 / 不限量</td>
+        <td>限量测试通过资格发放控制人数，不限量测试面向全部用户</td>
+      </tr>
+      <tr>
+        <td><strong>限量类型</strong></td>
+        <td>激活码 / 白名单 / 抢注</td>
+        <td>激活码凭码登录；白名单凭快爆 UID 直接激活；抢注先到先得</td>
+      </tr>
+      <tr>
+        <td><strong>是否删档</strong></td>
+        <td>删档 / 不删档</td>
+        <td>删档测试结束后清除数据，不删档测试保留数据</td>
+      </tr>
+      <tr>
+        <td><strong>是否计费</strong></td>
+        <td>计费 / 不计费</td>
+        <td>计费测试需版号，不可无版号私自开启内购</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>5.3 测试前运营准备</h3>
+
+  <h4>提前勾兑信息</h4>
+  <p>测试开始前需与快爆团队提前对齐以下信息：</p>
+  <ul>
+    <li><strong>测试时间：</strong>测试对外时间、开启时间、结束时间、预热节点等</li>
+    <li><strong>测试类型：</strong>限量/不限量、删档/不删档、计费/不计费</li>
+    <li><strong>限量类型：</strong>限量时采用激活码、白名单还是抢注方式</li>
+    <li><strong>测试规模：</strong>全渠道参与数、快爆测试人数</li>
+    <li><strong>测试细节：</strong>测试内容、备注事项</li>
+    <li><strong>注意事项：</strong>不可对外内容、运营注意要点等</li>
+  </ul>
+
+  <h4>预热宣发</h4>
+  <ul>
+    <li><strong>测试官宣帖：</strong>说明测试信息和内容，引导玩家关注测试</li>
+    <li><strong>测试内容预热：</strong>安排多篇内容持续曝光（图片、视频等展示测试实机画面），激起玩家兴趣</li>
+    <li><strong>活动造势：</strong>活动奖励可以是实物或测试资格（一般测试资格奖励效果更佳），通过活动加深玩家印象并扩散曝光</li>
+    <li><strong>测试宣传素材：</strong>给到快爆编辑本次测试的白包、图片素材、试玩视频等，快爆内容创作编辑团队会深入体验和创作，持续输出宣传内容</li>
+  </ul>
+
+  <div class="callout warn">
+    <p><strong>提前给到游戏包：</strong>在测试开始前一定要提前给到安装包！快爆收录游戏并安排运营需要时间。如果掐点或未准时给到，会导致玩家产生负面情绪，引发差评，给游戏造成不必要的口碑损伤。</p>
+  </div>
+
+  <h3>5.4 测试资格发放方式</h3>
+  <table>
+    <thead>
+      <tr><th>发放方式</th><th>激活率</th><th>特点</th><th>开发者需提供</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>爆米花商店兑换</strong></td>
+        <td>80% ~ 90%</td>
+        <td>快爆特色商城体系，玩家用专属代币「爆米花」（不可充值获取，仅通过活跃获取）兑换测试资格，激活率高但兑换玩家可能非游戏目标群体</td>
+        <td>激活码、对应激活规则、激活码有效期</td>
+      </tr>
+      <tr>
+        <td><strong>问卷招募发放</strong></td>
+        <td>60% ~ 70%</td>
+        <td>支持快爆自带问卷系统（可直接收集快爆 UID 触达用户，转化率更高）及第三方问卷（腾讯问卷、问卷星等）；能精准筛选核心玩家，且参与问卷需先预约，可拉动大量预约新增</td>
+        <td>目标用户标签、问卷题目、起止时间、计划招募人数、筛选方式</td>
+      </tr>
+      <tr>
+        <td><strong>核心 UGC 玩家专属招募</strong></td>
+        <td>—</td>
+        <td>面向核心 UGC 玩家的专属招募渠道，用户群更核心、参与度更高，能帮助游戏收集问题建议</td>
+        <td>联系快爆商务沟通</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>5.5 测试包上传与审核</h3>
+  <div class="flow-steps">
+    <div class="flow-step">
+      <h4>创建测试版本</h4>
+      <p>在开发者中心「游戏信息」中选择测试状态，完善测试版本所需字段，上传测试包（APK）。</p>
+    </div>
+    <div class="flow-step">
+      <h4>配置测试信息</h4>
+      <p>填写测试起止时间、测试类型、是否需要资格招募、是否删档等信息。</p>
+    </div>
+    <div class="flow-step">
+      <h4>提交审核</h4>
+      <p>测试版本审核正常在 <strong>1 ~ 2 个工作日</strong>内完成。审核通过后游戏上架供玩家下载测试。</p>
+    </div>
+    <div class="flow-step">
+      <h4>测试期管理</h4>
+      <p>测试期间通过社区收集玩家反馈，查看下载量、活跃数据等，及时响应 Bug 报告。</p>
+    </div>
+  </div>
+
+  <div class="callout warn">
+    <p><strong>无版号联网测试需逐案确认：</strong>公开生命周期文档介绍了删档/不删档、计费/不计费等测试形态，但没有给出可普遍适用的无版号联网测试备案豁免。提交 APK 前应完成 APP 备案并准备权利证明；具体项目是否受理，需按是否联网、删档、计费及备案情况向平台工单或商务确认。无版号不得开放任何支付或变相收费。</p>
+  </div>
+
+  <h3>5.6 测试注意事项与社区维护</h3>
+
+  <h4>抢注限量测试</h4>
+  <ul>
+    <li>需提前向玩家说明抢注测试信息，注意控制开放下载与注册的时间</li>
+    <li>测试量达标后关闭下载，应<strong>适当延迟注册关闭时间</strong>——由于玩家网速参差不齐，关闭下载后可能还有玩家未下载完，如立即关闭注册会导致「下载了却不能玩」进而引发差评</li>
+    <li>开发者关键：做好信息对称，下载关闭后适当推迟注册关闭</li>
+  </ul>
+
+  <h4>不限量测试</h4>
+  <ul>
+    <li>需准时开放游戏服务器，保证服务器稳定</li>
+    <li>建议提前做好开测说明、机型配置说明，并<strong>提前准备炸服预案</strong>——避免同一时间进入玩家过多影响服务器稳定，造成游戏口碑下滑</li>
+  </ul>
+
+  <h4>社区维护</h4>
+  <p>游戏测试开始后，开发者需要做好社区维护，包括游戏评论与论坛帖子的关注和及时回复。操作建议：</p>
+  <ul>
+    <li>进行频繁密集的交互，对每一个长评/建议帖均进行回复</li>
+    <li>正面对待缺点，表达进一步优化的计划</li>
+    <li>发布游戏 QA/问题反馈帖，对玩家的问题进行解答</li>
+  </ul>
+  <p>以此竖立官方人设，提升官方口碑和玩家包容性，间接带动游戏评分，形成良性口碑循环。</p>
+
+  <div class="callout info">
+    <p><strong>快爆独家社区维护支持：</strong>好游快爆拥有独家金牌客服团队，更了解玩家且经常帮助游戏产品第一时间发现问题，协助收集用户反馈和优化建议，提供部分社区维护支持。避免玩家因为游戏问题带节奏、刷差评，减少游戏不必要的口碑掉分。</p>
+  </div>
+
+  <h3>5.7 测试阶段合规要求</h3>
+  <ul>
+    <li><strong>防沉迷：</strong>提供网络游戏包体测试或下载时，必须按规定接入国家统一防沉迷实名认证系统；纯页面/预约阶段不等同于已完成 SDK 接入</li>
+    <li><strong>隐私政策：</strong>游戏内需要添加隐私政策，登录后展示位置不可超过 4 次点击；需提供拒绝选项，拒绝后可正常退出应用</li>
+    <li><strong>APP 备案：</strong>联网 APP 在测试版或正式版分发前完成工信部 APP 备案，并在提交页填写备案主体、备案编号；网站 ICP 备案不能替代 APP 备案</li>
+    <li><strong>支付限制：</strong>无版号游戏不可在游戏中私自开启支付功能，包括打赏二维码、引导玩家前往 Q 群付费赞助等形式</li>
+    <li><strong>内容合规：</strong>游戏内不可包含其他游戏平台的任何引导内容（启动界面、登录界面、公告、邮箱、活动、拍脸图、弹窗等）</li>
+  </ul>
+
+  <p style="margin-top:16px;"><strong>📎 官方参考：</strong><br>测试阶段运营 → <a href="https://open.3839.com/console/docs/#/gamecycle/test" target="_blank" rel="noopener">open.3839.com/console/docs/#/gamecycle/test</a></p>
+</section>
+
+<!-- ===== 6. 正式首发 / 上线 ===== -->
+<section id="stage6">
+  <h2>6. 正式首发 / 上线</h2>
+
+  <div class="callout info">
+    <p><strong>核心要点：</strong>先完成 APP 备案、权属/授权、版号、防沉迷、隐私和正式 APK 审核，再安排首发运营。页面预约和商务对接完成后，仍须通过包体审核方可分发。</p>
+    <p style="margin-bottom:0;">关键行为：合规总检 → 提交正式版本 → 提前勾兑信息 → 预热活动 → 首发福利 → 社区与长线运营</p>
+  </div>
+
+  <h3>6.1 上线前合规总检</h3>
+  <table>
+    <thead>
+      <tr><th>检查项</th><th>正式分发前要求</th><th>注意事项</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>APP 备案</strong></td>
+        <td>联网 APP 先备案后分发；在测试版或正式版提交页填写备案主体和备案编号</td>
+        <td>每个 APP 独立备案；APP 名称、图标、包名、主体与备案一致；网站 ICP 备案不能替代</td>
+      </tr>
+      <tr>
+        <td><strong>软件权利证明</strong></td>
+        <td>软件著作权登记证书或代理/发行授权证明</td>
+        <td>授权运营项目提交完整、连续、可追溯的授权链；这是平台权利审核材料，不应表述为所有游戏统一的行政许可</td>
+      </tr>
+      <tr>
+        <td><strong>版号与授权</strong></td>
+        <td>计费测试和正式出版运营前核验版号、游戏名称、出版单位、运营单位及授权链</td>
+        <td>无版号不得开放充值、打赏、群内赞助或任何变相支付；无版号联网测试是否受理需逐案确认</td>
+      </tr>
+      <tr>
+        <td><strong>防沉迷与实名</strong></td>
+        <td>网络游戏按规定接入国家统一防沉迷实名认证系统并完成自测</td>
+        <td>单机防沉迷工具不能替代联网游戏完整的实名、时长和充值限制</td>
+      </tr>
+      <tr>
+        <td><strong>隐私与 SDK</strong></td>
+        <td>首次启动展示游戏自身隐私政策并提供同意/拒绝；拒绝后可退出</td>
+        <td>同意前不得初始化采集个人信息的 SDK；政策披露第三方 SDK、权限、保存、注销等实际处理</td>
+      </tr>
+      <tr>
+        <td><strong>正式 APK</strong></td>
+        <td>包名、签名、版本号、页面名称、图标、截图和备案/资质信息一致</td>
+        <td>更新包必须保持签名一致，不包含其他应用市场标识或测试支付入口</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>6.2 提交正式版本</h3>
+  <div class="flow-steps">
+    <div class="flow-step">
+      <h4>确认发布资料</h4>
+      <p>在开发者平台「游戏列表 → 游戏发布」选择正式版，核对游戏状态、上线时间、版本号、更新说明、包名和签名。</p>
+    </div>
+    <div class="flow-step">
+      <h4>填写备案与资质</h4>
+      <p>按提交页填写 APP 备案主体、备案编号，并上传当前状态要求的软著/授权、版号/授权、防沉迷和隐私材料。</p>
+    </div>
+    <div class="flow-step">
+      <h4>上传正式 APK</h4>
+      <p>上传最终渠道包并完成安装、登录、支付（如有）、防沉迷、隐私、权限和更新链路自测。</p>
+    </div>
+    <div class="flow-step">
+      <h4>提交平台审核</h4>
+      <p>创建游戏资料的审核一般需要 1-2 个工作日。正式包审核还应为补件和复审预留时间，具体进度以后台状态为准。</p>
+    </div>
+    <div class="flow-step">
+      <h4>按审核状态发布</h4>
+      <p>审核通过后按约定时间开放下载和服务器；若资质、包体或页面任一项被驳回，根据原因调整后重新提交。</p>
+    </div>
+  </div>
+
+  <h3>6.3 提前勾兑信息</h3>
+  <p>确定正式上线之后，提前通过商务与快爆运营勾兑上线信息。具体包括：</p>
+  <ul>
+    <li><strong>具体上线时间</strong></li>
+    <li><strong>上线前运营计划及节点</strong></li>
+    <li><strong>上线时间对外曝光时间</strong></li>
+    <li><strong>宣传素材</strong></li>
+    <li><strong>注意事项</strong></li>
+  </ul>
+  <p style="font-size:13px;color:var(--soft);margin-top:-8px;">提前勾兑后，快爆会配合官方的运营计划和节点进行运营，编辑团队也会主动做运营推荐展示，重点预热上线信息。</p>
+
+  <h3>6.4 预热活动</h3>
+  <p>游戏曝光上线时间后、正式上线前，根据游戏特点做好预热活动：</p>
+  <ul>
+    <li><strong>H5 活动：</strong>根据游戏实际情况制作对应 H5 活动——如预创角、捏脸等，让玩家抢先体验部分游戏内容，保持对游戏的持续兴趣</li>
+    <li><strong>倒计时活动：</strong>准备好倒计时素材（突出游戏卖点与特色），临近上线前几天开始做倒计时活动，持续保持曝光量、吸引泛用户关注后转化为下载</li>
+    <li><strong>奖励活动：</strong>提供实物、周边奖励做论坛活动或抽奖活动，吸引玩家参与从而转化关注游戏</li>
+  </ul>
+
+  <h3>6.5 提前给到游戏包</h3>
+  <p>在游戏正式上线前，一定要提前给到游戏的安装包。保证玩家能在第一时间下载到游戏，释放预约玩家的期待值，刺激泛用户玩家也来下载。</p>
+
+  <h3>6.6 专属首发福利</h3>
+  <p>在正式上线之前，提供给快爆专属首发福利，吸引更多玩家下载：</p>
+  <ul>
+    <li><strong>游戏礼包：</strong>高价值、有吸引力的礼包奖励</li>
+    <li><strong>快爆定制奖励：</strong>游戏内定制内容（如角色、皮肤、道具、称号等）</li>
+  </ul>
+  <p style="font-size:13px;color:var(--soft);margin-top:-8px;">开发者提供礼包资源，快爆编辑会评估进行更多推荐资源位和精细化运营。多样的福利奖励可显著提升首发期间的新增下载数和玩家活跃数据。</p>
+
+  <h3>6.7 首发运营</h3>
+  <p>正式首发后，准时开放游戏服务器，保证玩家游戏体验。如有临时意外发生，及时与快爆编辑团队对接，勾兑解决方法，在尽量不影响游戏口碑的情况下，快爆会协助开发者尽快处理问题。</p>
+  <p>游戏首发上线后，可持续进行首发活动——除快爆专属首发福利外，开发者可另行准备庆首发或收集建议/BUG 反馈的活动。</p>
+
+  <h3>6.8 社区维护</h3>
+  <p>正式上线后，官方需要持续保持社区维护，保持与玩家的互动，对问题及时解答，对优评建议给予感谢，立住官方人设，保持在玩家间的口碑，保证游戏能有持续新增，形成良性口碑循环。</p>
+
+  <h3 id="extend">6.9 长线运营</h3>
+  <p>好游快爆十分注重游戏的长线运营，通过高质量的编辑运营团队和良好的玩家 UGC 创作氛围，进一步帮助开发者延长游戏生命周期。</p>
+  <ul>
+    <li><strong>版本更新维护：</strong>持续更新版本内容，维护玩家活跃度</li>
+    <li><strong>社区运营：</strong>结合游戏内容爆料、玩家反馈建议收集，配合福利活动等运营</li>
+    <li><strong>UGC 生态：</strong>鼓励玩家创作攻略、评测、视频等内容，形成良性社区氛围</li>
+    <li><strong>广告投放：</strong>根据玩家设备类型、游戏兴趣等信息筛选最匹配的广告展示</li>
+  </ul>
+
+  <p style="margin-top:16px;"><strong>📎 官方参考：</strong><br>游戏审核规范 → <a href="https://open.3839.com/console/docs/#/operation/specification" target="_blank" rel="noopener">open.3839.com/console/docs/#/operation/specification</a><br>APP 备案说明 → <a href="https://open.3839.com/console/docs/#/guide/policy/appfiling" target="_blank" rel="noopener">open.3839.com/console/docs/#/guide/policy/appfiling</a><br>隐私政策设置 → <a href="https://open.3839.com/console/docs/#/operation/privacypolicy" target="_blank" rel="noopener">open.3839.com/console/docs/#/operation/privacypolicy</a><br>首发阶段运营 → <a href="https://open.3839.com/console/docs/#/gamecycle/startingperiod" target="_blank" rel="noopener">open.3839.com/console/docs/#/gamecycle/startingperiod</a><br>长线运营 → <a href="https://open.3839.com/console/docs/#/gamecycle/extended" target="_blank" rel="noopener">open.3839.com/console/docs/#/gamecycle/extended</a></p>
+</section>
+
+<!-- ===== 资质速查 ===== -->
+<section id="qual">
+  <h2>7. 资质与状态速查</h2>
+  <table>
+    <thead>
+      <tr><th>阶段</th><th>必须核验的事项</th><th>边界</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>开发者入驻</strong></td>
+        <td>个人身份证明；或企业营业执照、统一社会信用代码及后台要求信息</td>
+        <td>一个身份证号/统一社会信用代码只能认证一个账号</td>
+      </tr>
+      <tr>
+        <td><strong>创建页面 / 预约</strong></td>
+        <td>真实页面物料、游戏名称和权属信息；预约活动规则</td>
+        <td>包体下载或计费须另行完成对应资质与版本审核</td>
+      </tr>
+      <tr>
+        <td><strong>联网包体测试</strong></td>
+        <td>APP 备案、权利证明、防沉迷、隐私政策、SDK/权限合规和测试 APK</td>
+        <td>无版号项目不得计费；是否受理免费联网测试需逐案向平台确认</td>
+      </tr>
+      <tr>
+        <td><strong>计费测试</strong></td>
+        <td>在前项基础上核验版号、运营单位及完整授权链、支付和未成年人充值限制</td>
+        <td>无版号不得支付、打赏、赞助或变相收费</td>
+      </tr>
+      <tr>
+        <td><strong>正式上线</strong></td>
+        <td>APP 备案、软著/权利授权、版号/运营授权、防沉迷、隐私、健康忠告、正式 APK 和页面一致性</td>
+        <td>以提交当日后台必填字段、平台审核意见和主管部门要求为准</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="callout warn">
+    <p><strong>备案与权利材料：</strong>APP 备案按工信部 APP 备案流程办理；软件著作权用于平台权利审核及相关出版审批材料核验。两项应按对应流程分别准备。</p>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section id="faq">
+  <h2>8. 常见问题（FAQ）</h2>
+  <h3>Q1：没有版号能否在好游快爆测试？</h3>
+  <p>需由平台根据项目情况逐案审核。无版号不得开启任何支付；联网并提供 APK 下载的项目还需完成 APP 备案并提交权利材料。申请时应通过平台工单或商务说明是否删档、是否联网、服务器和备案情况。</p>
+
+  <h3>Q2：已有网站 ICP 备案，是否还要 APP 备案？</h3>
+  <p>需要。每个 APP 应单独履行 APP 备案，网站 ICP 备案不能替代；APP 名称、图标、包名和主体需与备案信息一致。</p>
+
+  <h3>Q3：审核一定会在 1-2 个工作日完成吗？</h3>
+  <p>创建游戏资料的审核一般需要 1-2 个工作日；正式包、补件、节假日或合规复审所需时间可能更长，最终以后台状态为准。</p>
+
+  <h3>Q4：个人开发者可以入驻吗？</h3>
+  <p>可以按当前个人开发者入口提交身份证明，但具体游戏的权属、出版运营和收款主体仍须满足相应要求。</p>
+
+  <h3>Q5：页面已经开放预约，是否可以直接首发？</h3>
+  <p>不可以。预约页、测试包和正式包分别审核；完成正式上线所需资质、APP 备案和 APK 审核后，方可按平台状态发布。</p>
+</section>
+
+<p style="font-size:12px;color:var(--soft);margin:32px 0 12px;">最后核验：2026-07-29。平台后台字段、审核口径与政策可能调整，提交当日以控制台、平台工单和有效合同为准。</p>
+
+  </div>
+    </main>
+
+    <footer id="contact" class="footer">
+      <div>© 2026 HEYHONG / CHUIST</div>
+      <a href="mailto:hong@heyhong.net">hong@heyhong.net</a>
+    </footer>
+  </body>
+</html>

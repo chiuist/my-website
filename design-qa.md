@@ -65,4 +65,20 @@ No actionable P0, P1, or P2 findings remain.
 - First article navigation resolves to `article-publish-flow.html`.
 - Browser console warnings/errors: none.
 
+## Platform manual import
+
+- Scope: five supplied domestic-platform manuals plus their new entries on `articles.html`.
+- Visual target: the existing HEYHONG article header, navigation, palette, typography, container width, and footer treatment.
+- All source-only headers and footers were replaced with the site's canonical HEYHONG header and footer.
+- Added a shared, sticky in-page directory generated from each manual's real section headings; anchor navigation was verified against `#stage5`.
+- Desktop QA used a 1280 × 720 px browser viewport (1265 px content width). Mobile QA used a 390 × 844 px browser viewport (375 px content width).
+- All five pages report exactly one canonical header and footer, no duplicate IDs, no missing internal anchors, no horizontal overflow, and no browser console warnings or errors.
+- Mobile tables remain readable through contained horizontal scrolling; long platform URLs now wrap without widening the page.
+- The article list reports 11 entries, and the new mini-game card was verified to navigate to `article-douyin-kuaishou-minigame.html`.
+- Same-input comparison: `/Users/hong/.codex/visualizations/2026/07/29/019facff-8342-7ed1-a539-e0c47d0795e6/my-website-qa/platform-manuals/header-layout-comparison-final.jpg`
+- Desktop implementation: `/Users/hong/.codex/visualizations/2026/07/29/019facff-8342-7ed1-a539-e0c47d0795e6/my-website-qa/platform-manuals/douyin-kuaishou-minigame-desktop-final.jpg`
+- Mobile overflow checks: `/Users/hong/.codex/visualizations/2026/07/29/019facff-8342-7ed1-a539-e0c47d0795e6/my-website-qa/platform-manuals/haoyoukuaibao-mobile-fixed.jpg` and `/Users/hong/.codex/visualizations/2026/07/29/019facff-8342-7ed1-a539-e0c47d0795e6/my-website-qa/platform-manuals/taptap-mobile-fixed.jpg`.
+
+No actionable P0, P1, or P2 findings remain for the imported manuals.
+
 final result: passed

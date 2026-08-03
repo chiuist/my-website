@@ -1,0 +1,1113 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>bilibili 游戏开放平台入驻流程手册 | HEYHONG</title>
+<style>
+  :root {
+    --bg: #f4f1eb;
+    --panel: #fffdf8;
+    --text: #11110f;
+    --muted: #5a5650;
+    --soft: #a39e96;
+    --orange: #f05a24;
+    --orange-light: rgba(240, 90, 36, 0.08);
+    --border: rgba(17, 17, 15, 0.10);
+    --border-light: rgba(17, 17, 15, 0.06);
+    --container-max: 1080px;
+    --container-pad: clamp(22px, 4vw, 64px);
+    --display: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    --body: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    font-family: var(--body);
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.75;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--orange); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* Header */
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(244, 241, 235, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-light);
+    min-height: 64px;
+    display: flex;
+    align-items: center;
+    padding: 0 var(--container-pad);
+  }
+
+  .header-inner {
+    width: min(100%, var(--container-max));
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .header .brand {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--text);
+    letter-spacing: -0.02em;
+  }
+
+  .header .nav { display: flex; gap: 28px; }
+  .header .nav a {
+    font-family: var(--display);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--muted);
+    transition: color 0.15s;
+  }
+  .header .nav a:hover { color: var(--text); text-decoration: none; }
+
+  /* Layout */
+  .doc-shell {
+    width: min(100%, calc(var(--container-max) + var(--container-pad) * 2));
+    margin-inline: auto;
+    padding: 0 var(--container-pad);
+  }
+
+  .doc-shell.wide {
+    width: min(100%, calc(var(--container-max) + var(--container-pad) * 2));
+  }
+
+  .doc-cover {
+    padding: 48px 0 32px;
+    border-bottom: 1px solid var(--border-light);
+    margin-bottom: 28px;
+    text-align: center;
+  }
+
+  .doc-cover h1 {
+    margin: 0 0 16px;
+    font-family: var(--display);
+    font-size: clamp(30px, 4vw, 46px);
+    font-weight: 700;
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+    color: var(--text);
+  }
+
+  .doc-hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 16px;
+  }
+
+  .doc-hero-tags span {
+    padding: 4px 12px;
+    border-radius: 6px;
+    background: var(--panel);
+    border: 1px solid var(--border-light);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  /* Body */
+  .doc-body {
+    width: 100%;
+    max-width: none;
+    margin: 0 auto;
+    padding-bottom: 80px;
+  }
+
+  .doc-body section {
+    margin-bottom: 40px;
+    scroll-margin-top: 100px;
+  }
+
+  .doc-body h2 {
+    margin: 0 0 14px;
+    font-family: var(--display);
+    font-size: clamp(22px, 2.6vw, 28px);
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--text);
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--orange);
+    display: inline-block;
+  }
+
+  .doc-body h3 {
+    margin: 22px 0 8px;
+    font-family: var(--display);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  .doc-body h4 {
+    margin: 14px 0 6px;
+    font-family: var(--display);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  .doc-body p { margin: 0 0 10px; color: var(--muted); }
+  .doc-body ul, .doc-body ol { margin: 6px 0 14px 20px; padding: 0; color: var(--muted); }
+  .doc-body li { margin-bottom: 4px; }
+  .doc-body strong { color: var(--text); font-weight: 600; }
+  .doc-body code {
+    background: rgba(17, 17, 15, 0.05);
+    padding: 1px 5px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-family: ui-monospace, SFMono-Regular, monospace;
+  }
+
+  /* Card / Panel */
+  .doc-card, .stage-card, .callout, .faq-item {
+    background: var(--panel);
+    border: 1px solid var(--border-light);
+    border-radius: 10px;
+    padding: 18px 22px;
+    margin: 10px 0 16px;
+  }
+
+  .stage-card { margin: 8px 0; padding: 14px 18px; }
+  .stage-card h4 { margin: 0 0 4px; font-size: 14px; }
+  .stage-card p { margin: 0; font-size: 14px; line-height: 1.7; }
+
+  /* Flow steps */
+  .flow-steps {
+    position: relative;
+    margin: 16px 0;
+    padding: 20px 24px 20px 40px;
+    background: rgba(17, 17, 15, 0.025);
+    border: 1px solid rgba(17, 17, 15, 0.06);
+    border-radius: 10px;
+  }
+
+  .flow-steps::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 32px;
+    bottom: 32px;
+    width: 2px;
+    background: rgba(17, 17, 15, 0.12);
+  }
+
+  .flow-step {
+    position: relative;
+    padding: 6px 0 6px 18px;
+  }
+
+  .flow-step::before {
+    content: attr(data-step);
+    position: absolute;
+    left: -26px;
+    top: 8px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--orange);
+    color: #fff;
+    font-family: var(--display);
+    font-size: 11px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+  }
+
+  .flow-step h4 { margin: 0 0 2px; font-size: 14px; }
+  .flow-step p { margin: 0; font-size: 14px; line-height: 1.65; }
+
+  /* Callout */
+  .callout {
+    border-left: 3px solid var(--orange);
+    padding: 14px 18px;
+    margin: 12px 0;
+  }
+
+  .callout p { margin: 0; font-size: 14px; }
+
+  .callout.info { border-left-color: #2a7fd4; background: rgba(42, 127, 212, 0.03); }
+  .callout.success { border-left-color: #527844; background: rgba(82, 120, 68, 0.03); }
+  .callout.warning { border-left-color: #c2850a; background: rgba(194, 133, 10, 0.03); }
+
+  /* FAQ */
+  .faq-item { padding: 14px 18px; margin: 8px 0; }
+  .faq-item h4 { margin: 0 0 4px; font-size: 14px; }
+  .faq-item p { margin: 0; font-size: 14px; line-height: 1.7; }
+
+  /* Table */
+  .doc-body table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0 20px;
+    font-size: 13px;
+    line-height: 1.55;
+  }
+
+  .doc-body th, .doc-body td {
+    padding: 10px 12px;
+    border: 1px solid var(--border-light);
+    text-align: left;
+    vertical-align: top;
+  }
+
+  .doc-body th {
+    background: rgba(17, 17, 15, 0.04);
+    font-weight: 600;
+    color: var(--text);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
+
+  .doc-body td { color: var(--muted); }
+
+  /* Section references */
+  .section-refs {
+    margin-top: 16px;
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.8;
+  }
+
+  .section-refs a { word-break: break-all; }
+
+  /* Footer */
+  .site-footer {
+    border-top: 1px solid var(--border-light);
+    padding-block: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: min(100%, calc(var(--container-max) + var(--container-pad) * 2));
+    margin-inline: auto;
+    padding-inline: var(--container-pad);
+    min-height: 80px;
+  }
+
+  .site-footer .brand {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--text);
+  }
+
+  .site-footer .meta {
+    font-size: 12px;
+    color: var(--soft);
+  }
+
+  /* Responsive */
+  @media (max-width: 820px) {
+    .nav { display: none; }
+    .doc-cover { padding: 40px 0 28px; }
+    .doc-cover h1 { font-size: 30px; }
+    .doc-body h2 { font-size: 22px; }
+    .doc-body h3 { font-size: 16px; }
+  }
+
+  @media (max-width: 620px) {
+    .header { min-height: 56px; }
+    .doc-cover { padding: 32px 0 22px; }
+    .doc-cover h1 { font-size: 26px; }
+    .doc-body table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .doc-body th, .doc-body td { padding: 8px 10px; font-size: 12px; }
+    .doc-card, .stage-card, .callout, .faq-item, .flow-steps { padding: 14px 16px; }
+  }
+</style>
+
+    <meta name="description" content="bilibili 游戏开放平台企业认证、官包分发、预约测试与正式上线流程手册。" />
+
+    <meta name="theme-color" content="#f4f1eb" />
+    <link rel="stylesheet" href="article-pages.css?v=20260803-1" />
+    <link rel="stylesheet" href="article-doc.css?v=20260803-1" />
+    <link rel="stylesheet" href="manual-pages.css?v=20260803-1" />
+    <script src="manual-pages.js?v=20260803-1" defer></script>
+
+  </head>
+  <body class="manual-page bilibili-onboarding-page">
+    <a class="skip-link" href="#main">跳到主要内容</a>
+
+    <header class="header">
+      <a class="brand" href="index.html" aria-label="HEYHONG 首页">
+        <img src="assets/logo.png" alt="HEYHONG" />
+      </a>
+      <nav class="nav" aria-label="主导航">
+        <a href="articles.html" aria-current="page">发行笔记</a>
+        <a href="index.html#experiments">产品实验</a>
+        <a href="#contact">联系</a>
+      </nav>
+    </header>
+
+    <main id="main">
+<!-- HEADER -->
+
+
+<!-- COVER -->
+<div class="doc-shell doc-container wide shell">
+  <section class="doc-cover manual-cover">
+  <p class="eyebrow">PLATFORM / BILIBILI</p>
+    <h1>bilibili 游戏开放平台入驻流程手册</h1>
+    <div class="doc-hero-tags">
+      <span>开发者认证</span>
+      <span>官包自主运营</span>
+      <span>预约测试首发</span>
+      <span>自有账号与支付</span>
+      <span>2026.07</span>
+    </div>
+  </section>
+</div>
+
+<!-- CONTENT -->
+<div class="doc-shell doc-container wide shell">
+<div class="doc-body">
+
+<!-- 核心流程概览 -->
+<section id="overview">
+  <h2>核心流程概览</h2>
+  <p>bilibili 游戏开放平台（<a href="https://open.biligame.com" target="_blank" rel="noopener">open.biligame.com</a>）是游戏发行的操作入口，覆盖企业入驻、游戏创建、页面预约、测试包分发和正式发布。主要操作在后台完成；测试资格、资源曝光和部分异常处理需由平台运营或商务确认。</p>
+
+  <div class="callout info">
+    <p><strong>本手册业务边界：</strong>平台<strong>仅支持企业开发者</strong>入驻。本项目采用<strong>官包 / 自主运营分发</strong>：不接入 bilibili 游戏 SDK，不建立独立 B 服，不使用 B站账号或 B站支付；游戏继续使用现有手机号账号、自有服务器、自有支付、实名防沉迷和客服体系。</p>
+  </div>
+
+  <div class="callout warning">
+    <p><strong>合作确认：</strong>在首次提交预约或测试前，由发行取得平台书面确认：允许使用自有账号与自有支付的官包分发方式，并确认包体处理、测试资格、付费测试、资源曝光和数据回传要求。游戏流水不按 B站 SDK 联运结算。</p>
+  </div>
+
+  <div class="callout warning">
+    <p><strong>首发独占要求：</strong>若您在 bilibili 平台使用了游戏预约或测试服务，您应保证该游戏最终在 bilibili 平台上实现发布和运营，且发布（含开放预下载）和运营的时间<strong>均不能晚于</strong>您自己或其他第三方在内的任何合作渠道、平台或网站。</p>
+  </div>
+</section>
+
+<!-- 1. 开发者入驻与认证 -->
+<section id="stage1">
+  <h2>1. 开发者入驻与认证</h2>
+
+  <h3>1.1 登录并加入游戏开放平台</h3>
+  <p>前往 <a href="https://open.biligame.com" target="_blank" rel="noopener">open.biligame.com</a>，使用 bilibili 账号登录，点击「加入我们」进入企业开发者入驻流程。平台仅开放企业开发者入驻。</p>
+
+  <h3>1.2 企业资料准备</h3>
+  <table>
+    <thead>
+      <tr><th>材料类别</th><th>主要信息</th><th>关键限制</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>账号与展示信息</strong></td>
+        <td>bilibili 账号、账号昵称、公司全称、开发者昵称/认证称号等</td>
+        <td>公司及展示名称应真实、规范并与主体关系可核验</td>
+      </tr>
+      <tr>
+        <td><strong>业务联系人</strong></td>
+        <td>姓名、手机号、邮箱、身份证信息及证件照片等后台要求字段</td>
+        <td>填写真实在职联系人，确保可接收审核、合同和应急通知</td>
+      </tr>
+      <tr>
+        <td><strong>企业主体</strong></td>
+        <td>营业执照、统一社会信用代码、企业认证函、法定代表人及身份证件、注册地址等</td>
+        <td>认证函须使用游戏开放平台提供的模板并加盖<strong>企业公章</strong></td>
+      </tr>
+      <tr>
+        <td><strong>财务与税务</strong></td>
+        <td>银行账户、收款与开票信息、纳税人信息、发票和财务联系人等</td>
+        <td>账户主体、开票主体和合同主体需按后台及合同要求保持一致</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout warning">
+    <p><strong>资料变更限制：</strong>开发者主体信息提交后，仅部分业务联系人字段可在线维护。公司昵称、主体或财务信息变更需按平台人工流程处理，财务变更可能从下一结算周期生效。</p>
+  </div>
+
+  <h3>1.3 创建游戏</h3>
+  <p>企业信息填写后，在「游戏管理 → 创建游戏」选择 Android 非付费下载、Android 付费下载、PC 或平台当前开放的其他类型，填写游戏名称、合作类型和基础资料。游戏名称应与版号或权利材料保持一致。</p>
+  <ul>
+    <li>上传软件著作权登记证书或相应权利/授权链材料</li>
+    <li>上传版号、审批文件及运营授权；暂缺特定审批材料时，创建/签约页面可能允许提交平台模板承诺函</li>
+    <li><strong>承诺函用于创建或签约阶段的材料受理；正式发行前仍须取得版号并完成 APP 备案</strong></li>
+  </ul>
+
+  <div class="callout success">
+    <p><strong>完成后状态：</strong>提交企业和首个游戏资料后进入平台审核及必要的合作确认流程；审核通过并确认官包分发权限后，即可安排页面、预约和测试，不进入 bilibili SDK 接入流程。</p>
+  </div>
+
+  <div class="section-refs">
+    <strong>📎 官方参考：</strong><br>
+    <a href="https://open.biligame.com/docs/#/view-v2/1697151934131286016" target="_blank" rel="noopener">开发者注册指南</a><br>
+    <a href="https://open.biligame.com/docs/#/view-v2/1697151934001262592" target="_blank" rel="noopener">企业入驻材料</a><br>
+    <a href="https://open.biligame.com/docs/#/view-v2/1697151934299058176" target="_blank" rel="noopener">创建游戏资料</a><br>
+    <a href="https://open.biligame.com/tos.html" target="_blank" rel="noopener">bilibili 游戏开放平台开发者协议</a>
+  </div>
+</section>
+
+<!-- 2. 合作确认与官包分发 -->
+<section id="stage2">
+  <h2>2. 合作确认与官包分发</h2>
+
+  <h3>2.1 平台审核与合作确认</h3>
+  <p>游戏创建后，按后台要求提交主体、权利资质和页面资料。预约、测试或正式下载前，完成平台要求的审核及必要协议，并由发行确认本项目采用官包 / 自主运营分发，不启用 bilibili SDK 联运能力。</p>
+  <div class="flow-steps">
+    <div class="flow-step" data-step="1">
+      <h4>确认开发者主体</h4>
+      <p>核对企业主体、业务联系人、游戏运营单位和权利链；后台主体应与 APP 备案、版号和隐私政策中的实际运营主体一致。</p>
+    </div>
+    <div class="flow-step" data-step="2">
+      <h4>上传游戏资质</h4>
+      <p>提交软著/权利授权、版号/运营授权等材料。暂缺特定审批材料时可按页面要求提交盖章承诺函；正式发行前须补齐相应资质。</p>
+    </div>
+    <div class="flow-step" data-step="3">
+      <h4>确认官包分发模式</h4>
+      <p>书面确认游戏使用自有手机号账号、自有服务器、自有支付、实名防沉迷和客服体系；B站仅提供页面、预约、测试、下载分发和曝光，不单独开设 B 服。</p>
+    </div>
+    <div class="flow-step" data-step="4">
+      <h4>确认测试与付费边界</h4>
+      <p>确认删档不计费、删档付费和正式上线均可上传现有官包；1 月付费测试继续使用游戏自有支付，并按平台要求提交版号、APP 备案、实名防沉迷和支付合规材料。</p>
+    </div>
+    <div class="flow-step" data-step="5">
+      <h4>归档平台确认</h4>
+      <p>保存后台审核结果、邮件、工单或协议，记录包体是否会被平台处理、送审时限、资源位申请、测试资格及数据回传要求。</p>
+    </div>
+  </div>
+
+  <h3>2.2 官包 / 自主运营职责边界</h3>
+
+  <table>
+    <thead>
+      <tr>
+        <th>能力</th>
+        <th>责任方</th>
+        <th>执行方式</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>账号登录与角色数据</strong></td>
+        <td>游戏方</td>
+        <td>沿用现有手机号账号和官服角色体系，三渠道用户进入同一服务器体系</td>
+      </tr>
+      <tr>
+        <td><strong>支付、订单与退款</strong></td>
+        <td>游戏方</td>
+        <td>沿用游戏自有支付和订单系统；不接入 B站支付，不参与 B站 SDK 流水结算</td>
+      </tr>
+      <tr>
+        <td><strong>实名、防沉迷与注销</strong></td>
+        <td>游戏方</td>
+        <td>使用现有官服合规体系，隐私政策和账号注销入口覆盖从 B站下载的用户</td>
+      </tr>
+      <tr>
+        <td><strong>页面、预约、测试与下载</strong></td>
+        <td>bilibili 平台</td>
+        <td>平台提供游戏页、预约、测试包/正式包下载和站内曝光，具体资源以运营确认结果为准</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout warning">
+    <p><strong>确认要求：</strong>开放平台协议允许符合要求的游戏选择接入 SDK，同时也要求非平台登录或支付取得平台许可。本项目使用自有账号与支付，因此必须保留平台同意官包自主运营模式的书面记录；不得仅凭其他游戏案例直接推定本项目已获许可。</p>
+  </div>
+
+  <div class="section-refs">
+    <strong>📎 官方参考：</strong><br>
+    <a href="https://open.biligame.com/docs/#/view-v2/1697151934370361344" target="_blank" rel="noopener">创建游戏与签约指南</a><br>
+    <a href="https://open.biligame.com/tos.html" target="_blank" rel="noopener">bilibili 游戏开放平台开发者协议（重点核对 2.4.8、2.5.2 和 2.8.1）</a>
+  </div>
+</section>
+
+<!-- 3. 创建游戏与物料准备 -->
+<section id="stage3">
+  <h2>3. 创建游戏与物料准备</h2>
+
+  <h3>3.1 游戏创建</h3>
+  <p>进入「游戏管理」创建游戏，选择游戏类型。游戏类型创建后<strong>不可修改</strong>，请按官包 / 自主运营分发模式选择对应类型，并确认页面、预约、测试和正式下载权限；不创建 SDK 联运渠道包。</p>
+
+  <h3>3.2 物料清单（测试/预约/首发通用）</h3>
+  <p>以下物料在预约、测试、首发各阶段均需提交，首次填写后后续更新可继承上一次内容。</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>物料类型</th>
+        <th>规格要求</th>
+        <th>数量</th>
+        <th>备注</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>游戏 ICON</strong></td>
+        <td>512×512 px，≤300KB，JPG/PNG，<strong>直角图标</strong></td>
+        <td>1 张（必填）</td>
+        <td>需使用 bilibili 角标，<a href="https://open.biligame.com/docs/#/view-v2/1697151933942542336" target="_blank" rel="noopener">前往下载</a></td>
+      </tr>
+      <tr>
+        <td><strong>游戏宣传 5 图</strong></td>
+        <td>竖屏 720×1280 或横屏 1280×720，JPG，≤200KB/张</td>
+        <td>至少 5 张，最多 10 张</td>
+        <td>展示核心玩法画面</td>
+      </tr>
+      <tr>
+        <td><strong>视频封面图</strong></td>
+        <td>720×404，≤200KB，JPG/JPEG/PNG</td>
+        <td>1 张（必填）</td>
+        <td>关联游戏相关视频</td>
+      </tr>
+      <tr>
+        <td><strong>相关视频 BV 号</strong></td>
+        <td>如 BV1MW411b73u</td>
+        <td>必填</td>
+        <td>建议上传/关联游戏宣传视频</td>
+      </tr>
+      <tr>
+        <td><strong>PC 端背景图</strong></td>
+        <td>1920×620，≤500KB，JPG/JPEG/PNG</td>
+        <td>1 张（必填）</td>
+        <td>PC 端游戏中心同步推广用</td>
+      </tr>
+      <tr>
+        <td><strong>游戏 Logo</strong></td>
+        <td>340×160，≤30KB，PNG</td>
+        <td>1 张（必填）</td>
+        <td>配合 PC 端背景图使用</td>
+      </tr>
+      <tr>
+        <td><strong>游戏推荐图</strong></td>
+        <td>720×280，≤200KB，JPG/JPEG/PNG</td>
+        <td>1 张（必填）</td>
+        <td>资源位素材，获取更多流量</td>
+      </tr>
+      <tr>
+        <td><strong>开发者说</strong></td>
+        <td>1000 字以内</td>
+        <td>必填</td>
+        <td>可发布感言或活动/测试说明</td>
+      </tr>
+      <tr>
+        <td><strong>游戏详情介绍</strong></td>
+        <td>2000 字以内</td>
+        <td>必填</td>
+        <td>游戏详细描述</td>
+      </tr>
+      <tr>
+        <td><strong>一句话介绍</strong></td>
+        <td>20 字以内</td>
+        <td>必填</td>
+        <td>分享游戏时展示给对方</td>
+      </tr>
+      <tr>
+        <td><strong>推荐文案</strong></td>
+        <td>10 字以内</td>
+        <td>必填</td>
+        <td>资源位展示用短文案</td>
+      </tr>
+      <tr>
+        <td><strong>角色 CV（选填）</strong></td>
+        <td>头像 248×240≤50KB；立绘 540×540≤50KB；音频 mp3≤500KB</td>
+        <td>最多 9 个</td>
+        <td>角色配音展示</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>3.3 游戏分类与标签</h3>
+  <ul>
+    <li><strong>游戏分类：</strong>MMORPG/策略/动作/多人对战/放置/格斗/回合战略/即时战略/角色扮演/解谜/竞速/卡牌/类 Rogue/模拟经营/跑酷/沙盒/射击/体育竞技/文字/休闲/养成/益智/音乐节奏</li>
+    <li><strong>标签 Tag：</strong>最多 5 个，是对游戏的另一种描述，提供更加准确具体、更多维度的关键内容标记</li>
+    <li><strong>开发商名/运营商名：</strong>请精简厂商名称，如"上海哔哩哔哩科技有限公司"精简为"哔哩哔哩"</li>
+  </ul>
+
+  <h3>3.4 bilibili 角标与品牌规范</h3>
+  <p>游戏打包前必须将 APK 包中的 ICON 文件添加 bilibili 渠道角标，以作标识。</p>
+  <ul>
+    <li>游戏内 ICON 必须为圆角，1024×1024 尺寸下圆角弧度为 230px</li>
+    <li>开放平台正式服/测试服详情页资料更新页面需额外单独使用一份 PNG 图片：<strong>512×512 直角 ICON</strong></li>
+    <li>角标位置固定在 ICON 右下角</li>
+    <li>res/drawable 内所有分辨率均需添加角标，角标分辨率无强制要求，清晰即可</li>
+    <li>不得遮挡图标主题内容和文字区域</li>
+  </ul>
+
+  <div class="callout warning">
+    <p><strong>品牌标志规范：</strong>新发布的视频统一使用 bilibili 游戏粉色品牌标志（<strong>#FF5588</strong>），并按平台提供的角标与品牌素材规范制作。</p>
+  </div>
+
+  <div class="section-refs">
+    <strong>📎 官方参考：</strong><br>
+    <a href="https://open.biligame.com/docs/#/view-v2/1697151934500384768" target="_blank" rel="noopener">测试资料更新维护准备清单 → open.biligame.com/docs/#/view-v2/1697151934500384768</a><br>
+    <a href="https://open.biligame.com/docs/#/view-v2/1697151933942542336" target="_blank" rel="noopener">bilibili 游戏接入闪屏及角标规范 → open.biligame.com/docs/#/view-v2/1697151933942542336</a><br>
+    <a href="https://i0.hdslb.com/bfs/game/c9b6ae9e954a600a1ed7db19e4a8a35f127fcf16.xlsx" target="_blank" rel="noopener">测试资料更新维护准备清单（Excel 下载）</a>
+  </div>
+</section>
+
+<!-- 4. 开放预约 -->
+<section id="stage4">
+  <h2>4. 开放预约</h2>
+
+  <h3>4.1 申请预约</h3>
+  <p>游戏创建、资质审核和签约完成后，可在「游戏管理 → 游戏名称 → 申请预约」提交预约页面资料。首次填写后的部分物料可在后续阶段继承，但仍须在每次提交前核对当前内容。</p>
+
+  <div class="callout warning">
+    <p><strong>正式包是不可逆节点：</strong>一旦提交正式包，即使正式包尚未实际上线，也不能再次开启预约或测试。提交正式包前必须确认预约活动、奖励配置、测试收尾和资格发放均已完成。</p>
+  </div>
+
+  <h3>4.2 预约奖励</h3>
+  <p>在「游戏运营 → 预约奖励」配置奖励。支持预约即得奖励和最多 <strong>5 档</strong>预约里程碑，可在公测后通过游戏内邮件或礼包码发放。奖励配置需审核；审核后允许的调整不能降低已公布档位，礼包码发放方式、数量等字段存在不可修改项，提交前须按后台提示逐项复核。</p>
+
+  <h3>4.3 预约期运营</h3>
+  <ul>
+    <li>建议上传/关联游戏相关视频（B 站视频生态为核心流量来源）</li>
+    <li>利用 bilibili 主站内容生态：UP 主合作、游戏区投稿、直播联动</li>
+    <li>期待更新/上线时间：可设置审核通过后立即发布或自定义时间</li>
+  </ul>
+
+  <div class="section-refs">
+    <strong>📎 官方参考：</strong><br>
+    <a href="https://open.biligame.com/docs/#/view-v2/1697151934466830336" target="_blank" rel="noopener">新游预约申请</a><br>
+    <a href="https://open.biligame.com/docs/#/view-v2/1904445725304115200" target="_blank" rel="noopener">预约奖励配置</a>
+  </div>
+</section>
+
+<!-- 5. 测试阶段 -->
+<section id="stage5">
+  <h2>5. 测试阶段</h2>
+
+  <h3>5.1 测试类型</h3>
+  <p>bilibili 新游测试有三种状态，<strong>测试类型不可回退</strong>，请谨慎选择：</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>测试类型</th>
+        <th>说明</th>
+        <th>适用场景</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>删档不计费</strong></td>
+        <td>测试数据不保留，无内购付费</td>
+        <td>早期玩法验证、技术测试</td>
+      </tr>
+      <tr>
+        <td><strong>删档计费</strong></td>
+        <td>测试数据不保留，但开放内购付费</td>
+        <td>付费验证、经济系统测试</td>
+      </tr>
+      <tr>
+        <td><strong>不删档计费</strong></td>
+        <td>测试数据保留，开放内购付费</td>
+        <td>准公测、长线运营前验证</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout warning">
+    <p><strong>不可回退规则：</strong>如已开启删档计费测试，则无法再开启删档不计费测试；同理，如已开启不删档计费测试，则无法再开启删档计费测试。建议开启不删档计费测试时，选择<strong>提交正式包</strong>。</p>
+  </div>
+
+  <h3>5.2 提交测试包流程</h3>
+
+  <div class="flow-steps">
+    <div class="flow-step" data-step="1">
+      <h4>仅提交资料 / 提交测试包与资料</h4>
+      <p>入口：「游戏管理」→「游戏名称」→「仅提交资料」或「提交测试包与资料」。首次建议选择「提交测试包与资料」。</p>
+    </div>
+    <div class="flow-step" data-step="2">
+      <h4>填写测试资料</h4>
+      <p>按物料清单准备的所有内容依次填入，可进行手机端预览和 PC 端预览。</p>
+    </div>
+    <div class="flow-step" data-step="3">
+      <h4>确认官包信息</h4>
+      <p>使用与 TapTap、好游快爆一致的现有测试官包，沿用已完成 APP 备案的实际包名、签名、账号和服务器体系；不新增 <code>.bilibili</code> 包名，不制作 SDK 渠道包。包名、版本号和备案信息须与上传 APK 一致。</p>
+    </div>
+    <div class="flow-step" data-step="4">
+      <h4>上传官包 APK</h4>
+      <p>上传已完成内部验收的非加固包或加固包，建议同时兼容 32 位/64 位。若后台对上传包进行重新封装、签名或其他处理，应下载实际分发包完成安装、登录、实名、防沉迷、支付和核心玩法冒烟测试；不预设平台一定会重签。</p>
+    </div>
+    <div class="flow-step" data-step="5">
+      <h4>提交自检报告与兼容性报告</h4>
+      <p>自检报告由 bilibili 提供的自检工具生成（<a href="https://open.biligame.com/docs/#/view-v2/1697151933644746752" target="_blank" rel="noopener">下载自检工具</a>）。兼容性报告按必填材料准备，提交时根据后台字段或平台工单要求完成上传。</p>
+    </div>
+    <div class="flow-step" data-step="6">
+      <h4>设置开服与上线时间</h4>
+      <p>开服时间为服务器正式开启时间（非包体下载时间）。期待包体发布时间可审核通过后立即发布或定时发布。期待包体下线时间到期后自动下架。</p>
+    </div>
+    <div class="flow-step" data-step="7">
+      <h4>提交审核</h4>
+      <p>至少提前 <strong>5 个工作日</strong>提交包体，并为审核和补件预留时间。测试资料审核通过后生成测试服页面，并按后台期待时间发布。</p>
+    </div>
+  </div>
+
+  <h3>5.3 测试包体清单</h3>
+
+  <table>
+    <thead>
+      <tr>
+        <th>项目</th>
+        <th>必要性</th>
+        <th>要求</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>隐私政策</strong></td>
+        <td>必填</td>
+        <td>链接直达隐私协议页面，不可二次跳转；或填写隐私政策条款文本</td>
+      </tr>
+      <tr>
+        <td><strong>包名</strong></td>
+        <td>必填（限首次）</td>
+        <td>填写现有官包实际包名，与 APK、APP 备案和隐私政策保持一致；不新增 bilibili 专属包名</td>
+      </tr>
+      <tr>
+        <td><strong>自有支付说明</strong></td>
+        <td>计费测试/正式上线前确认</td>
+        <td>说明使用游戏自有支付、订单、退款和客服体系，并保留平台允许该模式的书面确认；不配置 B站 SDK 支付回调</td>
+      </tr>
+      <tr>
+        <td><strong>APP 备案</strong></td>
+        <td>提供 APK 分发前必填</td>
+        <td>使用现有官包实际应用名称、包名、运营主体和签名信息办理；与 TapTap、好游快爆分发包保持一致</td>
+      </tr>
+      <tr>
+        <td><strong>备案识别码</strong></td>
+        <td>计费测试必填</td>
+        <td>由游戏运营主体在国家新闻出版署防沉迷实名验证系统完成游戏备案；如平台另要求渠道关系材料，以后台和书面通知为准</td>
+      </tr>
+      <tr>
+        <td><strong>兼容性报告</strong></td>
+        <td>按必填准备</td>
+        <td>提交时按后台或工单要求上传；可使用 testin、wetest、testbird 等专业平台</td>
+      </tr>
+      <tr>
+        <td><strong>APK 包</strong></td>
+        <td>必填</td>
+        <td>非加固包/加固包；建议 32 位/64 位兼容</td>
+      </tr>
+      <tr>
+        <td><strong>自检报告</strong></td>
+        <td>必填</td>
+        <td>由 bilibili 自检工具生成</td>
+      </tr>
+      <tr>
+        <td><strong>游戏版本号</strong></td>
+        <td>必填</td>
+        <td>确认与所上传 APK 包的版本号一致</td>
+      </tr>
+      <tr>
+        <td><strong>更新详情</strong></td>
+        <td>必填</td>
+        <td>最多 4000 字，玩家可见</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>5.4 测试服特性</h3>
+  <ul>
+    <li><strong>测试服评分与正式服评分独立</strong>，测试服评论不会影响正式服评分</li>
+    <li>测试期间，测试服页面开放包体下载；非测试期间保持查看状态，引导用户跳转至正式服页面预约</li>
+    <li>测试状态下，游戏<strong>无法申请停运下线</strong></li>
+    <li>计费测试需资质齐全，否则不予审核通过</li>
+  </ul>
+
+  <div class="section-refs">
+    <strong>📎 官方参考：</strong><br>
+    <a href="https://open.biligame.com/docs/#/view-v2/1697151934500384768" target="_blank" rel="noopener">提交新游测试完整指引 → open.biligame.com/docs/#/view-v2/1697151934500384768</a><br>
+    <a href="https://open.biligame.com/docs/#/view-v2/1697151933644746752" target="_blank" rel="noopener">研发自检工具下载及使用说明 → open.biligame.com/docs/#/view-v2/1697151933644746752</a><br>
+    <a href="https://open.biligame.com/docs/#/view-v2/1697151934445858816" target="_blank" rel="noopener">游戏备案识别码指引 → open.biligame.com/docs/#/view-v2/1697151934445858816</a><br>
+    <a href="https://open.biligame.com/docs/#/view-v2/1847095232651554816" target="_blank" rel="noopener">APP 备案一致性要求</a>
+  </div>
+</section>
+
+<!-- 6. 正式上线/首发 -->
+<section id="stage6">
+  <h2>6. 正式上线 / 首发</h2>
+
+  <h3>6.1 首发条件</h3>
+  <ul>
+    <li><strong>合作确认：</strong>完成平台审核及必要协议，已书面确认官包 / 自主运营分发、自有账号与支付的适用范围</li>
+    <li><strong>权利与出版：</strong>软著或完整权利授权链、版号、运营单位授权和游戏名称一致</li>
+    <li><strong>工信部 APP 备案：</strong>现有官包应用名称、包名、主体和签名信息与 APP 备案一致；无 APP 备案不能发布分发</li>
+    <li><strong>实名与防沉迷：</strong>沿用游戏官服的实名、防沉迷和游戏备案体系，从 B站下载的用户与其他渠道用户执行相同规则</li>
+    <li><strong>技术审核：</strong>自检报告、兼容性材料、APK、版本号、隐私、账号注销、防沉迷和自有支付均按后台要求完成自测和审核</li>
+  </ul>
+
+  <div class="callout warning">
+    <p><strong>提交前最后确认：</strong>正式包一经提交，即使尚未实际上线，也不能再开启预约或测试。必须先完成预约奖励确认、测试收尾、用户通知和数据处理，再操作正式包提交。</p>
+  </div>
+
+  <h3>6.2 首发操作</h3>
+  <div class="flow-steps">
+    <div class="flow-step" data-step="1">
+      <h4>提交正式包</h4>
+      <p>按正式上线标准填写资料、APP 备案信息并上传与其他渠道一致的官包 APK。至少提前 5 个工作日提交，并为审核与补件预留时间。</p>
+    </div>
+    <div class="flow-step" data-step="2">
+      <h4>完成平台审核</h4>
+      <p>核对包名、版本、实际分发包、备案、资质、自检和页面资料。全部通过后再按期待时间开放预下载和下载；游戏使用既有官服，不单独安排 B 服开服。</p>
+    </div>
+    <div class="flow-step" data-step="3">
+      <h4>版本更新与运营</h4>
+      <p>正式上线后需持续更新：优化开发、运营活动、版本补丁、安全异常修复、BUG 修补等。</p>
+    </div>
+  </div>
+
+  <h3>6.3 运营要求</h3>
+  <ul>
+    <li><strong>版本同步：</strong>上传游戏的版本均不能低于含您自己及其他第三方在内的任何合作渠道、平台或网站提供的最新版本</li>
+    <li><strong>用户服务：</strong>确保 bilibili 平台的用户服务和福利均不能低于任何其他合作渠道</li>
+    <li><strong>客服支持：</strong>建立全天候 24 小时技术支持机制，提供明确合理的客服渠道（QQ/电话等）</li>
+    <li><strong>内容过滤：</strong>接入平台文字/图片安全检测接口</li>
+    <li><strong>外挂防护：</strong>防止服务器和技术设备免遭外挂攻击，发现后需提供有效解决方案</li>
+  </ul>
+
+  <div class="section-refs">
+    <strong>📎 官方参考：</strong><br>
+    <a href="https://open.biligame.com/docs/#/view-v2/1847095232651554816" target="_blank" rel="noopener">APP 备案一致性要求</a><br>
+    <a href="https://open.biligame.com/docs/#/view-v2/1749691905043800064" target="_blank" rel="noopener">APP 备案通知</a><br>
+    <a href="https://open.biligame.com/tos.html" target="_blank" rel="noopener">开发者协议 - 游戏运营条款 → open.biligame.com/tos.html</a>
+  </div>
+</section>
+
+<!-- 7. 资质合规 -->
+<section id="qual">
+  <h2>7. 资质合规要求</h2>
+
+  <h3>7.1 企业入驻与签约材料</h3>
+  <table>
+    <thead>
+      <tr><th>类别</th><th>主要材料</th><th>适用边界</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>企业身份</strong></td><td>营业执照、统一社会信用代码、企业公章认证函、法人证件、业务联系人</td><td>仅限企业开发者；主体资料变更须按平台流程办理</td></tr>
+      <tr><td><strong>财务税务</strong></td><td>银行账户、收款、开票、纳税人及财务联系人信息</td><td>与合同及结算主体一致</td></tr>
+      <tr><td><strong>游戏权利</strong></td><td>软件著作权登记证书或权利证明、完整授权链</td><td>创建游戏和签约阶段提交</td></tr>
+      <tr><td><strong>版号与运营授权</strong></td><td>版号/审批文件、运营单位授权链；暂缺时按页面要求提交承诺函</td><td>正式发行和计费前须补齐相应资质</td></tr>
+      <tr><td><strong>合同</strong></td><td>商务条款、游戏、期限、双方签章及附件</td><td>合同期限不得超过 IP/发行授权期限</td></tr>
+    </tbody>
+  </table>
+
+  <h3>7.2 阶段合规矩阵</h3>
+  <table>
+    <thead>
+      <tr><th>阶段</th><th>必须核验</th><th>特别说明</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>预约</strong></td><td>企业/游戏审核及签约、预约页物料、奖励规则</td><td>提交正式包后不能再开启预约或测试</td></tr>
+      <tr><td><strong>不计费测试</strong></td><td>APP 备案、隐私、防沉迷、APK、自检报告、后台要求的兼容性材料</td><td>按测试申请页面提交材料并完成平台审核</td></tr>
+      <tr><td><strong>计费测试</strong></td><td>前项全部材料 + 版号/运营授权 + 防沉迷游戏备案识别码 + 自有支付合规材料</td><td>使用现有官包、自有账号和自有支付；平台许可须留书面记录</td></tr>
+      <tr><td><strong>正式上线</strong></td><td>完整权利与出版资质、APP 备案、游戏备案识别码、防沉迷、隐私、自检/兼容性材料、正式官包 APK</td><td>不接入 bilibili SDK，不开 B 服；无版号或无 APP 备案均不能发布分发</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout warning">
+    <p><strong>兼容性报告：</strong>按必填材料纳入内部排期，并根据提交当日的后台字段或平台工单要求准备。</p>
+  </div>
+
+  <h3>7.3 游戏内合规标注</h3>
+  <ul>
+    <li>根据国家相关要求，在游戏显著位置标明适龄提示</li>
+    <li>将用户的实名注册信息运用于防沉迷系统，判断是否年满 18 周岁并予以限制</li>
+    <li>不得含有诱发未成年人模仿违反社会公德和违法犯罪的内容</li>
+    <li>不得含有恐怖、残酷等妨害未成年人身心健康的内容</li>
+  </ul>
+
+  <h3>7.4 严格禁止内容</h3>
+  <ul>
+    <li>反对宪法基本原则、危害国家安全、泄露国家秘密</li>
+    <li>损害国家荣誉和利益、煽动民族仇恨/歧视</li>
+    <li>破坏国家宗教政策、宣扬邪教和封建迷信</li>
+    <li>散布谣言、淫秽色情、赌博暴力、恐怖教唆犯罪</li>
+    <li>侮辱诽谤他人、侵害知识产权/商业秘密</li>
+    <li>不得以随机抽取等偶然方式，诱导用户投入法定货币或虚拟货币获取产品和服务</li>
+    <li>不得在上传游戏内宣传与本游戏无关的任何其他信息（广告、其他应用产品信息等）</li>
+    <li>不得添加指向非 bilibili 拥有或控制或未经书面同意的网站链接</li>
+  </ul>
+
+  <div class="section-refs">
+    <strong>📎 官方参考：</strong><br>
+    <a href="https://open.biligame.com/tos.html" target="_blank" rel="noopener">bilibili 游戏开放平台开发者协议 → open.biligame.com/tos.html</a><br>
+    <a href="https://open.biligame.com/docs/#/view-v2/1697151934445858816" target="_blank" rel="noopener">游戏备案识别码指引 → open.biligame.com/docs/#/view-v2/1697151934445858816</a>
+  </div>
+</section>
+
+<!-- 8. 常见问题 FAQ -->
+<section id="faq">
+  <h2>8. 常见问题（FAQ）</h2>
+
+  <div class="faq-item">
+    <h4>Q1：个人开发者能入驻 bilibili 游戏开放平台吗？</h4>
+    <p><strong>不能。</strong>bilibili 游戏开放平台仅支持企业开发者。除营业执照和企业公章认证函外，还需按后台提交法人、业务联系人、银行、税务、开票和财务联系人等完整资料。</p>
+  </div>
+
+  <div class="faq-item">
+    <h4>Q2：本项目是否接入 bilibili SDK 或单独开 B 服？</h4>
+    <p><strong>不接入，也不开 B 服。</strong>本项目采用官包 / 自主运营分发：B站承担页面、预约、测试、下载和曝光，游戏方继续承担账号、服务器、支付、实名防沉迷、数据、客服和版本运营。</p>
+  </div>
+
+  <div class="faq-item">
+    <h4>Q3：测试类型选错了能改吗？</h4>
+    <p><strong>不能回退。</strong>如已开启删档计费测试，则无法再开启删档不计费测试；已开启不删档计费则无法再开启删档计费。平台建议不删档计费衔接正式包，但正式包提交后不能再预约或测试，必须先完成所有活动和测试收尾。</p>
+  </div>
+
+  <div class="faq-item">
+    <h4>Q4：bilibili 会对 APK 包做什么处理？</h4>
+    <p>官包模式下不预设平台一定会二次签名或注入组件。提交前由发行核对后台提示；如平台对包体进行重新封装、签名或其他处理，研发须下载实际分发包完成冒烟测试，并确认不会改变自有账号、支付和服务器体系。</p>
+  </div>
+
+  <div class="faq-item">
+    <h4>Q5：包名有什么要求？能修改吗？</h4>
+    <p>使用现有官包的实际包名，不新增 bilibili 专属后缀。包名必须与 APK、APP 备案、隐私政策和后台提交信息一致；首次提交前应确认无误，后续能否修改以后台规则为准。</p>
+  </div>
+
+  <div class="faq-item">
+    <h4>Q6：测试服评分会影响正式服吗？</h4>
+    <p><strong>不会。</strong>测试服评分与正式服评分独立，测试服的评论不会影响到正式服评分。</p>
+  </div>
+
+  <div class="faq-item">
+    <h4>Q7：从 B站下载的用户使用什么账号和支付？</h4>
+    <p>使用与 TapTap、好游快爆一致的游戏自有手机号账号和自有支付，进入同一官服。由于开放平台协议要求非平台登录或支付取得许可，发行需在首次提交前归档平台对本项目官包模式的书面确认。</p>
+  </div>
+
+  <div class="faq-item">
+    <h4>Q8：游戏版本需要与其他渠道同步吗？</h4>
+    <p>是的。上传游戏的版本<strong>均不能低于</strong>含您自己及其他第三方在内的任何合作渠道、平台或网站提供的最新版本。同时 bilibili 平台的用户服务和福利均不能低于任何其他合作渠道。</p>
+  </div>
+
+  <div class="faq-item">
+    <h4>Q9：计费测试需要哪些额外资质？</h4>
+    <p>除基础资质外，计费测试需核验版号/运营授权、APP 备案、防沉迷<strong>游戏备案识别码</strong>、自有支付与退款流程及平台要求的其他材料。该识别码不属于 ICP 或 APP 备案；具体后台字段以提交当日页面和书面通知为准。</p>
+  </div>
+
+  <div class="faq-item">
+    <h4>Q10：预约/测试后能否延迟在其他渠道首发？</h4>
+    <p><strong>不能。</strong>若您在 bilibili 平台使用了预约或测试服务，您应保证该游戏在 bilibili 平台上的发布和运营时间<strong>均不能晚于</strong>任何其他合作渠道。</p>
+  </div>
+
+  <div class="faq-item">
+    <h4>Q11：APP 备案和游戏备案识别码可以二选一吗？</h4>
+    <p><strong>不能。</strong>APP 备案属于工信部 APP 互联网信息服务备案；游戏备案识别码属于国家新闻出版署防沉迷实名验证系统的游戏及渠道关系标识。两者主管系统、用途和提交位置均不同。</p>
+  </div>
+</section>
+
+<!-- 9. 拓展板块 -->
+<section id="expand">
+  <h2>9. 拓展板块</h2>
+
+  <h3>9.1 bilibili 小游戏</h3>
+  <p>本手册仅覆盖 Android 手游官包 / 自主运营分发，不覆盖 bilibili 小游戏。若未来另立小游戏项目，应单独编制流程，不沿用本手册。</p>
+  <ul>
+    <li>在游戏开放平台确认小游戏创建和测试权限</li>
+    <li>在技术投入前由商务书面确认运行环境、审核、支付/广告、数据和商业化条款</li>
+    <li>另行确认其技术方案，不接入当前手游项目的发行排期</li>
+  </ul>
+
+  <h3>9.2 内容生态联动</h3>
+  <p>bilibili 的核心优势在于视频内容生态，建议充分利用：</p>
+  <ul>
+    <li><strong>UP 主商业合作：</strong>与游戏区 UP 主合作制作试玩、攻略、测评视频</li>
+    <li><strong>官方投稿：</strong>在游戏详情页关联视频 BV 号，引导流量</li>
+    <li><strong>直播联动：</strong>与主播合作进行游戏直播推广</li>
+    <li><strong>特色专题：</strong>参与 bilibili 游戏中心官方专题活动</li>
+    <li><strong>品牌植入与联动：</strong>与 bilibili 主站内容打通，形成立体呈现</li>
+  </ul>
+
+  <h3>9.3 运营工具</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>工具</th>
+        <th>功能</th>
+        <th>入口</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>成长计划等级礼包</strong></td>
+        <td>激励玩家成长的等级奖励机制</td>
+        <td>游戏管理</td>
+      </tr>
+      <tr>
+        <td><strong>活动管理</strong></td>
+        <td>配置游戏内运营活动</td>
+        <td>游戏管理</td>
+      </tr>
+      <tr>
+        <td><strong>回流礼包</strong></td>
+        <td>召回流失玩家的奖励机制</td>
+        <td>游戏管理</td>
+      </tr>
+      <tr>
+        <td><strong>版更介绍页 &amp; 版更礼包</strong></td>
+        <td>版本更新宣传和更新奖励</td>
+        <td>游戏管理</td>
+      </tr>
+      <tr>
+        <td><strong>强更引导</strong></td>
+        <td>强制更新提示配置</td>
+        <td>游戏管理</td>
+      </tr>
+      <tr>
+        <td><strong>评价管理</strong></td>
+        <td>查看和回复玩家评价</td>
+        <td>游戏管理</td>
+      </tr>
+      <tr>
+        <td><strong>成员管理 2.0</strong></td>
+        <td>团队账号权限管理</td>
+        <td>账户管理</td>
+      </tr>
+      <tr>
+        <td><strong>财务管理</strong></td>
+        <td>收入结算、对账单查看</td>
+        <td>财务管理</td>
+      </tr>
+      <tr>
+        <td><strong>游戏数据</strong></td>
+        <td>下载量、活跃、留存等核心数据</td>
+        <td>游戏数据</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="section-refs">
+    <strong>📎 官方参考：</strong><br>
+    <a href="https://open.biligame.com/docs/" target="_blank" rel="noopener">bilibili 游戏开放平台文档中心 → open.biligame.com/docs/</a><br>
+    <a href="https://open.biligame.com/tos.html" target="_blank" rel="noopener">开发者协议 → open.biligame.com/tos.html</a><br>
+    <a href="https://open.biligame.com/docs/#/view-v2/1697151933418254336" target="_blank" rel="noopener">游戏开放平台接入概览</a>
+  </div>
+</section>
+
+</div><!-- .doc-body -->
+</div><!-- .doc-shell -->
+
+<!-- FOOTER -->
+
+    </main>
+
+    <footer id="contact" class="footer">
+      <div>© 2026 HEYHONG / CHUIST</div>
+      <a href="mailto:hong@heyhong.net">hong@heyhong.net</a>
+    </footer>
+  </body>
+</html>

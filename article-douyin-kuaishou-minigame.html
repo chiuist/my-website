@@ -1,0 +1,562 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>抖音 + 快手小游戏入驻流程手册 | HEYHONG</title>
+<style>
+:root {
+  --bg: #f4f1eb;
+  --card: #fffdf8;
+  --text: #2c2c2c;
+  --text-light: #666;
+  --orange: #f05a24;
+  --orange-light: #fff0eb;
+  --border: #e8e3db;
+  --green: #2e7d32;
+  --green-bg: #e8f5e9;
+  --blue: #1565c0;
+  --red: #c62828;
+  --red-bg: #ffebee;
+  --container-pad: clamp(22px, 4vw, 64px);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", sans-serif;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 48px var(--container-pad) 80px;
+}
+.header {
+  text-align: center;
+  padding: 48px 0 32px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 40px;
+}
+.header h1 {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  margin-bottom: 8px;
+}
+.header .subtitle { font-size: 15px; color: var(--text-light); }
+.header .meta {
+  margin-top: 16px;
+  font-size: 13px;
+  color: #888;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+section { margin-bottom: 40px; }
+h2 {
+  font-size: 21px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--orange);
+}
+h3 { font-size: 17px; font-weight: 600; margin: 24px 0 12px; }
+h4 { font-size: 15px; font-weight: 600; margin: 16px 0 6px; }
+p { font-size: 14px; margin-bottom: 10px; }
+ul { padding-left: 20px; margin: 8px 0; }
+li { margin-bottom: 4px; font-size: 14px; }
+a { color: var(--orange); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.platform-tag {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+.tag-dy { background: #111; color: #fff; }
+.tag-ks { background: #ff4906; color: #fff; }
+.card, .compare-card, .flow-section {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+.card { padding: 20px 24px; margin-bottom: 16px; }
+.card h4 { margin-top: 0; }
+.compare-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 12px 0;
+}
+.compare-card { padding: 18px 20px; }
+.compare-card h4 { margin: 0 0 10px; font-size: 15px; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0;
+  font-size: 14px;
+  background: var(--card);
+  border: 1px solid var(--border);
+}
+thead { background: #faf7f2; }
+th, td {
+  text-align: left;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+  overflow-wrap: anywhere;
+}
+th { font-weight: 600; font-size: 13px; color: var(--text-light); }
+tr:last-child td { border-bottom: none; }
+.flow-section { padding: 20px 24px; margin-bottom: 16px; }
+.flow-title {
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 12px;
+  padding-left: 16px;
+  border-left: 3px solid var(--orange);
+}
+.flow-steps { display: flex; flex-direction: column; gap: 12px; }
+.flow-step { position: relative; padding-left: 28px; }
+.flow-step::before {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 8px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--orange);
+}
+.flow-step::after {
+  content: '';
+  position: absolute;
+  left: 8px;
+  top: 16px;
+  width: 2px;
+  height: calc(100% + 4px);
+  background: var(--border);
+}
+.flow-step:last-child::after { display: none; }
+.flow-step h4 { font-size: 14px; margin: 0 0 2px; }
+.flow-step p { font-size: 13px; color: var(--text-light); margin: 0; }
+.callout {
+  padding: 14px 18px;
+  border-radius: 6px;
+  margin: 12px 0;
+  font-size: 14px;
+  line-height: 1.7;
+}
+.callout.info { background: #f0f7ff; border-left: 3px solid var(--blue); }
+.callout.warning { background: #fffbf0; border-left: 3px solid var(--orange); }
+.callout.tip { background: var(--green-bg); border-left: 3px solid var(--green); }
+.callout.danger { background: var(--red-bg); border-left: 3px solid var(--red); }
+.callout p { margin: 0; }
+.official-links {
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--border);
+  font-size: 13px;
+  color: var(--text-light);
+  line-height: 1.8;
+}
+.checklist td:first-child { width: 22%; font-weight: 600; }
+.status-ok { color: var(--green); font-weight: 600; }
+@media (max-width: 640px) {
+  .container { padding: 24px 16px 60px; }
+  .compare-grid { grid-template-columns: 1fr; }
+  .header .meta { gap: 6px 14px; }
+  table { display: block; overflow-x: auto; font-size: 12px; }
+  th, td { min-width: 110px; padding: 8px 10px; }
+}
+</style>
+
+    <meta name="description" content="抖音与快手小游戏从主体认证、游戏创建、备案合规到发布、商业化和退服的完整入驻手册。" />
+
+    <meta name="theme-color" content="#f4f1eb" />
+    <link rel="stylesheet" href="article-pages.css?v=20260803-1" />
+    <link rel="stylesheet" href="article-doc.css?v=20260803-1" />
+    <link rel="stylesheet" href="manual-pages.css?v=20260803-1" />
+    <script src="manual-pages.js?v=20260803-1" defer></script>
+
+  </head>
+  <body class="manual-page douyin-kuaishou-minigame-page">
+    <a class="skip-link" href="#main">跳到主要内容</a>
+
+    <header class="header">
+      <a class="brand" href="index.html" aria-label="HEYHONG 首页">
+        <img src="assets/logo.png" alt="HEYHONG" />
+      </a>
+      <nav class="nav" aria-label="主导航">
+        <a href="articles.html" aria-current="page">发行笔记</a>
+        <a href="index.html#experiments">产品实验</a>
+        <a href="#contact">联系</a>
+      </nav>
+    </header>
+
+    <main id="main">
+<div class="doc-container wide shell manual-document doc-body">
+
+<section class="doc-cover manual-cover">
+  <p class="eyebrow">DOMESTIC PLATFORM / MINI GAME</p>
+  <h1>抖音 + 快手 · 小游戏入驻与发行流程手册</h1>
+  <p class="subtitle">覆盖主体认证、游戏创建、资质备案、开发测试、审核发布、商业化和退服流程</p>
+  <p class="meta">
+    <span>版本 2026.07</span>
+    <span>正式执行版</span>
+    <span>最后核验 2026-07-29</span>
+    <span>面向中国大陆开发者</span>
+  </p>
+</section>
+
+<section id="stage1">
+  <h2>1. 账号注册与主体认证</h2>
+
+  <div class="flow-section">
+    <div class="flow-title"><span class="platform-tag tag-dy">抖音</span> 注册与认证</div>
+    <div class="flow-steps">
+      <div class="flow-step"><h4>1. 注册开发者账号</h4><p>使用手机号、邮箱或抖音账号注册，完成账号安全信息。</p></div>
+      <div class="flow-step"><h4>2. 选择并认证主体</h4><p>按个人、个体工商户或企业的真实身份提交认证材料；认证主体应与后续软著、版号、收款或授权链保持一致。</p></div>
+      <div class="flow-step"><h4>3. 完成对应核验</h4><p>企业及个体工商户按后台要求完成组织信息和对公等核验；个人主体按个人认证流程执行，不套用企业核验要求。</p></div>
+      <div class="flow-step"><h4>4. 进入小游戏控制台</h4><p>主体认证通过后创建小游戏，保存开发者账号、管理员和紧急联系人信息。</p></div>
+    </div>
+  </div>
+
+  <div class="flow-section">
+    <div class="flow-title"><span class="platform-tag tag-ks">快手</span> 注册与认证</div>
+    <div class="flow-steps">
+      <div class="flow-step"><h4>1. 注册开放平台账号</h4><p>使用长期有效的企业邮箱注册并完成账号安全设置。</p></div>
+      <div class="flow-step"><h4>2. 完成企业主体认证</h4><p>提交统一社会信用代码、营业执照、法定代表人及经办人等后台要求的真实材料。</p></div>
+      <div class="flow-step"><h4>3. 配置管理员</h4><p>明确平台管理员、游戏负责人、研发联系人、结算联系人及离职交接机制。</p></div>
+      <div class="flow-step"><h4>4. 进入小游戏控制台</h4><p>创建游戏前确认认证主体与游戏权利人、运营单位和收款主体之间的授权关系。</p></div>
+    </div>
+  </div>
+
+  <table class="checklist">
+    <thead><tr><th>准备项</th><th>执行要求</th></tr></thead>
+    <tbody>
+      <tr><td>主体资料</td><td>证照在有效期内，名称、证件号码、地址和联系方式与认证材料一致</td></tr>
+      <tr><td>账号安全</td><td>使用公司受控手机号和邮箱，启用可用的安全验证，不使用个人临时账号承载企业资产</td></tr>
+      <tr><td>权利关系</td><td>认证主体非软著权利人、版号运营单位或 IP 权利人时，提前准备完整授权链</td></tr>
+      <tr><td>财税信息</td><td>商业化前按后台要求补齐签约、收款账户、发票和纳税信息</td></tr>
+    </tbody>
+  </table>
+  <p class="official-links"><strong>官方参考：</strong><br>
+    抖音小游戏注册与入驻 → <a href="https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/guide/minigame/register" target="_blank" rel="noopener">查看文档</a><br>
+    快手小游戏资质要求 → <a href="https://open.kuaishou.com/miniGameDocs/operation/specification/qualifications.html" target="_blank" rel="noopener">查看文档</a>
+  </p>
+</section>
+
+<section id="stage2">
+  <h2>2. 创建游戏与基础资料</h2>
+
+  <h3><span class="platform-tag tag-dy">抖音</span> 创建与资料提交</h3>
+  <ol style="padding-left:20px;">
+    <li>控制台选择“小游戏”并创建，填写游戏引擎、游戏名称和联系人。</li>
+    <li>进入基础信息页面，配置名称、图标、简介、隐私政策、主体及资质材料。</li>
+    <li>按页面要求提交统一审核；审核期间相关字段不可编辑。</li>
+    <li>根据“审核中、审核不通过、部分不通过、审核通过待生效、已完成”等状态逐项处理。</li>
+  </ol>
+  <table>
+    <thead><tr><th>字段</th><th>公开规范</th><th>执行要点</th></tr></thead>
+    <tbody>
+      <tr><td>游戏名称</td><td>4－20 个字符</td><td>使用中文、数字及平台允许的常用符号；不使用空格、繁体字、生僻字、全英文或营销性表述，并与软著、版号一致</td></tr>
+      <tr><td>游戏简介</td><td>10－60 个字符</td><td>清楚说明核心玩法，不写测试状态、外部引流或夸大宣传内容</td></tr>
+      <tr><td>详细介绍</td><td>120－300 字</td><td>客观说明背景、角色、场景、玩法、功能和使用方法，内容将用于小游戏备案</td></tr>
+      <tr><td>游戏图标</td><td>支持 PNG、BMP、JPEG、JPG、GIF</td><td>使用清晰原图，不上传圆角图、二维码、联系方式、外部水印、红点或 NEW/HOT 等误导角标；像素和体积以上传控件为准</td></tr>
+    </tbody>
+  </table>
+  <div class="callout info">
+    <p><strong>信息变更：</strong>游戏名称、软件著作权和版号材料原则上每年可修改 2 次。名称或主体资质变化可能触发小游戏备案、ICP 备案或版本资料重新提交，应先评估再操作。</p>
+  </div>
+
+  <h3><span class="platform-tag tag-ks">快手</span> 创建与资料提交</h3>
+  <table>
+    <thead><tr><th>字段</th><th>公开规范</th><th>执行要点</th></tr></thead>
+    <tbody>
+      <tr><td>游戏名称</td><td>4－20 个字符</td><td>与软著、版号、备案和游戏内展示保持一致，避免平台或通用类别词误导</td></tr>
+      <tr><td>游戏图标</td><td>PNG/JPG，文件不超过 10 MB</td><td>使用原始方形图，不自行加工圆角；不得含违法违规、角标或误导元素</td></tr>
+      <tr><td>游戏简介</td><td>少于 10 个汉字，且少于 20 个字符</td><td>客观描述核心玩法，不使用排名、绝对化或未经授权的 IP 表述</td></tr>
+      <tr><td>分享文案</td><td>不超过 12 个汉字或 24 个字符</td><td>与实际分享场景一致，不诱导、欺骗或承诺虚假奖励</td></tr>
+      <tr><td>分享图片</td><td>510 × 350，JPG</td><td>使用真实游戏画面或合规素材，文字和主体不得被裁切</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout tip">
+    <p><strong>提交前检查：</strong>名称、图标、简介、加载页、登录页、隐私政策、软著、版号和游戏内标题使用同一套经法务确认的正式名称。</p>
+  </div>
+  <p class="official-links"><strong>官方参考：</strong><br>
+    抖音创建小游戏与完善信息 → <a href="https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/guide/minigame/improve-information" target="_blank" rel="noopener">查看文档</a><br>
+    抖音小游戏基础信息审核规范 → <a href="https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/operation1/norms/game-info-audit" target="_blank" rel="noopener">查看规范</a><br>
+    快手小游戏基础信息规范 → <a href="https://open.kuaishou.com/miniGameDocs/operation/specification/basicInformation.html" target="_blank" rel="noopener">查看规范</a>
+  </p>
+</section>
+
+<section id="stage3">
+  <h2>3. 资质、备案与合规闸门</h2>
+
+  <table>
+    <thead><tr><th>事项</th><th>抖音小游戏</th><th>快手小游戏</th><th>项目动作</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>软件著作权</strong></td>
+        <td>一款上线小游戏对应一份软著；名称和权利人须与平台主体或授权链一致。电子软著可用于平台准入，但平台说明其不支持小游戏备案。</td>
+        <td>上线前提交软著；权利非自有时同时提交授权证明。</td>
+        <td>核对全称、简称、版本号、权利人和授权范围，避免仅凭受理通知书排期上线。</td>
+      </tr>
+      <tr>
+        <td><strong>网络游戏审批</strong></td>
+        <td>付费能力要求完整版号等资质；名称、运营单位和移动端类别须与批复材料一致。</td>
+        <td>开通付费前提交版号，运营单位与认证主体不一致时补齐授权。</td>
+        <td>网络游戏上线运营的出版审批义务应由出版、法务和发行负责人按国家规定核验。</td>
+      </tr>
+      <tr>
+        <td><strong>平台小游戏备案</strong></td>
+        <td>无版号项目在基础信息和测试版本审核通过后，由平台按当前流程发起小游戏备案；已有版号项目按平台规则处理。</td>
+        <td>上线前提交自审报告、小游戏作品备案申请表等平台要求材料。</td>
+        <td>平台小游戏备案不等同于网络游戏出版审批，不得作为版号替代物。</td>
+      </tr>
+      <tr>
+        <td><strong>ICP 备案</strong></td>
+        <td>通过抖音运行平台办理接入；无版号项目通常先完成小游戏备案，再进入 ICP 流程。其他平台已有备案不替代本平台新增接入。</td>
+        <td>按快手 ICP 指引提交主体、负责人和游戏负责人等材料；平台初审后完成工信部短信核验及属地管局审核。</td>
+        <td>备案完成后核对备案号展示；名称或主体变化时评估变更或重新备案。</td>
+      </tr>
+      <tr>
+        <td><strong>防沉迷与实名</strong></td>
+        <td>不得提供游客访问；有版号且在运营的游戏按平台指引在国家系统绑定“北京抖音信息服务有限公司”，并授予实名和数据上报权限。</td>
+        <td>接入实名、防沉迷和未成年人时段/时长/付费限制，按当前平台接口及主管部门要求上报。</td>
+        <td>在测试环境覆盖未成年人、成年人、认证失败、接口超时和降级阻断场景。</td>
+      </tr>
+      <tr>
+        <td><strong>隐私与个人信息</strong></td>
+        <td>如实配置小游戏隐私政策；调用隐私相关接口前取得授权，不得强制、反复或超范围索权。</td>
+        <td>隐私政策、权限用途、第三方 SDK 和代码行为保持一致，按平台隐私规范提审。</td>
+        <td>建立个人信息清单、SDK 清单、权限清单、注销流程和未成年人保护说明。</td>
+      </tr>
+      <tr>
+        <td><strong>内容与授权</strong></td>
+        <td>IP、商标、美术、音乐、字体、肖像等均须具备可追溯权利证明；授权有效期和范围覆盖平台运营。</td>
+        <td>商标或 IP 元素按平台要求提交证明，授权链不得缺失或超范围。</td>
+        <td>把权利证明与提交版本归档，设置授权到期预警。</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout danger">
+    <p><strong>监管边界：</strong>平台控制台允许创建、测试或发起某项备案，不代表游戏已经满足网络出版、增值电信、数据和未成年人保护等全部法定义务。正式运营前须完成内部合规签字。</p>
+  </div>
+
+  <div class="callout info">
+    <p><strong>快手 ICP 时间：</strong>官方指引给出的平台初审通常为 3－5 个工作日；收到工信部短信后应在 24 小时内完成核验，属地通信管理局审核一般为 1－20 个工作日。项目排期应预留补正时间。</p>
+  </div>
+  <div class="callout info">
+    <p><strong>抖音 ICP 时间：</strong>官方通用指引给出的平台初审参考时间为 1－6 个工作日；收到工信部短信后应在 24 小时内完成核验，属地通信管理局审核一般为 1－20 个工作日。以上均为常规参考，不含补件和属地特殊要求。</p>
+  </div>
+  <p class="official-links"><strong>官方参考：</strong><br>
+    抖音小游戏资质规范 → <a href="https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/operation1/norms/credential-norms-for-mini-game" target="_blank" rel="noopener">查看规范</a><br>
+    抖音小游戏备案申报 → <a href="https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/guide/minigame/game-filing-application-works" target="_blank" rel="noopener">查看流程</a><br>
+    抖音小游戏 ICP 备案 → <a href="https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/operation1/norms/icp-filings" target="_blank" rel="noopener">查看流程</a><br>
+    快手小游戏资质要求 → <a href="https://open.kuaishou.com/miniGameDocs/operation/specification/qualifications.html" target="_blank" rel="noopener">查看规范</a><br>
+    快手 ICP 备案操作指引 → <a href="https://open.kuaishou.com/miniGameDocs/operation/specification/ICP-Guidelines.html" target="_blank" rel="noopener">查看流程</a><br>
+    移动互联网应用程序备案通知 → <a href="https://www.gov.cn/zhengce/zhengceku/202308/content_6897341.htm" target="_blank" rel="noopener">查看文件</a><br>
+    网络出版服务管理规定 → <a href="https://www.cac.gov.cn/2016-02/15/c_1118048596.htm" target="_blank" rel="noopener">查看文件</a><br>
+    防止未成年人沉迷网络游戏通知 → <a href="https://www.nppa.gov.cn/xxfb/tzgs/202108/t20210830_666285.html" target="_blank" rel="noopener">查看文件</a>
+  </p>
+</section>
+
+<section id="stage4">
+  <h2>4. 开发接入与代码包</h2>
+
+  <table>
+    <thead><tr><th>技术项</th><th>抖音小游戏</th><th>快手小游戏</th></tr></thead>
+    <tbody>
+      <tr><td><strong>开发工具</strong></td><td>使用抖音开发者工具和小游戏运行时，绑定本游戏 AppID 上传版本</td><td>使用快手小游戏开发工具和运行时，绑定快手小游戏 AppID</td></tr>
+      <tr><td><strong>代码包上限</strong></td><td>不分包时总包不超过 20 MB；分包后主包不超过 4 MB，总包通常不超过 20 MB，开通虚拟支付后按文档可放宽至 30 MB；开放数据域不超过 4 MB</td><td>代码包总大小不超过 30 MB，主包不超过 6 MB</td></tr>
+      <tr><td><strong>网络请求</strong></td><td>配置服务器域名并使用 HTTPS/WSS 等安全协议，不在客户端存储 AppSecret</td><td>按控制台配置合法域名和安全协议，服务端保管密钥并校验请求</td></tr>
+      <tr><td><strong>登录与会话</strong></td><td>使用平台登录接口换取用户标识和会话，服务端校验并处理失效、重登和账号合并</td><td>使用快手登录与 code2Session 流程，区分 open_id、union_id 的适用范围</td></tr>
+      <tr><td><strong>生命周期</strong></td><td>覆盖前后台切换、弱网、冷启动、热启动、版本更新和异常恢复</td><td>分别在快手与快手极速版支持版本中验证运行环境和兼容性</td></tr>
+      <tr><td><strong>数据与隐私</strong></td><td>隐私授权前不初始化非必要采集；日志、埋点和第三方 SDK 与隐私声明一致</td><td>权限调用、登录、分享、广告和支付均按快手隐私规范执行</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout info">
+    <p><strong>抖音必接能力：</strong>所有小游戏接入侧边栏复访；内购小游戏接入客服；存在用户自定义文字输入时接入敏感词或内容安全能力。具体接口和宿主范围以提审时专项文档为准。</p>
+  </div>
+
+  <h3>提测前技术验收</h3>
+  <table class="checklist">
+    <thead><tr><th>验收项</th><th>通过标准</th></tr></thead>
+    <tbody>
+      <tr><td>启动与资源</td><td>首包满足上限，分包加载可重试，CDN 失败有提示，不出现白屏、黑屏或无限加载</td></tr>
+      <tr><td>账号</td><td>首次登录、重登、游客限制、注销、换设备、封禁和服务端会话失效均有明确行为</td></tr>
+      <tr><td>安全</td><td>密钥仅在服务端保存；支付、奖励、资产和广告结果均服务端校验，关键接口具备防重放和幂等</td></tr>
+      <tr><td>合规</td><td>隐私授权时序正确，拒绝非必要权限仍可使用基本功能，未成年人场景能够阻断或限制</td></tr>
+      <tr><td>兼容</td><td>在两平台各自要求的 Android/iOS 宿主版本、常见分辨率、横竖屏和弱网场景完成真机回归</td></tr>
+      <tr><td>版本</td><td>版本号、构建号、更新说明、提交材料和服务端协议均可追溯并支持回滚</td></tr>
+    </tbody>
+  </table>
+  <p class="official-links"><strong>官方参考：</strong><br>
+    抖音分包加载与代码包限制 → <a href="https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/develop/guide/basic-function/subpackages/introduction" target="_blank" rel="noopener">查看文档</a><br>
+    抖音小游戏必接能力 → <a href="https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/guide/minigame/essential-skills" target="_blank" rel="noopener">查看文档</a><br>
+    快手小游戏运行环境 → <a href="https://ks-game-docs.kuaishou.com/minigame/guide/run/runtime-environment.html" target="_blank" rel="noopener">查看文档</a><br>
+    快手代码包与版本类型 → <a href="https://open.kuaishou.com/miniGameDocs/gameDev/framework/code-package" target="_blank" rel="noopener">查看文档</a>
+  </p>
+</section>
+
+<section id="stage5">
+  <h2>5. 测试、审核与发布</h2>
+
+  <div class="flow-section">
+    <div class="flow-title"><span class="platform-tag tag-dy">抖音</span> 版本流转</div>
+    <div class="flow-steps">
+      <div class="flow-step"><h4>1. 上传测试版本</h4><p>在开发者工具上传代码和更新说明。控制台可同时保留最多 25 个测试版本，对应默认通道和通道 1－24，并可生成体验二维码。</p></div>
+      <div class="flow-step"><h4>2. 完成真机验收</h4><p>使用体验二维码覆盖登录、实名、防沉迷、支付、广告、分享、弱网和宿主兼容场景。</p></div>
+      <div class="flow-step"><h4>3. 提交版本审核</h4><p>提交版本说明、三张游戏截图及页面要求的测试信息。自 2026-04-20 起，现行规则默认覆盖所有已接入且符合要求的合作 App，并进行多端 QA。</p></div>
+      <div class="flow-step"><h4>4. 处理审核反馈</h4><p>首发版本官方预计 QA 回归时间为 1－3 个工作日；任一宿主未通过均需修改重提，再次提交的版本号须高于已通过宿主的当前版本号。补件、特殊品类或整改可能延长，不据此承诺固定上线日。</p></div>
+      <div class="flow-step"><h4>5. 发布版本</h4><p>提审时可按页面设置自动发布；未勾选自动发布时，审核通过后由开发者点击发布。已有线上版本的更新可选择灰度发布。</p></div>
+      <div class="flow-step"><h4>6. 灰度观察</h4><p>灰度比例和宿主范围只能增加不能降低；按官方规则，灰度满 15 天后将自动转为全量发布。</p></div>
+    </div>
+  </div>
+
+  <div class="flow-section">
+    <div class="flow-title"><span class="platform-tag tag-ks">快手</span> 版本流转</div>
+    <div class="flow-steps">
+      <div class="flow-step"><h4>1. 上传开发版本</h4><p>使用开发工具上传代码包，填写版本号和更新说明。</p></div>
+      <div class="flow-step"><h4>2. 设置体验版本</h4><p>将指定开发版本设为体验版本，配置体验人员并完成真机回归。</p></div>
+      <div class="flow-step"><h4>3. 提交审核</h4><p>选择待审版本，补齐基础信息、资质和审核说明后提交；确保审核账号、入口和测试路径可用。</p></div>
+      <div class="flow-step"><h4>4. 手动发布</h4><p>审核通过后由开发者选择该版本发布，审核通过不等于自动上线。</p></div>
+      <div class="flow-step"><h4>5. 上线观察</h4><p>检查启动、登录、支付、广告、分享、埋点和服务端告警；异常时按后台能力执行暂停或版本回退。</p></div>
+    </div>
+  </div>
+
+  <div class="callout warning">
+    <p><strong>审核周期：</strong>除明确写入官方页面的环节外，不为平台内容审核写固定时限。发布日期应以审核通过、内部放行和平台实际可发布状态共同确定。</p>
+  </div>
+  <p class="official-links"><strong>官方参考：</strong><br>
+    抖音版本审核指南 → <a href="https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/guide/minigame/examineguide" target="_blank" rel="noopener">查看文档</a><br>
+    抖音版本发布指南 → <a href="https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/guide/minigame/release/" target="_blank" rel="noopener">查看文档</a><br>
+    快手小游戏发布流程 → <a href="https://open.kuaishou.com/docs/introduction/release" target="_blank" rel="noopener">查看文档</a>
+  </p>
+</section>
+
+<section id="stage6">
+  <h2>6. 商业化、支付与结算</h2>
+
+  <h3><span class="platform-tag tag-dy">抖音</span> 广告与支付</h3>
+  <table>
+    <thead><tr><th>能力</th><th>前置条件</th><th>执行要求</th></tr></thead>
+    <tbody>
+      <tr><td>IAA 广告</td><td>完成主体认证及后台要求的验证和能力申请；具体资格以商业化控制台为准</td><td>IAA 小游戏须提交软著；按广告组件规范展示，处理加载失败、无填充和频控，不伪造点击或强制用户观看</td></tr>
+      <tr><td>Android 游戏支付</td><td>完成小游戏资质、版号、协议、商户和结算账户等开通步骤</td><td>使用 <code>tt.requestGamePayment</code>；配置货币兑换比例和服务端回调，比例提交后不可随意变更</td></tr>
+      <tr><td>iOS 钻石兑换</td><td>取得当前后台开放资格并完成小游戏虚拟支付配置</td><td>使用 <code>tt.openAwemeCustomerService</code>，按小游戏专项钻石方案执行；不得套用 Android 现金直购流程</td></tr>
+      <tr><td>发货</td><td>订单创建成功且服务端具备验签、查询和幂等能力</td><td>以前台回调、服务端回调和主动查询交叉确认，只有确认支付成功后发放资产</td></tr>
+      <tr><td>结算</td><td>完成协议、收款和财税信息</td><td>广告、普通支付、钻石等按对应账单核对；结算周期、税费和分成以当期协议及后台账单为准</td></tr>
+    </tbody>
+  </table>
+
+  <h3><span class="platform-tag tag-ks">快手</span> 广告与支付</h3>
+  <table>
+    <thead><tr><th>能力</th><th>公开规则</th><th>执行要求</th></tr></thead>
+    <tbody>
+      <tr><td>IAA 自然流量</td><td>官方 IAA 指引列示：厂商分成 = 收入 ×（1－税率）× 30%</td><td>以当期有效协议和后台账单为准，区分自然流量与投流渠道收入</td></tr>
+      <tr><td>IAA 投流收入</td><td>官方 IAA 指引列示：厂商分成 = 收入 ×（1－税率）× 89%；另有按分成前广告收入 11.5% 计算的投流广告金政策</td><td>广告金具有政策条件和有效期，须确认投放消耗、补充协议及当前活动规则</td></tr>
+      <tr><td>Android 虚拟支付</td><td>仅支持 Android，iOS 暂未开放；开通前要求版号、体验链接和 AppID 等材料</td><td>服务端接收回调并主动查询订单，以最终支付结果发货，保证幂等和补单能力</td></tr>
+      <tr><td>结算</td><td>按平台账单和协议结算</td><td>完成签约、收款账户、支付验证和财税资料，按收入类型核对订单、退款和广告收入</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout warning">
+    <p><strong>动态政策：</strong>分成、税率、广告金、支付通道、能力准入和账期可能调整。立项测算与上线验收都应保存当期官方页面、后台截图和已签协议，不把历史比例直接延用于新项目。</p>
+  </div>
+  <p class="official-links"><strong>官方参考：</strong><br>
+    抖音小游戏支付接入流程 → <a href="https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/develop/guide/open-ability/payment/access-process" target="_blank" rel="noopener">查看文档</a><br>
+    抖音钻石兑换能力 → <a href="https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/guide/business-guide/virtual-payment/diamonds" target="_blank" rel="noopener">查看文档</a><br>
+    抖音小游戏结算指南 → <a href="https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/guide/business-guide/revenue/introduction/douyin-games-guide" target="_blank" rel="noopener">查看文档</a><br>
+    快手小游戏虚拟支付 → <a href="https://ks-game-docs.kuaishou.com/minigame/guide/open-function/ks_pay.html" target="_blank" rel="noopener">查看文档</a><br>
+    快手 IAA 全流程投放指引 → <a href="https://open.kuaishou.com/miniGameDocs/operation/DSP/DSP-IAA" target="_blank" rel="noopener">查看文档</a><br>
+    快手小游戏结算指南 → <a href="https://open.kuaishou.com/miniGameDocs/operation/pay/introduction" target="_blank" rel="noopener">查看文档</a>
+  </p>
+</section>
+
+<section id="stage7">
+  <h2>7. 上线后的运营能力</h2>
+
+  <table>
+    <thead><tr><th>运营场景</th><th>抖音小游戏</th><th>快手小游戏</th></tr></thead>
+    <tbody>
+      <tr><td>搜索与基础分发</td><td>上线后配置搜索关键词、分享信息，并按资质和内容质量进入平台支持的分发场景</td><td>维护名称、简介、分享素材和可检索信息，按平台实际开放入口申请资源</td></tr>
+      <tr><td>内容分享</td><td>按开放能力接入分享、短视频挂载、直播间入口等；定向能力需单独申请</td><td>可按文档接入录屏发布、私信分享等能力，分享内容必须与实际游戏一致</td></tr>
+      <tr><td>用户复访</td><td>根据当前接口和宿主范围配置复访入口，不承诺平台流量</td><td>可按条件接入设为常用、桌面快捷方式、侧边栏等复访能力</td></tr>
+      <tr><td>广告投放</td><td>使用平台支持的小游戏推广链路，校验归因参数并按隐私政策处理广告数据</td><td>通过小游戏推广场景配置 AppID、归因回传和关键行为，遵守广告开户及行业准入</td></tr>
+      <tr><td>数据运营</td><td>核对新增、活跃、留存、广告、支付和渠道数据，建立平台账单与自有服务端数据差异监控</td><td>区分自然与投流数据，核对 open_id/union_id、回传结果、广告收入和支付订单</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout info">
+    <p><strong>资源申请：</strong>搜索推荐、活动、直播挂载、投流白名单和定向运营均不是完成上架后的自动权益。只有在后台可见、条件满足或取得书面确认后，才能纳入确定性排期。</p>
+  </div>
+  <p class="official-links"><strong>官方参考：</strong><br>
+    抖音小游戏运营指引 → <a href="https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/guide/minigame/operationalguidelines" target="_blank" rel="noopener">查看文档</a><br>
+    快手 IAA 全流程投放指引 → <a href="https://open.kuaishou.com/miniGameDocs/operation/DSP/DSP-IAA" target="_blank" rel="noopener">查看运营与投放能力</a>
+  </p>
+</section>
+
+<section id="stage8">
+  <h2>8. 版本更新、暂停与退服</h2>
+
+  <table>
+    <thead><tr><th>事项</th><th>抖音小游戏</th><th>快手小游戏</th></tr></thead>
+    <tbody>
+      <tr><td>版本更新</td><td>上传新测试版本，完成回归并重新提审；审核通过后手动发布或灰度</td><td>上传开发版本、设置体验、提审，通过后手动发布</td></tr>
+      <tr><td>资料变更</td><td>名称、软著、版号等关键材料受年度修改次数限制；名称或资质变化可能触发备案重办</td><td>基础信息和资质变化按后台要求重新审核，必要时变更 ICP 或其他备案</td></tr>
+      <tr><td>异常处置</td><td>按控制台状态和应急预案切换游戏运行状态，保留公告、审核和故障证据</td><td>按后台能力暂停版本或回退，优先保护用户资产、订单和可恢复性</td></tr>
+      <tr><td>违规申诉</td><td>在处罚通知规定期限内按官方入口提交事实、整改和证明材料</td><td>平台违规管理规范载明申诉期为收到处罚通知后 3 天内</td></tr>
+      <tr><td>退服</td><td>内购小游戏须提前 60 日发布停服公告并提交下架申请，倒计时期间完成用户权益处置</td><td>按平台协议、后台流程和监管要求制定公告、退款或资产处置、数据留存及下架计划</td></tr>
+    </tbody>
+  </table>
+
+  <div class="card">
+    <h4>退服执行清单</h4>
+    <ul>
+      <li>关闭新付费和新增营销投放，保留必要的订单查询与客服能力</li>
+      <li>发布停服时间表、用户权益方案、客服渠道和数据处理说明</li>
+      <li>核对未发货订单、未消费虚拟资产、退款、未结算收入和未成年人投诉</li>
+      <li>完成平台下架申请、服务端降级、备案变更或注销及证据归档</li>
+      <li>按法律法规和隐私政策执行个人信息删除、匿名化或期限内留存</li>
+    </ul>
+  </div>
+  <p class="official-links"><strong>官方参考：</strong><br>
+    抖音小游戏运营指引 → <a href="https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/guide/minigame/operationalguidelines" target="_blank" rel="noopener">查看更新与下架流程</a><br>
+    抖音内购小游戏运营规范 → <a href="https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/operation1/norms/in-game-operation-norms/" target="_blank" rel="noopener">查看退服要求</a><br>
+    快手小游戏发布流程 → <a href="https://open.kuaishou.com/docs/introduction/release" target="_blank" rel="noopener">查看版本管理</a><br>
+    快手小游戏违规管理规范 → <a href="https://open.kuaishou.com/miniGameDocs/operation/minigameViolation/gement" target="_blank" rel="noopener">查看违规与申诉规则</a>
+  </p>
+</section>
+
+<section id="stage9">
+  <h2>9. 常见问题</h2>
+
+  <div class="card"><h4>Q1：抖音和快手小游戏都支持个人开发者吗？</h4><p>不是。抖音小游戏的官方结算与认证资料覆盖企业、个体工商户和个人开发者，但具体资质和商业化能力受主体类型限制；快手小游戏公开准入资料要求企业主体。</p></div>
+  <div class="card"><h4>Q2：小游戏可以直接使用手游 APK 或手游 SDK 吗？</h4><p>不可以。小游戏使用各自平台的运行时、开发工具、AppID、代码包和开放接口。已有手游代码只能在评估引擎适配、包体、接口和合规后迁移。</p></div>
+  <div class="card"><h4>Q3：完成平台小游戏备案就不需要版号吗？</h4><p>不能这样理解。平台小游戏备案、ICP 备案和网络游戏出版审批是不同事项。平台存在无版号项目的资料流程，不等于平台备案替代国家网络游戏审批；正式运营前应由出版和法务负责人核验。</p></div>
+  <div class="card"><h4>Q4：审核通过后会自动发布吗？</h4><p>不一定。抖音提审时可按页面设置自动发布；未勾选时需审核通过后手动发布。快手由开发者选择审核通过的版本发布。抖音选择灰度发布后，灰度规则还会影响后续全量时间。</p></div>
+  <div class="card"><h4>Q5：两个平台的 iOS 虚拟支付规则相同吗？</h4><p>不同。抖音小游戏当前专项文档提供 iOS 钻石兑换方案；快手小游戏虚拟支付文档仅开放 Android。提审前仍应以对应游戏后台的实际能力为准。</p></div>
+  <div class="card"><h4>Q6：平台公开审核时间可以作为确定上线日期吗？</h4><p>不可以。公开时间通常是常规审核参考，不包含补件、整改、特殊品类和主管部门备案时间。应以全部审核通过且开发者实际可发布为上线闸门。</p></div>
+</section>
+
+</div>
+    </main>
+
+    <footer id="contact" class="footer">
+      <div>© 2026 HEYHONG / CHUIST</div>
+      <a href="mailto:hong@heyhong.net">hong@heyhong.net</a>
+    </footer>
+  </body>
+</html>

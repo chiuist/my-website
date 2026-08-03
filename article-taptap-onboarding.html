@@ -1,0 +1,1403 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TapTap 新游入驻流程手册 | HEYHONG</title>
+<style>
+:root {
+  color-scheme: light;
+  --bg: #f4f1eb;
+  --panel: #fffdf8;
+  --text: #11110f;
+  --muted: #6f6e68;
+  --soft: #8e8b84;
+  --line: #cbc7bf;
+  --line-strong: #96928a;
+  --orange: #f05a24;
+  --gold: #f05a24;
+  --green: #627a54;
+  --cyan: #527a78;
+  --blue: #2d6fa3;
+  --purple: #6658a6;
+  --amber: #966817;
+  --teal: #38786b;
+  --red: #c94b20;
+  --container-max: 1080px;
+  --container-pad: clamp(22px, 4vw, 64px);
+  --display: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", sans-serif;
+  --body: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", sans-serif;
+  --section-bg: rgba(255, 253, 248, 0.78);
+  --shadow: 0 10px 30px rgba(17, 17, 15, 0.07);
+
+  /* Stage accent colors — light adjusted */
+  --stage1: #2d6fa3;
+  --stage1-bg: rgba(45, 111, 163, 0.08);
+  --stage1-bd: rgba(45, 111, 163, 0.22);
+  --stage2: #6658a6;
+  --stage2-bg: rgba(102, 88, 166, 0.08);
+  --stage2-bd: rgba(102, 88, 166, 0.22);
+  --stage3: #c94b20;
+  --stage3-bg: rgba(201, 75, 32, 0.08);
+  --stage3-bd: rgba(201, 75, 32, 0.22);
+  --stage4: #527844;
+  --stage4-bg: rgba(82, 120, 68, 0.08);
+  --stage4-bd: rgba(82, 120, 68, 0.22);
+  --stage5: #966817;
+  --stage5-bg: rgba(150, 104, 23, 0.08);
+  --stage5-bd: rgba(150, 104, 23, 0.22);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+
+body {
+  display: flex;
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  flex-direction: column;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--body);
+  font-size: 16px;
+  line-height: 1.7;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+main { flex: 1; }
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+
+/* ===== Header ===== */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  min-height: 88px;
+  padding-inline: max(var(--container-pad), calc((100vw - var(--container-max)) / 2));
+  border-bottom: 1px solid color-mix(in srgb, var(--line) 72%, transparent);
+  background: color-mix(in srgb, var(--bg) 92%, transparent);
+  backdrop-filter: blur(16px);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--display);
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.brand-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--orange);
+  flex-shrink: 0;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(20px, 3.2vw, 48px);
+  margin-left: auto;
+  font-family: var(--display);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.nav a {
+  position: relative;
+}
+
+.nav a::after {
+  position: absolute;
+  right: 0;
+  bottom: -7px;
+  left: 0;
+  height: 1px;
+  background: var(--orange);
+  content: "";
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 180ms ease;
+}
+
+.nav a:hover::after,
+.nav a[aria-current]::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* ===== Cover / Hero ===== */
+.shell {
+  width: min(100%, calc(var(--container-max) + var(--container-pad) * 2));
+  margin-inline: auto;
+  padding-inline: var(--container-pad);
+}
+
+.doc-container {
+  max-width: calc(var(--container-max) + var(--container-pad) * 2);
+  margin: 0 auto;
+  padding: 0 var(--container-pad);
+}
+
+.doc-container.wide { max-width: calc(var(--container-max) + var(--container-pad) * 2); }
+
+.doc-cover {
+  padding: 48px 0 32px;
+  border-bottom: 1px solid rgba(17, 17, 15, 0.08);
+  margin-bottom: 28px;
+  text-align: center;
+}
+
+.doc-cover h1 {
+  margin: 0 0 16px;
+  font-family: var(--display);
+  font-size: clamp(34px, 4.5vw, 52px);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+
+
+.doc-hero-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+  justify-content: center;
+}
+
+.doc-hero-tags span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 6px 16px;
+  border: 1px solid rgba(17, 17, 15, 0.14);
+  border-radius: 999px;
+  background: rgba(255, 253, 248, 0.78);
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* ===== Doc Body ===== */
+.doc-body {
+  padding-bottom: 80px;
+}
+
+.doc-body h1 {
+  margin: 0 0 14px;
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+}
+
+.doc-body h2 {
+  margin: 48px 0 18px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid rgba(240, 90, 36, 0.25);
+  font-family: var(--display);
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--text);
+}
+
+.doc-body h3 {
+  margin: 32px 0 12px;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1.3;
+}
+
+.doc-body h4 {
+  margin: 22px 0 8px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.doc-body p {
+  margin: 0 0 16px;
+  color: var(--muted);
+  font-size: 15.5px;
+  line-height: 1.85;
+}
+
+.doc-body strong {
+  color: var(--text);
+  font-weight: 700;
+}
+
+.doc-body ul, .doc-body ol {
+  margin: 0 0 18px;
+  padding-left: 1.3em;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.85;
+}
+
+.doc-body li { margin-bottom: 6px; }
+.doc-body li strong { color: var(--text); }
+
+.doc-body a {
+  color: var(--orange);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.doc-body a:hover {
+  color: var(--orange);
+  text-decoration: underline;
+}
+
+.doc-body code {
+  padding: 2px 7px;
+  border-radius: 5px;
+  background: rgba(240, 90, 36, 0.08);
+  color: var(--orange);
+  font-size: 13px;
+  font-family: "SF Mono", Consolas, Monaco, monospace;
+}
+
+/* ===== Cards ===== */
+.doc-card, .stage-card, .callout {
+  padding: 22px 24px;
+  border: 1px solid rgba(17, 17, 15, 0.1);
+  border-radius: 10px;
+  background: rgba(255, 253, 248, 0.88);
+  box-shadow: var(--shadow);
+  margin-bottom: 20px;
+}
+
+.stage-card {
+  border-left: 4px solid var(--orange);
+}
+
+.stage-card.s1 { border-left-color: var(--stage1); }
+.stage-card.s2 { border-left-color: var(--stage2); }
+.stage-card.s3 { border-left-color: var(--stage3); }
+.stage-card.s4 { border-left-color: var(--stage4); }
+.stage-card.s5 { border-left-color: var(--stage5); }
+
+.stage-card h3 { margin-top: 0; }
+
+/* ===== Flow Steps Timeline ===== */
+.flow-steps {
+  position: relative;
+  margin: 20px 0;
+  padding: 20px 24px 20px 40px;
+  background: rgba(17, 17, 15, 0.025);
+  border: 1px solid rgba(17, 17, 15, 0.06);
+  border-radius: 10px;
+}
+.flow-steps::before {
+  content: '';
+  position: absolute;
+  left: 22px;
+  top: 24px;
+  bottom: 24px;
+  width: 2px;
+  background: rgba(17, 17, 15, 0.1);
+}
+.flow-step {
+  position: relative;
+  padding: 8px 0 8px 22px;
+}
+.flow-step::before {
+  content: '';
+  position: absolute;
+  left: -22px;
+  top: 14px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--orange);
+  border: 2px solid var(--bg);
+  box-shadow: 0 0 0 2px rgba(240, 90, 36, 0.25);
+}
+.flow-step h4 {
+  margin: 0 0 4px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+}
+.flow-step p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+.flow-step p strong {
+  color: var(--text);
+}
+
+/* Compact FAQ items */
+.faq-item {
+  padding: 14px 18px;
+  border: 1px solid rgba(17, 17, 15, 0.08);
+  border-radius: 8px;
+  background: rgba(255, 253, 248, 0.7);
+  margin-bottom: 10px;
+}
+.faq-item h3 {
+  margin: 0 0 6px;
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--text);
+}
+.faq-item p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+.faq-item:last-child {
+  margin-bottom: 0;
+}
+
+/* REP section highlights */
+.rep-highlight {
+  padding: 14px 18px;
+  border-radius: 8px;
+  background: rgba(240, 90, 36, 0.06);
+  border: 1px solid rgba(240, 90, 36, 0.12);
+  margin: 12px 0;
+}
+.rep-highlight p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.callout {
+  border-left: 4px solid var(--orange);
+  background: rgba(240, 90, 36, 0.04);
+  border-color: rgba(240, 90, 36, 0.15);
+  margin: 18px 0;
+}
+
+.callout.info {
+  border-left-color: var(--blue);
+  background: rgba(45, 111, 163, 0.04);
+  border-color: rgba(45, 111, 163, 0.15);
+}
+
+.callout.warn {
+  border-left-color: var(--amber);
+  background: rgba(150, 104, 23, 0.04);
+  border-color: rgba(150, 104, 23, 0.15);
+}
+
+.callout.success {
+  border-left-color: var(--green);
+  background: rgba(17, 17, 15, 0.03);
+  border-color: rgba(82, 120, 68, 0.12);
+}
+
+.callout p { margin: 0; font-size: 14px; }
+.callout strong { color: var(--text); }
+
+/* ===== Checklist ===== */
+.checklist {
+  list-style: none;
+  padding-left: 0;
+  margin: 12px 0;
+}
+
+.checklist li {
+  padding: 8px 0 8px 28px;
+  position: relative;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.checklist li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 14px;
+  width: 14px;
+  height: 14px;
+  border: 2px solid var(--line);
+  border-radius: 3px;
+  background: transparent;
+}
+
+.checklist li.done::before {
+  border-color: var(--green);
+  background: var(--green);
+}
+
+.checklist li.done::after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 17px;
+  width: 6px;
+  height: 4px;
+  border-left: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  transform: rotate(-45deg);
+}
+
+/* ===== Tables ===== */
+.doc-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 18px 0;
+  font-size: 13.5px;
+  border: 1px solid rgba(17, 17, 15, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.doc-body th {
+  padding: 14px 16px;
+  background: rgba(240, 90, 36, 0.06);
+  text-align: left;
+  font-family: var(--display);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text);
+  border-bottom: 2px solid rgba(17, 17, 15, 0.1);
+  white-space: nowrap;
+}
+
+.doc-body td {
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(17, 17, 15, 0.06);
+  color: var(--muted);
+  line-height: 1.65;
+  vertical-align: top;
+}
+
+.doc-body tr:last-child td { border-bottom: none; }
+
+.doc-body tr:hover td {
+  background: rgba(240, 90, 36, 0.02);
+}
+
+/* ===== Footer ===== */
+.site-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 92px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-family: var(--display);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  width: min(100%, calc(var(--container-max) + var(--container-pad) * 2));
+  margin-inline: auto;
+  padding-inline: var(--container-pad);
+}
+
+.footer-contact {
+  color: var(--text);
+  letter-spacing: 0;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 820px) {
+  .nav { display: none; }
+  html { scroll-padding-top: 100px; }
+
+  .doc-cover { padding: 40px 0 28px; }
+  .doc-cover h1 { font-size: 36px; }
+  .doc-body h2 { font-size: 24px; }
+  .doc-body h3 { font-size: 18px; }
+
+  .site-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    min-height: 112px;
+    padding-block: 30px;
+  }
+}
+
+@media (max-width: 620px) {
+  .header { min-height: 76px; }
+  html { scroll-padding-top: 90px; }
+
+  .doc-cover { padding: 32px 0 24px; }
+  .doc-cover h1 { font-size: 30px; }
+
+  .doc-body table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .doc-body th, .doc-body td {
+    padding: 10px 12px;
+    font-size: 12px;
+  }
+
+  .doc-card, .stage-card, .callout {
+    padding: 16px 18px;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 4px;
+}
+</style>
+
+    <meta name="description" content="TapTap 新游从开发者认证、预约测试、公测上线到 REP 资源置换的完整入驻手册。" />
+
+    <meta name="theme-color" content="#f4f1eb" />
+    <link rel="stylesheet" href="article-pages.css?v=20260803-1" />
+    <link rel="stylesheet" href="article-doc.css?v=20260803-1" />
+    <link rel="stylesheet" href="manual-pages.css?v=20260803-1" />
+    <script src="manual-pages.js?v=20260803-1" defer></script>
+
+  </head>
+  <body class="manual-page taptap-onboarding-page">
+    <a class="skip-link" href="#main">跳到主要内容</a>
+
+    <header class="header">
+      <a class="brand" href="index.html" aria-label="HEYHONG 首页">
+        <img src="assets/logo.png" alt="HEYHONG" />
+      </a>
+      <nav class="nav" aria-label="主导航">
+        <a href="articles.html" aria-current="page">发行笔记</a>
+        <a href="index.html#experiments">产品实验</a>
+        <a href="#contact">联系</a>
+      </nav>
+    </header>
+
+    <!-- HEADER -->
+
+
+<main id="main">
+
+<!-- HERO -->
+<section class="doc-cover manual-cover doc-container wide shell">
+  <p class="eyebrow">PLATFORM / TAPTAP</p>
+  <h1>TapTap 新游入驻流程手册</h1>
+  <div class="doc-hero-tags">
+    <span>V1 · 国内版</span>
+    <span>调研数据截至 2026 Q2</span>
+    <span>TapTap 开发者平台</span>
+    <span>预约 · 测试 · 公测</span>
+    <span>含合规资质速查</span>
+  </div>
+</section>
+
+<!-- 核心流程概览 -->
+<section class="doc-container wide shell" id="overview" style="margin-bottom: 36px;">
+  <div class="callout info">
+    <p><strong>核心要点：</strong>TapTap 平台不抽取渠道流水分成。中国大陆地区无版号游戏可以创建页面和开放预约；免费包体测试须按游戏联网情况完成 APP 备案、防沉迷和隐私合规等要求，且<strong>不得包含任何内购或变相计费</strong>。预约或纯信息展示阶段仅开放页面，不提供包体下载或正式运营服务。</p>
+  </div>
+</section>
+
+<!-- ===== DOC BODY ===== -->
+<div class="doc-body doc-container wide shell">
+
+<!-- ===== 1. 开发者入驻与认证 ===== -->
+<section id="stage1">
+  <h2>1. 开发者入驻与认证</h2>
+
+  <h3>1.1 进入开发者中心</h3>
+  <p>使用 TapTap 账号访问 <a href="https://developer.taptap.cn/" target="_blank" rel="noopener">developer.taptap.cn</a> 并进入「开发者中心」。登录后系统自动生成未认证的开发者账号。</p>
+
+  <h3>1.2 开发者类型与主体认证</h3>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:16%">开发者类型</th>
+        <th style="width:44%">所需材料</th>
+        <th style="width:40%">适用场景</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>注册开发者</strong></td>
+        <td>TapTap 账号、厂商名称、已验证的邮箱与手机号等后台要求信息；无需人工审核</td>
+        <td>仅可使用有限功能并创建创意工坊类游戏；发布常规移动游戏需申请成为认证开发者</td>
+      </tr>
+      <tr>
+        <td><strong>认证开发者（个人）</strong></td>
+        <td>开发者名称、地址、身份证件扫描件、已验证的邮箱和手机号等，以后台要求为准</td>
+        <td>独立开发者或个人权利主体发布常规游戏</td>
+      </tr>
+      <tr>
+        <td><strong>认证开发者（企业）</strong></td>
+        <td>企业名称、注册地址、统一社会信用代码、营业执照、平台模板认证公函、业务及紧急联系人等，以后台要求为准</td>
+        <td>公司主体发行、签署授权和提交企业资质</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout warn">
+    <p><strong>注意：</strong>注册开发者可在「开发者中心 → 财务与管理 → 厂商设置 → 成为认证开发者」提交认证申请。企业认证公函须使用平台提供的模板，按后台提示加盖红色公章，并根据年度认证要求及时更新。</p>
+  </div>
+
+  <h3>1.3 提交认证审核</h3>
+  <p>认证开发者需按后台字段提交审核，并通过站内通知或后台状态查看结果。被驳回时根据具体原因补充或更新材料后重新提交；审核排期以后台展示为准。</p>
+
+  <div class="callout success">
+    <p><strong>完成后状态：</strong>认证通过后，即可在开发者中心创建游戏、上传物料、配置页面信息。</p>
+  </div>
+
+  <p style="margin-top:16px;"><strong>📎 官方参考：</strong><br>开发者入驻流程与审核规范（含开发者类型、材料和公函要求）→ <a href="https://developer.taptap.cn/docs/store" target="_blank" rel="noopener">developer.taptap.cn/docs/store</a><br>快速入门指南（游戏资质与物料审核口径）→ <a href="https://developer.taptap.cn/docs/store/standardies-operation" target="_blank" rel="noopener">developer.taptap.cn/docs/store/standardies-operation</a></p>
+</section>
+
+<!-- ===== 2. 创建游戏详情页 ===== -->
+<section id="stage2">
+  <h2>2. 创建游戏详情页</h2>
+
+  <h3>2.1 创建游戏项目</h3>
+  <p>在开发者中心点击「创建游戏」，填写以下核心信息：</p>
+
+  <ul>
+    <li><strong>游戏名称：</strong>需与软著登记名称一致（如已有软著），或使用拟定正式名称。名称不可含敏感词、不可与已有游戏重名。</li>
+    <li><strong>游戏包名（Android）：</strong>提交后不可在后台自助修改，需谨慎确认；确需变更时通过开发者中心工单申请，以平台审核结果为准。iOS Bundle ID 按对应平台规则管理。</li>
+    <li><strong>游戏分类：</strong>选择一级和二级分类，影响推荐曝光。</li>
+    <li><strong>游戏简介：</strong>简要介绍核心玩法与特色，建议将主要内容控制在前 50 字，以加深用户第一印象。</li>
+  </ul>
+
+  <h3>2.2 页面物料准备清单</h3>
+
+  <table>
+    <thead>
+      <tr>
+        <th>物料类型</th>
+        <th>规格要求</th>
+        <th>文件大小限制</th>
+        <th>数量要求</th>
+        <th>备注</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>游戏 ICON</strong></td>
+        <td>512×512 px，PNG/JPG，请直接上传直角方图，勿自行裁切圆角</td>
+        <td>官方公开物料要求未列出文件体积限制，以上传控件实际校验为准</td>
+        <td>1 张（必需）</td>
+        <td>建议简洁醒目，小尺寸下可辨识</td>
+      </tr>
+      <tr>
+        <td><strong>游戏截图</strong></td>
+        <td>横版 1280×720px 及以上（16:9，宽高比 8:3~8:5），竖版 720×1280px 及以上（9:16，宽高比 3:8~5:8），PNG/JPG；所有截图方向须一致</td>
+        <td>建议 ≤ 1 MB / 张</td>
+        <td>至少 3 张</td>
+        <td>展示核心玩法界面，不含其他平台水印<br>须有实机核心玩法内容，实机画面至少占 50%；概念/广告类图片至多 2 张</td>
+      </tr>
+      <tr>
+        <td><strong>实机录屏</strong></td>
+        <td>MP4 格式，视频长度 &gt; 15 秒且 ≤ 30 分钟</td>
+        <td>≤ 500 MB</td>
+        <td>下载/试玩必填</td>
+        <td>前 5 秒展示核心玩法+连续录制超 10 秒；勿加配音字幕；勿含其他平台水印；录屏占比≥80%</td>
+      </tr>
+      <tr>
+        <td><strong>宣传图 16:9（详情页顶部图）</strong></td>
+        <td>1920×1080px（16:9），PNG/JPG</td>
+        <td>官方未规定上限</td>
+        <td>1 张（必填）</td>
+        <td>以游戏主要角色和 Logo 为核心，须展示清晰游戏名；除了游戏名外不含其他文字</td>
+      </tr>
+      <tr>
+        <td><strong>宣传图 1:1</strong></td>
+        <td>1440×1440px，PNG/JPG</td>
+        <td>官方未规定上限</td>
+        <td>1 张（上传竖版实机录屏时必填）</td>
+        <td>竖版录屏封面图，主体内容与 16:9 保持统一；若上传横版录屏则无需提供</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>2.3 合规信息与阶段闸门</h3>
+  <p>创建页面和开放预约阶段仅提供信息展示与预约功能。各阶段应准备并提交以下合规信息：</p>
+
+  <ul>
+    <li><strong>页面 / 预约：</strong>填写真实的游戏名称、主体、联系方式和页面物料；中国大陆地区仅做预约和信息展示时可暂不提交版号，也无需上传 APK。</li>
+    <li><strong>联网包体测试 / 下载：</strong>在提供包体前完成工信部 APP 备案，并准确填写备案编号、主办单位等信息；APP 名称、图标、包名和主体须与备案信息一致。</li>
+    <li><strong>防沉迷与隐私：</strong>提供网络游戏包体测试或下载前，完成实名认证、防沉迷接入及视频证明，并配置可直接访问且内容真实的游戏隐私政策；取得同意前不得初始化会收集个人信息的 SDK。</li>
+    <li><strong>适龄提示：</strong>按平台和主管部门规范标注 8+ / 12+ / 16+，并在游戏显著位置展示。</li>
+    <li><strong>计费 / 正式上线：</strong>按联网、内购等实际形态提交版号、软著或完整授权链、APP 备案、防沉迷和隐私材料；无版号不得开放任何付费、内购或变相计费。</li>
+  </ul>
+
+  <div class="callout warn">
+    <p><strong>无版号联网测试的特殊路径：</strong>申请 TapTap《测试游戏 APP 备案辅助证明》需使用 <code>game.taptap.XXX</code> 专用包名，以「XXX（TapTap测试版）」命名，合作期内 Android 仅在 TapTap 分发，并提交电子协议、承诺、维权授权和软著等材料。申请结果以平台审核为准。</p>
+  </div>
+
+  <div class="callout warn">
+    <p><strong>版号提示：</strong>如果游戏尚未获得版号，在填写「文号/版号」栏位时可选择「暂无」或留空。但请注意：无版号的游戏<strong>不得开放内购计费</strong>，预约和免费测试不受此限制。</p>
+  </div>
+
+  <h3>2.4 提交审核</h3>
+  <p>所有信息填写完毕、物料上传齐全后，点击「提交审核」。首次新建版本预计通常需要 <strong>1-3 天</strong>，游戏物料和资质审核一般需要 <strong>5-7 天</strong>。请为补件和复审预留时间，并以后台审核状态为准。</p>
+
+  <div class="callout">
+    <p><strong>常见驳回原因：</strong>ICON 含诱导点击元素、截图包含其他平台水印、游戏名称与软著不一致、隐私政策链接无效或内容为空、分类选择错误。</p>
+  </div>
+
+  <p style="margin-top: 16px;"><strong>📎 官方参考：</strong><br>物料要求 → <a href="https://developer.taptap.cn/docs/store/release/publish/material" target="_blank" rel="noopener">developer.taptap.cn/docs/store/release/publish/material</a><br>游戏上架规范 → <a href="https://developer.taptap.cn/docs/store/release/publish/" target="_blank" rel="noopener">developer.taptap.cn/docs/store/release/publish/</a></p>
+</section>
+
+<!-- ===== 3. 开放预约 ===== -->
+<section id="stage3">
+  <h2>3. 开放预约</h2>
+
+  <h3>3.1 预约功能开启</h3>
+  <p>在开发者中心 → 游戏管理 → 选择目标游戏 →「预约设置」中开启预约状态。开启后，TapTap 用户可在游戏详情页点击「预约」按钮。</p>
+
+  <h3>3.2 预约里程碑奖励</h3>
+  <p>可在开发者中心配置预约里程碑，激励用户传播：</p>
+
+  <ul>
+    <li><strong>档位数量：</strong>最多设置 <strong>3 档</strong>（如 5 万 / 10 万 / 20 万预约）。</li>
+    <li><strong>奖励内容：</strong>可选游戏内道具、限定皮肤、头像框等虚拟奖励。需明确标注奖励内容和发放方式。</li>
+    <li><strong>关键规则：</strong>里程碑发布后不能自助修改，请谨慎规划；若配置错误或发生不可抗力，应先在社区发布变更公告，再通过开发者中心工单申请处理。</li>
+  </ul>
+
+  <div class="callout warn">
+    <p><strong>重要限制：</strong>预约里程碑发布后原则上锁定，不能在后台自行修改。确需变更时按官方手册先公告说明，再提交工单；是否允许调整以平台审核结果为准。</p>
+  </div>
+
+  <h3>3.3 预约期运营</h3>
+
+  <table>
+    <thead>
+      <tr>
+        <th>运营手段</th>
+        <th>说明</th>
+        <th>时效</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>社区内容运营</strong></td>
+        <td>在游戏社区板块发布开发日志、角色介绍、世界观文章等</td>
+        <td>持续进行</td>
+      </tr>
+      <tr>
+        <td><strong>开发者的话</strong></td>
+        <td>游戏详情页展示开发团队给玩家的信，建立情感连接</td>
+        <td>预约期全程</td>
+      </tr>
+      <tr>
+        <td><strong>预约活动</strong></td>
+        <td>预约抽奖、分享有礼等裂变活动，提升预约转化</td>
+        <td>测试前 2-4 周高频</td>
+      </tr>
+      <tr>
+        <td><strong>预约推送</strong></td>
+        <td>通过 TapTap 推送通知能力触达已预约用户，通知测试/上线</td>
+        <td>测试开启前 1-3 天</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>3.4 预约期合规</h3>
+  <p>预约阶段<strong>暂不需要版号</strong>，但需保证：</p>
+  <ul>
+    <li>页面展示信息真实准确，不虚假宣传</li>
+    <li>隐私政策 URL 有效可访问</li>
+    <li>APP 备案号（如有）正确展示</li>
+    <li>不包含任何内购/付费入口（无版号情况下）</li>
+  </ul>
+
+  <p style="margin-top: 16px;"><strong>📎 官方参考：</strong><br>预约首曝期运营手册 → <a href="https://developer.taptap.cn/docs/store/operation/teaser/reserve-handbook/" target="_blank" rel="noopener">developer.taptap.cn/docs/store/operation/teaser/reserve-handbook/</a><br>预约里程碑规则（含 3 档上限、不可修改等限制） → <a href="https://developer.taptap.cn/docs/en/store/operation/teaser/reserve-handbook/" target="_blank" rel="noopener">developer.taptap.cn/docs/en/store/operation/teaser/reserve-handbook/</a></p>
+</section>
+
+<!-- ===== 4. 测试阶段 ===== -->
+<section id="stage4">
+  <h2>4. 测试阶段</h2>
+
+  <h3>4.1 测试类型总览</h3>
+
+  <table>
+    <thead>
+      <tr>
+        <th>测试类型</th>
+        <th>可见范围</th>
+        <th>是否需要资格</th>
+        <th>适用阶段 / 人数上限</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>内部测试</strong></td>
+        <td>仅开发者添加的白名单账号</td>
+        <td>是，白名单制</td>
+        <td>开发早期，仅限 100 人；需接入 TapTap 登录 SDK</td>
+      </tr>
+      <tr>
+        <td><strong>早期玩法测试（篝火测试）</strong></td>
+        <td>仅首页推荐或站内投放来源用户可参与；无法通过搜索或链接直接访问，非测试用户访问时页面显示 404</td>
+        <td>是，需领取或获得测试资格；不显示 TapTap 评分</td>
+        <td>用于早期核心玩法验证，保密性和随机性较强；开启前需接入 TapTap 登录并启用“仅有测试资格可登录游戏”，同时创建封闭式测试计划</td>
+      </tr>
+      <tr>
+        <td><strong>常规封闭式测试（限量）</strong></td>
+        <td>通过招募/申请/先到先得筛选的玩家</td>
+        <td>是，需获得资格</td>
+        <td>中期测试，收集核心用户反馈；S 50 万 / A 10 万 / B 5 万 / C 1 万 / D 不支持；S、A 级单轮时长不限制，B、C 级最长 30 天</td>
+      </tr>
+      <tr>
+        <td><strong>常规开放式测试（Android，删档）</strong></td>
+        <td>Android 用户可见可下载</td>
+        <td>否，直接下载</td>
+        <td>正式上线前的 Android 大规模删档验证；当前不支持 iOS 开放式测试</td>
+      </tr>
+      <tr>
+        <td><strong>素材测试</strong></td>
+        <td>仅站内投放流量</td>
+        <td>—</td>
+        <td>测试 ICON、宣传片、Banner、截图等物料效果；需咨询 TapTap 工作人员</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout warn">
+    <p><strong>开放式测试说明：</strong>开放式测试用于正式上线前的 Android 删档测试。正式运营时应根据实际状态选择对应的发布阶段。</p>
+  </div>
+
+  <h3>4.2 数据存档方式</h3>
+
+  <table>
+    <thead>
+      <tr>
+        <th>存档方式</th>
+        <th>说明</th>
+        <th>适用场景</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>删档测试</strong></td>
+        <td>测试结束后清除所有玩家数据</td>
+        <td>玩法验证、数据调优、平衡性测试</td>
+      </tr>
+      <tr>
+        <td><strong>不删档测试</strong></td>
+        <td>测试数据保留至正式服</td>
+        <td>接近上线状态、需要积累初期用户数据</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>4.3 计费模式</h3>
+
+  <table>
+    <thead>
+      <tr>
+        <th>计费模式</th>
+        <th>资质要求</th>
+        <th>说明</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>免费测试（不计费）</strong></td>
+        <td>防沉迷 + 防沉迷视频证明 + 隐私政策 + 实名认证 + ICP 备案（联网游戏）</td>
+        <td>无版号不得计费。普通联网测试仍需完成 APP 备案；申请 TapTap 测试游戏备案辅助证明属于特定独家合作路径，须满足专用包名、命名、授权和协议等条件，并经平台审核</td>
+      </tr>
+      <tr>
+        <td><strong>付费测试（计费）</strong></td>
+        <td>版号（必需）+ 软著（必需）+ 防沉迷 + 防沉迷视频证明 + 实名 + 隐私政策 + ICP 备案（联网游戏）</td>
+        <td>含内购的测试，版号和软著均必须提供</td>
+      </tr>
+      <tr>
+        <td><strong>正式上线（含计费）</strong></td>
+        <td>版号 + 软著 + 防沉迷 + 防沉迷视频证明 + 实名 + 隐私政策 + ICP 备案 + 适龄提示</td>
+        <td>以「正式上线」状态运营的完整资质要求（出处：快速入门指南第5章）</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout warn">
+    <p><strong>⛔ 红线：</strong>没有版号的游戏<strong>严禁以任何形式</strong>开放内购/计费功能，包括但不限于：直接充值、购买道具、订阅服务、通过第三方跳转支付等。违规将导致游戏下架及开发者账号处罚。</p>
+  </div>
+
+  <h3>4.4 测试包上传与审核</h3>
+
+  <div class="flow-steps">
+    <div class="flow-step">
+      <h4>1. 上传测试包</h4>
+      <p>在开发者中心 → 游戏管理 →「版本管理」→ 选择「测试版本」→ 上传 APK（Android）。iOS 封闭/篝火等受限测试可按对应文档填写 TestFlight 链接；Android 包需完成防沉迷接入。</p>
+    </div>
+    <div class="flow-step">
+      <h4>2. 配置测试参数</h4>
+      <p>设置测试类型（内部/封闭/公开）、测试人数上限、测试起止时间、是否需要资格审核、以及是否计费。</p>
+    </div>
+    <div class="flow-step">
+      <h4>3. 提交审核</h4>
+      <p>测试计划、游戏版本及资质分别提交审核。建议至少提前 72 小时准备状态切换；物料和资质审核一般需要 5-7 天。请留足补件时间，并以后台状态为准。</p>
+    </div>
+    <div class="flow-step">
+      <h4>4. 测试期管理</h4>
+      <p>测试期间可通过开发者中心查看下载量、活跃用户数、崩溃率等数据。社区板块收集玩家反馈，及时响应 Bug 报告。</p>
+    </div>
+  </div>
+
+  <div class="callout info">
+    <p><strong>iOS 测试特别说明：</strong>iOS 封闭式/篝火等受限测试通过 TestFlight 链接分发，开发者需先在 App Store Connect 配置对应测试。由于 TestFlight 公开链接人数限制，TapTap 当前不支持 iOS 开放式测试；Android 端通过 TapTap 下载 APK。</p>
+  </div>
+
+  <h3>4.5 测试阶段合规要求</h3>
+  <ul>
+    <li><strong>防沉迷：</strong>所有测试（含免费测试）必须接入国家统一防沉迷实名认证系统，并提交防沉迷接入视频证明。</li>
+    <li><strong>隐私政策：</strong>游戏内需展示隐私政策入口，且在 TapTap 页面配置有效链接。</li>
+    <li><strong>SDK 合规：</strong>接入的第三方 SDK（广告、统计等）需在隐私政策中披露。</li>
+    <li><strong>计费合规：</strong>付费测试必须提供游戏版号 + 软著双证。任何形式的计费（含内购、付费下载、订阅）均需版号和软著。</li>
+    <li><strong>无版号联网测试：</strong>普通项目仍需完成 APP 备案；平台备案辅助证明仅面向满足专用包名、TapTap 独家 Android 分发、协议和权利材料等要求的特定合作项目，须单独申请审核。</li>
+  </ul>
+
+  <p style="margin-top: 16px;"><strong>📎 官方参考：</strong><br>测试能力总览（4种测试类型说明）→ <a href="https://developer.taptap.cn/docs/store/operation/test/test-skills/support" target="_blank" rel="noopener">developer.taptap.cn/docs/store/operation/test/test-skills/support</a><br>封闭式测试详解 → <a href="https://developer.taptap.cn/docs/store/operation/test/test-skills/closedbetatest/" target="_blank" rel="noopener">developer.taptap.cn/docs/store/operation/test/test-skills/closedbetatest/</a><br>篝火测试（早期玩法测试）→ <a href="https://developer.taptap.cn/docs/store/operation/test/test-skills/gameplaytest" target="_blank" rel="noopener">developer.taptap.cn/docs/store/operation/test/test-skills/gameplaytest</a><br>安全合规指南（版号/防沉迷/ICP/适龄分级）→ <a href="https://developer.taptap.cn/docs/store/release/policy/policy-guide" target="_blank" rel="noopener">developer.taptap.cn/docs/store/release/policy/policy-guide</a></p>
+</section>
+
+<!-- ===== 5. 正式公测/上线 ===== -->
+<section id="stage5">
+  <h2>5. 正式公测 / 上线</h2>
+
+  <h3>5.1 上线前资质总检查</h3>
+
+  <div class="stage-card s5">
+    <h3>资质文件清单（全部必备）</h3>
+    <ul class="checklist">
+      <li class="done">国家新闻出版署核发的<strong>网络游戏出版物号（版号）</strong></li>
+      <li class="done">国家版权局核发的<strong>计算机软件著作权登记证书（软著）</strong></li>
+      <li class="done"><strong>APP 备案编号</strong>（工信部 APP 备案系统完成备案；联网游戏分发前必需，且不同于网站 ICP 备案号）</li>
+      <li class="done"><strong>防沉迷系统接入证明</strong>（含接入视频证明，国家统一实名认证系统）</li>
+      <li class="done"><strong>隐私政策</strong>（游戏内 + TapTap 页面的有效链接）</li>
+      <li class="done"><strong>适龄提示</strong>（8+ / 12+ / 16+ 分级标注）</li>
+    </ul>
+  </div>
+
+  <h3>5.2 正式包上传</h3>
+  <p>在版本管理中选择「正式版本」，上传正式 APK（Android）包。需确保：</p>
+  <ul>
+    <li>包名与创建游戏时填写的一致</li>
+    <li>已接入防沉迷 SDK（如使用 TapTap 防沉迷 SDK 需确认版本最新）</li>
+    <li>包内不含测试环境配置、调试开关等</li>
+    <li>iOS 侧同步在 App Store Connect 提交审核</li>
+  </ul>
+
+  <h3>5.3 发布操作流程</h3>
+
+  <div class="flow-steps">
+    <div class="flow-step">
+      <h4>1. 上传正式包并通过审核</h4>
+      <p>首次新建版本公开指引预计通常为 1-3 天；物料和资质提审一般为 5-7 天。排期应分别预留时间，具体以后台审核状态为准。</p>
+    </div>
+    <div class="flow-step">
+      <h4>2. 配置「正式上线」状态</h4>
+      <p>在游戏管理中将游戏状态切换为「正式上线」。</p>
+    </div>
+    <div class="flow-step">
+      <h4>3. 推送通知激活预约用户</h4>
+      <p>通过 TapTap 推送能力向所有已预约用户发送上线通知，引导下载。</p>
+    </div>
+    <div class="flow-step">
+      <h4>4. 上线后数据监控</h4>
+      <p>关注下载量、活跃、留存、付费等核心指标，及时处理社区反馈和 Bug 报告。</p>
+    </div>
+  </div>
+
+  <h3>5.4 运营工具</h3>
+
+  <table>
+    <thead>
+      <tr>
+        <th>工具</th>
+        <th>功能</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>数据后台</strong></td>
+        <td>下载量、活跃用户数、收入、留存率、崩溃率等核心数据</td>
+      </tr>
+      <tr>
+        <td><strong>社区管理</strong></td>
+        <td>发布公告、回复玩家、管理帖子、设置精华/置顶</td>
+      </tr>
+      <tr>
+        <td><strong>推送通知</strong></td>
+        <td>向已下载/已预约用户发送推送消息（活动、更新、修复通知）</td>
+      </tr>
+      <tr>
+        <td><strong>评分与评价管理</strong></td>
+        <td>查看玩家评分和评价详情，回复评价</td>
+      </tr>
+      <tr>
+        <td><strong>TDS（TapTap 开发者服务）</strong></td>
+        <td>防沉迷 SDK、内嵌动态、好友系统、实时语音等组件</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="margin-top: 16px;"><strong>📎 官方参考：</strong><br>开发者快速入门指南（含资质对照）→ <a href="https://developer.taptap.cn/docs/store/standardies-operation" target="_blank" rel="noopener">developer.taptap.cn/docs/store/standardies-operation</a><br>TDS 开发者服务（SDK、登录、防沉迷等）→ <a href="https://developer.taptap.cn/docs/sdk/" target="_blank" rel="noopener">developer.taptap.cn/docs/sdk/</a></p>
+</section>
+
+<!-- ===== 资质速查表 ===== -->
+<section id="qual">
+  <h2>各阶段资质需求速查表</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>产品能力 / 阶段</th>
+        <th>平台公开口径下的主要材料</th>
+        <th>可申请状态 / 说明</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>开发者认证</strong></td>
+        <td>个人身份证明；或企业营业执照、统一社会信用代码、平台认证公函和联系人等</td>
+        <td>认证开发者。注册开发者无需审核，但仅可创建创意工坊类游戏</td>
+      </tr>
+      <tr>
+        <td><strong>仅页面 / 预约</strong></td>
+        <td>真实的游戏资料、页面物料和权属信息；中国大陆预约阶段可暂不提交版号</td>
+        <td>不上传 APK，不代表已获准测试、下载或正式运营</td>
+      </tr>
+      <tr>
+        <td><strong>联网 + 无内购</strong></td>
+        <td>APP 备案、防沉迷认证及视频证明、隐私合规</td>
+        <td>开放试玩或经审核的免费测试；无版号不得出现任何计费</td>
+      </tr>
+      <tr>
+        <td><strong>联网 + 有内购</strong></td>
+        <td>版号、软著或完整授权链、APP 备案、防沉迷认证及视频证明、隐私合规</td>
+        <td>计费测试 / 正式上线</td>
+      </tr>
+      <tr>
+        <td><strong>不联网 + 无内购</strong></td>
+        <td>防沉迷认证及视频证明、隐私合规</td>
+        <td>开放试玩</td>
+      </tr>
+      <tr>
+        <td><strong>不联网 + 有内购</strong></td>
+        <td>版号、软著或完整授权链、防沉迷认证及视频证明、隐私合规</td>
+        <td>正式上线</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout info">
+    <p><strong>使用方法：</strong>先确认游戏是否联网、是否包含内购以及所处的平台阶段，再按页面、预约、测试或正式上线对应要求准备材料。涉及授权时需提交完整、真实、可追溯的授权链，并按后台字段和审核意见补充材料。</p>
+  </div>
+
+  <p style="margin-top: 16px;"><strong>📎 官方参考：</strong><br>资质审核规范（申请资质、类型及提交规范）→ <a href="https://developer.taptap.cn/docs/store/release/publish/" target="_blank" rel="noopener">developer.taptap.cn/docs/store/release/publish/</a><br>政策合规指南 → <a href="https://developer.taptap.cn/docs/store/release/policy/policy-guide" target="_blank" rel="noopener">developer.taptap.cn/docs/store/release/policy/policy-guide</a><br>测试游戏 APP 备案辅助证明申请 → <a href="https://developer.taptap.cn/docs/en/store/release/policy/filing-certificate/" target="_blank" rel="noopener">developer.taptap.cn/docs/en/store/release/policy/filing-certificate/</a><br>工信部 APP 备案通知 → <a href="https://www.gov.cn/zhengce/zhengceku/202308/content_6897341.htm" target="_blank" rel="noopener">中国政府网（工信部通知）</a></p>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section id="faq">
+  <h2>常见问题 FAQ</h2>
+
+  <div class="faq-item">
+    <h3>Q1：没有版号能在 TapTap 上线吗？</h3>
+    <p>可以预约和进行免费测试，但<strong>不能开放内购计费</strong>，也不能以「正式上线」状态运营。正式运营必须有版号。</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>Q2：预约里程碑设错了能改吗？</h3>
+    <p>发布后不能自助修改。若配置错误或发生不可抗力，应先发布变更公告，再通过开发者中心工单申请处理；最终以平台审核结果为准。</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>Q3：iOS 和 Android 可以分别上架吗？</h3>
+    <p>可以分别配置。TapTap 商店 Android 端上传 APK；iOS 受限测试可使用 TestFlight，iOS 正式上线仍需在 App Store Connect 提交审核。当前开放式测试仅支持 Android。</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>Q4：认证公函过期了怎么办？</h3>
+    <p>需重新下载最新模板、填写并加盖公章后上传。公函有效期为一年，建议在到期前 30 天提前更新，避免影响游戏运营。</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>Q5：审核被驳回最多的原因是什么？</h3>
+    <p>排名前三：① 游戏名称与软著不一致；② ICON/截图含其他平台水印或诱导性元素；③ 隐私政策链接无效或内容不全。</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>Q6：TapTap 的分成比例是多少？</h3>
+    <p>TapTap 平台<strong>不参与流水分成</strong>，游戏收益 100% 归开发者。具体结算安排以开发者后台和有效协议为准。</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>Q7：测试包和正式包有什么不同？</h3>
+    <p>测试包可选择测试类型、人数限制和资格审核，数据可设定为删档。正式包则面向所有用户开放，数据持久保留。两者在审核要求上也有区别：计费测试和正式包都需要版号+软著。</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>Q8：可以同时跑多个测试吗？</h3>
+    <p>需按测试类型判断：同一游戏同一时间只能有一个发布中的封闭或开放测试计划；内部测试最多开启一个，但可以与封闭/开放测试并存。结束当前发布计划后可创建新计划，人数不与已结束计划累计。</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>Q9：防沉迷 SDK 怎么接入？</h3>
+    <p>可使用 TapTap 提供的 TDS 防沉迷 SDK，或自行接入国家新闻出版署统一的实名认证系统。接入后需完成测试验证，确保实名认证和时长限制功能正常工作。</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>Q10：游戏页面审核和包审核是分开的吗？</h3>
+    <p>是的。页面/版本、物料资质和 APK 包体存在不同审核环节；页面可先用于预约，但提供下载前必须确保包体及该阶段所需资质均已审核通过。</p>
+  </div>
+
+  <p style="margin-top: 16px;"><strong>📎 官方参考：</strong><br>TapTap 开发者文档中心 → <a href="https://developer.taptap.cn/docs/" target="_blank" rel="noopener">developer.taptap.cn/docs/</a><br>TapTap 开发者后台 → <a href="https://developer.taptap.cn/" target="_blank" rel="noopener">developer.taptap.cn</a></p>
+</section>
+
+<!-- ===== 6. TapTap 资源置换与拓展政策 ===== -->
+<section id="rep">
+  <h2>6. TapTap 资源置换与拓展政策</h2>
+
+  <p>TapTap 平台虽不参与流水分成，但为开发者提供了丰富的<strong>资源置换和流量扶持</strong>机制。通过为 TapTap 贡献品牌曝光、用户增量和站内活跃度，开发者可换取等值的站内流量和广告资源，实现近乎零成本的获客增长。</p>
+
+  <h3>6.1 TapTap REP 资源置换平台</h3>
+
+  <p>TapTap REP（Resource Exchange Platform，资源置换平台）是 TapTap 为游戏厂商打造的官方流量运营平台。厂商只需上传能够为 TapTap 带来正面价值的资源，平台将自动化评估资源价值，发放对应的<strong>流量包 / 广告包 / 联合投放包</strong>。</p>
+
+  <div class="flow-steps">
+    <div class="flow-step">
+      <h4>1. 上传 TapTap 相关资源</h4>
+      <p>在 REP 后台提交品牌资源、效果资源、运营资源或联合投放素材授权。</p>
+    </div>
+    <div class="flow-step">
+      <h4>2. 平台自动化评估置换</h4>
+      <p>平台根据资源价值、营销效果、用户质量、站内活跃度等多维度评估，生成对应额度的流量/广告金。</p>
+    </div>
+    <div class="flow-step">
+      <h4>3. 使用资源获量增长</h4>
+      <p>使用流量包/广告包创建推荐计划或投放计划，在 TapTap 首页、搜索、信息流等资源位获得展现。</p>
+    </div>
+  </div>
+
+  <h3>6.2 四大可置换资源类型</h3>
+
+  <table>
+    <thead>
+      <tr>
+        <th>资源类型</th>
+        <th>具体内容</th>
+        <th>置换回报</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>品牌资源</strong></td>
+        <td>① 在抖音/快手/小红书/微博/bilibili 等平台发布带「TapTap」标记的内容<br>② 在游戏官网/新版本活动页挂载 TapTap 下载入口</td>
+        <td>根据品牌曝光价值发放流量包</td>
+      </tr>
+      <tr>
+        <td><strong>效果资源</strong></td>
+        <td>在官网/广告投放/内容发布时使用 REP 平台提供的<strong>效果下载链接/落地页链接</strong>，为 TapTap 带来有效新增用户</td>
+        <td>按有效用户数及价值计算，<strong>不设上限</strong></td>
+      </tr>
+      <tr>
+        <td><strong>运营资源</strong></td>
+        <td>在 TapTap 站内发布签到活动、论坛活动、抽奖活动等官方运营动作</td>
+        <td>根据活动曝光、参与人数、互动数据发放流量包</td>
+      </tr>
+      <tr>
+        <td><strong>联合投放</strong></td>
+        <td>将游戏软著授权给 TapTap，允许 TapTap 在站外买量时使用游戏相关素材</td>
+        <td>最高 <strong>12,000 元</strong>流量包奖励（按授权时长和游戏等级）</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>6.3 官网品牌挂件奖励等级</h3>
+
+  <p>在游戏官网挂载 TapTap 下载入口，审核通过后即可获得一次性流量奖励。奖励根据游戏站内数据分 5 个等级：</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>等级</th>
+        <th>游戏标准</th>
+        <th>唯一入口</th>
+        <th>主入口</th>
+        <th>渠道入口</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>LV1</strong></td>
+        <td>下载>100万 或 预约>70万；有编辑推荐tag</td>
+        <td>50,000 元</td>
+        <td>30,000 元</td>
+        <td>10,000 元</td>
+      </tr>
+      <tr>
+        <td><strong>LV2</strong></td>
+        <td>下载50-100万 或 预约30-70万；无处罚记录</td>
+        <td>20,000 元</td>
+        <td>10,000 元</td>
+        <td>3,000 元</td>
+      </tr>
+      <tr>
+        <td><strong>LV3</strong></td>
+        <td>下载10-50万 或 预约5-30万；无处罚记录</td>
+        <td>6,000 元</td>
+        <td>3,000 元</td>
+        <td>1,000 元</td>
+      </tr>
+      <tr>
+        <td><strong>LV4</strong></td>
+        <td>下载5千-10万 或 预约5千-5万；无处罚记录</td>
+        <td>2,000 元</td>
+        <td>1,000 元</td>
+        <td>500 元</td>
+      </tr>
+      <tr>
+        <td><strong>LV5</strong></td>
+        <td>下载&lt;5千 或 预约&lt;5千；或有处罚记录</td>
+        <td colspan="3">不予发放</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout info">
+    <p><strong>唯一入口说明：</strong>官网的网页版和移动端游戏下载入口<strong>有且仅有 TapTap 渠道</strong>时，按主入口发放第一笔奖励，持续挂载 30 天后补齐唯一入口剩余奖励。同一游戏仅可领取一次。</p>
+  </div>
+
+  <h3>6.4 软著授权站外发行奖励</h3>
+
+  <p>通过 REP 后台将游戏素材使用权授权给 TapTap，允许 TapTap 在站外买量时使用游戏素材。审核通过后按授权时长和对应游戏标签发放流量金：</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>授权时长</th>
+        <th>编辑推荐</th>
+        <th>独家 / 合作游戏</th>
+        <th>常规游戏</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>3-6 个月</td>
+        <td>2,000 元</td>
+        <td>1,000 元</td>
+        <td>500 元</td>
+      </tr>
+      <tr>
+        <td>6-12 个月</td>
+        <td>4,800 元</td>
+        <td>2,400 元</td>
+        <td>1,200 元</td>
+      </tr>
+      <tr>
+        <td>12 个月及以上</td>
+        <td>12,000 元</td>
+        <td>6,000 元</td>
+        <td>3,000 元</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>6.5 游戏标签与平台权益</h3>
+
+  <p>REP 收益页按游戏标签区分素材授权收益和使用权限：</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>游戏标签</th>
+        <th>定义</th>
+        <th>登录平台</th>
+        <th>素材授权</th>
+        <th>任务中心</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>编辑推荐</strong></td>
+        <td>有「编辑推荐」标签</td>
+        <td>✓</td>
+        <td>2,000~12,000 元</td>
+        <td>✓</td>
+      </tr>
+      <tr>
+        <td><strong>独家游戏 / 合作游戏</strong></td>
+        <td>有「TapTap 独家」标签或重点合作游戏</td>
+        <td>✓</td>
+        <td>1,000~6,000 元</td>
+        <td>✓</td>
+      </tr>
+      <tr>
+        <td><strong>常规游戏</strong></td>
+        <td>正常运营且不展示特殊标签的游戏</td>
+        <td>✓</td>
+        <td>500~3,000 元</td>
+        <td>✓</td>
+      </tr>
+      <tr>
+        <td><strong>违规游戏</strong></td>
+        <td>严重违规或平台不支持分发的游戏</td>
+        <td>✓</td>
+        <td colspan="2">不开放 TapTap REP 使用</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>6.6 任务中心与厂商信用扶持</h3>
+
+  <ul>
+    <li><strong>任务中心：</strong>包括新手任务、每月任务和合作任务。具体条件及奖励以 REP 后台展示为准；奖励仅限在 REP 平台使用，不能转让或提现。</li>
+    <li><strong>厂商信用等级：</strong>采用 S/A/B/C/D 分级，并与游戏标签分别管理。新入驻或经营时间较短的厂商通常从 C 级起步，等级由产品、运营、口碑和合规记录综合评定。</li>
+    <li><strong>冷启动扶持：</strong>面向已开通 REP 的 S/A 级厂商；首次预约或首次下载可分别获得 30,000 / 10,000 次首页曝光，实际资格以 REP 后台为准。</li>
+    <li><strong>优质厂商下载里程碑：</strong>S/A 级厂商达到 10 万、100 万、500 万下载时，可分别获得 1,000、10,000、20,000 元流量金；奖励在政策有效期内首次达到对应阶梯时发放。</li>
+  </ul>
+
+  <h3>6.7 独家游戏下载里程碑（2026-06-11 起）</h3>
+
+  <p>游戏在 TapTap 独家合作期间首次达到下载里程碑后，系统于 T+1 发放对应流量金。预约游戏不参与，奖励仅适用于政策生效后首次达到的阶梯。</p>
+
+  <table>
+    <thead>
+      <tr><th>累计下载量里程碑</th><th>奖励金额</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>≥ 1 万</td><td>5,000 元</td></tr>
+      <tr><td>≥ 10 万</td><td>10,000 元</td></tr>
+      <tr><td>≥ 100 万</td><td>50,000 元</td></tr>
+      <tr><td>≥ 500 万</td><td>100,000 元</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout warn">
+    <p><strong>动态政策：</strong>REP 的标签、信用等级、任务和奖励会调整。执行前必须以 REP 后台、当期规则和已签合作协议为准；本节最后核验于 2026-07-29。</p>
+  </div>
+
+  <p style="margin-top: 16px;"><strong>📎 官方参考：</strong><br>TapTap REP 资源置换平台 → <a href="https://rep.taptap.cn/" target="_blank" rel="noopener">rep.taptap.cn</a><br>REP 服务协议 → <a href="https://rep.taptap.cn/agreement" target="_blank" rel="noopener">rep.taptap.cn/agreement</a><br>REP 收益说明 → <a href="https://rep.taptap.cn/docs/taprep-income" target="_blank" rel="noopener">rep.taptap.cn/docs/taprep-income</a><br>任务中心 → <a href="https://rep.taptap.cn/docs/taprep-task" target="_blank" rel="noopener">rep.taptap.cn/docs/taprep-task</a><br>厂商信用等级与扶持 → <a href="https://rep.taptap.cn/docs/taprep-dev-level" target="_blank" rel="noopener">rep.taptap.cn/docs/taprep-dev-level</a><br>独家游戏下载里程碑 → <a href="https://rep.taptap.cn/docs/taprep-milestone" target="_blank" rel="noopener">rep.taptap.cn/docs/taprep-milestone</a></p>
+</section>
+
+</div><!-- .doc-body -->
+
+</main>
+
+<!-- FOOTER -->
+
+
+    <footer id="contact" class="footer">
+      <div>© 2026 HEYHONG / CHUIST</div>
+      <a href="mailto:hong@heyhong.net">hong@heyhong.net</a>
+    </footer>
+  </body>
+</html>
