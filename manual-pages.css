@@ -1,5 +1,5 @@
 :root {
-  --manual-max: 1120px;
+  --manual-max: var(--container-max);
 }
 
 .manual-page {
@@ -90,15 +90,17 @@
   width: min(100%, calc(var(--manual-max) + var(--container-pad) * 2));
   max-width: none;
   margin: 0 auto;
-  padding: clamp(54px, 6vw, 78px) var(--container-pad) clamp(38px, 4.5vw, 58px);
+  padding: clamp(46px, 4vw, 58px) var(--container-pad) 28px;
   border: 0;
   background: transparent;
   box-shadow: none;
   text-align: left;
 }
 
-.manual-page .manual-document > .doc-cover {
-  width: auto;
+.manual-page .manual-document > .doc-cover,
+.manual-page .doc-shell > .doc-cover {
+  width: calc(100% + var(--container-pad) * 2);
+  max-width: none;
   margin-inline: calc(var(--container-pad) * -1);
 }
 
@@ -134,6 +136,7 @@
 .manual-page .doc-cover .doc-hero-tags,
 .manual-page .doc-cover .badge-row {
   margin-top: 20px;
+  margin-bottom: 0;
 }
 
 .manual-page .doc-cover .doc-hero-tags,
@@ -168,8 +171,8 @@
   align-items: center;
   gap: 8px;
   width: min(100%, calc(var(--manual-max) + var(--container-pad) * 2));
-  margin: 0 auto clamp(24px, 4vw, 44px);
-  padding: 11px var(--container-pad);
+  margin: 0 auto clamp(18px, 2vw, 24px);
+  padding: 9px var(--container-pad);
   overflow-x: auto;
   background: color-mix(in srgb, var(--bg) 92%, transparent);
   backdrop-filter: blur(16px);
@@ -208,9 +211,15 @@
   color: var(--text);
 }
 
+.manual-page .manual-document > .manual-subnav,
+.manual-page .doc-shell > .manual-subnav {
+  width: auto;
+  margin-inline: calc(var(--container-pad) * -1);
+}
+
 .manual-page .doc-body {
   width: 100%;
-  max-width: var(--manual-max);
+  max-width: calc(var(--manual-max) + var(--container-pad) * 2);
   margin-inline: auto;
   padding-bottom: clamp(72px, 9vw, 118px);
   color: var(--text);
@@ -221,8 +230,22 @@
   scroll-margin-top: 142px;
 }
 
+.manual-page .doc-body > section:not(.doc-cover),
+.manual-page .manual-document > section:not(.doc-cover) {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.manual-page .manual-subnav + section > h2:first-child,
+.manual-page .manual-subnav + .doc-shell .doc-body > section:first-child > h2:first-child,
+.manual-page .doc-body > section:first-child > h2:first-child {
+  margin-top: 0;
+}
+
 .manual-page .doc-body h2 {
-  margin: clamp(44px, 6vw, 70px) 0 18px;
+  display: block;
+  margin: clamp(38px, 4vw, 48px) 0 18px;
   padding: 0;
   border: 0;
   color: var(--text);
@@ -287,8 +310,8 @@
   }
 
   .manual-page .doc-cover {
-    padding-top: 38px;
-    padding-bottom: 30px;
+    padding-top: 36px;
+    padding-bottom: 24px;
   }
 
   .manual-page .doc-cover h1 {
@@ -298,7 +321,7 @@
 
   .manual-subnav {
     top: 70px;
-    margin-bottom: 18px;
+    margin-bottom: 16px;
     padding-block: 9px;
   }
 
@@ -327,7 +350,7 @@
   }
 
   .manual-page .doc-body h2 {
-    margin-top: 42px;
+    margin-top: 34px;
     font-size: 27px;
   }
 
@@ -345,7 +368,17 @@
     padding-inline: 20px;
   }
 
-  .manual-page .manual-document > .doc-cover {
+  .manual-page .manual-document > .doc-cover,
+  .manual-page .doc-shell > .doc-cover {
+    width: calc(100% + 40px);
+    max-width: none !important;
+    margin-inline: -20px;
+  }
+
+  .manual-page .manual-document > .manual-subnav,
+  .manual-page .doc-shell > .manual-subnav {
+    width: calc(100% + 40px);
+    max-width: none !important;
     margin-inline: -20px;
   }
 
