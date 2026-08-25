@@ -1,0 +1,69 @@
+:root {
+  color-scheme: light dark;
+  --bg: #f4f8fb;
+  --surface: rgba(255, 255, 255, 0.84);
+  --text: #132130;
+  --muted: #5d6b78;
+  --line: rgba(44, 73, 96, 0.14);
+  --blue: #0787f9;
+  --cyan: #12bfd1;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang SC", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 15% 5%, rgba(18, 191, 209, 0.18), transparent 30rem),
+    radial-gradient(circle at 90% 0%, rgba(7, 135, 249, 0.16), transparent 34rem),
+    var(--bg);
+  line-height: 1.72;
+}
+
+main {
+  width: min(880px, calc(100% - 32px));
+  margin: 48px auto;
+  padding: clamp(28px, 5vw, 64px);
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  background: var(--surface);
+  box-shadow: 0 24px 80px rgba(27, 72, 105, 0.12);
+  backdrop-filter: blur(24px);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 760;
+  letter-spacing: -0.02em;
+}
+
+.mark {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 13px;
+  color: white;
+  background: linear-gradient(145deg, var(--blue), var(--cyan));
+  box-shadow: 0 8px 22px rgba(7, 135, 249, 0.24);
+}
+
+h1 { margin: 34px 0 8px; font-size: clamp(34px, 6vw, 58px); line-height: 1.08; letter-spacing: -0.045em; }
+h2 { margin: 38px 0 10px; font-size: 22px; line-height: 1.3; }
+p, li { color: var(--muted); }
+a { color: var(--blue); }
+.meta { margin: 0 0 28px; color: var(--muted); font-size: 14px; }
+.lead { font-size: 19px; color: var(--text); }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+.button { display: inline-flex; padding: 11px 16px; border-radius: 999px; text-decoration: none; font-weight: 650; background: var(--blue); color: white; }
+.button.secondary { color: var(--text); background: rgba(7, 135, 249, 0.1); }
+footer { margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; }
+
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #0c141c; --surface: rgba(22, 32, 42, 0.88); --text: #edf6fc; --muted: #afbfcb; --line: rgba(197, 225, 244, 0.14); }
+}
