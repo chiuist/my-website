@@ -116,7 +116,10 @@ h1 {
   letter-spacing: -0.06em;
 }
 
-.hero h1 { white-space: nowrap; }
+.hero h1 {
+  font-size: clamp(48px, 5.75vw, 74px);
+  white-space: nowrap;
+}
 
 .hero .lead {
   margin: 28px 0 0;
@@ -426,7 +429,8 @@ body.legal footer { margin-top: 46px; color: var(--faint); font-size: 13px; }
 
   .site-header { min-height: 72px; }
   .site-header nav { gap: 16px; }
-  h1 { font-size: clamp(38px, 11.3vw, 50px); }
+  h1,
+  .hero h1 { font-size: clamp(38px, 11.3vw, 50px); }
   .hero { min-height: auto; }
   .hero .lead br { display: none; }
   .hero-actions { flex-direction: column; }
