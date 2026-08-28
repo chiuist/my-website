@@ -12,6 +12,13 @@ const sha256 = bytes => createHash("sha256").update(bytes).digest("hex");
 const repoFile = name => readFileSync(new URL("../" + name, import.meta.url));
 const expectedDmg = "e5142bdcff328d49bda92298fece037277fdb9385696d07ea1457391436b56d6";
 
+function assertHtml(actual, expected) {
+  // Cloudflare Web Analytics can append this edge-managed beacon to HTML.
+  // Ignore only that observed script; asset/DMG byte comparisons stay exact.
+  const content = actual.toString().replace(/<script\b(?=[^>]*\bsrc="https:\/\/static\.cloudflareinsights\.com\/beacon\.min\.js(?:\/[^\"]*)?")(?=[^>]*\bdata-cf-beacon=)[^>]*><\/script>\n?/g, "");
+  assert.equal(content, expected.toString());
+}
+
 function request(url, headers = {}, method = "GET") {
   const target = new URL(url);
   return new Promise((resolve, reject) => {
@@ -47,7 +54,7 @@ async function follow(url) {
 const home = await follow(product + "/");
 assert.equal(home.status, 200);
 assert.equal(home.url, product + "/");
-assert.equal(sha256(home.body), sha256(repoFile("dropedge/index.html")));
+assertHtml(home.body, repoFile("dropedge/index.html"));
 const html = home.body.toString();
 const href = html.match(/class="button primary" href="([^"]+)"/)[1];
 const actualDownload = new URL(href, home.url).href;
@@ -59,7 +66,7 @@ for (const pathname of ["privacy", "support"]) {
     const response = await follow(product + "/" + pathname + suffix + "?ref=qa");
     assert.equal(response.status, 200);
     assert.equal(response.url, product + "/" + pathname + "?ref=qa");
-    assert.equal(sha256(response.body), sha256(repoFile(`dropedge/${pathname}.html`)));
+    assertHtml(response.body, repoFile(`dropedge/${pathname}.html`));
   }
   console.log("PASS legal page aliases and canonical redirect:", pathname);
 }
@@ -107,7 +114,7 @@ for (const host of ["chiuist.com", "www.chiuist.com", "heyhong.net", "www.heyhon
   }
   const root = await request(`https://${host}/`);
   assert.equal(root.status, 200);
-  assert.equal(sha256(root.body), sha256(repoFile("index.html")));
+  assertHtml(root.body, repoFile("index.html"));
   console.log("PASS legacy redirects and unchanged personal homepage:", host);
 }
 
@@ -122,7 +129,8 @@ for (const pathname of ["articles", "home.css", "article-pages.css", "cat-stars/
   assert([200, 307].includes(response.status), pathname);
   if (response.status === 200) {
     const source = pathname === "articles" ? "articles.html" : pathname;
-    assert.equal(sha256(response.body), sha256(repoFile(source)));
+    if (source.endsWith(".html")) assertHtml(response.body, repoFile(source));
+    else assert.equal(sha256(response.body), sha256(repoFile(source)));
   }
   console.log("PASS existing page:", pathname);
 }
