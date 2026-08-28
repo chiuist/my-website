@@ -1,0 +1,11 @@
+# The repository root is the asset directory; never publish runtime/test files.
+/worker.mjs
+/wrangler.jsonc
+/tests/
+/.git/
+/.github/
+/.wrangler/
+/.playwright-cli/
+/node_modules/
+/package.json
+/package-lock.json
