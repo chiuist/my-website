@@ -1,11 +1,6 @@
 const body = document.body;
 const menuToggle = document.querySelector("[data-menu-toggle]");
 const mobileMenu = document.querySelector("[data-mobile-menu]");
-const dialog = document.querySelector("[data-product-dialog]");
-const dialogTitle = document.querySelector("[data-dialog-title]");
-const dialogSummary = document.querySelector("[data-dialog-summary]");
-const dialogFocus = document.querySelector("[data-dialog-focus]");
-const dialogClose = document.querySelector("[data-dialog-close]");
 const header = document.querySelector("[data-header]");
 const heroVisual = document.querySelector(".hero-visual");
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -38,22 +33,6 @@ window.addEventListener("resize", () => {
   if (window.innerWidth > 820 && menuToggle?.getAttribute("aria-expanded") === "true") {
     setMenu(false);
   }
-});
-
-document.querySelectorAll("[data-product]").forEach((button) => {
-  button.addEventListener("click", () => {
-    dialogTitle.textContent = button.dataset.product;
-    dialogSummary.textContent = button.dataset.summary;
-    dialogFocus.textContent = button.dataset.focus;
-    dialog.showModal();
-    dialogClose.focus();
-  });
-});
-
-dialogClose?.addEventListener("click", () => dialog.close());
-
-dialog?.addEventListener("click", (event) => {
-  if (event.target === dialog) dialog.close();
 });
 
 const revealElements = document.querySelectorAll("[data-reveal]");
