@@ -7,6 +7,11 @@ const LEGACY_HOSTS = new Set([
   "heyhong.net",
   "www.heyhong.net",
 ]);
+const ENGLISH_PAGE_ASSETS = new Map([
+  ["/", `${DROPEDGE_PREFIX}/en/`],
+  ["/privacy", `${DROPEDGE_PREFIX}/en/privacy`],
+  ["/support", `${DROPEDGE_PREFIX}/en/support`],
+]);
 
 function isDropEdgePath(pathname) {
   return pathname === DROPEDGE_PREFIX || pathname.startsWith(`${DROPEDGE_PREFIX}/`);
@@ -22,6 +27,26 @@ function redirectToDropEdge(pathname, search) {
   target.pathname = pathname;
   target.search = search;
   return Response.redirect(target.href, 308);
+}
+
+function preferredLanguage(request) {
+  const firstPreference = (request.headers.get("Accept-Language") || "")
+    .split(",", 1)[0]
+    .split(";", 1)[0]
+    .trim()
+    .toLowerCase();
+  return firstPreference === "zh" || firstPreference.startsWith("zh-") ? "zh-CN" : "en";
+}
+
+function withLanguageHeaders(response, language) {
+  const localized = new Response(response.body, response);
+  localized.headers.set("Content-Language", language);
+  const vary = localized.headers.get("Vary");
+  const fields = vary ? vary.split(",").map(field => field.trim().toLowerCase()) : [];
+  if (!fields.includes("accept-language")) {
+    localized.headers.set("Vary", vary ? `${vary}, Accept-Language` : "Accept-Language");
+  }
+  return localized;
 }
 
 export default {
@@ -40,8 +65,10 @@ export default {
       return redirectToDropEdge(url.pathname, url.search);
     }
 
+    const language = preferredLanguage(request);
+    const englishAsset = language === "en" ? ENGLISH_PAGE_ASSETS.get(url.pathname) : undefined;
     const assetUrl = new URL(url);
-    assetUrl.pathname = `${DROPEDGE_PREFIX}${url.pathname}`;
+    assetUrl.pathname = englishAsset || `${DROPEDGE_PREFIX}${url.pathname}`;
     // Keep method, conditional/range headers and the response body stream unchanged.
     const response = await env.ASSETS.fetch(new Request(assetUrl, request));
     const location = response.headers.get("Location");
@@ -58,6 +85,6 @@ export default {
       }
     }
 
-    return response;
+    return ENGLISH_PAGE_ASSETS.has(url.pathname) ? withLanguageHeaders(response, language) : response;
   },
 };
