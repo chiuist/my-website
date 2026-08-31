@@ -178,19 +178,25 @@ test("localized documents declare the expected language and equivalent public li
   }
 });
 
-test("homepage product cards link directly to the four App Store listings", () => {
+test("homepage product cards direct games to WeChat and Mac apps to the App Store", () => {
   const home = readFileSync(new URL("../index.html", import.meta.url), "utf8");
-  for (const [name, href, artwork] of [
-    ["猫咪扫雷", "https://apps.apple.com/us/app/cat-stars/id6775446731", "cat-stars.jpg"],
-    ["怪谈修复铺", "https://apps.apple.com/us/app/ghostlight-relics/id6777337695", "ghostlight-relics.jpg"],
-    ["SafeShot Lite", "https://apps.apple.com/us/app/safeshot-lite/id6780211041?mt=12", "safeshot-lite.png"],
-    ["DropEdge", "https://apps.apple.com/us/app/dropedge/id6804663387?mt=12", "dropedge.png"],
+  for (const [name, artwork] of [
+    ["猫咪扫雷", "cat-stars.jpg"],
+    ["怪谈修复铺", "ghostlight-relics.jpg"],
+    ["SafeShot Lite", "safeshot-lite.png"],
+    ["DropEdge", "dropedge.png"],
   ]) {
-    assert(home.includes(`href="${href}"`), `${name} App Store link is missing`);
     assert(home.includes(`assets/products/${artwork}`), `${name} artwork is missing`);
     assert(readFileSync(new URL(`../assets/products/${artwork}`, import.meta.url)).length > 0);
   }
-  assert.equal((home.match(/class="product-card"/g) || []).length, 4);
+  assert(!home.includes("https://apps.apple.com/us/app/cat-stars/id6775446731"));
+  assert(!home.includes("https://apps.apple.com/us/app/ghostlight-relics/id6777337695"));
+  assert(home.includes("微信搜索「猫咪扫雷」"));
+  assert(home.includes("微信搜索「怪谈修复铺」"));
+  assert(home.includes('href="https://apps.apple.com/us/app/safeshot-lite/id6780211041?mt=12"'));
+  assert(home.includes('href="https://apps.apple.com/us/app/dropedge/id6804663387?mt=12"'));
+  assert.equal((home.match(/class="product-card(?: |")/g) || []).length, 4);
+  assert.equal((home.match(/class="product-card product-card--static"/g) || []).length, 2);
   assert(!home.includes("data-product-dialog"));
   assert(!readFileSync(new URL("../home.js", import.meta.url), "utf8").includes("data-product"));
 });

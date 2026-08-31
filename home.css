@@ -625,12 +625,21 @@ img {
   transition: transform 180ms ease;
 }
 
-.product-card:hover .product-cover img,
+.product-action--wechat {
+  text-transform: none;
+}
+
+.product-action--wechat i {
+  color: #178a4b;
+  font-size: 19px;
+}
+
+.product-card:not(.product-card--static):hover .product-cover img,
 .product-card:focus-visible .product-cover img {
   transform: scale(1.035);
 }
 
-.product-card:hover .product-action i,
+.product-card:not(.product-card--static):hover .product-action i,
 .product-card:focus-visible .product-action i {
   transform: translate(3px, -3px);
 }
