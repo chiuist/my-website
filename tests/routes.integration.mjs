@@ -40,9 +40,9 @@ function request(url, headers = {}, method = "GET") {
   });
 }
 
-async function follow(url) {
+async function follow(url, headers = {}) {
   for (let redirects = 0; redirects < 6; redirects++) {
-    const response = await request(url);
+    const response = await request(url, headers);
     if (response.status >= 300 && response.status < 400 && response.headers.location) {
       url = new URL(response.headers.location, url).href;
       assert.equal(new URL(url).origin, product, "Redirect must stay on the product domain");
@@ -54,7 +54,9 @@ async function follow(url) {
 const home = await follow(product + "/");
 assert.equal(home.status, 200);
 assert.equal(home.url, product + "/");
-assertHtml(home.body, repoFile("dropedge/index.html"));
+assertHtml(home.body, repoFile("dropedge/en/index.html"));
+assert.equal(home.headers["content-language"], "en");
+assert.match(home.headers.vary, /accept-language/i);
 const html = home.body.toString();
 const href = html.match(/class="button primary" href="([^"]+)"/)[1];
 const actualDownload = new URL(href, home.url).href;
@@ -66,9 +68,27 @@ for (const pathname of ["privacy", "support"]) {
     const response = await follow(product + "/" + pathname + suffix + "?ref=qa");
     assert.equal(response.status, 200);
     assert.equal(response.url, product + "/" + pathname + "?ref=qa");
-    assertHtml(response.body, repoFile(`dropedge/${pathname}.html`));
+    assertHtml(response.body, repoFile(`dropedge/en/${pathname}.html`));
+    assert.equal(response.headers["content-language"], "en");
   }
   console.log("PASS legal page aliases and canonical redirect:", pathname);
+}
+
+for (const [acceptLanguage, language, directory] of [
+  ["en-US,en;q=0.9", "en", "en/"],
+  ["fr-FR,fr;q=0.9,zh;q=0.8", "en", "en/"],
+  ["ja-JP,zh-CN;q=0.9", "en", "en/"],
+  ["zh-CN,zh;q=0.9,en;q=0.8", "zh-CN", ""],
+  ["zh-Hant-TW,zh;q=0.9", "zh-CN", ""],
+]) {
+  for (const [pathname, filename] of [["/", "index.html"], ["/privacy", "privacy.html"], ["/support", "support.html"]]) {
+    const response = await follow(product + pathname + "?lang-test=1", { "Accept-Language": acceptLanguage });
+    assert.equal(response.status, 200);
+    assert.equal(response.headers["content-language"], language);
+    assert.match(response.headers.vary, /accept-language/i);
+    assertHtml(response.body, repoFile(`dropedge/${directory}${filename}`));
+  }
+  console.log("PASS browser language:", acceptLanguage, "=>", language);
 }
 
 for (const pathname of ["styles.css", "assets/og.png", "assets/app-icon.png"]) {

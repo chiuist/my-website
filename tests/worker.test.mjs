@@ -10,13 +10,53 @@ function assetsMock(response = new Response("asset")) {
   return { requests, response, ASSETS: { async fetch(request) { requests.push(request); return response; } } };
 }
 
-for (const pathname of ["/", "/privacy", "/support", "/styles.css", "/assets/og.png", "/downloads/DropEdge-Latest.dmg", "/downloads/DropEdge-Free-1.1.0-build8.dmg"]) {
+for (const pathname of ["/styles.css", "/assets/og.png", "/downloads/DropEdge-Latest.dmg", "/downloads/DropEdge-Free-1.1.0-build8.dmg"]) {
   test(`subdomain maps ${pathname} to DropEdge assets`, async () => {
     const env = assetsMock();
     const result = await worker.fetch(new Request(origin + pathname + "?v=8"), env);
     assert.equal(result, env.response);
     assert.equal(env.requests.length, 1);
     assert.equal(env.requests[0].url, origin + "/dropedge" + pathname + "?v=8");
+  });
+}
+
+const languageCases = [
+  [undefined, "en", "/dropedge/en/"],
+  ["en-US,en;q=0.9", "en", "/dropedge/en/"],
+  ["fr-FR,fr;q=0.9", "en", "/dropedge/en/"],
+  ["ja-JP,zh-CN;q=0.9", "en", "/dropedge/en/"],
+  ["zh", "zh-CN", "/dropedge/"],
+  ["zh-CN,zh;q=0.9,en;q=0.8", "zh-CN", "/dropedge/"],
+  ["zh-Hant-TW,zh;q=0.9", "zh-CN", "/dropedge/"],
+];
+
+for (const [acceptLanguage, language, assetPath] of languageCases) {
+  test(`homepage selects ${language} for ${acceptLanguage || "no browser language"}`, async () => {
+    const env = assetsMock(new Response("asset", { headers: { Vary: "Origin" } }));
+    const headers = acceptLanguage ? { "Accept-Language": acceptLanguage } : {};
+    const result = await worker.fetch(new Request(origin + "/?v=8", { headers }), env);
+    assert.equal(new URL(env.requests[0].url).pathname, assetPath);
+    assert.equal(new URL(env.requests[0].url).search, "?v=8");
+    assert.equal(result.headers.get("Content-Language"), language);
+    assert.equal(result.headers.get("Vary"), "Origin, Accept-Language");
+  });
+}
+
+for (const [pathname, englishPath, chinesePath] of [
+  ["/privacy", "/dropedge/en/privacy", "/dropedge/privacy"],
+  ["/support", "/dropedge/en/support", "/dropedge/support"],
+]) {
+  test(`${pathname} negotiates English and Chinese without changing its public URL`, async () => {
+    for (const [acceptLanguage, language, assetPath] of [
+      ["de-DE,de;q=0.9", "en", englishPath],
+      ["zh-TW,zh;q=0.9", "zh-CN", chinesePath],
+    ]) {
+      const env = assetsMock();
+      const result = await worker.fetch(new Request(origin + pathname, { headers: { "Accept-Language": acceptLanguage } }), env);
+      assert.equal(new URL(env.requests[0].url).pathname, assetPath);
+      assert.equal(result.headers.get("Content-Language"), language);
+      assert.match(result.headers.get("Vary"), /Accept-Language/);
+    }
   });
 }
 
@@ -109,13 +149,31 @@ test("routing config runs before static assets and excludes implementation files
   assert(ignore.includes("/tests/"));
 });
 
-test("canonical metadata and download link resolve to the product domain", () => {
-  const home = readFileSync(new URL("../dropedge/index.html", import.meta.url), "utf8");
-  assert(home.includes(`rel="canonical" href="${origin}/"`));
-  assert(home.includes(`property="og:image" content="${origin}/assets/og.png"`));
-  assert(home.includes(`name="twitter:image" content="${origin}/assets/og.png"`));
-  assert(!home.includes("https://chiuist.com/dropedge"));
-  assert(home.includes('href="https://apps.apple.com/app/id6804663387"'));
-  const href = home.match(/class="button primary" href="([^"]+)"/)[1];
-  assert.equal(new URL(href, origin).href, origin + "/downloads/DropEdge-Free-1.1.0-build8.dmg");
+for (const source of ["../dropedge/index.html", "../dropedge/en/index.html"]) {
+  test(`canonical metadata and download link resolve to the product domain in ${source}`, () => {
+    const home = readFileSync(new URL(source, import.meta.url), "utf8");
+    assert(home.includes(`rel="canonical" href="${origin}/"`));
+    assert(home.includes(`property="og:image" content="${origin}/assets/og.png"`));
+    assert(home.includes(`name="twitter:image" content="${origin}/assets/og.png"`));
+    assert(!home.includes("https://chiuist.com/dropedge"));
+    assert(home.includes('href="https://apps.apple.com/app/id6804663387"'));
+    const href = home.match(/class="button primary" href="([^"]+)"/)[1];
+    assert.equal(new URL(href, origin).href, origin + "/downloads/DropEdge-Free-1.1.0-build8.dmg");
+  });
+}
+
+test("localized documents declare the expected language and equivalent public links", () => {
+  const zhHome = readFileSync(new URL("../dropedge/index.html", import.meta.url), "utf8");
+  const enHome = readFileSync(new URL("../dropedge/en/index.html", import.meta.url), "utf8");
+  assert(zhHome.includes('<html lang="zh-Hans">'));
+  assert(enHome.includes('<html lang="en">'));
+  for (const home of [zhHome, enHome]) {
+    assert(home.includes('href="privacy"'));
+    assert(home.includes('href="support"'));
+    assert(home.includes('href="https://apps.apple.com/app/id6804663387"'));
+  }
+  for (const path of ["privacy", "support"]) {
+    assert(readFileSync(new URL(`../dropedge/${path}.html`, import.meta.url), "utf8").includes('<html lang="zh-Hans">'));
+    assert(readFileSync(new URL(`../dropedge/en/${path}.html`, import.meta.url), "utf8").includes('<html lang="en">'));
+  }
 });
