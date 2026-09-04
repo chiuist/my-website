@@ -10,13 +10,13 @@ function assetsMock(response = new Response("asset")) {
   return { requests, response, ASSETS: { async fetch(request) { requests.push(request); return response; } } };
 }
 
-for (const pathname of ["/styles.css", "/assets/og.png", "/downloads/DropEdge-Latest.dmg", "/downloads/DropEdge-Free-1.5-build10.dmg", "/downloads/DropEdge-Free-1.5.dmg"]) {
+for (const pathname of ["/styles.css", "/assets/og.png", "/downloads/DropEdge-Latest.dmg", "/downloads/DropEdge-Free-1.6-build12.dmg", "/downloads/DropEdge-Free-1.6.dmg", "/updates/appcast.xml", "/updates/DropEdge-Free-1.6-build12.md"]) {
   test(`subdomain maps ${pathname} to DropEdge assets`, async () => {
     const env = assetsMock();
-    const result = await worker.fetch(new Request(origin + pathname + "?v=10"), env);
+    const result = await worker.fetch(new Request(origin + pathname + "?v=12"), env);
     assert.equal(result, env.response);
     assert.equal(env.requests.length, 1);
-    assert.equal(env.requests[0].url, origin + "/dropedge" + pathname + "?v=10");
+    assert.equal(env.requests[0].url, origin + "/dropedge" + pathname + "?v=12");
   });
 }
 
@@ -34,9 +34,9 @@ for (const [acceptLanguage, language, assetPath] of languageCases) {
   test(`homepage selects ${language} for ${acceptLanguage || "no browser language"}`, async () => {
     const env = assetsMock(new Response("asset", { headers: { Vary: "Origin" } }));
     const headers = acceptLanguage ? { "Accept-Language": acceptLanguage } : {};
-    const result = await worker.fetch(new Request(origin + "/?v=10", { headers }), env);
+    const result = await worker.fetch(new Request(origin + "/?v=12", { headers }), env);
     assert.equal(new URL(env.requests[0].url).pathname, assetPath);
-    assert.equal(new URL(env.requests[0].url).search, "?v=10");
+    assert.equal(new URL(env.requests[0].url).search, "?v=12");
     assert.equal(result.headers.get("Content-Language"), language);
     assert.equal(result.headers.get("Vary"), "Origin, Accept-Language");
   });
@@ -115,13 +115,13 @@ test("index redirect does not expose the internal directory or loop", async () =
 });
 
 test("download range/conditional requests and binary streams are preserved", async () => {
-  const response = new Response(new Uint8Array([0, 1, 255]), { status: 206, headers: { "Content-Type": "application/octet-stream", "Content-Range": "bytes 0-2/1655879", ETag: '"build10"' } });
+  const response = new Response(new Uint8Array([0, 1, 255]), { status: 206, headers: { "Content-Type": "application/octet-stream", "Content-Range": "bytes 0-2/2684442", ETag: '"build12"' } });
   const env = assetsMock(response);
-  const request = new Request(origin + "/downloads/DropEdge-Latest.dmg", { headers: { Range: "bytes=0-2", "If-Range": '"build10"' } });
+  const request = new Request(origin + "/downloads/DropEdge-Latest.dmg", { headers: { Range: "bytes=0-2", "If-Range": '"build12"' } });
   const result = await worker.fetch(request, env);
   assert.equal(result, response);
   assert.equal(env.requests[0].headers.get("Range"), "bytes=0-2");
-  assert.equal(env.requests[0].headers.get("If-Range"), '"build10"');
+  assert.equal(env.requests[0].headers.get("If-Range"), '"build12"');
   assert.deepEqual(new Uint8Array(await result.arrayBuffer()), new Uint8Array([0, 1, 255]));
 });
 
@@ -134,7 +134,7 @@ test("HEAD requests and missing assets retain their original response", async ()
 });
 
 test("not-modified responses do not redirect", async () => {
-  const env = assetsMock(new Response(null, { status: 304, headers: { ETag: '"build10"' } }));
+  const env = assetsMock(new Response(null, { status: 304, headers: { ETag: '"build12"' } }));
   assert.equal(await worker.fetch(new Request(origin + "/styles.css"), env), env.response);
 });
 
@@ -158,7 +158,7 @@ for (const source of ["../dropedge/index.html", "../dropedge/en/index.html"]) {
     assert(!home.includes("https://chiuist.com/dropedge"));
     assert(home.includes('href="https://apps.apple.com/app/id6804663387"'));
     const href = home.match(/class="button primary" href="([^"]+)"/)[1];
-    assert.equal(new URL(href, origin).href, origin + "/downloads/DropEdge-Free-1.5-build10.dmg");
+    assert.equal(new URL(href, origin).href, origin + "/downloads/DropEdge-Free-1.6-build12.dmg");
   });
 }
 
