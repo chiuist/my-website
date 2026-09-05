@@ -4,17 +4,17 @@ IMPORTANT: This file was signed by Sparkle. Any modifications to this file requi
     <channel>
         <title>DropEdge Free</title>
         <item>
-            <title>1.6</title>
-            <pubDate>Fri, 04 Sep 2026 19:37:38 +0800</pubDate>
+            <title>2.1</title>
+            <pubDate>Sat, 05 Sep 2026 20:57:21 +0800</pubDate>
             <link>https://dropedge.chiuist.com/</link>
-            <sparkle:version>12</sparkle:version>
-            <sparkle:shortVersionString>1.6</sparkle:shortVersionString>
+            <sparkle:version>21</sparkle:version>
+            <sparkle:shortVersionString>2.1</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-            <sparkle:releaseNotesLink sparkle:edSignature="+2414MupYl4LlN0bsJd6yqSN6g/ZAjAiHInO7Ol3e4fb8Z0nGyiAyJLjpZt6Vit6qsjmRgarXZOMsG2DZn5TDw==" sparkle:length="951">https://dropedge.chiuist.com/updates/DropEdge-Free-1.6-build12.md</sparkle:releaseNotesLink>
-            <enclosure url="https://dropedge.chiuist.com/downloads/DropEdge-Free-1.6-build12.dmg" length="2684442" type="application/octet-stream" sparkle:edSignature="saF6DmjLhj41jRN5GtIRYb++8juT2rJ4bVLWGvUyXv5hZVHAJ2rvz36YzWpbtaHT7SHY+acoV2EEwsCPOhpiBQ=="></enclosure>
+            <sparkle:releaseNotesLink sparkle:edSignature="S5Epm3nblOFcAJfTtfhkFcFBeLAf9PUJMe1HmKXlk1NtaariCXF/OE/eDzt2Cp0jcts1CyYjZ80GguT05/lXCA==" sparkle:length="1460">https://dropedge.chiuist.com/updates/DropEdge-Free-2.1.md</sparkle:releaseNotesLink>
+            <enclosure url="https://dropedge.chiuist.com/downloads/DropEdge-Free-2.1.dmg" length="2770057" type="application/octet-stream" sparkle:edSignature="pf8NY83BJEhphhayK6AEE03jh5L3iTeK1WDzX+6+zeFDsQM3XdK/J/YJQqHcyo4kIjVIQC1EsnGTDGOx4yN6BA=="></enclosure>
         </item>
     </channel>
 </rss><!-- sparkle-signatures:
-edSignature: vxOeOuippIyhKmlsB95Gow65ztjqhYpt3g2sngyfEu4cky7IK3rIbx3Q+E6UHof6YMVgEGrJ5aSSu3bhpEZmDQ==
-length: 1349
+edSignature: Il3Xs6Hba5tOpzNgSJOc9OkYJPKlN8KI7vteb4TTswzglGaOd4F/eiHurvM68pNPXZtr2SyZa/bQDUPymO/ABg==
+length: 1334
 -->
