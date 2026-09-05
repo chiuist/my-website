@@ -10,7 +10,7 @@ const local = process.argv[2] ? new URL(process.argv[2]) : null;
 if (local) assert.equal(local.hostname, "127.0.0.1", "TLS override is restricted to local testing");
 const sha256 = bytes => createHash("sha256").update(bytes).digest("hex");
 const repoFile = name => readFileSync(new URL("../" + name, import.meta.url));
-const expectedDmg = "be4107832d7adf05074cdfca947b25c6a709cd1f328a8ef735153a7a579cb230";
+const expectedDmg = "9ac30b524f9b680bd92f6bbba4bc52ba1bf128fecd9ef155fd6e7ac88d474dfe";
 const previousDmg = "de172923535cc8a2f24ff0e78e70f3e9f3a0b92780da14cf2d67b33191f025ac";
 const olderDmg = "2b43e9097776676e3568633b9ece8eb757300191c315dc46e667ce82ac6d905a";
 const legacyDmg = "e5142bdcff328d49bda92298fece037277fdb9385696d07ea1457391436b56d6";
@@ -63,7 +63,7 @@ assert.match(home.headers.vary, /accept-language/i);
 const html = home.body.toString();
 const href = html.match(/class="button primary" href="([^"]+)"/)[1];
 const actualDownload = new URL(href, home.url).href;
-assert.equal(actualDownload, product + "/downloads/DropEdge-Free-1.6-build12.dmg");
+assert.equal(actualDownload, product + "/downloads/DropEdge-Free-2.1.dmg");
 console.log("PASS homepage and actual download entry:", actualDownload);
 
 for (const pathname of ["privacy", "support"]) {
@@ -94,14 +94,14 @@ for (const [acceptLanguage, language, directory] of [
   console.log("PASS browser language:", acceptLanguage, "=>", language);
 }
 
-for (const pathname of ["styles.css", "assets/og.png", "assets/app-icon.png", "updates/appcast.xml", "updates/DropEdge-Free-1.6-build12.md"]) {
+for (const pathname of ["styles.css", "assets/og.png", "assets/app-icon.png", "updates/appcast.xml", "updates/DropEdge-Free-2.1.md"]) {
   const response = await request(product + "/" + pathname);
   assert.equal(response.status, 200);
   assert.equal(sha256(response.body), sha256(repoFile("dropedge/" + pathname)));
   console.log("PASS asset bytes:", pathname);
 }
 
-for (const pathname of ["downloads/DropEdge-Free-1.6-build12.dmg", "downloads/DropEdge-Free-1.6.dmg", "downloads/DropEdge-Latest.dmg"]) {
+for (const pathname of ["downloads/DropEdge-Free-2.1.dmg", "downloads/DropEdge-Latest.dmg"]) {
   const response = await request(product + "/" + pathname);
   assert.equal(response.status, 200);
   assert(!response.headers["content-type"].includes("html"));
@@ -117,11 +117,18 @@ const partial = await request(actualDownload, { Range: "bytes=0-511" });
 // file (200). Preserve that behavior; if it serves 206, validate the exact range.
 assert([200, 206].includes(partial.status));
 if (partial.status === 206) {
-  assert.deepEqual(partial.body, repoFile("dropedge/downloads/DropEdge-Free-1.6-build12.dmg").subarray(0, 512));
+  assert.deepEqual(partial.body, repoFile("dropedge/downloads/DropEdge-Free-2.1.dmg").subarray(0, 512));
 } else {
   assert.equal(sha256(partial.body), expectedDmg);
 }
 console.log("PASS range request bytes (HTTP " + partial.status + ")");
+
+for (const pathname of ["downloads/DropEdge-Free-1.6-build12.dmg", "downloads/DropEdge-Free-1.6.dmg"]) {
+  const previous = await request(product + "/" + pathname);
+  assert.equal(previous.status, 200);
+  assert.equal(sha256(previous.body), "be4107832d7adf05074cdfca947b25c6a709cd1f328a8ef735153a7a579cb230");
+}
+console.log("PASS version 1.6 remains available");
 
 for (const pathname of ["downloads/DropEdge-Free-1.5-build10.dmg", "downloads/DropEdge-Free-1.5.dmg"]) {
   const previous = await request(product + "/" + pathname);
