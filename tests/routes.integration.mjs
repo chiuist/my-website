@@ -186,6 +186,12 @@ for (const pathname of ["articles", "home.css", "article-pages.css", "cat-stars/
   console.log("PASS existing page:", pathname);
 }
 
+const thenDoPrivacy = await request("https://chiuist.com/thendo/privacy.html");
+assert.equal(thenDoPrivacy.status, 200);
+assert.match(thenDoPrivacy.headers["content-type"], /text\/html/);
+assertHtml(thenDoPrivacy.body, repoFile("thendo/privacy.html"));
+console.log("PASS ThenDo privacy review URL");
+
 for (const url of [product + "/articles", product + "/does-not-exist", "https://chiuist.com/worker.mjs", "https://chiuist.com/tests/worker.test.mjs", "https://chiuist.com/wrangler.jsonc"]) {
   assert.equal((await request(url)).status, 404, url);
 }

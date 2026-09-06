@@ -1,6 +1,8 @@
 const DROPEDGE_HOST = "dropedge.chiuist.com";
 const DROPEDGE_ORIGIN = `https://${DROPEDGE_HOST}`;
 const DROPEDGE_PREFIX = "/dropedge";
+const THENDO_PRIVACY_HOST = "chiuist.com";
+const THENDO_PRIVACY_PATH = "/thendo/privacy.html";
 const LEGACY_HOSTS = new Set([
   "chiuist.com",
   "www.chiuist.com",
@@ -53,6 +55,13 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
     const isDropEdgeHost = url.hostname === DROPEDGE_HOST;
+
+    if (url.hostname === THENDO_PRIVACY_HOST && url.pathname === THENDO_PRIVACY_PATH) {
+      const assetUrl = new URL(url);
+      // Fetch the pretty internal asset so the public .html review URL stays 200.
+      assetUrl.pathname = "/thendo/privacy";
+      return env.ASSETS.fetch(new Request(assetUrl, request));
+    }
 
     if (isDropEdgePath(url.pathname) && (isDropEdgeHost || LEGACY_HOSTS.has(url.hostname))) {
       return redirectToDropEdge(publicPath(url.pathname), url.search);
