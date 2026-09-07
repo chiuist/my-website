@@ -1,8 +1,11 @@
 const DROPEDGE_HOST = "dropedge.chiuist.com";
 const DROPEDGE_ORIGIN = `https://${DROPEDGE_HOST}`;
 const DROPEDGE_PREFIX = "/dropedge";
-const THENDO_PRIVACY_HOST = "chiuist.com";
-const THENDO_PRIVACY_PATH = "/thendo/privacy.html";
+const REVIEW_PAGE_HOST = "chiuist.com";
+const REVIEW_PAGE_ASSETS = new Map([
+  ["/thendo/privacy.html", "/thendo/privacy"],
+  ["/calendar/privacy.html", "/calendar/privacy"],
+]);
 const LEGACY_HOSTS = new Set([
   "chiuist.com",
   "www.chiuist.com",
@@ -56,10 +59,11 @@ export default {
     const url = new URL(request.url);
     const isDropEdgeHost = url.hostname === DROPEDGE_HOST;
 
-    if (url.hostname === THENDO_PRIVACY_HOST && url.pathname === THENDO_PRIVACY_PATH) {
+    const reviewAssetPath = url.hostname === REVIEW_PAGE_HOST ? REVIEW_PAGE_ASSETS.get(url.pathname) : undefined;
+    if (reviewAssetPath) {
       const assetUrl = new URL(url);
       // Fetch the pretty internal asset so the public .html review URL stays 200.
-      assetUrl.pathname = "/thendo/privacy";
+      assetUrl.pathname = reviewAssetPath;
       return env.ASSETS.fetch(new Request(assetUrl, request));
     }
 

@@ -19,6 +19,15 @@ test("ThenDo privacy review URL serves the static page without an HTML redirect"
   assert.match(result.headers.get("Content-Type"), /text\/html/);
 });
 
+test("Calendar privacy review URL serves the static page without an HTML redirect", async () => {
+  const env = assetsMock(new Response("privacy", { headers: { "Content-Type": "text/html; charset=utf-8" } }));
+  const result = await worker.fetch(new Request("https://chiuist.com/calendar/privacy.html?source=review"), env);
+  assert.equal(result.status, 200);
+  assert.equal(new URL(env.requests[0].url).pathname, "/calendar/privacy");
+  assert.equal(new URL(env.requests[0].url).search, "?source=review");
+  assert.match(result.headers.get("Content-Type"), /text\/html/);
+});
+
 for (const pathname of ["/styles.css", "/assets/og.png", "/downloads/DropEdge-Latest.dmg", "/downloads/DropEdge-Free-2.1.dmg", "/downloads/DropEdge-Free-1.6-build12.dmg", "/updates/appcast.xml", "/updates/DropEdge-Free-2.1.md"]) {
   test(`subdomain maps ${pathname} to DropEdge assets`, async () => {
     const env = assetsMock();
