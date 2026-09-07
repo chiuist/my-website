@@ -192,6 +192,12 @@ assert.match(thenDoPrivacy.headers["content-type"], /text\/html/);
 assertHtml(thenDoPrivacy.body, repoFile("thendo/privacy.html"));
 console.log("PASS ThenDo privacy review URL");
 
+const calendarPrivacy = await request("https://chiuist.com/calendar/privacy.html");
+assert.equal(calendarPrivacy.status, 200);
+assert.match(calendarPrivacy.headers["content-type"], /text\/html/);
+assertHtml(calendarPrivacy.body, repoFile("calendar/privacy.html"));
+console.log("PASS Calendar privacy review URL");
+
 for (const url of [product + "/articles", product + "/does-not-exist", "https://chiuist.com/worker.mjs", "https://chiuist.com/tests/worker.test.mjs", "https://chiuist.com/wrangler.jsonc"]) {
   assert.equal((await request(url)).status, 404, url);
 }
