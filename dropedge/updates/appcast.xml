@@ -4,17 +4,17 @@ IMPORTANT: This file was signed by Sparkle. Any modifications to this file requi
     <channel>
         <title>DropEdge Free</title>
         <item>
-            <title>2.1</title>
-            <pubDate>Sat, 05 Sep 2026 20:57:21 +0800</pubDate>
+            <title>2.2</title>
+            <pubDate>Wed, 09 Sep 2026 23:28:18 +0800</pubDate>
             <link>https://dropedge.chiuist.com/</link>
-            <sparkle:version>21</sparkle:version>
-            <sparkle:shortVersionString>2.1</sparkle:shortVersionString>
+            <sparkle:version>22</sparkle:version>
+            <sparkle:shortVersionString>2.2</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-            <sparkle:releaseNotesLink sparkle:edSignature="S5Epm3nblOFcAJfTtfhkFcFBeLAf9PUJMe1HmKXlk1NtaariCXF/OE/eDzt2Cp0jcts1CyYjZ80GguT05/lXCA==" sparkle:length="1460">https://dropedge.chiuist.com/updates/DropEdge-Free-2.1.md</sparkle:releaseNotesLink>
-            <enclosure url="https://dropedge.chiuist.com/downloads/DropEdge-Free-2.1.dmg" length="2770057" type="application/octet-stream" sparkle:edSignature="pf8NY83BJEhphhayK6AEE03jh5L3iTeK1WDzX+6+zeFDsQM3XdK/J/YJQqHcyo4kIjVIQC1EsnGTDGOx4yN6BA=="></enclosure>
+            <sparkle:releaseNotesLink sparkle:edSignature="s3n8AYCHbROXbI8tXaLjuteXbGGI5a4ITfR+pdcuGTOdagrJ7zpTZblqrVr4H6j6tJ3ExdNthr7MSeke/TZ2AQ==" sparkle:length="1710">https://dropedge.chiuist.com/updates/DropEdge-Free-2.2.md</sparkle:releaseNotesLink>
+            <enclosure url="https://dropedge.chiuist.com/downloads/DropEdge-Free-2.2.dmg" length="2905165" type="application/octet-stream" sparkle:edSignature="RUJ1jiHI3vPQ0iLRzZkk2GViF+l+K4K1PZBV8IjZPPMAa6sfmvsk7I4RTaRD2efaVemRr6yVWutXxrNB8aJeCw=="></enclosure>
         </item>
     </channel>
 </rss><!-- sparkle-signatures:
-edSignature: Il3Xs6Hba5tOpzNgSJOc9OkYJPKlN8KI7vteb4TTswzglGaOd4F/eiHurvM68pNPXZtr2SyZa/bQDUPymO/ABg==
+edSignature: gJdnR5Pr+sZJItDkbOTc1WO1ua5cb+rK6yB6k/QFAaC+c0wCd/hc7v5ygFgR6lhjuV8KQwS4LycLaF9zUHnQDw==
 length: 1334
 -->
