@@ -28,7 +28,7 @@ test("Calendar privacy review URL serves the static page without an HTML redirec
   assert.match(result.headers.get("Content-Type"), /text\/html/);
 });
 
-for (const pathname of ["/styles.css", "/assets/og.png", "/downloads/DropEdge-Latest.dmg", "/downloads/DropEdge-Free-2.1.dmg", "/downloads/DropEdge-Free-1.6-build12.dmg", "/updates/appcast.xml", "/updates/DropEdge-Free-2.1.md"]) {
+for (const pathname of ["/styles.css", "/assets/og.png", "/downloads/DropEdge-Latest.dmg", "/downloads/DropEdge-Free-2.2.dmg", "/downloads/DropEdge-Free-2.1.dmg", "/downloads/DropEdge-Free-1.6-build12.dmg", "/updates/appcast.xml", "/updates/DropEdge-Free-2.2.md"]) {
   test(`subdomain maps ${pathname} to DropEdge assets`, async () => {
     const env = assetsMock();
     const result = await worker.fetch(new Request(origin + pathname + "?v=12"), env);
@@ -176,7 +176,7 @@ for (const source of ["../dropedge/index.html", "../dropedge/en/index.html"]) {
     assert(!home.includes("https://chiuist.com/dropedge"));
     assert(home.includes('href="https://apps.apple.com/app/id6804663387"'));
     const href = home.match(/class="button primary" href="([^"]+)"/)[1];
-    assert.equal(new URL(href, origin).href, origin + "/downloads/DropEdge-Free-2.1.dmg");
+    assert.equal(new URL(href, origin).href, origin + "/downloads/DropEdge-Free-2.2.dmg");
   });
 }
 
