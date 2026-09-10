@@ -4,3 +4,10 @@
 @media(max-width:950px){.hero{gap:24px;grid-template-columns:1fr 1fr}h1{font-size:43px}.lead{font-size:16px}.product-stage{padding-inline:10px}.feature-strip{gap:24px}}
 @media(max-width:720px){.site-header,.landing-main,.site-footer{width:calc(100% - 40px)}.site-header{min-height:78px}.brand{font-size:16px}.site-header nav{gap:16px}.site-header nav a{font-size:12px}.landing-main{padding-top:36px}.hero{grid-template-columns:1fr;gap:38px;min-height:0}.hero-copy{text-align:center}.eyebrow{font-size:10px}h1{font-size:clamp(30px,7vw,48px)}.lead{font-size:16px}.actions{justify-content:center}.product-stage{padding:0 24px 16px}.calendar-preview{width:min(320px,100%)}.feature-strip{grid-template-columns:1fr;gap:28px;margin-top:24px;padding-block:32px}.site-footer{flex-direction:column;align-items:flex-start;padding-top:16px}.site-footer p{margin-bottom:0}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.button{transition:none}.button:hover{transform:none}}
+
+/* Match the app icon silhouette without altering its internal white artwork. */
+.brand img {
+  border-radius: 26%;
+  clip-path: inset(1% round 26%);
+  flex-shrink: 0;
+}
