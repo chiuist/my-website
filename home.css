@@ -518,13 +518,11 @@ img {
   width: 70%;
   height: auto;
   border-radius: 22.5%;
-  filter: none;
-  opacity: 1;
   transition: transform 550ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.product-cover--native-icon img {
-  border-radius: 0;
+.product-cover--dropedge img {
+  width: 88%;
 }
 
 .product-copy {
@@ -905,6 +903,10 @@ img {
 
   .product-cover img {
     width: min(54%, 190px);
+  }
+
+  .product-cover--dropedge img {
+    width: min(68%, 228px);
   }
 
   .product-copy {
