@@ -211,7 +211,7 @@ for (const [pathname, source] of [["/", "then-do/index.html"], ["/privacy.html",
   assert.match(response.headers["content-type"], /text\/html/);
   assertHtml(response.body, repoFile(source));
 }
-for (const pathname of ["/styles.css", "/assets/app-icon.png", "/assets/tasks-hd.png"]) {
+for (const pathname of ["/styles.css", "/assets/app-icon.png", "/assets/tasks-projects-hd.png"]) {
   const response = await request(thenDoSite + pathname);
   assert.equal(response.status, 200);
   assert.equal(sha256(response.body), sha256(repoFile("then-do" + pathname)));
@@ -220,8 +220,11 @@ const thenDoDmg = await request(thenDoSite + "/downloads/ThenDo-1.2.dmg");
 assert.equal(thenDoDmg.status, 200);
 assert(!thenDoDmg.headers["content-type"].includes("html"));
 assert.equal(sha256(thenDoDmg.body), sha256(repoFile("then-do/downloads/ThenDo-1.2.dmg")));
-assert.match(repoFile("then-do/index.html").toString(), /tasks-hd\.png" width="2160" height="2880"/);
-console.log("PASS ThenDo website, HD preview, and notarized DMG");
+const thenDoHome = repoFile("then-do/index.html").toString();
+assert.match(thenDoHome, /tasks-projects-hd\.png" width="2160" height="2880"/);
+assert.match(thenDoHome, /ThenDo 项目分类与顺序任务界面：顶部可按项目筛选；蓝色工作项目包含网站设计任务，粉色生活项目包含阅读计划，每一步显示所属项目标签。/);
+assert.match(thenDoHome, /原生 Mac 界面 · 项目分类与顺序任务/);
+console.log("PASS ThenDo website, project preview, and notarized DMG");
 
 const calendarSite = "https://s-calendar.chiuist.com";
 for (const [pathname, source] of [["/", "s-calendar/index.html"], ["/support.html", "s-calendar/support.html"]]) {
