@@ -8,6 +8,7 @@ const STATIC_SITE_HOSTS = new Map([
 const REVIEW_PAGE_HOST = "chiuist.com";
 const REVIEW_PAGE_ASSETS = new Map([
   ["/thendo/privacy.html", "/thendo/privacy"],
+  ["/thendo/support.html", "/thendo/support"],
   ["/calendar/privacy.html", "/calendar/privacy"],
 ]);
 const LEGACY_HOSTS = new Set([
