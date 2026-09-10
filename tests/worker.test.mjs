@@ -38,6 +38,35 @@ for (const pathname of ["/styles.css", "/assets/og.png", "/downloads/DropEdge-La
   });
 }
 
+for (const [host, prefix] of [
+  ["then-do.chiuist.com", "/then-do"],
+  ["s-calendar.chiuist.com", "/s-calendar"],
+]) {
+  test(`${host} maps its public root and assets to its isolated static directory`, async () => {
+    const env = assetsMock();
+    const request = new Request(`https://${host}/assets/icon.png?v=1`);
+    assert.equal(await worker.fetch(request, env), env.response);
+    assert.equal(new URL(env.requests[0].url).pathname, `${prefix}/assets/icon.png`);
+    assert.equal(new URL(env.requests[0].url).search, "?v=1");
+  });
+
+  test(`${host} keeps its .html legal canonical public while using the static document`, async () => {
+    const env = assetsMock();
+    const request = new Request(`https://${host}/support.html?ref=legal`);
+    assert.equal(await worker.fetch(request, env), env.response);
+    assert.equal(new URL(env.requests[0].url).pathname, `${prefix}/support`);
+    assert.equal(new URL(env.requests[0].url).search, "?ref=legal");
+  });
+
+  test(`${host} hides its static directory in canonical redirects`, async () => {
+    const env = assetsMock(new Response(null, { status: 307, headers: { Location: `${prefix}/?ref=canonical` } }));
+    const result = await worker.fetch(new Request(`https://${host}/index.html`), env);
+    assert.equal(new URL(env.requests[0].url).pathname, `${prefix}/index.html`);
+    assert.equal(result.status, 307);
+    assert.equal(result.headers.get("Location"), `https://${host}/?ref=canonical`);
+  });
+}
+
 const languageCases = [
   [undefined, "en", "/dropedge/en/"],
   ["en-US,en;q=0.9", "en", "/dropedge/en/"],
