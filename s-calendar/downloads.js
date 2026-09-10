@@ -5,8 +5,8 @@ const downloadLinks = Object.freeze({
 });
 const statusLine = document.getElementById('download-status');
 const downloadNote = document.getElementById('download-note');
-if (downloadLinks.dmg && downloadLinks.appStore) {
-  downloadNote.textContent = '适用于 macOS 14 及更高版本';
+if (!downloadLinks.dmg || !downloadLinks.appStore) {
+  downloadNote.textContent = 'macOS 14 及更高版本 · 下载链接即将开放';
 }
 document.querySelectorAll('[data-download]').forEach(button => {
   button.addEventListener('click', () => {
