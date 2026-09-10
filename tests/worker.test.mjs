@@ -231,7 +231,7 @@ test("homepage product cards direct games to WeChat and Mac apps to the App Stor
     ["猫咪扫雷", "cat-stars.jpg"],
     ["怪谈修复铺", "ghostlight-relics.jpg"],
     ["SafeShot Lite", "safeshot-lite.png"],
-    ["DropEdge", "dropedge-icon.png"],
+    ["DropEdge", "dropedge.png"],
   ]) {
     assert(home.includes(`assets/products/${artwork}`), `${name} artwork is missing`);
     assert(readFileSync(new URL(`../assets/products/${artwork}`, import.meta.url)).length > 0);
