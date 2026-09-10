@@ -11,3 +11,5 @@
   clip-path: inset(1% round 26%);
   flex-shrink: 0;
 }
+
+.apple-mark{width:18px;color:currentColor;font-size:20px;line-height:1;text-align:center}

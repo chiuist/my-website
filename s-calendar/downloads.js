@@ -1,6 +1,6 @@
 // DMG 是已 Developer ID 签名并通过 Apple 公证的官网版；App Store 链接在商店审核通过后可直接使用。
 const downloadLinks = Object.freeze({
-  dmg: 'https://s-calendar.chiuist.com/downloads/Simply-Calendar-Direct-1.5.dmg',
+  dmg: 'https://s-calendar.chiuist.com/downloads/Simply-Calendar-1.5.dmg',
   appStore: 'https://apps.apple.com/us/app/%E6%97%A5%E5%8E%86%E5%8D%B3%E6%97%A5%E5%8E%86/id6808212741'
 });
 const statusLine = document.getElementById('download-status');
