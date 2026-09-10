@@ -1,0 +1,23 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- sparkle-sign-warning:
+IMPORTANT: This file was signed by Sparkle. Any modifications to this file requires re-signing this file with generate_appcast or sign_update! The signed signature will be embedded at the end of this file.
+-->
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
+    <channel>
+        <title>ThenDo</title>
+        <item>
+            <title>1.3</title>
+            <pubDate>Thu, 10 Sep 2026 18:34:48 +0800</pubDate>
+            <link>https://then-do.chiuist.com/</link>
+            <sparkle:version>18</sparkle:version>
+            <sparkle:shortVersionString>1.3</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <enclosure url="https://then-do.chiuist.com/downloads/ThenDo-1.3-build18.dmg" length="3965394" type="application/octet-stream" sparkle:edSignature="l9VVHhcDa1cVWuVSkUs8UZlSCqqEyx9XWQUh/yBIKMYEKaqVlOtmw6nPU9sHNDOKWVJI4MS3ObjDBifPa1/KCg=="/>
+            <sparkle:releaseNotesLink sparkle:edSignature="qiFhHCbBaeVW0syr+MIyoKKRfh3IAqc2CEQFTAt4UZZC7sC3wkVBr/3RVeoHpYGnj4EYjHUw4Ckwf9MFnsFUAQ==" sparkle:length="1502">https://then-do.chiuist.com/updates/ThenDo-1.3-build18.md</sparkle:releaseNotesLink>
+        </item>
+    </channel>
+</rss>
+<!-- sparkle-signatures:
+edSignature: NJ7UM4ObIX3iGps3w9CBADgjCovpIUjSlMMxposF7S3GAH964XR3cUs7cM4FGPyegAok343ra7ZKaPV6ZZR0Aw==
+length: 1318
+-->
