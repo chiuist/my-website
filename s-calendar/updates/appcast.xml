@@ -7,17 +7,17 @@ IMPORTANT: This file was signed by Sparkle. Any modifications to this file requi
         <title>Simply Calendar Direct</title>
         <item>
             <title>1.5</title>
-            <pubDate>Thu, 10 Sep 2026 20:20:58 +0800</pubDate>
+            <pubDate>Thu, 10 Sep 2026 21:12:08 +0800</pubDate>
             <link>https://s-calendar.chiuist.com/</link>
-            <sparkle:version>6</sparkle:version>
+            <sparkle:version>7</sparkle:version>
             <sparkle:shortVersionString>1.5</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-            <sparkle:releaseNotesLink sparkle:edSignature="fSZ6DUhBDqEt1TqvG8hF/esmyW9zBdh76uimTA7JIZr63Lh1NbHJxDw0TL2bBHleK7iBCnAn0hFpJ0cePVwQCg==" sparkle:length="1343">https://s-calendar.chiuist.com/updates/Simply-Calendar-1.5.md</sparkle:releaseNotesLink>
-            <enclosure url="https://s-calendar.chiuist.com/downloads/Simply-Calendar-1.5.dmg" length="4145422" type="application/octet-stream" sparkle:edSignature="gmJ+TC4d+h4+NehcVyG0pEhajGGAwkFdJgcMBAHdGHjUVEbw+QrMhBr2q6NyAgkkUa40SYNLlL1jctfOJ4qpDA=="/>
+            <sparkle:releaseNotesLink sparkle:edSignature="vGEXvFC4OqHgPkZyRmt7zn2T68ZZY8BXoFlEZSfTSuvpKnels4CCFvsVYtVcQqgw8PgWX05itxVFoypev5e+Dg==" sparkle:length="1280">https://s-calendar.chiuist.com/updates/Simply-Calendar-1.5.md</sparkle:releaseNotesLink>
+            <enclosure url="https://s-calendar.chiuist.com/downloads/Simply-Calendar-1.5.dmg" length="4145392" type="application/octet-stream" sparkle:edSignature="TC3nqacBUOKps1m4uM8WOONvd+JVOCc98YtUwOPP/ppPRD9xYPITDD9um+w3MKaOp7mbXUGZqTqymhR4AuP3Dw=="/>
         </item>
     </channel>
 </rss>
 <!-- sparkle-signatures:
-edSignature: mwXEeVUKCRx7F9b/ZFENw6MaXp3XUL1Izoo4qK/B+KSv2OtSAHfLiXxtVsSljgH0dBV0OcnepgsKEkrbwGgABg==
+edSignature: 2qIjd5GbND+MIESPlhVEMMnG1iI00qaEdQPllkW4Bfl9+bXH2l6cfOFop1N+GzelEoC74ZpyryHUXORcO347DQ==
 length: 1344
 -->

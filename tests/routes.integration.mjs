@@ -256,7 +256,7 @@ assert.match(calendarDownloadScript, /id6808212741/);
 const calendarAppcast = repoFile("s-calendar/updates/appcast.xml").toString();
 assert.match(calendarAppcast, /https:\/\/s-calendar\.chiuist\.com\/downloads\/Simply-Calendar-1\.5\.dmg/);
 assert.match(calendarAppcast, /<sparkle:shortVersionString>1\.5<\/sparkle:shortVersionString>/);
-assert.match(calendarAppcast, /<sparkle:version>6<\/sparkle:version>/);
+assert.match(calendarAppcast, /<sparkle:version>7<\/sparkle:version>/);
 console.log("PASS Simply Calendar website, assets, notarized DMG, and signed update feed");
 
 for (const url of [product + "/articles", product + "/does-not-exist", "https://chiuist.com/worker.mjs", "https://chiuist.com/tests/worker.test.mjs", "https://chiuist.com/wrangler.jsonc"]) {
