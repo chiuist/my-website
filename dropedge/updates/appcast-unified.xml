@@ -1,0 +1,20 @@
+<?xml version="1.0" standalone="yes"?><!-- sparkle-sign-warning:
+IMPORTANT: This file was signed by Sparkle. Any modifications to this file requires re-signing this file with generate_appcast or sign_update! The signed signature will be embedded at the end of this file.
+--><rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
+    <channel>
+        <title>DropEdge</title>
+        <item>
+            <title>2.2</title>
+            <pubDate>Thu, 10 Sep 2026 22:46:37 +0800</pubDate>
+            <link>https://dropedge.chiuist.com/</link>
+            <sparkle:version>22</sparkle:version>
+            <sparkle:shortVersionString>2.2</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <sparkle:releaseNotesLink sparkle:edSignature="s3n8AYCHbROXbI8tXaLjuteXbGGI5a4ITfR+pdcuGTOdagrJ7zpTZblqrVr4H6j6tJ3ExdNthr7MSeke/TZ2AQ==" sparkle:length="1710">https://dropedge.chiuist.com/updates/DropEdge-Free-2.2.md</sparkle:releaseNotesLink>
+            <enclosure url="https://dropedge.chiuist.com/downloads/DropEdge-Free-2.2.dmg" length="2904714" type="application/octet-stream" sparkle:edSignature="Cg7c0GcUHokOBRnR95plGsz4X5euU1zyrlnWuSRzBIQYzhasPvqHCQkdLVP1gpGFGp9U3vfAT5tt5Ncgr9/HDQ=="></enclosure>
+        </item>
+    </channel>
+</rss><!-- sparkle-signatures:
+edSignature: 4Q5RSrmRZbcQ867DCZVJTQUUw1LUODuA0AThxhV7zbTO14V3vQr7Gr6N8fOivfkRBTNkUDyA/KpVQ+/1LFbtBg==
+length: 1329
+-->
