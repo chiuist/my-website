@@ -44,12 +44,12 @@ function request(url, headers = {}, method = "GET") {
   });
 }
 
-async function follow(url, headers = {}) {
+async function follow(url, headers = {}, expectedOrigin = product) {
   for (let redirects = 0; redirects < 6; redirects++) {
     const response = await request(url, headers);
     if (response.status >= 300 && response.status < 400 && response.headers.location) {
       url = new URL(response.headers.location, url).href;
-      assert.equal(new URL(url).origin, product, "Redirect must stay on the product domain");
+      assert.equal(new URL(url).origin, expectedOrigin, "Redirect must stay on the product domain");
     } else return { ...response, url };
   }
   throw new Error("Redirect loop: " + url);
@@ -203,6 +203,42 @@ assert.equal(calendarPrivacy.status, 200);
 assert.match(calendarPrivacy.headers["content-type"], /text\/html/);
 assertHtml(calendarPrivacy.body, repoFile("calendar/privacy.html"));
 console.log("PASS Calendar privacy review URL");
+
+const thenDoSite = "https://then-do.chiuist.com";
+for (const [pathname, source] of [["/", "then-do/index.html"], ["/privacy.html", "then-do/privacy.html"], ["/support.html", "then-do/support.html"]]) {
+  const response = await request(thenDoSite + pathname);
+  assert.equal(response.status, 200);
+  assert.match(response.headers["content-type"], /text\/html/);
+  assertHtml(response.body, repoFile(source));
+}
+for (const pathname of ["/styles.css", "/assets/app-icon.png", "/assets/tasks-hd.png"]) {
+  const response = await request(thenDoSite + pathname);
+  assert.equal(response.status, 200);
+  assert.equal(sha256(response.body), sha256(repoFile("then-do" + pathname)));
+}
+const thenDoDmg = await request(thenDoSite + "/downloads/ThenDo-1.2.dmg");
+assert.equal(thenDoDmg.status, 200);
+assert(!thenDoDmg.headers["content-type"].includes("html"));
+assert.equal(sha256(thenDoDmg.body), sha256(repoFile("then-do/downloads/ThenDo-1.2.dmg")));
+assert.match(repoFile("then-do/index.html").toString(), /tasks-hd\.png" width="2160" height="2880"/);
+console.log("PASS ThenDo website, HD preview, and notarized DMG");
+
+const calendarSite = "https://s-calendar.chiuist.com";
+for (const [pathname, source] of [["/", "s-calendar/index.html"], ["/support.html", "s-calendar/support.html"]]) {
+  const response = await request(calendarSite + pathname);
+  assert.equal(response.status, 200);
+  assert.match(response.headers["content-type"], /text\/html/);
+  assertHtml(response.body, repoFile(source));
+}
+for (const pathname of ["/styles.css", "/details.css", "/downloads.js", "/assets/icon.png", "/assets/calendar.png", "/assets/event-editor.png", "/assets/appearance.png"]) {
+  const response = await request(calendarSite + pathname);
+  assert.equal(response.status, 200);
+  assert.equal(sha256(response.body), sha256(repoFile("s-calendar" + pathname)));
+}
+const calendarDownloadScript = repoFile("s-calendar/downloads.js").toString();
+assert.match(calendarDownloadScript, /dmg: '', appStore: ''/);
+assert.match(calendarDownloadScript, /尚未开放下载/);
+console.log("PASS Simply Calendar website, assets, and deferred download state");
 
 for (const url of [product + "/articles", product + "/does-not-exist", "https://chiuist.com/worker.mjs", "https://chiuist.com/tests/worker.test.mjs", "https://chiuist.com/wrangler.jsonc"]) {
   assert.equal((await request(url)).status, 404, url);

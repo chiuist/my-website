@@ -1,6 +1,10 @@
 const DROPEDGE_HOST = "dropedge.chiuist.com";
 const DROPEDGE_ORIGIN = `https://${DROPEDGE_HOST}`;
 const DROPEDGE_PREFIX = "/dropedge";
+const STATIC_SITE_HOSTS = new Map([
+  ["then-do.chiuist.com", "/then-do"],
+  ["s-calendar.chiuist.com", "/s-calendar"],
+]);
 const REVIEW_PAGE_HOST = "chiuist.com";
 const REVIEW_PAGE_ASSETS = new Map([
   ["/thendo/privacy.html", "/thendo/privacy"],
@@ -32,6 +36,21 @@ function redirectToDropEdge(pathname, search) {
   target.pathname = pathname;
   target.search = search;
   return Response.redirect(target.href, 308);
+}
+
+function hideInternalPrefix(response, assetUrl, prefix) {
+  const location = response.headers.get("Location");
+  if (!location || response.status < 300 || response.status >= 400) return response;
+
+  const target = new URL(location, assetUrl);
+  if (target.origin !== assetUrl.origin || !(target.pathname === prefix || target.pathname.startsWith(`${prefix}/`))) return response;
+
+  // Static Assets may canonicalize directories and .html paths. Keep the
+  // internal asset directory out of every public custom-domain redirect.
+  target.pathname = target.pathname.slice(prefix.length) || "/";
+  const redirected = new Response(response.body, response);
+  redirected.headers.set("Location", target.href);
+  return redirected;
 }
 
 function preferredLanguage(request) {
@@ -71,6 +90,18 @@ export default {
       return redirectToDropEdge(publicPath(url.pathname), url.search);
     }
 
+    const staticSitePrefix = STATIC_SITE_HOSTS.get(url.hostname);
+    if (staticSitePrefix) {
+      const assetUrl = new URL(url);
+      // Keep the public legal URLs aligned with their .html canonicals while
+      // serving the static platform's extensionless document internally.
+      const documentPath = ["/privacy.html", "/support.html"].includes(url.pathname)
+        ? url.pathname.slice(0, -5)
+        : url.pathname;
+      assetUrl.pathname = `${staticSitePrefix}${documentPath}`;
+      return hideInternalPrefix(await env.ASSETS.fetch(new Request(assetUrl, request)), assetUrl, staticSitePrefix);
+    }
+
     // All existing personal-site domains and Workers preview URLs keep their assets.
     if (!isDropEdgeHost) return env.ASSETS.fetch(request);
 
@@ -84,20 +115,7 @@ export default {
     assetUrl.pathname = englishAsset || `${DROPEDGE_PREFIX}${url.pathname}`;
     // Keep method, conditional/range headers and the response body stream unchanged.
     const response = await env.ASSETS.fetch(new Request(assetUrl, request));
-    const location = response.headers.get("Location");
-
-    if (location && response.status >= 300 && response.status < 400) {
-      const target = new URL(location, assetUrl);
-      // Static Assets may redirect .html/index/trailing-slash URLs. Hide the
-      // internal directory in those redirects so public URLs never gain /dropedge.
-      if (target.origin === assetUrl.origin && isDropEdgePath(target.pathname)) {
-        target.pathname = publicPath(target.pathname);
-        const redirected = new Response(response.body, response);
-        redirected.headers.set("Location", target.href);
-        return redirected;
-      }
-    }
-
-    return ENGLISH_PAGE_ASSETS.has(url.pathname) ? withLanguageHeaders(response, language) : response;
+    const publicResponse = hideInternalPrefix(response, assetUrl, DROPEDGE_PREFIX);
+    return ENGLISH_PAGE_ASSETS.has(url.pathname) ? withLanguageHeaders(publicResponse, language) : publicResponse;
   },
 };
