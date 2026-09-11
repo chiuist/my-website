@@ -6,18 +6,18 @@ IMPORTANT: This file was signed by Sparkle. Any modifications to this file requi
     <channel>
         <title>ThenDo</title>
         <item>
-            <title>1.3</title>
-            <pubDate>Thu, 10 Sep 2026 18:34:48 +0800</pubDate>
+            <title>1.5</title>
+            <pubDate>Fri, 11 Sep 2026 10:34:04 +0800</pubDate>
             <link>https://then-do.chiuist.com/</link>
-            <sparkle:version>18</sparkle:version>
-            <sparkle:shortVersionString>1.3</sparkle:shortVersionString>
+            <sparkle:version>20</sparkle:version>
+            <sparkle:shortVersionString>1.5</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-            <enclosure url="https://then-do.chiuist.com/downloads/ThenDo-1.3-build18.dmg" length="3965394" type="application/octet-stream" sparkle:edSignature="l9VVHhcDa1cVWuVSkUs8UZlSCqqEyx9XWQUh/yBIKMYEKaqVlOtmw6nPU9sHNDOKWVJI4MS3ObjDBifPa1/KCg=="/>
-            <sparkle:releaseNotesLink sparkle:edSignature="qiFhHCbBaeVW0syr+MIyoKKRfh3IAqc2CEQFTAt4UZZC7sC3wkVBr/3RVeoHpYGnj4EYjHUw4Ckwf9MFnsFUAQ==" sparkle:length="1502">https://then-do.chiuist.com/updates/ThenDo-1.3-build18.md</sparkle:releaseNotesLink>
+            <sparkle:releaseNotesLink sparkle:edSignature="cTGLbC6Y8dScb6MWsvMND2FmKdh/WL99x+qgEVk/XJA/XHwwGTMwmGU6WSQzCAPy5i4K2Q5NwM9Nb+G223exBw==" sparkle:length="1529">https://then-do.chiuist.com/updates/ThenDo-1.5-build20.md</sparkle:releaseNotesLink>
+            <enclosure url="https://then-do.chiuist.com/downloads/ThenDo-1.5-build20.dmg" length="3965382" type="application/octet-stream" sparkle:edSignature="UkYHgHixkWXNgZVjsBvW+Od1528/NCO3ZgJHrUBgWAt0qDBmNf2ARg0Zl9HyG4UZCncqzRYZh4dgUbcbpvMUBw=="/>
         </item>
     </channel>
 </rss>
 <!-- sparkle-signatures:
-edSignature: NJ7UM4ObIX3iGps3w9CBADgjCovpIUjSlMMxposF7S3GAH964XR3cUs7cM4FGPyegAok343ra7ZKaPV6ZZR0Aw==
+edSignature: t98pIdNbARJZ/uL86g1B0Y+o0E2j8Y3tjFx1S9welyiVIYdpMJM7ARQ3QBFNLwdff6580gRZiVYOFmU7QdIDCQ==
 length: 1318
 -->
