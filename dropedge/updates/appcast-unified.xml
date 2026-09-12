@@ -4,17 +4,17 @@ IMPORTANT: This file was signed by Sparkle. Any modifications to this file requi
     <channel>
         <title>DropEdge</title>
         <item>
-            <title>2.2</title>
-            <pubDate>Thu, 10 Sep 2026 22:46:37 +0800</pubDate>
+            <title>2.3</title>
+            <pubDate>Sat, 12 Sep 2026 17:14:46 +0800</pubDate>
             <link>https://dropedge.chiuist.com/</link>
-            <sparkle:version>22</sparkle:version>
-            <sparkle:shortVersionString>2.2</sparkle:shortVersionString>
+            <sparkle:version>23</sparkle:version>
+            <sparkle:shortVersionString>2.3</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-            <sparkle:releaseNotesLink sparkle:edSignature="s3n8AYCHbROXbI8tXaLjuteXbGGI5a4ITfR+pdcuGTOdagrJ7zpTZblqrVr4H6j6tJ3ExdNthr7MSeke/TZ2AQ==" sparkle:length="1710">https://dropedge.chiuist.com/updates/DropEdge-Free-2.2.md</sparkle:releaseNotesLink>
-            <enclosure url="https://dropedge.chiuist.com/downloads/DropEdge-Free-2.2.dmg" length="2904714" type="application/octet-stream" sparkle:edSignature="Cg7c0GcUHokOBRnR95plGsz4X5euU1zyrlnWuSRzBIQYzhasPvqHCQkdLVP1gpGFGp9U3vfAT5tt5Ncgr9/HDQ=="></enclosure>
+            <sparkle:releaseNotesLink sparkle:edSignature="cH0ISIZPZ5Km3C26Sk1jdZXc9UvhwFir4LGaAH/PClZ94buu9nt4aOWQG8W0A3wUt9Txe7KYj4TmYCmcXbmfCg==" sparkle:length="1007">https://dropedge.chiuist.com/updates/DropEdge-Free-2.3.md</sparkle:releaseNotesLink>
+            <enclosure url="https://dropedge.chiuist.com/downloads/DropEdge-Free-2.3.dmg" length="2900973" type="application/octet-stream" sparkle:edSignature="DtDFCj08sjI3SGTJ1OK/g5cHaG7lB3Y/mSv1y4LD9na+befvZF0MPiNz//6j+ZdNDktWpGZN99FWjGsLVoi4AQ=="></enclosure>
         </item>
     </channel>
 </rss><!-- sparkle-signatures:
-edSignature: 4Q5RSrmRZbcQ867DCZVJTQUUw1LUODuA0AThxhV7zbTO14V3vQr7Gr6N8fOivfkRBTNkUDyA/KpVQ+/1LFbtBg==
+edSignature: nKyg6MOKE/ier0kT+pu1nmYgvz5rqfPE7YDQAtjo8IL+WXEKrCBSiaN6bTvfLB0t1BZR+imuv9QMGU1draxHCw==
 length: 1329
 -->
