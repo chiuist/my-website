@@ -6,18 +6,18 @@ IMPORTANT: This file was signed by Sparkle. Any modifications to this file requi
     <channel>
         <title>ThenDo</title>
         <item>
-            <title>1.5</title>
-            <pubDate>Fri, 11 Sep 2026 10:34:04 +0800</pubDate>
+            <title>1.6</title>
+            <pubDate>Sat, 12 Sep 2026 17:26:21 +0800</pubDate>
             <link>https://then-do.chiuist.com/</link>
-            <sparkle:version>20</sparkle:version>
-            <sparkle:shortVersionString>1.5</sparkle:shortVersionString>
+            <sparkle:version>22</sparkle:version>
+            <sparkle:shortVersionString>1.6</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-            <sparkle:releaseNotesLink sparkle:edSignature="cTGLbC6Y8dScb6MWsvMND2FmKdh/WL99x+qgEVk/XJA/XHwwGTMwmGU6WSQzCAPy5i4K2Q5NwM9Nb+G223exBw==" sparkle:length="1529">https://then-do.chiuist.com/updates/ThenDo-1.5-build20.md</sparkle:releaseNotesLink>
-            <enclosure url="https://then-do.chiuist.com/downloads/ThenDo-1.5-build20.dmg" length="3965382" type="application/octet-stream" sparkle:edSignature="UkYHgHixkWXNgZVjsBvW+Od1528/NCO3ZgJHrUBgWAt0qDBmNf2ARg0Zl9HyG4UZCncqzRYZh4dgUbcbpvMUBw=="/>
+            <sparkle:releaseNotesLink sparkle:edSignature="soJVJyGksrNTtp1R9t7/Dol7choI1MjsL9ODkfszYTHykIloJBr0IlXYlh+T4Sa7t6xBGFetYMzeQV8pIZwDCA==" sparkle:length="972">https://then-do.chiuist.com/updates/ThenDo-1.6-build22.md</sparkle:releaseNotesLink>
+            <enclosure url="https://then-do.chiuist.com/downloads/ThenDo-1.6-build22.dmg" length="3965068" type="application/octet-stream" sparkle:edSignature="h4ZDXkIuWgzFWiRfMNM1gpiuMEOC8At/Qj+UO6iiYEC/NozNIqGBIKvkAeO5maxSip+xlRBE1H1hYOV1erDsDw=="/>
         </item>
     </channel>
 </rss>
 <!-- sparkle-signatures:
-edSignature: t98pIdNbARJZ/uL86g1B0Y+o0E2j8Y3tjFx1S9welyiVIYdpMJM7ARQ3QBFNLwdff6580gRZiVYOFmU7QdIDCQ==
-length: 1318
+edSignature: 4Rs8RxHirnzSVPQkZt8rcOsGYcwJzewMaunGHoUz9mUuwuLNjSNyH8KX2d6oIA4vD2b8mFyXZ18zBJm34SPCCA==
+length: 1317
 -->
