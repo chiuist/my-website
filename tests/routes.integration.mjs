@@ -221,20 +221,20 @@ for (const [pathname, source] of [["/", "then-do/index.html"], ["/privacy.html",
   assert.match(response.headers["content-type"], /text\/html/);
   assertHtml(response.body, repoFile(source));
 }
-for (const pathname of ["/styles.css", "/assets/app-icon.png", "/assets/tasks-projects-hd.png"]) {
+for (const pathname of ["/styles.css", "/store-link.js", "/assets/app-icon.png", "/assets/tasks-projects-hd.png"]) {
   const response = await request(thenDoSite + pathname);
   assert.equal(response.status, 200);
   assert.equal(sha256(response.body), sha256(repoFile("then-do" + pathname)));
 }
-const thenDoDmg = await request(thenDoSite + "/downloads/ThenDo-1.2.dmg");
-assert.equal(thenDoDmg.status, 200);
-assert(!thenDoDmg.headers["content-type"].includes("html"));
-assert.equal(sha256(thenDoDmg.body), sha256(repoFile("then-do/downloads/ThenDo-1.2.dmg")));
+for (const path of ["/downloads/ThenDo-1.2.dmg", "/downloads/ThenDo-1.3-build18.dmg", "/downloads/ThenDo-1.5-build20.dmg", "/downloads/ThenDo-1.6-build22.dmg", "/updates/appcast.xml"]) {
+  assert.equal((await request(thenDoSite + path)).status, 404);
+}
 const thenDoHome = repoFile("then-do/index.html").toString();
 assert.match(thenDoHome, /tasks-projects-hd\.png" width="2160" height="2880"/);
 assert.match(thenDoHome, /ThenDo 项目分类与顺序任务界面：顶部可按项目筛选；蓝色工作项目包含网站设计任务，粉色生活项目包含阅读计划，每一步显示所属项目标签。/);
 assert.match(thenDoHome, /原生 Mac 界面 · 项目分类与顺序任务/);
-console.log("PASS ThenDo website, project preview, and notarized DMG");
+assert(!thenDoHome.includes('href="downloads/'));
+console.log("PASS ThenDo website, project preview, and retired direct downloads");
 
 const calendarSite = "https://s-calendar.chiuist.com";
 for (const [pathname, source] of [["/", "s-calendar/index.html"], ["/support.html", "s-calendar/support.html"]]) {
