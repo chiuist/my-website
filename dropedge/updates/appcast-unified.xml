@@ -4,17 +4,17 @@ IMPORTANT: This file was signed by Sparkle. Any modifications to this file requi
     <channel>
         <title>DropEdge</title>
         <item>
-            <title>2.5</title>
-            <pubDate>Wed, 23 Sep 2026 10:21:00 +0800</pubDate>
+            <title>2.6</title>
+            <pubDate>Wed, 23 Sep 2026 23:04:20 +0800</pubDate>
             <link>https://dropedge.chiuist.com/</link>
-            <sparkle:version>25</sparkle:version>
-            <sparkle:shortVersionString>2.5</sparkle:shortVersionString>
+            <sparkle:version>26</sparkle:version>
+            <sparkle:shortVersionString>2.6</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-            <sparkle:releaseNotesLink sparkle:edSignature="dfJrEtPlFNZA+xtkcuKJ/M37Bhmxk580FfFBt404GpWuBySzeGMoVVkamlj8quYFUgr+3yaOr7OdBudGZnjiAw==" sparkle:length="865">https://dropedge.chiuist.com/updates/DropEdge-Free-2.5.md</sparkle:releaseNotesLink>
-            <enclosure url="https://dropedge.chiuist.com/downloads/DropEdge-Free-2.5.dmg" length="2865585" type="application/octet-stream" sparkle:edSignature="O1B7EibdnYOE0JEQ7ThTVnclJCI93YkpVQjYU8rp50iDqJrgbKHCOG7g7IijEQxn9NqDgASz3rqv6jqjei5GBg=="></enclosure>
+            <sparkle:releaseNotesLink sparkle:edSignature="wmu+9mCgYXDx/ILwn7TPVcPgvJfZGXGxbUxUQGDJ9/qE/RWZGD6qwCf7kpxGyQXmw8K4Jj8guX0GjM+V8Q6xDw==" sparkle:length="4183">https://dropedge.chiuist.com/updates/DropEdge-Free-2.6.md</sparkle:releaseNotesLink>
+            <enclosure url="https://dropedge.chiuist.com/downloads/DropEdge-Free-2.6.dmg" length="2891202" type="application/octet-stream" sparkle:edSignature="QHeS5YM7gkTitn+eb6GGgcPs2f1wuEA3dXiJma5IcOp4sG7xULdL9hVwGjOT2sV/26fVd3FJldSgchFEZZ14DQ=="></enclosure>
         </item>
     </channel>
 </rss><!-- sparkle-signatures:
-edSignature: gbim6jU5tiUmCTuEIynrK/T4FeVfee0YxBJ51eQ2CqiW2NY6/YiLoPQlxlxET5HqGIm1NR8427TpGcnin507Aw==
-length: 1328
+edSignature: r7MFRcuj6S1vdyiXJoXnugtV741OyUlcOWSWwyTCQ9rI4V8Y+p6HPV49xsDPY5Kes2NCKZoO5FXbM1dZW4JYAw==
+length: 1329
 -->
