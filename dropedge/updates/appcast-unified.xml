@@ -4,17 +4,17 @@ IMPORTANT: This file was signed by Sparkle. Any modifications to this file requi
     <channel>
         <title>DropEdge</title>
         <item>
-            <title>2.3</title>
-            <pubDate>Sat, 12 Sep 2026 17:14:46 +0800</pubDate>
+            <title>2.5</title>
+            <pubDate>Wed, 23 Sep 2026 10:21:00 +0800</pubDate>
             <link>https://dropedge.chiuist.com/</link>
-            <sparkle:version>23</sparkle:version>
-            <sparkle:shortVersionString>2.3</sparkle:shortVersionString>
+            <sparkle:version>25</sparkle:version>
+            <sparkle:shortVersionString>2.5</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-            <sparkle:releaseNotesLink sparkle:edSignature="cH0ISIZPZ5Km3C26Sk1jdZXc9UvhwFir4LGaAH/PClZ94buu9nt4aOWQG8W0A3wUt9Txe7KYj4TmYCmcXbmfCg==" sparkle:length="1007">https://dropedge.chiuist.com/updates/DropEdge-Free-2.3.md</sparkle:releaseNotesLink>
-            <enclosure url="https://dropedge.chiuist.com/downloads/DropEdge-Free-2.3.dmg" length="2900973" type="application/octet-stream" sparkle:edSignature="DtDFCj08sjI3SGTJ1OK/g5cHaG7lB3Y/mSv1y4LD9na+befvZF0MPiNz//6j+ZdNDktWpGZN99FWjGsLVoi4AQ=="></enclosure>
+            <sparkle:releaseNotesLink sparkle:edSignature="dfJrEtPlFNZA+xtkcuKJ/M37Bhmxk580FfFBt404GpWuBySzeGMoVVkamlj8quYFUgr+3yaOr7OdBudGZnjiAw==" sparkle:length="865">https://dropedge.chiuist.com/updates/DropEdge-Free-2.5.md</sparkle:releaseNotesLink>
+            <enclosure url="https://dropedge.chiuist.com/downloads/DropEdge-Free-2.5.dmg" length="2865585" type="application/octet-stream" sparkle:edSignature="O1B7EibdnYOE0JEQ7ThTVnclJCI93YkpVQjYU8rp50iDqJrgbKHCOG7g7IijEQxn9NqDgASz3rqv6jqjei5GBg=="></enclosure>
         </item>
     </channel>
 </rss><!-- sparkle-signatures:
-edSignature: nKyg6MOKE/ier0kT+pu1nmYgvz5rqfPE7YDQAtjo8IL+WXEKrCBSiaN6bTvfLB0t1BZR+imuv9QMGU1draxHCw==
-length: 1329
+edSignature: gbim6jU5tiUmCTuEIynrK/T4FeVfee0YxBJ51eQ2CqiW2NY6/YiLoPQlxlxET5HqGIm1NR8427TpGcnin507Aw==
+length: 1328
 -->
