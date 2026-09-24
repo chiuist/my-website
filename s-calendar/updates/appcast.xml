@@ -6,18 +6,18 @@ IMPORTANT: This file was signed by Sparkle. Any modifications to this file requi
     <channel>
         <title>Simply Calendar Direct</title>
         <item>
-            <title>1.5</title>
-            <pubDate>Thu, 10 Sep 2026 21:12:08 +0800</pubDate>
+            <title>2.2</title>
+            <pubDate>Thu, 24 Sep 2026 17:51:18 +0800</pubDate>
             <link>https://s-calendar.chiuist.com/</link>
-            <sparkle:version>7</sparkle:version>
-            <sparkle:shortVersionString>1.5</sparkle:shortVersionString>
+            <sparkle:version>12</sparkle:version>
+            <sparkle:shortVersionString>2.2</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-            <sparkle:releaseNotesLink sparkle:edSignature="vGEXvFC4OqHgPkZyRmt7zn2T68ZZY8BXoFlEZSfTSuvpKnels4CCFvsVYtVcQqgw8PgWX05itxVFoypev5e+Dg==" sparkle:length="1280">https://s-calendar.chiuist.com/updates/Simply-Calendar-1.5.md</sparkle:releaseNotesLink>
-            <enclosure url="https://s-calendar.chiuist.com/downloads/Simply-Calendar-1.5.dmg" length="4145392" type="application/octet-stream" sparkle:edSignature="TC3nqacBUOKps1m4uM8WOONvd+JVOCc98YtUwOPP/ppPRD9xYPITDD9um+w3MKaOp7mbXUGZqTqymhR4AuP3Dw=="/>
+            <sparkle:releaseNotesLink sparkle:edSignature="oaht9tfVsBXZHTsHFIhHYgD5fnn9xLUqCZvwhIxFc3zVpK/1i73yCvLzUFJ5RsXJGarwXdArJ3MMlzUao+kzCw==" sparkle:length="829">https://s-calendar.chiuist.com/updates/Simply-Calendar-2.2.md</sparkle:releaseNotesLink>
+            <enclosure url="https://s-calendar.chiuist.com/downloads/Simply-Calendar-2.2.dmg" length="4511225" type="application/octet-stream" sparkle:edSignature="UW1lCK4GLboe0nv/LRMUgNQ7Smr5IY4CJdhXBbHG9n6kIxjzz9Lg+HEmYts4OLRIoWm8zhQt0UfNVIWpOJMKCQ=="/>
         </item>
     </channel>
 </rss>
 <!-- sparkle-signatures:
-edSignature: 2qIjd5GbND+MIESPlhVEMMnG1iI00qaEdQPllkW4Bfl9+bXH2l6cfOFop1N+GzelEoC74ZpyryHUXORcO347DQ==
+edSignature: b3X9opjEXEOL9XFhktjD4wjkHzSoYFIBiIOxf3JCVs0Ek66ClVWu95genGRVMoIN4759JmkGuZLjEG6UCIWAAQ==
 length: 1344
 -->
