@@ -1,0 +1,49 @@
+# 日历即日历：每天从 holiday-cn 同步国务院放假安排，签名后发布到
+# https://s-calendar.chiuist.com/data/holidays.json（推送后由 Cloudflare 自动部署）。
+# 数据无变化时不提交；检查不通过时任务失败，GitHub 会发邮件，线上保持旧数据。
+name: Simply Calendar holidays
+
+on:
+  schedule:
+    - cron: "17 1 * 1-9 *"      # 1–9 月：每天 09:17（北京时间）
+    - cron: "17 */4 * 10-12 *"  # 10–12 月公告季：每 4 小时
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: s-calendar-holidays
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Sync from holiday-cn and sign
+        env:
+          HOLIDAY_SIGNING_KEY: ${{ secrets.HOLIDAY_SIGNING_KEY }}
+        run: node tools/s-calendar-holidays.mjs sync
+
+      - name: Verify with the app's public key
+        run: node tools/s-calendar-holidays.mjs verify
+
+      - name: Commit and push if changed
+        run: |
+          if git diff --quiet -- s-calendar/data/holidays.json; then
+            echo "No change."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add s-calendar/data/holidays.json
+          git commit -m "Update Simply Calendar holiday schedule from holiday-cn"
+          git pull --rebase origin main
+          git push origin HEAD:main

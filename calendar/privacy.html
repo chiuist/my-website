@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="日历即日历（Simply Calendar）隐私政策：本地日程、系统日历权限、通知、文件访问与 App 内购买的数据处理说明。">
+  <meta name="description" content="日历即日历（Simply Calendar）隐私政策：本地日程、iCloud 同步、系统日历权限、通知、文件访问、网络请求与 App 内购买的数据处理说明。">
   <meta name="color-scheme" content="light dark">
   <link rel="canonical" href="https://chiuist.com/calendar/privacy.html">
   <title>隐私政策 · 日历即日历 / Simply Calendar</title>
@@ -31,30 +31,40 @@
     <header>
       <p class="brand">日历即日历 / Simply Calendar</p>
       <h1>隐私政策</h1>
-      <p class="date">生效日期：<time datetime="2026-09-07">2026 年 9 月 7 日</time></p>
+      <p class="date">生效日期：<time datetime="2026-09-27">2026 年 9 月 27 日</time></p>
     </header>
-    <p>日历即日历尊重并保护你的隐私。本政策适用于 macOS 应用“日历即日历”（Simply Calendar，Bundle ID：com.heyhong.calendar）。</p>
+    <p>日历即日历尊重并保护你的隐私。本政策适用于 Mac 与 iPhone 应用“日历即日历”（Simply Calendar，Bundle ID：com.heyhong.calendar），包括 Mac App Store 版、官网下载版及其桌面小组件。</p>
     <section aria-labelledby="collection">
       <h2 id="collection">我们不收集你的应用数据</h2>
       <p>日历即日历不要求注册账号，不包含广告或第三方跟踪 SDK，也不会将你的日程、日期状态、设置或使用行为上传给开发者。</p>
     </section>
     <section aria-labelledby="local">
       <h2 id="local">本地数据</h2>
-      <p>你创建的日程、日期状态和应用设置保存在你的 Mac 上。你可以在应用中删除不再需要的自定义日程、清除手动设置的日期状态，或调整偏好设置。</p>
+      <p>你创建的日程、日期状态和应用设置保存在你的设备上。你可以在应用中删除不再需要的自定义日程、清除手动设置的日期状态，或调整偏好设置。</p>
       <p>卸载应用不一定会自动移除所有偏好文件、备份或你导出的日程文件。你可以按需通过 macOS 管理这些文件；开发者无法远程访问或删除你的本地数据。</p>
+    </section>
+    <section aria-labelledby="icloud">
+      <h2 id="icloud">iCloud 同步</h2>
+      <p>当你主动开启 iCloud 同步（PRO 功能）时，你的本地日程、日期状态和日历显示偏好会保存到你本人 iCloud 账户的私有数据库中，用于在你的 Mac 与 iPhone 之间同步。这些数据由 Apple 的 iCloud 服务存储和传输，开发者无法访问。</p>
+      <p>你可以随时关闭同步，或在应用中选择“从 iCloud 删除已同步数据”；删除云端数据不需要 PRO，且不会删除本机数据。</p>
     </section>
     <section aria-labelledby="calendar">
       <h2 id="calendar">系统日历</h2>
-      <p>当你主动开启“显示系统日历日程”时，应用会请求访问 macOS 日历。该权限仅用于在菜单栏日历中读取并显示系统日程；应用不会修改系统日历内容，也不会将其上传给开发者。</p>
-      <p>你可以随时关闭该功能，或在 macOS“系统设置 → 隐私与安全性 → 日历”中撤销权限。系统日历本身的同步和存储由 macOS 及你配置的日历服务管理。</p>
+      <p>当你主动开启“显示系统日历日程”时，应用会请求访问系统日历。该权限仅用于在日历中读取并显示系统日程；应用不会修改系统日历内容，也不会将其上传给开发者。</p>
+      <p>你可以随时关闭该功能，或在系统设置的“隐私与安全性 → 日历”中撤销权限。系统日历本身的同步和存储由系统及你配置的日历服务管理。</p>
     </section>
     <section aria-labelledby="notifications">
       <h2 id="notifications">通知</h2>
-      <p>应用会请求发送系统通知的权限，用于你设置的日程提醒。提醒由 macOS 在本机安排和投递。你可以在系统设置中关闭通知权限；拒绝通知权限不影响查看日历和管理本地日程。</p>
+      <p>应用会请求发送系统通知的权限，用于你设置的日程提醒。提醒由系统在本机安排和投递。你可以在系统设置中关闭通知权限；拒绝通知权限不影响查看日历和管理本地日程。</p>
     </section>
     <section aria-labelledby="files">
       <h2 id="files">文件访问</h2>
       <p>当你主动导入或导出日程时，应用会访问你通过系统文件选择器指定的文件。导出的文件包含你选择导出的本地日程信息，请妥善保管，并仅向你信任的接收方分享。</p>
+    </section>
+    <section aria-labelledby="network">
+      <h2 id="network">网络请求</h2>
+      <p>为了在国务院公布新一年的放假安排后及时更新“休 / 班”标记，应用会定期（通常每 12 小时最多一次）从官网 s-calendar.chiuist.com 下载公开的节假日数据。该请求不包含你的日程、日期状态、设置或任何账户信息；数据经过签名校验，只用于显示法定放假与调休。</p>
+      <p>官网下载版还会通过同一官网检查应用更新，不开启系统信息上报。与任何网络请求一样，服务器可能获得你的 IP 地址与常规 HTTP 请求信息，这些信息不用于识别或追踪你。</p>
     </section>
     <section aria-labelledby="purchases">
       <h2 id="purchases">App 内购买</h2>

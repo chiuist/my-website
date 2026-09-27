@@ -4,6 +4,7 @@ import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import https from "node:https";
+import { readPublished as readPublishedHolidays } from "../tools/s-calendar-holidays.mjs";
 
 const product = "https://dropedge.chiuist.com";
 const local = process.argv[2] ? new URL(process.argv[2]) : null;
@@ -258,7 +259,7 @@ for (const pathname of ["/styles.css", "/details.css", "/downloads.js", "/assets
   assert.equal(response.status, 200);
   assert.equal(sha256(response.body), sha256(repoFile("s-calendar" + pathname)));
 }
-for (const pathname of ["/updates/appcast.xml", "/updates/Simply-Calendar-2.2.md"]) {
+for (const pathname of ["/updates/appcast.xml", "/updates/Simply-Calendar-2.2.md", "/data/holidays.json"]) {
   const response = await request(calendarSite + pathname);
   assert.equal(response.status, 200);
   assert.equal(sha256(response.body), sha256(repoFile("s-calendar" + pathname)));
@@ -277,9 +278,11 @@ const calendarAppcast = repoFile("s-calendar/updates/appcast.xml").toString();
 assert.match(calendarAppcast, /https:\/\/s-calendar\.chiuist\.com\/downloads\/Simply-Calendar-2\.2\.dmg/);
 assert.match(calendarAppcast, /<sparkle:shortVersionString>2\.2<\/sparkle:shortVersionString>/);
 assert.match(calendarAppcast, /<sparkle:version>12<\/sparkle:version>/);
-console.log("PASS Simply Calendar website, assets, notarized DMG, and signed update feed");
+const { schedule: calendarHolidaySchedule } = readPublishedHolidays();
+assert(calendarHolidaySchedule.publishedYears.includes(2026));
+console.log("PASS Simply Calendar website, assets, notarized DMG, signed update feed, and signed holiday data");
 
-for (const url of [product + "/articles", product + "/does-not-exist", "https://chiuist.com/worker.mjs", "https://chiuist.com/tests/worker.test.mjs", "https://chiuist.com/wrangler.jsonc"]) {
+for (const url of [product + "/articles", product + "/does-not-exist", "https://chiuist.com/worker.mjs", "https://chiuist.com/tests/worker.test.mjs", "https://chiuist.com/wrangler.jsonc", "https://s-calendar.chiuist.com/tools/s-calendar-holidays.mjs", "https://chiuist.com/tools/s-calendar-holidays.mjs"]) {
   assert.equal((await request(url)).status, 404, url);
 }
 console.log("PASS product isolation and non-public implementation files");
