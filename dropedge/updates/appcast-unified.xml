@@ -4,17 +4,17 @@ IMPORTANT: This file was signed by Sparkle. Any modifications to this file requi
     <channel>
         <title>DropEdge</title>
         <item>
-            <title>2.6</title>
-            <pubDate>Wed, 23 Sep 2026 23:04:20 +0800</pubDate>
+            <title>2.7</title>
+            <pubDate>Sun, 27 Sep 2026 12:05:27 +0800</pubDate>
             <link>https://dropedge.chiuist.com/</link>
-            <sparkle:version>26</sparkle:version>
-            <sparkle:shortVersionString>2.6</sparkle:shortVersionString>
+            <sparkle:version>27</sparkle:version>
+            <sparkle:shortVersionString>2.7</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-            <sparkle:releaseNotesLink sparkle:edSignature="wmu+9mCgYXDx/ILwn7TPVcPgvJfZGXGxbUxUQGDJ9/qE/RWZGD6qwCf7kpxGyQXmw8K4Jj8guX0GjM+V8Q6xDw==" sparkle:length="4183">https://dropedge.chiuist.com/updates/DropEdge-Free-2.6.md</sparkle:releaseNotesLink>
-            <enclosure url="https://dropedge.chiuist.com/downloads/DropEdge-Free-2.6.dmg" length="2891202" type="application/octet-stream" sparkle:edSignature="QHeS5YM7gkTitn+eb6GGgcPs2f1wuEA3dXiJma5IcOp4sG7xULdL9hVwGjOT2sV/26fVd3FJldSgchFEZZ14DQ=="></enclosure>
+            <sparkle:releaseNotesLink sparkle:edSignature="WYhkkjpxqQ74eltJ+uZ81PrZqfaTg3pTgKRLXA2hUZmJZeBSuYwZZonj1Bi2SPjOcCuVEH+itG8RkbqTYfIqAw==" sparkle:length="2515">https://dropedge.chiuist.com/updates/DropEdge-Free-2.7.md</sparkle:releaseNotesLink>
+            <enclosure url="https://dropedge.chiuist.com/downloads/DropEdge-Free-2.7.dmg" length="3114995" type="application/octet-stream" sparkle:edSignature="/i5QyDoLR9YlUE8iGrK29ItlpOZ29RixDx+cKKHZ9bF3WNIQKUtfb/xzyE2TjHXmmfKcNmmtpMWAZNKeNJ2/AQ=="></enclosure>
         </item>
     </channel>
 </rss><!-- sparkle-signatures:
-edSignature: r7MFRcuj6S1vdyiXJoXnugtV741OyUlcOWSWwyTCQ9rI4V8Y+p6HPV49xsDPY5Kes2NCKZoO5FXbM1dZW4JYAw==
+edSignature: u4Okcx26MhSLyNsu/JjpYn/g34MWAUDhKUj59rdfecI0AWiCN/f0Idqac68YGE9Isy084Z6rymNmMRLunKDCAg==
 length: 1329
 -->
