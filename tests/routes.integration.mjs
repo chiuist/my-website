@@ -259,25 +259,25 @@ for (const pathname of ["/styles.css", "/details.css", "/downloads.js", "/assets
   assert.equal(response.status, 200);
   assert.equal(sha256(response.body), sha256(repoFile("s-calendar" + pathname)));
 }
-for (const pathname of ["/updates/appcast.xml", "/updates/Simply-Calendar-2.2.md", "/data/holidays.json"]) {
+for (const pathname of ["/updates/appcast.xml", "/updates/Simply-Calendar-2.3.md", "/data/holidays.json"]) {
   const response = await request(calendarSite + pathname);
   assert.equal(response.status, 200);
   assert.equal(sha256(response.body), sha256(repoFile("s-calendar" + pathname)));
 }
-const calendarDmg = await request(calendarSite + "/downloads/Simply-Calendar-2.2.dmg");
+const calendarDmg = await request(calendarSite + "/downloads/Simply-Calendar-2.3.dmg");
 assert.equal(calendarDmg.status, 200);
 assert(!calendarDmg.headers["content-type"].includes("html"));
-assert.equal(sha256(calendarDmg.body), sha256(repoFile("s-calendar/downloads/Simply-Calendar-2.2.dmg")));
+assert.equal(sha256(calendarDmg.body), sha256(repoFile("s-calendar/downloads/Simply-Calendar-2.3.dmg")));
 const calendarLatest = await request(calendarSite + "/downloads/Simply-Calendar-Latest.dmg");
 assert.equal(calendarLatest.status, 200);
 assert.equal(sha256(calendarLatest.body), sha256(calendarDmg.body));
 const calendarDownloadScript = repoFile("s-calendar/downloads.js").toString();
-assert.match(calendarDownloadScript, /Simply-Calendar-2\.2\.dmg/);
+assert.match(calendarDownloadScript, /Simply-Calendar-2\.3\.dmg/);
 assert.match(calendarDownloadScript, /id6808212741/);
 const calendarAppcast = repoFile("s-calendar/updates/appcast.xml").toString();
-assert.match(calendarAppcast, /https:\/\/s-calendar\.chiuist\.com\/downloads\/Simply-Calendar-2\.2\.dmg/);
-assert.match(calendarAppcast, /<sparkle:shortVersionString>2\.2<\/sparkle:shortVersionString>/);
-assert.match(calendarAppcast, /<sparkle:version>12<\/sparkle:version>/);
+assert.match(calendarAppcast, /https:\/\/s-calendar\.chiuist\.com\/downloads\/Simply-Calendar-2\.3\.dmg/);
+assert.match(calendarAppcast, /<sparkle:shortVersionString>2\.3<\/sparkle:shortVersionString>/);
+assert.match(calendarAppcast, /<sparkle:version>13<\/sparkle:version>/);
 const { schedule: calendarHolidaySchedule } = readPublishedHolidays();
 assert(calendarHolidaySchedule.publishedYears.includes(2026));
 console.log("PASS Simply Calendar website, assets, notarized DMG, signed update feed, and signed holiday data");

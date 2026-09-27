@@ -6,18 +6,18 @@ IMPORTANT: This file was signed by Sparkle. Any modifications to this file requi
     <channel>
         <title>Simply Calendar Direct</title>
         <item>
-            <title>2.2</title>
-            <pubDate>Thu, 24 Sep 2026 17:51:18 +0800</pubDate>
+            <title>2.3</title>
+            <pubDate>Sun, 27 Sep 2026 16:40:00 +0800</pubDate>
             <link>https://s-calendar.chiuist.com/</link>
-            <sparkle:version>12</sparkle:version>
-            <sparkle:shortVersionString>2.2</sparkle:shortVersionString>
+            <sparkle:version>13</sparkle:version>
+            <sparkle:shortVersionString>2.3</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-            <sparkle:releaseNotesLink sparkle:edSignature="oaht9tfVsBXZHTsHFIhHYgD5fnn9xLUqCZvwhIxFc3zVpK/1i73yCvLzUFJ5RsXJGarwXdArJ3MMlzUao+kzCw==" sparkle:length="829">https://s-calendar.chiuist.com/updates/Simply-Calendar-2.2.md</sparkle:releaseNotesLink>
-            <enclosure url="https://s-calendar.chiuist.com/downloads/Simply-Calendar-2.2.dmg" length="4511225" type="application/octet-stream" sparkle:edSignature="UW1lCK4GLboe0nv/LRMUgNQ7Smr5IY4CJdhXBbHG9n6kIxjzz9Lg+HEmYts4OLRIoWm8zhQt0UfNVIWpOJMKCQ=="/>
+            <sparkle:releaseNotesLink sparkle:edSignature="M1wLUg1A7UaAO7T0VbfZvWBaFIGgHpRkB2NFcP/LLDKML7ODzgo8885dEaQNcJhKn+JICcrAb+9Yy4ZwB1QKDg==" sparkle:length="996">https://s-calendar.chiuist.com/updates/Simply-Calendar-2.3.md</sparkle:releaseNotesLink>
+            <enclosure url="https://s-calendar.chiuist.com/downloads/Simply-Calendar-2.3.dmg" length="4638167" type="application/octet-stream" sparkle:edSignature="ST/eADoYboDVcQP9Jeh/qyDn0ZTEHoIow7P0x6I4QuDBmcTqJms3bNISSu0wAbdaYAeavpobR8ufxRGvFO93Aw=="/>
         </item>
     </channel>
 </rss>
 <!-- sparkle-signatures:
-edSignature: b3X9opjEXEOL9XFhktjD4wjkHzSoYFIBiIOxf3JCVs0Ek66ClVWu95genGRVMoIN4759JmkGuZLjEG6UCIWAAQ==
+edSignature: xFaMtfktqXmDqNWBXSx/hypZCythO/uxvL22sNGPrTy0WrzeazESFXmf5mBfuTxMl49iFW4ieUP9+sdbpet7DQ==
 length: 1344
 -->
