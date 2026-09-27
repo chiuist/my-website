@@ -131,6 +131,8 @@ export function convertHolidayCn(year, data) {
 }
 
 async function syncCommand() {
+  // 先检查私钥：即使今天没有新数据，Secret 缺失或不匹配也要立刻失败并通知。
+  privateKeyFromEnv();
   const { schedule: current, payload: currentPayload } = readPublished();
   const shanghaiYear = Number(new Intl.DateTimeFormat("en", { timeZone: "Asia/Shanghai", year: "numeric" }).format(new Date()));
   const next = {
